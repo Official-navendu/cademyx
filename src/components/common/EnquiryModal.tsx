@@ -5,12 +5,18 @@ import Link from 'next/link';
 import { X, CheckCircle2, ShieldCheck, Send, GraduationCap, AlertCircle } from 'lucide-react';
 import { programs, PROGRAM_CATEGORIES } from '@/data/programs';
 import { Button } from '@/components/ui/Button';
+import { markSubmissionSuccess, registerModalOpen } from '@/lib/enquirySession';
 
 export interface EnquiryModalProps {
   isOpen: boolean;
   onClose: () => void;
   initialCategory?: string;
   initialProgramSlug?: string;
+  title?: string;
+  subtitle?: string;
+  eyebrow?: string;
+  source?: string;
+  onSuccess?: () => void;
 }
 
 interface FormData {
@@ -29,6 +35,11 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({
   onClose,
   initialCategory = 'Bachelor',
   initialProgramSlug,
+  title,
+  subtitle,
+  eyebrow,
+  source,
+  onSuccess,
 }) => {
   const modalRef = useRef<HTMLDivElement>(null);
 
@@ -83,20 +94,24 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({
     }
   }
 
-  // Close on Escape key & manage scroll lock
+  // Register active modal and close on Escape key & manage scroll lock
   useEffect(() => {
+    if (!isOpen) return;
+
+    const unregister = registerModalOpen();
+
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose();
     };
 
-    if (isOpen) {
-      document.addEventListener('keydown', handleKeyDown);
-      document.body.style.overflow = 'hidden';
-    }
+    document.addEventListener('keydown', handleKeyDown);
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
 
     return () => {
+      unregister();
       document.removeEventListener('keydown', handleKeyDown);
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = originalOverflow;
     };
   }, [isOpen, onClose]);
 
@@ -146,6 +161,12 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({
         ? 'General Academic Advisory'
         : formData.targetProgram;
 
+      const submissionSource =
+        source ||
+        (initialProgramSlug
+          ? `Program Detail Modal (${initialProgramSlug})`
+          : 'Global Enquiry Modal');
+
       const response = await fetch('/api/enquiry', {
         method: 'POST',
         headers: {
@@ -160,9 +181,7 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({
           targetProgram: formData.targetProgram,
           message: formData.notes,
           hp: formData.hp,
-          source: initialProgramSlug
-            ? `Program Detail Modal (${initialProgramSlug})`
-            : 'Global Enquiry Modal',
+          source: submissionSource,
         }),
       });
 
@@ -176,6 +195,10 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({
 
       setIsSubmitting(false);
       setIsSubmitted(true);
+      markSubmissionSuccess();
+      if (onSuccess) {
+        onSuccess();
+      }
     } catch (err: unknown) {
       setIsSubmitting(false);
       setSubmitError(
@@ -202,6 +225,21 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({
 
   // Filter programs by selected category for dropdown
   const filteredPrograms = programs.filter((p) => p.category === formData.category);
+
+  // Dynamic headings & copy
+  const matchedProgram = initialProgramSlug ? programs.find((p) => p.slug === initialProgramSlug) : null;
+  const displayTitle =
+    title ||
+    (matchedProgram
+      ? `Interested in ${matchedProgram.title}?`
+      : 'Request Academic Consultation');
+  const displaySubtitle =
+    subtitle ||
+    (matchedProgram
+      ? 'Have questions about eligibility, program details or your next academic step? Send us your enquiry.'
+      : 'Connect directly with an academic mentor to evaluate your eligibility, review curriculum tracks, and receive structured admissions guidance.');
+  const displayEyebrow =
+    eyebrow || (matchedProgram ? `${matchedProgram.category} Advisory` : 'CademyX Academic Advisory');
 
   return (
     <div
@@ -242,20 +280,21 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({
             </div>
             <div>
               <span className="text-[11px] font-bold text-[#D99519] uppercase tracking-wider block">
-                CademyX Academic Advisory
+                {displayEyebrow}
               </span>
               <h2
                 id="enquiry-modal-title"
                 className="text-xl sm:text-2xl font-extrabold text-[#061B35] tracking-tight"
               >
-                Request Academic Consultation
+                {displayTitle}
               </h2>
             </div>
           </div>
 
           <p className="text-xs sm:text-sm text-[#5A6A85] mb-6 leading-relaxed">
-            Connect directly with an academic mentor to evaluate your eligibility, review curriculum tracks, and receive structured admissions guidance.
+            {displaySubtitle}
           </p>
+
 
           {/* Submission Feedback */}
           {submitError && (

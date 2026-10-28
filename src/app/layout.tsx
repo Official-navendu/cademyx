@@ -5,7 +5,7 @@ import { SiteHeader } from '@/components/layout/SiteHeader';
 import { SiteFooter } from '@/components/layout/SiteFooter';
 import { FloatingHelpWidget } from '@/components/common/FloatingHelpWidget';
 import { ScrollToTop } from '@/components/common/ScrollToTop';
-import { WelcomePopup } from '@/components/common/WelcomePopup';
+import { GeneralEnquiryPopup } from '@/components/common/GeneralEnquiryPopup';
 import { CookieConsentBanner } from '@/components/cookies/CookieConsentBanner';
 import { MotionProvider } from '@/components/providers/MotionProvider';
 import { BRAND, CONTACT_INFO } from '@/lib/constants';
@@ -113,7 +113,7 @@ export default function RootLayout({
           </main>
           <SiteFooter />
           <FloatingHelpWidget />
-          <WelcomePopup />
+          <GeneralEnquiryPopup />
           <CookieConsentBanner />
         </MotionProvider>
       </body>

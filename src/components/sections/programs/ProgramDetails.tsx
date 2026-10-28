@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import Link from 'next/link';
 import {
   CheckCircle2,
@@ -25,6 +25,12 @@ import { ProgramCard } from '@/components/cards/ProgramCard';
 import { EnquiryModal } from '@/components/common/EnquiryModal';
 import { getRelatedPrograms } from '@/data/programs';
 import { ProgramDetailHero } from './ProgramDetailHero';
+import {
+  isFormSubmittedInSession,
+  isProgramPopupDismissed,
+  dismissProgramPopup,
+  isAnyModalActive,
+} from '@/lib/enquirySession';
 
 export interface ProgramDetailsProps {
   program: Program;
@@ -32,7 +38,49 @@ export interface ProgramDetailsProps {
 
 export const ProgramDetails: React.FC<ProgramDetailsProps> = ({ program }) => {
   const [isEnquiryOpen, setIsEnquiryOpen] = useState(false);
+  const timerRef = useRef<NodeJS.Timeout | null>(null);
   const relatedPrograms = getRelatedPrograms(program.slug, 3);
+
+  const handleCloseEnquiry = useCallback(() => {
+    setIsEnquiryOpen(false);
+    dismissProgramPopup(program.slug);
+  }, [program.slug]);
+
+  // 20-Second Program-Specific Popup Timer
+  useEffect(() => {
+    // 1. Check session suppression states
+    if (isFormSubmittedInSession() || isProgramPopupDismissed(program.slug)) {
+      return;
+    }
+
+    // 2. Listen for form submissions anywhere on the website to cancel timer
+    const handleFormSubmitted = () => {
+      if (timerRef.current) clearTimeout(timerRef.current);
+      setIsEnquiryOpen(false);
+    };
+
+    window.addEventListener('cademyx:form-submitted', handleFormSubmitted);
+
+    // 3. Start 20-second timer
+    timerRef.current = setTimeout(() => {
+      // Re-verify conditions when timer fires
+      if (isFormSubmittedInSession() || isProgramPopupDismissed(program.slug)) {
+        return;
+      }
+
+      // Do not interrupt user if another modal is already active
+      if (isAnyModalActive()) {
+        return;
+      }
+
+      setIsEnquiryOpen(true);
+    }, 20000);
+
+    return () => {
+      if (timerRef.current) clearTimeout(timerRef.current);
+      window.removeEventListener('cademyx:form-submitted', handleFormSubmitted);
+    };
+  }, [program.slug]);
 
   // Category-specific profile audience & considerations
   const getAudienceContent = () => {
@@ -182,8 +230,117 @@ export const ProgramDetails: React.FC<ProgramDetailsProps> = ({ program }) => {
       <div className="py-12 sm:py-16 lg:py-20 bg-white bg-grain">
         <Container size="default" className="relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
-            {/* Left Content Column (8 cols on lg) */}
-            <div className="lg:col-span-8 space-y-12 sm:space-y-16">
+            {/* Left Sticky Sidebar (4 cols on lg, ordered 1st on desktop, 2nd on mobile) */}
+            <aside className="lg:col-span-4 order-2 lg:order-1">
+              <div className="lg:sticky lg:top-24 max-h-[calc(100vh-6.5rem)] lg:overflow-y-auto no-scrollbar space-y-6">
+                {/* Factsheet Card */}
+                <div className="p-6 sm:p-7 rounded-3xl bg-white border border-[#E2E8F0] shadow-lg relative overflow-hidden group">
+                  <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#061B35] via-[#F4B72F] to-[#D99519]" />
+
+                  <h3 className="text-base sm:text-lg font-bold text-[#061B35] pb-3 border-b border-[#E2E8F0] mb-4 flex items-center justify-between">
+                    <span>Program Factsheet</span>
+                    <Sparkles className="w-4 h-4 text-[#F4B72F]" />
+                  </h3>
+
+                  <dl className="space-y-4 text-sm">
+                    <div>
+                      <dt className="text-xs font-semibold text-[#64748B] uppercase tracking-wider">
+                        Academic Category
+                      </dt>
+                      <dd className="font-bold text-[#061B35] mt-0.5">{program.category} Programs</dd>
+                    </div>
+
+                    {program.discipline && (
+                      <div>
+                        <dt className="text-xs font-semibold text-[#64748B] uppercase tracking-wider">
+                          Discipline / Domain
+                        </dt>
+                        <dd className="font-bold text-[#061B35] mt-0.5">{program.discipline}</dd>
+                      </div>
+                    )}
+
+                    {program.format && (
+                      <div>
+                        <dt className="text-xs font-semibold text-[#64748B] uppercase tracking-wider">
+                          Study Format
+                        </dt>
+                        <dd className="font-bold text-[#061B35] mt-0.5">{program.format}</dd>
+                      </div>
+                    )}
+
+                    {program.duration && (
+                      <div>
+                        <dt className="text-xs font-semibold text-[#64748B] uppercase tracking-wider">
+                          Duration &amp; Pacing
+                        </dt>
+                        <dd className="font-bold text-[#061B35] mt-0.5">{program.duration}</dd>
+                      </div>
+                    )}
+
+                    {program.eligibility && (
+                      <div>
+                        <dt className="text-xs font-semibold text-[#64748B] uppercase tracking-wider">
+                          Eligibility Criteria
+                        </dt>
+                        <dd className="font-medium text-[#334155] mt-0.5 text-xs leading-relaxed">
+                          {program.eligibility}
+                        </dd>
+                      </div>
+                    )}
+                  </dl>
+
+                  <div className="mt-6 pt-5 border-t border-[#E2E8F0] space-y-2.5">
+                    <Button
+                      type="button"
+                      onClick={() => setIsEnquiryOpen(true)}
+                      variant="gold"
+                      size="md"
+                      className="w-full font-bold shadow-md cursor-pointer justify-center"
+                    >
+                      Inquire About This Track
+                    </Button>
+
+                    <Button
+                      href="/schedule-a-consultation"
+                      variant="outline"
+                      size="md"
+                      className="w-full font-bold text-[#061B35] border-[#E2E8F0] hover:border-[#075AC8] justify-center"
+                    >
+                      Schedule Advisory Call
+                    </Button>
+                  </div>
+                </div>
+
+                {/* Mentorship Inclusion Card */}
+                <div className="p-6 rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] text-sm shadow-xs space-y-3">
+                  <div className="flex items-center gap-2 text-[#061B35] font-bold">
+                    <ShieldCheck className="h-4 w-4 text-[#F4B72F]" />
+                    <span className="text-sm font-bold">CademyX Guidance Inclusion</span>
+                  </div>
+                  <ul className="space-y-2 text-xs text-[#5A6A85]">
+                    <li className="flex items-start gap-2">
+                      <span className="text-[#F4B72F] font-bold">•</span>
+                      <span>Transcript &amp; entrance diagnostic evaluation</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-[#F4B72F] font-bold">•</span>
+                      <span>University specialization &amp; curriculum alignment</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-[#F4B72F] font-bold">•</span>
+                      <span>Statement of Purpose &amp; dossier strategy</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-[#F4B72F] font-bold">•</span>
+                      <span>1-on-1 consultation and milestone support</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </aside>
+
+            {/* Main Content Column (8 cols on lg, ordered 2nd on desktop, 1st on mobile) */}
+            <div className="lg:col-span-8 order-1 lg:order-2 space-y-12 sm:space-y-16">
               {/* Section 1: Program Overview */}
               <section id="program-overview" aria-labelledby="program-overview-heading">
                 <div className="inline-flex items-center gap-2 mb-3">
@@ -490,115 +647,6 @@ export const ProgramDetails: React.FC<ProgramDetailsProps> = ({ program }) => {
                 </div>
               </section>
             </div>
-
-            {/* Right Sticky Sidebar (4 cols on lg) */}
-            <div className="lg:col-span-4">
-              <div className="sticky top-28 space-y-6">
-                {/* Factsheet Card */}
-                <div className="p-6 sm:p-7 rounded-3xl bg-white border border-[#E2E8F0] shadow-lg relative overflow-hidden group">
-                  <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#061B35] via-[#F4B72F] to-[#D99519]" />
-
-                  <h3 className="text-base sm:text-lg font-bold text-[#061B35] pb-3 border-b border-[#E2E8F0] mb-4 flex items-center justify-between">
-                    <span>Program Factsheet</span>
-                    <Sparkles className="w-4 h-4 text-[#F4B72F]" />
-                  </h3>
-
-                  <dl className="space-y-4 text-sm">
-                    <div>
-                      <dt className="text-xs font-semibold text-[#64748B] uppercase tracking-wider">
-                        Academic Category
-                      </dt>
-                      <dd className="font-bold text-[#061B35] mt-0.5">{program.category} Programs</dd>
-                    </div>
-
-                    {program.discipline && (
-                      <div>
-                        <dt className="text-xs font-semibold text-[#64748B] uppercase tracking-wider">
-                          Discipline / Domain
-                        </dt>
-                        <dd className="font-bold text-[#061B35] mt-0.5">{program.discipline}</dd>
-                      </div>
-                    )}
-
-                    {program.format && (
-                      <div>
-                        <dt className="text-xs font-semibold text-[#64748B] uppercase tracking-wider">
-                          Study Format
-                        </dt>
-                        <dd className="font-bold text-[#061B35] mt-0.5">{program.format}</dd>
-                      </div>
-                    )}
-
-                    {program.duration && (
-                      <div>
-                        <dt className="text-xs font-semibold text-[#64748B] uppercase tracking-wider">
-                          Duration &amp; Pacing
-                        </dt>
-                        <dd className="font-bold text-[#061B35] mt-0.5">{program.duration}</dd>
-                      </div>
-                    )}
-
-                    {program.eligibility && (
-                      <div>
-                        <dt className="text-xs font-semibold text-[#64748B] uppercase tracking-wider">
-                          Eligibility Criteria
-                        </dt>
-                        <dd className="font-medium text-[#334155] mt-0.5 text-xs leading-relaxed">
-                          {program.eligibility}
-                        </dd>
-                      </div>
-                    )}
-                  </dl>
-
-                  <div className="mt-6 pt-5 border-t border-[#E2E8F0] space-y-2.5">
-                    <Button
-                      type="button"
-                      onClick={() => setIsEnquiryOpen(true)}
-                      variant="gold"
-                      size="md"
-                      className="w-full font-bold shadow-md cursor-pointer justify-center"
-                    >
-                      Inquire About This Track
-                    </Button>
-
-                    <Button
-                      href="/schedule-a-consultation"
-                      variant="outline"
-                      size="md"
-                      className="w-full font-bold text-[#061B35] border-[#E2E8F0] hover:border-[#075AC8] justify-center"
-                    >
-                      Schedule Advisory Call
-                    </Button>
-                  </div>
-                </div>
-
-                {/* Mentorship Inclusion Card */}
-                <div className="p-6 rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] text-sm shadow-xs space-y-3">
-                  <div className="flex items-center gap-2 text-[#061B35] font-bold">
-                    <ShieldCheck className="h-4 w-4 text-[#F4B72F]" />
-                    <span className="text-sm font-bold">CademyX Guidance Inclusion</span>
-                  </div>
-                  <ul className="space-y-2 text-xs text-[#5A6A85]">
-                    <li className="flex items-start gap-2">
-                      <span className="text-[#F4B72F] font-bold">•</span>
-                      <span>Transcript &amp; entrance diagnostic evaluation</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-[#F4B72F] font-bold">•</span>
-                      <span>University specialization &amp; curriculum alignment</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-[#F4B72F] font-bold">•</span>
-                      <span>Statement of Purpose &amp; dossier strategy</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-[#F4B72F] font-bold">•</span>
-                      <span>1-on-1 consultation and milestone support</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
           </div>
 
           {/* Section 11: Related Programs with Internal Links */}
@@ -635,9 +683,13 @@ export const ProgramDetails: React.FC<ProgramDetailsProps> = ({ program }) => {
       {/* Contextual Modal Preselected with this Program */}
       <EnquiryModal
         isOpen={isEnquiryOpen}
-        onClose={() => setIsEnquiryOpen(false)}
+        onClose={handleCloseEnquiry}
         initialProgramSlug={program.slug}
         initialCategory={program.category}
+        title={`Interested in ${program.title}?`}
+        subtitle="Have questions about eligibility, program details or your next academic step? Send us your enquiry."
+        eyebrow={`${program.category} Admissions Desk`}
+        source={`Program Detail Popup — ${program.title} (${program.slug})`}
       />
     </article>
   );

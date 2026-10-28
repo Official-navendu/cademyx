@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { contactFormSchema, ContactFormSchemaType } from '@/lib/validations';
 import { SubmissionStatus } from '@/types/contact';
+import { markSubmissionSuccess } from '@/lib/enquirySession';
 
 export interface UseContactFormProps {
   defaultProgramSlug?: string;
@@ -73,6 +74,7 @@ export function useContactForm({
         }
 
         setStatus('success');
+        markSubmissionSuccess();
         reset();
       } catch (err: unknown) {
         setStatus('error');

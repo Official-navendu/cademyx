@@ -13,15 +13,43 @@ export const HomeHero: React.FC = () => {
   return (
     <>
       <section className="relative overflow-hidden bg-white pt-8 pb-14 sm:pt-12 sm:pb-16 lg:pt-14 lg:pb-18 border-b border-[#F1F5F9]">
-        {/* Soft Ambient Lighting Blurs */}
+        {/* Subtle Architectural Texture & Ambient Lighting Behind Hero Content */}
         <div
-          className="pointer-events-none absolute top-0 right-1/4 w-[500px] h-[500px] rounded-full bg-gradient-to-bl from-[#EBF3FF]/70 via-[#FFF9EC]/60 to-transparent blur-3xl -z-10"
+          className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
           aria-hidden="true"
-        />
-        <div
-          className="pointer-events-none absolute bottom-0 left-1/3 w-[400px] h-[400px] rounded-full bg-gradient-to-tr from-[#FFF7E6]/80 via-[#F0F5FF]/50 to-transparent blur-3xl -z-10"
-          aria-hidden="true"
-        />
+        >
+          {/* Subtle Base Tint */}
+          <div className="absolute inset-0 bg-gradient-to-b from-white via-[#FCFEFF] to-[#F6F9FD]/70" />
+
+          {/* Architectural Fine Grid Pattern */}
+          <div
+            className="absolute inset-0 opacity-60"
+            style={{
+              backgroundImage: `
+                linear-gradient(to right, rgba(6, 27, 53, 0.04) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(6, 27, 53, 0.04) 1px, transparent 1px)
+              `,
+              backgroundSize: '44px 44px',
+              maskImage: 'radial-gradient(ellipse 90% 80% at 50% 35%, black 35%, transparent 95%)',
+              WebkitMaskImage: 'radial-gradient(ellipse 90% 80% at 50% 35%, black 35%, transparent 95%)',
+            }}
+          />
+
+          {/* Micro Geometric Dot Intersections */}
+          <div
+            className="absolute inset-0 opacity-40"
+            style={{
+              backgroundImage: 'radial-gradient(circle, rgba(7, 90, 200, 0.16) 1px, transparent 1px)',
+              backgroundSize: '44px 44px',
+              maskImage: 'radial-gradient(ellipse 85% 75% at 50% 30%, black 25%, transparent 90%)',
+              WebkitMaskImage: 'radial-gradient(ellipse 85% 75% at 50% 30%, black 25%, transparent 90%)',
+            }}
+          />
+
+          {/* Tasteful Ambient Lighting */}
+          <div className="absolute -top-24 right-1/4 w-[520px] h-[520px] rounded-full bg-gradient-to-bl from-[#075AC8]/7 via-[#F4B72F]/5 to-transparent blur-3xl" />
+          <div className="absolute -bottom-20 left-10 w-[460px] h-[460px] rounded-full bg-gradient-to-tr from-[#F4B72F]/8 via-[#075AC8]/4 to-transparent blur-3xl" />
+        </div>
 
         <Container size="default" className="relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
