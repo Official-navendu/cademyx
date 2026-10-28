@@ -346,4 +346,4 @@ In compliance with our ethical guidelines, the following business items are impl
 
 ## 11. License
 
-Copyright © 2026 CademyX Education Inc. All rights reserved.
+Copyright © 2026 CademyX. All rights reserved.

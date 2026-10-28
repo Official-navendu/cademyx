@@ -208,7 +208,7 @@ export async function sendAdminNotificationEmail(
 
     <!-- Footer -->
     <div style="background-color: #F8FAFC; padding: 18px 32px; border-top: 1px solid #E2E8F0; text-align: center; font-size: 12px; color: #94A3B8;">
-      Confidential Admin Notification &bull; CademyX Education Inc. &bull; Delivered via Resend
+      Confidential Admin Notification &bull; CademyX. &bull; Delivered via Resend
     </div>
   </div>
 </body>

@@ -70,7 +70,7 @@ export default function RootLayout({
     '@context': 'https://schema.org',
     '@type': 'EducationalOrganization',
     name: 'CademyX',
-    legalName: 'CademyX Education Inc.',
+    legalName: 'CademyX.',
     url: siteUrl,
     logo: `${siteUrl}/assets/logo.png`,
     description: BRAND.description,

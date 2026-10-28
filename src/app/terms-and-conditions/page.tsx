@@ -56,7 +56,7 @@ export default function TermsAndConditionsPage() {
               1. Acceptance of Terms
             </h2>
             <p>
-              By accessing the CademyX website (the &ldquo;Platform&rdquo;), submitting consultation inquiries, or utilizing any guidance services provided by CademyX Education Inc. (&ldquo;CademyX,&rdquo; &ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;), you acknowledge and agree to be bound by these Terms &amp; Conditions and our Privacy Policy.
+              By accessing the CademyX website (the &ldquo;Platform&rdquo;), submitting consultation inquiries, or utilizing any guidance services provided by CademyX. (&ldquo;CademyX,&rdquo; &ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;), you acknowledge and agree to be bound by these Terms &amp; Conditions and our Privacy Policy.
             </p>
             <p>
               If you do not agree with any part of these terms, you must discontinue your use of our platform and advisory services immediately.
@@ -93,7 +93,7 @@ export default function TermsAndConditionsPage() {
               4. Intellectual Property Rights
             </h2>
             <p>
-              All curriculum matrices, pathway diagrams, advisory materials, website layouts, graphics, branding, and written content published on CademyX are the exclusive intellectual property of CademyX Education Inc. or licensed appropriately.
+              All curriculum matrices, pathway diagrams, advisory materials, website layouts, graphics, branding, and written content published on CademyX are the exclusive intellectual property of CademyX. or licensed appropriately.
             </p>
             <p>
               You may not reproduce, redistribute, republish, or commercially exploit any proprietary materials without prior written consent from CademyX.

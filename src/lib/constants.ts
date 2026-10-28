@@ -3,7 +3,7 @@ export const BRAND = {
   tagline: 'We Setup the Academic Matrix of Your True Aim.',
   subheading: 'Academic Guidance & Excellence',
   description: 'CademyX provides high-integrity educational advisory, personalized learning roadmaps, and structured academic preparation for ambitious learners.',
-  foundingYear: 2024,
+  foundingYear: 2026,
   colors: {
     midnightNavy: '#061B35',
     royalBlue: '#075AC8',

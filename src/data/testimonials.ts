@@ -14,7 +14,7 @@ export const testimonialsData: TestimonialItem[] = [
     author: 'Elena R.',
     role: 'Undergraduate Scholar',
     institution: 'University Advisory Track (Sample Cohort)',
-    cohortYear: 'Class of 2024',
+    cohortYear: 'Class of 2026',
     verified: false,
   },
   {
@@ -34,7 +34,7 @@ export const testimonialsData: TestimonialItem[] = [
     author: 'David & Sarah T.',
     role: 'Parents of Scholar',
     institution: 'Global Admissions Program (Sample Cohort)',
-    cohortYear: 'Class of 2024',
+    cohortYear: 'Class of 2026',
     verified: false,
   },
 ];

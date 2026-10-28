@@ -344,7 +344,7 @@ export const SiteFooter: React.FC = () => {
 
         {/* Bottom Bar: Copyright & Legal */}
         <div className="py-7 border-t border-[#075AC8]/25 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#7E96B8]">
-          <p suppressHydrationWarning>© {currentYear} CademyX Education Inc. All rights reserved.</p>
+          <p suppressHydrationWarning>© {currentYear} CademyX. All rights reserved.</p>
 
           <div className="flex flex-wrap items-center gap-4 sm:gap-6">
             {footerNavigation.legalLinks.map((link) => (
