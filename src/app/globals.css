@@ -1,26 +1,85 @@
 @import "tailwindcss";
+@import "../styles/design-tokens.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-brand-navy: #061B35;
+  --color-brand-navy-dark: #061B35;
+  --color-brand-navy-deepest: #041326;
+  --color-brand-navy-surface: #0E2748;
+  --color-brand-slate: #152C45;
+  --color-brand-blue: #075AC8;
+  --color-brand-blue-royal: #075AC8;
+
+  --color-brand-gold: #F4B72F;
+  --color-brand-gold-premium: #F4B72F;
+  --color-brand-gold-deep: #D99519;
+  --color-brand-gold-light: #FDE5AD;
+  --color-brand-gold-subtle: rgba(244, 183, 47, 0.14);
+
+  --color-brand-white: #FFFFFF;
+  --color-brand-gray-light: #F8FAFC;
+  --color-brand-border-subtle: #E2E8F0;
+  --color-brand-border-card: #E5EBF2;
+  --color-brand-text-dark: #061B35;
+  --color-brand-text-secondary: #152C45;
+  --color-brand-text-muted: #5C7491;
+
+  --font-sans: var(--font-sans), 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Global Base Resets & Typography */
+html {
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  max-width: 100vw;
+  overflow-x: clip;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #FFFFFF;
+  color: #152C45;
+  font-family: var(--font-sans);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  max-width: 100vw;
+  overflow-x: clip;
+}
+
+/* Prevent iOS Safari auto-zoom on input focus by enforcing 16px font size on small screens */
+@media (max-width: 768px) {
+  input, select, textarea {
+    font-size: 16px !important;
+  }
+}
+
+/* Accessible outline states */
+:focus-visible {
+  outline: 2px solid #F4B72F;
+  outline-offset: 2px;
+}
+
+/* Selection Color */
+::selection {
+  background-color: rgba(244, 183, 47, 0.22);
+  color: #061B35;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F8FAFC;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #F4B72F;
 }

@@ -1,0 +1,29 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="monoGold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#D4A017" />
+      <stop offset="40%" stop-color="#FFE08A" />
+      <stop offset="100%" stop-color="#D4A017" />
+    </linearGradient>
+    <linearGradient id="monoBg" x1="0" y1="0" x2="0.8" y2="1">
+      <stop offset="0%" stop-color="#142C60" />
+      <stop offset="100%" stop-color="#071228" />
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="110" fill="url(#monoBg)"/>
+  <rect x="20" y="20" width="472" height="472" rx="90" stroke="url(#monoGold)" stroke-width="10" stroke-opacity="0.85"/>
+  <g transform="translate(96, 70)">
+    <!-- Academic Crest / Cap -->
+    <path d="M160 50 L270 108 L160 166 L50 108 Z" fill="url(#monoGold)"/>
+    <path d="M96 138 L96 210 C96 245 224 245 224 210 L224 138" stroke="url(#monoGold)" stroke-width="12" fill="none" stroke-linecap="round"/>
+    <path d="M270 108 L288 118 L288 200" stroke="url(#monoGold)" stroke-width="10" fill="none" stroke-linecap="round"/>
+    
+    <!-- Stylized C and X in Harmony -->
+    <!-- Open Book / Wing Motif -->
+    <path d="M60 270 C105 245 160 260 160 310 C160 260 215 245 260 270" stroke="#FFFFFF" stroke-width="14" fill="none" stroke-linecap="round"/>
+    <circle cx="160" cy="205" r="14" fill="#FFFFFF"/>
+    
+    <!-- Big X Apex Ascent -->
+    <path d="M110 350 L210 250 M210 350 L110 250" stroke="url(#monoGold)" stroke-width="16" stroke-linecap="round"/>
+  </g>
+</svg>

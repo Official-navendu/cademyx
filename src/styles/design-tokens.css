@@ -1,0 +1,362 @@
+/* ==========================================================================
+   CademyX Design Tokens & Central Background System
+   Official Brand Palette (Source of Truth):
+   - Midnight Navy: #061B35 (Primary brand colour, headings, key elements)
+   - Royal Blue:    #075AC8 (Secondary colour, interactive highlights, links)
+   - Premium Gold:  #F4B72F (Primary accent, CTA highlights, important icons)
+   - Deep Gold:     #D99519 (Supporting accent, gradients, hover states)
+   - Pure White:    #FFFFFF (Main background, cards, forms, clean layouts)
+   - Slate Navy:    #152C45 (Supporting colour, body text, secondary headings)
+   ========================================================================== */
+
+:root {
+  /* Official Brand Palette */
+  --brand-navy-midnight: #061B35;
+  --brand-navy-slate: #152C45;
+  --brand-blue-royal: #075AC8;
+  --brand-gold-premium: #F4B72F;
+  --brand-gold-deep: #D99519;
+  --brand-white: #FFFFFF;
+
+  /* Aliases for Semantic Alignment */
+  --brand-navy-primary: #061B35;
+  --brand-navy-dark: #061B35;
+  --brand-navy-deepest: #041326;
+  --brand-navy-surface: #0E2748;
+  --brand-navy-royal: #075AC8;
+  --brand-navy-sapphire: #075AC8;
+  --brand-navy-sheen: #0968E4;
+
+  /* Gold Spectrum */
+  --brand-gold: #F4B72F;
+  --brand-gold-light: #FDE5AD;
+  --brand-gold-bright: #F7C34D;
+  --brand-gold-sun: #F4B72F;
+  --brand-gold-mid: #EAA71C;
+  --brand-gold-deep: #D99519;
+  --brand-gold-dark: #C4820E;
+
+  /* Strict Brand Gradients */
+  --brand-gold-gradient: linear-gradient(90deg, #F4B72F 0%, #D99519 100%);
+  --brand-gold-gradient-editorial: linear-gradient(100deg, #F4B72F 0%, #D99519 50%, #F4B72F 100%);
+  --brand-gold-gradient-3d: linear-gradient(135deg, #F4B72F 0%, #E2A321 40%, #D99519 75%, #B8780B 100%);
+  --brand-gold-gradient-soft: linear-gradient(135deg, rgba(244, 183, 47, 0.16) 0%, rgba(217, 149, 25, 0.06) 100%);
+
+  --brand-navy-gradient: linear-gradient(135deg, #061B35 0%, #152C45 60%, #075AC8 100%);
+  --brand-navy-atmospheric: 
+    radial-gradient(ellipse at 85% 15%, rgba(244, 183, 47, 0.14), transparent 45%),
+    radial-gradient(ellipse at 15% 85%, rgba(7, 90, 200, 0.18), transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(6, 27, 53, 0.6), transparent 70%),
+    linear-gradient(135deg, #061B35 0%, #152C45 60%, #075AC8 100%);
+
+  /* Neutrals & Surfaces */
+  --brand-light-gray: #F8FAFC;
+  --brand-border-subtle: #E2E8F0;
+  --brand-border-card: #E5EBF2;
+  --brand-border-gold: rgba(244, 183, 47, 0.45);
+  --brand-text-dark: #061B35;
+  --brand-text-secondary: #152C45;
+  --brand-text-muted: #5C7491;
+
+  /* Ambient Shadows */
+  --shadow-gold-glow: 0 4px 24px rgba(244, 183, 47, 0.32);
+  --shadow-gold-card: 0 12px 36px -8px rgba(244, 183, 47, 0.16);
+  --shadow-navy-glow: 0 12px 40px rgba(6, 27, 53, 0.45);
+  --shadow-editorial: 0 24px 60px -15px rgba(6, 27, 53, 0.22);
+
+  /* ==========================================================================
+     Central Responsive Typography Scale Tokens
+     ========================================================================== */
+  --font-size-hero: clamp(2.35rem, 5vw + 0.5rem, 4.25rem);      /* 38px -> 68px */
+  --font-size-h1: clamp(2.125rem, 3.8vw + 0.2rem, 3.5rem);       /* 34px -> 56px */
+  --font-size-h2: clamp(1.75rem, 2.8vw + 0.2rem, 2.75rem);       /* 28px -> 44px */
+  --font-size-h3: clamp(1.4rem, 2vw + 0.1rem, 2rem);             /* 22px -> 32px */
+  --font-size-h4: clamp(1.2rem, 1.35vw + 0.1rem, 1.45rem);       /* 19px -> 23px */
+  --font-size-h5: clamp(1.05rem, 1.1vw, 1.25rem);                /* 17px -> 20px */
+  --font-size-h6: clamp(0.9375rem, 0.95vw, 1.0625rem);           /* 15px -> 17px */
+  --font-size-lead: clamp(1.0625rem, 1.15vw, 1.25rem);           /* 17px -> 20px */
+  --font-size-body: clamp(0.9375rem, 0.95vw, 1.0625rem);         /* 15px -> 17px */
+  --font-size-small: clamp(0.8125rem, 0.85vw, 0.9375rem);        /* 13px -> 15px */
+  --font-size-eyebrow: clamp(0.6875rem, 0.75vw, 0.8125rem);      /* 11px -> 13px */
+  --font-size-caption: clamp(0.75rem, 0.8vw, 0.8125rem);         /* 12px -> 13px */
+
+  /* Line Heights */
+  --line-height-hero: 1.08;
+  --line-height-h1: 1.14;
+  --line-height-h2: 1.2;
+  --line-height-h3: 1.28;
+  --line-height-h4: 1.35;
+  --line-height-h5: 1.4;
+  --line-height-h6: 1.45;
+  --line-height-lead: 1.65;
+  --line-height-body: 1.7;
+  --line-height-small: 1.55;
+
+  /* Letter Spacing */
+  --letter-spacing-tightest: -0.03em;
+  --letter-spacing-tight: -0.02em;
+  --letter-spacing-snug: -0.015em;
+  --letter-spacing-normal: 0em;
+  --letter-spacing-wide: 0.04em;
+  --letter-spacing-widest: 0.08em;
+}
+
+/* ==========================================================================
+   Central Semantic Typography Scale
+   ========================================================================== */
+
+.hero-headline,
+.font-hero {
+  font-size: var(--font-size-hero);
+  line-height: var(--line-height-hero);
+  letter-spacing: var(--letter-spacing-tightest);
+  font-weight: 800;
+}
+
+.page-headline,
+.font-h1 {
+  font-size: var(--font-size-h1);
+  line-height: var(--line-height-h1);
+  letter-spacing: var(--letter-spacing-tight);
+  font-weight: 800;
+}
+
+.section-headline,
+.font-h2 {
+  font-size: var(--font-size-h2);
+  line-height: var(--line-height-h2);
+  letter-spacing: var(--letter-spacing-tight);
+  font-weight: 700;
+}
+
+.subsection-headline,
+.font-h3 {
+  font-size: var(--font-size-h3);
+  line-height: var(--line-height-h3);
+  letter-spacing: var(--letter-spacing-snug);
+  font-weight: 700;
+}
+
+.card-headline,
+.font-h4 {
+  font-size: var(--font-size-h4);
+  line-height: var(--line-height-h4);
+  letter-spacing: var(--letter-spacing-snug);
+  font-weight: 600;
+}
+
+.font-h5 {
+  font-size: var(--font-size-h5);
+  line-height: var(--line-height-h5);
+  font-weight: 600;
+}
+
+.font-h6 {
+  font-size: var(--font-size-h6);
+  line-height: var(--line-height-h6);
+  font-weight: 600;
+}
+
+.font-lead {
+  font-size: var(--font-size-lead);
+  line-height: var(--line-height-lead);
+  font-weight: 400;
+}
+
+.font-body {
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
+  font-weight: 400;
+}
+
+.font-small {
+  font-size: var(--font-size-small);
+  line-height: var(--line-height-small);
+  font-weight: 400;
+}
+
+.font-eyebrow {
+  font-size: var(--font-size-eyebrow);
+  line-height: 1.3;
+  font-weight: 700;
+  letter-spacing: var(--letter-spacing-widest);
+  text-transform: uppercase;
+}
+
+.font-caption {
+  font-size: var(--font-size-caption);
+  line-height: 1.45;
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   1. Typography & Gradient Text Utilities
+   ========================================================================== */
+
+/* Editorial Gold Gradient Text */
+.gold-gradient-text {
+  background: linear-gradient(100deg, #F4B72F 0%, #D99519 50%, #F4B72F 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+/* 3D Rich Gold Gradient Text for Apex Highlights */
+.gold-gradient-text-rich {
+  background: linear-gradient(135deg, #F4B72F 0%, #E2A321 40%, #D99519 75%, #B8780B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+/* Midnight Navy Gradient Text */
+.navy-gradient-text {
+  background: linear-gradient(135deg, #061B35 0%, #152C45 50%, #075AC8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+/* ==========================================================================
+   2. Rich Background System
+   ========================================================================== */
+
+/* Dark Atmospheric Background: Multi-layered cinematic illumination */
+.bg-atmospheric {
+  background:
+    radial-gradient(ellipse at 85% 15%, rgba(244, 183, 47, 0.14), transparent 40%),
+    radial-gradient(ellipse at 15% 85%, rgba(7, 90, 200, 0.18), transparent 45%),
+    radial-gradient(circle at 50% 30%, rgba(14, 39, 72, 0.5), transparent 60%),
+    linear-gradient(135deg, #061B35 0%, #152C45 60%, #075AC8 100%);
+}
+
+/* Light Background with Warm Gold Glow */
+.bg-soft-glow {
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(244, 183, 47, 0.08), transparent 50%),
+    radial-gradient(ellipse at 85% 90%, rgba(217, 149, 25, 0.05), transparent 45%),
+    #FFFFFF;
+}
+
+/* Light Gray Section with Layered Gold Wash */
+.bg-gold-wash {
+  background:
+    radial-gradient(circle at 10% 20%, rgba(244, 183, 47, 0.07), transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(217, 149, 25, 0.07), transparent 45%),
+    #F8FAFC;
+}
+
+/* Architectural Fine Grid for Light Backgrounds */
+.bg-academic-grid {
+  background-image: 
+    linear-gradient(to right, rgba(244, 183, 47, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(244, 183, 47, 0.08) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Architectural Fine Grid for Dark Backgrounds */
+.bg-academic-grid-dark {
+  background-image: 
+    linear-gradient(to right, rgba(244, 183, 47, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(244, 183, 47, 0.06) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Film Grain Texture Overlay */
+.bg-grain {
+  position: relative;
+}
+.bg-grain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  z-index: 1;
+}
+
+/* Section Divider Glow (Luminous golden separator) */
+.section-divider-glow {
+  position: relative;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(244, 183, 47, 0.2) 20%, #F4B72F 50%, rgba(244, 183, 47, 0.2) 80%, transparent 100%);
+}
+.section-divider-glow::after {
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: 20%;
+  right: 20%;
+  height: 13px;
+  background: radial-gradient(ellipse at 50% 50%, rgba(244, 183, 47, 0.25), transparent 70%);
+  pointer-events: none;
+}
+
+/* Gold Accent Line (hairline) */
+.gold-accent-line {
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, #F4B72F 25%, #D99519 50%, #F4B72F 75%, transparent 100%);
+}
+
+.gold-accent-line-solid {
+  height: 2px;
+  background: linear-gradient(90deg, #F4B72F 0%, #D99519 100%);
+}
+
+/* ==========================================================================
+   3. Micro-Interactions & Button Light Sweep
+   ========================================================================== */
+
+/* Button Light Sweep Shine Effect */
+.btn-shine-sweep {
+  position: relative;
+  overflow: hidden;
+}
+.btn-shine-sweep::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 40%;
+  height: 200%;
+  background: linear-gradient(
+    60deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.35) 50%,
+    transparent 100%
+  );
+  transform: rotate(25deg);
+  pointer-events: none;
+  transition: transform 0.65s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.btn-shine-sweep:hover::after {
+  transform: translateX(450%) rotate(25deg);
+}
+
+/* Editorial Sculpted Image Frame */
+.editorial-frame {
+  position: relative;
+  border-radius: 20px 6px 20px 6px;
+  overflow: hidden;
+  box-shadow: var(--shadow-editorial);
+  border: 1px solid rgba(244, 183, 47, 0.4);
+}
+.editorial-frame::before {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: 24px 8px 24px 8px;
+  border: 1px dashed rgba(244, 183, 47, 0.3);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Luminous Card Sheen on Hover */
+.gold-glow-card {
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.gold-glow-card:hover {
+  border-color: rgba(244, 183, 47, 0.65);
+  box-shadow: 0 12px 32px -8px rgba(244, 183, 47, 0.2);
+}
