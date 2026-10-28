@@ -17,7 +17,7 @@ export function useMobileMenu() {
     setIsOpen(false);
   }
 
-  // Close on Escape key
+  // Handle Escape key and body scroll locking
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
@@ -27,15 +27,18 @@ export function useMobileMenu() {
 
     if (isOpen) {
       window.addEventListener('keydown', handleKeyDown);
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
+      const originalOverflow = document.body.style.overflow;
+      const originalTouchAction = document.body.style.touchAction;
 
-    return () => {
-      window.removeEventListener('keydown', handleKeyDown);
-      document.body.style.overflow = '';
-    };
+      document.body.style.overflow = 'hidden';
+      document.body.style.touchAction = 'none';
+
+      return () => {
+        window.removeEventListener('keydown', handleKeyDown);
+        document.body.style.overflow = originalOverflow === 'hidden' ? '' : originalOverflow;
+        document.body.style.touchAction = originalTouchAction;
+      };
+    }
   }, [isOpen, closeMenu]);
 
   return {
@@ -45,3 +48,4 @@ export function useMobileMenu() {
     toggleMenu,
   };
 }
+
