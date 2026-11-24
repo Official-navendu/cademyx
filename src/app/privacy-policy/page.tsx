@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { ShieldCheck, Mail, Phone, MapPin, ArrowLeft } from 'lucide-react';
+import { ShieldCheck, Mail, Clock, MapPin, ArrowLeft } from 'lucide-react';
 import { Container } from '@/components/ui/Container';
 import { CONTACT_INFO } from '@/lib/constants';
 import { constructMetadata } from '@/lib/metadata';
@@ -70,7 +70,7 @@ export default function PrivacyPolicyPage() {
             <p>We collect information that you knowingly and voluntarily provide when you interact with our website, request a consultation, submit an inquiry form, or communicate with our advisory office:</p>
             <ul className="list-disc pl-5 space-y-2 text-[#26345C]">
               <li>
-                <strong>Contact Identifiers:</strong> Your full name, email address, telephone / WhatsApp number.
+                <strong>Contact Identifiers:</strong> Your full name, email address, and optional contact number.
               </li>
               <li>
                 <strong>Academic Interests:</strong> Selected programs of interest (Bachelor, Master, Doctorate, or Certification tracks), educational history, target institutions, and intended career objectives.
@@ -103,10 +103,10 @@ export default function PrivacyPolicyPage() {
               4. Communications &amp; Consent
             </h2>
             <p>
-              When you submit a consultation form or reach out through our verified communication widgets (including email, telephone, or WhatsApp), you consent to receiving direct communications from our academic advisory team regarding your inquiry.
+              When you submit a consultation form or reach out through our verified communication channels (including email and online inquiry forms), you consent to receiving direct communications from our academic advisory team regarding your inquiry.
             </p>
             <p>
-              You may opt out of further communications at any time by replying &ldquo;STOP&rdquo; on WhatsApp or by contacting us via email at{' '}
+              You may opt out of further communications at any time by contacting us via email at{' '}
               <a href={`mailto:${CONTACT_INFO.primaryEmail}`} className="text-[#182A9A] font-semibold hover:underline">
                 {CONTACT_INFO.primaryEmail}
               </a>
@@ -164,13 +164,9 @@ export default function PrivacyPolicyPage() {
                 </span>
               </div>
               <div className="flex items-center gap-3">
-                <Phone className="h-4 w-4 text-[#182A9A] shrink-0" />
+                <Clock className="h-4 w-4 text-[#182A9A] shrink-0" />
                 <span>
-                  <strong>Advisory Desk:</strong>{' '}
-                  <a href={`tel:${CONTACT_INFO.phoneRaw}`} className="text-[#182A9A] hover:underline">
-                    {CONTACT_INFO.phone}
-                  </a>{' '}
-                  ({CONTACT_INFO.businessHours})
+                  <strong>Advisory Desk Hours:</strong> {CONTACT_INFO.businessHours}
                 </span>
               </div>
             </div>

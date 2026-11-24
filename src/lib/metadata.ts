@@ -4,30 +4,33 @@ import { BRAND } from './constants';
 export function constructMetadata({
   title,
   description = BRAND.description,
-  image = BRAND.assets.ogImage,
   noIndex = false,
   canonical,
   type = 'website',
 }: {
   title?: string;
   description?: string;
-  image?: string;
+  image?: string; // Kept as optional for backward compatibility, but website strictly enforces /assets/og.png
   noIndex?: boolean;
   canonical?: string;
   type?: 'website' | 'article';
 } = {}): Metadata {
   const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'https://cademyx.com').replace(/\/+$/, '');
-  const fullTitle = title ? `${title} | ${BRAND.name}` : `${BRAND.name} — ${BRAND.tagline}`;
+  const fullTitle = title
+    ? title.includes(BRAND.name)
+      ? title
+      : `${title} | ${BRAND.name}`
+    : `${BRAND.name} — ${BRAND.tagline}`;
+
   const canonicalUrl = canonical
     ? canonical.startsWith('http')
       ? canonical
       : `${siteUrl}${canonical.startsWith('/') ? '' : '/'}${canonical}`
     : undefined;
 
-  const rawImage = image || BRAND.assets.ogImage || '/assets/og.png';
-  const fullImageUrl = rawImage.startsWith('http')
-    ? rawImage
-    : `${siteUrl}${rawImage.startsWith('/') ? '' : '/'}${rawImage}`;
+  // Single common official OG image across the entire website
+  const ogImageUrl = `${siteUrl}/assets/og.png`;
+  const ogImageAlt = `${BRAND.name} — Academic Guidance & Advisory Platform`;
 
   return {
     title: fullTitle,
@@ -43,10 +46,10 @@ export function constructMetadata({
       type,
       images: [
         {
-          url: fullImageUrl,
+          url: ogImageUrl,
           width: 1200,
           height: 630,
-          alt: `${BRAND.name} — ${fullTitle}`,
+          alt: ogImageAlt,
         },
       ],
     },
@@ -54,7 +57,7 @@ export function constructMetadata({
       card: 'summary_large_image',
       title: fullTitle,
       description,
-      images: [fullImageUrl],
+      images: [ogImageUrl],
     },
     icons: {
       icon: BRAND.assets.favicon,

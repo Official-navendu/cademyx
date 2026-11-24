@@ -6,7 +6,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
-import { X, ArrowRight, Phone, Mail, ChevronDown, Calendar, Sparkles } from 'lucide-react';
+import { X, ArrowRight, Mail, ChevronDown, Calendar, Sparkles } from 'lucide-react';
 import { headerNavigation } from '@/data/navigation';
 import { BRAND, CONTACT_INFO } from '@/lib/constants';
 import { SUBJECT_CATEGORIES, DOCTORATE_TRACKS_META, CERTIFICATION_TRACKS_META } from '@/data/categories';
@@ -362,13 +362,6 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
                 >
                   <Mail className="h-4 w-4 text-[#182A9A] shrink-0" />
                   <span className="truncate">{CONTACT_INFO.email}</span>
-                </a>
-                <a
-                  href={`tel:${CONTACT_INFO.phone.replace(/[^+\d]/g, '')}`}
-                  className="flex items-center gap-2.5 text-[#26345C] hover:text-[#182A9A] py-1 transition-colors"
-                >
-                  <Phone className="h-4 w-4 text-[#182A9A] shrink-0" />
-                  <span>{CONTACT_INFO.phone}</span>
                 </a>
               </div>
             </nav>

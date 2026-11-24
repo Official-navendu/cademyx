@@ -25,7 +25,6 @@ export const metadata: Metadata = constructMetadata({
   description:
     'Book a dedicated 1-on-1 academic consultation with CademyX advisors via our live Calendly portal. Get personalized degree selection, profile audits, and admission roadmaps.',
   canonical: '/schedule-a-consultation',
-  image: '/assets/og.png',
 });
 
 const consultationPillars = [

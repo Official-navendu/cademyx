@@ -12,7 +12,6 @@ export const metadata = constructMetadata({
   description:
     'Explore authoritative editorial perspectives on higher education trajectories, degree selection criteria, and strategic academic milestones.',
   canonical: '/blog',
-  image: '/assets/og.png',
 });
 
 export default function BlogListingPage() {

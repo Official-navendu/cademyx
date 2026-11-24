@@ -16,7 +16,7 @@ export interface FooterNavigation {
   legalLinks: NavLink[];
   contactInfo: {
     email: string;
-    phone: string;
+    phone?: string;
     office: string;
     officeNote?: string;
   };

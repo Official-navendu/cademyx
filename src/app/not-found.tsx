@@ -3,15 +3,13 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import { Compass, ArrowLeft, BookOpen, Sparkles } from 'lucide-react';
 import { Container } from '@/components/ui/Container';
+import { constructMetadata } from '@/lib/metadata';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = constructMetadata({
   title: 'Page Not Found',
   description: 'The page you’re looking for may have moved or no longer exists.',
-  robots: {
-    index: false,
-    follow: false,
-  },
-};
+  noIndex: true,
+});
 
 export default function NotFound() {
   return (

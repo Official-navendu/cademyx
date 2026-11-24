@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { FileText, Mail, Phone, MapPin, ArrowLeft } from 'lucide-react';
+import { FileText, Mail, Clock, MapPin, ArrowLeft } from 'lucide-react';
 import { Container } from '@/components/ui/Container';
 import { CONTACT_INFO } from '@/lib/constants';
 import { constructMetadata } from '@/lib/metadata';
@@ -153,13 +153,9 @@ export default function TermsAndConditionsPage() {
                 </span>
               </div>
               <div className="flex items-center gap-3">
-                <Phone className="h-4 w-4 text-[#182A9A] shrink-0" />
+                <Clock className="h-4 w-4 text-[#182A9A] shrink-0" />
                 <span>
-                  <strong>Advisory Desk:</strong>{' '}
-                  <a href={`tel:${CONTACT_INFO.phoneRaw}`} className="text-[#182A9A] hover:underline">
-                    {CONTACT_INFO.phone}
-                  </a>{' '}
-                  ({CONTACT_INFO.businessHours})
+                  <strong>Advisory Desk Hours:</strong> {CONTACT_INFO.businessHours}
                 </span>
               </div>
             </div>

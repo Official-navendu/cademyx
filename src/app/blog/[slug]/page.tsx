@@ -44,7 +44,6 @@ export async function generateMetadata({
   return constructMetadata({
     title: `${post.title} | CademyX Journal`,
     description: post.excerpt,
-    image: post.coverImage,
     canonical: `/blog/${post.slug}`,
     type: 'article',
   });

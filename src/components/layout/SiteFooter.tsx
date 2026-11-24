@@ -3,7 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Mail, Phone, MapPin, Clock, ArrowRight, ShieldCheck } from 'lucide-react';
+import { Mail, MapPin, Clock, ArrowRight, ShieldCheck } from 'lucide-react';
 import { Container } from '@/components/ui/Container';
 import { CONTACT_INFO } from '@/lib/constants';
 
@@ -109,19 +109,6 @@ export const SiteFooter: React.FC = () => {
                 >
                   <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
                     <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-                  </svg>
-                </a>
-
-                <a
-                  href={`https://wa.me/${CONTACT_INFO.whatsappNumber}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Connect on WhatsApp"
-                  title="WhatsApp: Direct Advisory"
-                  className="w-9 h-9 rounded-xl bg-[#25D366] text-white flex items-center justify-center hover:opacity-90 hover:scale-105 transition-all shadow-xs"
-                >
-                  <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M12.031 0C5.396 0 0 5.397 0 12.034c0 2.12.553 4.188 1.606 6.012L.065 24l6.126-1.607a11.968 11.968 0 005.84 1.503h.005c6.635 0 12.032-5.397 12.032-12.034 0-3.214-1.252-6.236-3.525-8.51A11.956 11.956 0 0012.031 0zm0 22.025h-.004a9.98 9.98 0 01-5.093-1.392l-.365-.216-3.785.993 1.01-3.69-.238-.378a9.983 9.983 0 01-1.533-5.308c0-5.525 4.495-10.02 10.02-10.02 2.676 0 5.192 1.043 7.084 2.937a9.972 9.972 0 012.934 7.087c0 5.525-4.494 10.02-10.02 10.02zm5.498-7.508c-.301-.15-1.783-.879-2.06-.98-.276-.1-.477-.15-.678.15-.2.301-.779.98-.955 1.18-.176.2-.351.226-.653.075-.301-.15-1.272-.469-2.423-1.496-.895-.798-1.5-1.784-1.675-2.085-.176-.301-.019-.464.132-.614.136-.135.301-.351.452-.527.151-.176.2-.301.301-.502.101-.2.05-.376-.025-.527-.075-.15-.678-1.633-.93-2.236-.245-.588-.494-.508-.678-.518l-.578-.01c-.2 0-.527.075-.803.376s-1.054 1.029-1.054 2.509 1.079 2.909 1.23 3.11c.15.2 2.123 3.242 5.144 4.548.718.311 1.279.497 1.716.636.721.23 1.377.197 1.896.12.578-.087 1.783-.728 2.034-1.432.251-.703.251-1.306.176-1.432-.075-.126-.276-.201-.577-.352z" />
                   </svg>
                 </a>
               </div>
@@ -342,15 +329,6 @@ export const SiteFooter: React.FC = () => {
                       {CONTACT_INFO.secondaryEmail}
                     </a>
                   </div>
-                </li>
-                <li className="flex items-center gap-2.5">
-                  <Phone className="h-4 w-4 text-[#DCE3FF] shrink-0" aria-hidden="true" />
-                  <a
-                    href={`tel:${CONTACT_INFO.phoneRaw}`}
-                    className="hover:text-white transition-colors font-medium"
-                  >
-                    {CONTACT_INFO.phone}
-                  </a>
                 </li>
                 <li className="flex items-start gap-2.5 text-[11px] text-[#DCE3FF]/60">
                   <Clock className="h-3.5 w-3.5 text-[#DCE3FF] shrink-0 mt-0.5" aria-hidden="true" />

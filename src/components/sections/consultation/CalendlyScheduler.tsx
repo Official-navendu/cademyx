@@ -180,10 +180,6 @@ export const CalendlyScheduler: React.FC<CalendlySchedulerProps> = ({
 
               <div className="pt-4 border-t border-[#DCE3FF] text-xs text-[#6573A8]">
                 Need immediate assistance? Contact our advisory desk at{' '}
-                <a href={`tel:${CONTACT_INFO.phoneRaw}`} className="font-bold text-[#101F70] hover:underline">
-                  {CONTACT_INFO.phone}
-                </a>{' '}
-                or email{' '}
                 <a href={`mailto:${CONTACT_INFO.primaryEmail}`} className="font-bold text-[#182A9A] hover:underline">
                   {CONTACT_INFO.primaryEmail}
                 </a>

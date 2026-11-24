@@ -12,7 +12,6 @@ export const metadata = constructMetadata({
   description:
     'Connect with CademyX educational mentors. Schedule a diagnostic consultation to discuss university admissions, research tracks, or academic planning.',
   canonical: '/contact',
-  image: '/assets/og.png',
 });
 
 export default function ContactPage() {

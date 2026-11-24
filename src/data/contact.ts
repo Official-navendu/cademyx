@@ -19,15 +19,6 @@ export const contactPageData = {
       iconName: 'Mail',
     },
     {
-      id: 'channel-phone',
-      title: 'Telephone Consultation',
-      value: CONTACT_INFO.phone,
-      href: `tel:${CONTACT_INFO.phoneRaw}`,
-      description: 'Speak directly with our admissions and academic advisory team.',
-      note: CONTACT_INFO.businessHours,
-      iconName: 'Phone',
-    },
-    {
       id: 'channel-office',
       title: 'Advisory Office',
       value: CONTACT_INFO.address,

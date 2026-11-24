@@ -178,14 +178,14 @@ export const ContactForm: React.FC = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             <FormField
               id="phone"
-              label="Telephone (Optional)"
+              label="Contact Number (Optional)"
               error={errors.phone?.message}
-              hint="For SMS or scheduled callback"
+              hint="For advisory callback (optional)"
             >
               <Input
                 id="phone"
                 type="tel"
-                placeholder="+1 (555) 000-0000"
+                placeholder="Your contact number"
                 autoComplete="tel"
                 error={errors.phone?.message}
                 disabled={isSubmitting}

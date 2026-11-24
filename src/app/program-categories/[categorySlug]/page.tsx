@@ -41,7 +41,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     title: `${data.name} — Curriculum, Eligibility & Degrees | CademyX`,
     description: data.overview.slice(0, 155),
     canonical: `/program-categories/${data.slug}`,
-    image: data.image || '/assets/og.png',
   });
 }
 

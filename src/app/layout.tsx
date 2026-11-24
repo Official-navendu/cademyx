@@ -83,7 +83,6 @@ export default function RootLayout({
     },
     contactPoint: {
       '@type': 'ContactPoint',
-      telephone: CONTACT_INFO.phone,
       contactType: 'Admissions & Academic Advisory',
       email: CONTACT_INFO.primaryEmail,
       availableLanguage: ['English', 'Hindi'],

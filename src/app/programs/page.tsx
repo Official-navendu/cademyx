@@ -8,7 +8,6 @@ export const metadata = constructMetadata({
   description:
     'Explore CademyX’s approved academic portfolio structured across 15 subject disciplines, terminal research doctorates (3 tracks), and professional certifications (4 tracks).',
   canonical: '/programs',
-  image: '/assets/og.png',
 });
 
 export default function ProgramsPage() {

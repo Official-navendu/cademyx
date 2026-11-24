@@ -324,12 +324,11 @@ The contact form is built with **React Hook Form** and **Zod** in `src/hooks/use
 
 In compliance with our ethical guidelines, the following business items are implemented as cleanly marked, configurable development placeholders in `src/lib/constants.ts` and `src/data/*`:
 
-1. **Official Support Email**: Currently configured as `advisory@cademyx.org`.
-2. **Official Telephone Line**: Currently configured as `+1 (800) 555-CADX`.
-3. **Physical Office Address**: Currently configured as `Academic Advisory Center, Suite 400, Boston, MA 02108`.
-4. **Official Social Media Handles**: LinkedIn, X/Twitter, and YouTube links should be connected once official handles are registered.
-5. **Verified Student/Parent Testimonials**: `src/data/testimonials.ts` contains representative sample feedback clearly identified as developmental samples until official verified cohort releases.
-6. **Official Production Domain**: Configured via `NEXT_PUBLIC_SITE_URL` in `.env.example` (defaulting to `https://cademyx.org`).
+1. **Official Support Email**: Configured as `info@cademyx.com` / `hello@cademyx.com`.
+2. **Physical Office Address**: `408, 3rd Floor, Niti Khand 1, Indirapuram, Ghaziabad, Uttar Pradesh, India`.
+3. **Official Social Media Handles**: LinkedIn, X/Twitter, and Instagram links.
+4. **Verified Student/Parent Testimonials**: `src/data/testimonials.ts` contains representative sample feedback clearly identified as developmental samples until official verified cohort releases.
+5. **Official Production Domain**: Configured via `NEXT_PUBLIC_SITE_URL` in `.env.example` (defaulting to `https://cademyx.com`).
 
 ---
 

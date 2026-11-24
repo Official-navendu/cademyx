@@ -37,7 +37,6 @@ export const footerNavigation: FooterNavigation = {
   ],
   contactInfo: {
     email: CONTACT_INFO.email,
-    phone: CONTACT_INFO.phone,
     office: `${CONTACT_INFO.office}, ${CONTACT_INFO.city}`,
     officeNote: CONTACT_INFO.businessHours,
   },

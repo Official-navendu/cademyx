@@ -12,7 +12,6 @@ export const metadata = constructMetadata({
   description:
     'Learn about CademyX’s educational philosophy, commitment to scholarly integrity, and personalized academic advisory methodology.',
   canonical: '/about',
-  image: '/assets/og.png',
 });
 
 export default function AboutPage() {

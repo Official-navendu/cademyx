@@ -9,7 +9,6 @@ import {
   Clock,
   ShieldCheck,
   Mail,
-  Phone,
   GraduationCap,
   Sparkles,
 } from 'lucide-react';
@@ -216,7 +215,7 @@ export const ThankYouContent: React.FC = () => {
                 </div>
                 <div className="p-3 rounded-xl bg-white border border-[#DCE3FF]">
                   <div className="font-bold text-[#101F70] mb-1">2. Direct Contact</div>
-                  <p>A counselor reaches out via phone or email within 1 business day.</p>
+                  <p>An academic advisor responds to your enquiry within 1 business day.</p>
                 </div>
                 <div className="p-3 rounded-xl bg-white border border-[#DCE3FF]">
                   <div className="font-bold text-[#101F70] mb-1">3. Guided Pathway</div>
@@ -228,13 +227,6 @@ export const ThankYouContent: React.FC = () => {
             {/* Direct Support Contact Strip */}
             <div className="mt-8 pt-6 border-t border-[#DCE3FF] flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-[#6573A8]">
               <span className="font-medium">Need immediate assistance?</span>
-              <a
-                href={`tel:${CONTACT_INFO.phoneRaw}`}
-                className="inline-flex items-center gap-1.5 text-[#101F70] hover:text-[#182A9A] font-bold transition-colors"
-              >
-                <Phone className="w-3.5 h-3.5 text-[#182A9A]" />
-                <span>{CONTACT_INFO.phone}</span>
-              </a>
               <a
                 href={`mailto:${CONTACT_INFO.primaryEmail}`}
                 className="inline-flex items-center gap-1.5 text-[#101F70] hover:text-[#182A9A] font-bold transition-colors"

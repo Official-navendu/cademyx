@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Clock, ShieldCheck, Sparkles } from 'lucide-react';
+import { Mail, MapPin, Clock, ShieldCheck, Sparkles } from 'lucide-react';
 import { contactPageData } from '@/data/contact';
 import { staggerContainer, fadeUp, defaultViewport } from '@/lib/motion';
 
@@ -32,12 +32,7 @@ export const ContactInformation: React.FC = () => {
       {/* Channel Cards */}
       <div className="space-y-4">
         {contactPageData.contactChannels.map((channel) => {
-          const Icon =
-            channel.iconName === 'Mail'
-              ? Mail
-              : channel.iconName === 'Phone'
-              ? Phone
-              : MapPin;
+          const Icon = channel.iconName === 'Mail' ? Mail : MapPin;
 
           return (
             <motion.div

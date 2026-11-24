@@ -42,7 +42,6 @@ export async function generateMetadata({
   return constructMetadata({
     title: `${program.title} (${program.category}) — Curriculum, Eligibility & Advisory`,
     description: cleanDescription,
-    image: program.image || BRAND.assets.ogImage,
     canonical: `/programs/${program.slug}`,
     type: 'article',
   });

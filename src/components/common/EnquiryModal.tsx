@@ -135,9 +135,9 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({
     }
 
     if (!formData.phone.trim()) {
-      newErrors.phone = 'Contact telephone is required';
+      newErrors.phone = 'Contact number is required';
     } else if (formData.phone.trim().length < 6) {
-      newErrors.phone = 'Please enter a valid phone number';
+      newErrors.phone = 'Please enter a valid contact number';
     }
 
     if (!formData.consent) {
@@ -411,13 +411,13 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({
 
                 <div>
                   <label className="block text-xs font-bold text-[#101F70] uppercase tracking-wider mb-1">
-                    Phone / WhatsApp <span className="text-rose-500">*</span>
+                    Contact Number <span className="text-rose-500">*</span>
                   </label>
                   <input
                     type="tel"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    placeholder="+91 83758 97148"
+                    placeholder="Your contact number"
                     className={`w-full px-3.5 py-2.5 rounded-xl border text-sm text-[#101F70] placeholder:text-[#6573A8] focus:outline-none focus:ring-2 transition-all ${
                       errors.phone
                         ? 'border-rose-500 focus:ring-rose-200'

@@ -148,9 +148,9 @@ export async function sendAdminNotificationEmail(
             </td>
           </tr>
           <tr>
-            <td style="padding: 9px 0; color: #6573A8; font-weight: 600; vertical-align: top;">Phone / WhatsApp:</td>
+            <td style="padding: 9px 0; color: #6573A8; font-weight: 600; vertical-align: top;">Contact Number:</td>
             <td style="padding: 9px 0; font-weight: 600;">
-              <a href="tel:${safePhone}" style="color: #101F70; text-decoration: none;">${safePhone}</a>
+              ${safePhone !== 'Not provided' ? `<a href="tel:${safePhone}" style="color: #101F70; text-decoration: none;">${safePhone}</a>` : `<span style="color: #6573A8;">Not provided</span>`}
             </td>
           </tr>
           <tr>

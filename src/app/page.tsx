@@ -17,7 +17,6 @@ export const metadata = constructMetadata({
   description:
     'Discover the right learning opportunities, gain clarity in your academic journey, and take your next step with confidence with CademyX educational advisory.',
   canonical: '/',
-  image: '/assets/og.png',
 });
 
 export default function HomePage() {
