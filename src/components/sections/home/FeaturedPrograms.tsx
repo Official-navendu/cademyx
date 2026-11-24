@@ -1,47 +1,28 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
-import { ArrowRight, Sparkles, BookOpen, GraduationCap, Award, Compass, ArrowUpRight, Clock } from 'lucide-react';
+import { motion, useReducedMotion } from 'framer-motion';
+import { ArrowRight, Sparkles, ArrowUpRight, Clock } from 'lucide-react';
 import { Container } from '@/components/ui/Container';
 import { Button } from '@/components/ui/Button';
-import { programs, getProgramBySlug } from '@/data/programs';
-import { Program, ProgramCategory } from '@/types/program';
-import { cn } from '@/lib/utils';
+import { getProgramBySlug, programs } from '@/data/programs';
+import { Program } from '@/types/program';
 import { staggerContainer, staggerItem, fadeUp, defaultViewport } from '@/lib/motion';
 
-type FilterTab = 'All' | ProgramCategory;
-
 export const FeaturedPrograms: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<FilterTab>('All');
   const prefersReducedMotion = useReducedMotion();
 
-  // Curated 6 flagship programs across all four academic categories
-  const curatedList: (Program | undefined)[] = [
+  // Exactly 3 featured Doctorate tracks in approved sequence:
+  // 1. Honorary Doctorate — PRESTIGIOUS
+  // 2. PhD Admission Program — POPULAR
+  // 3. DBA Program — EXECUTIVE
+  const featuredPrograms: Program[] = [
+    getProgramBySlug('honorary-doctorate'),
     getProgramBySlug('phd-admission-program'),
-    getProgramBySlug('b-tech-cse'),
-    getProgramBySlug('mba-ai-automation') || getProgramBySlug('mba'),
-    getProgramBySlug('master-data-science'),
-    getProgramBySlug('dba-program') || getProgramBySlug('honorary-doctorate'),
-    getProgramBySlug('full-stack-development'),
-  ];
-
-  const featuredPrograms = curatedList.filter(Boolean) as Program[];
-
-  // Filter based on active tab
-  const displayedPrograms =
-    activeTab === 'All'
-      ? featuredPrograms
-      : programs.filter((p) => p.category === activeTab).slice(0, 6);
-
-  const filterTabs: { label: string; value: string; icon: React.ElementType }[] = [
-    { label: 'All Disciplines', value: 'All', icon: Compass },
-    { label: 'Doctorate', value: 'Doctorate', icon: GraduationCap },
-    { label: 'Certifications', value: 'Certifications', icon: Award },
-    { label: 'Management & Business', value: 'Management & Business', icon: BookOpen },
-  ];
+    getProgramBySlug('dba-program'),
+  ].filter(Boolean) as Program[];
 
   return (
     <section className="relative py-20 sm:py-24 lg:py-28 bg-[#101F70] border-y border-white/10 text-white overflow-hidden">
@@ -57,7 +38,7 @@ export const FeaturedPrograms: React.FC = () => {
 
       <Container size="default" className="relative z-10">
         {/* Section Heading Area */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10 sm:mb-12">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12 sm:mb-14">
           <div className="max-w-2xl">
             {/* Eyebrow */}
             <div className="inline-flex items-center gap-2 mb-3.5 px-3.5 py-1 rounded-full text-xs font-bold tracking-widest uppercase bg-[#182A9A]/30 border border-[#DCE3FF]/30 text-[#DCE3FF]">
@@ -72,7 +53,7 @@ export const FeaturedPrograms: React.FC = () => {
 
             {/* Subtitle */}
             <p className="mt-3.5 text-base sm:text-lg text-[#DCE3FF]/90 leading-relaxed font-normal">
-              An authoritative preview of accredited Bachelor degrees, specialized Master’s tracks, doctoral research fellowships, and industry credentials.
+              An authoritative showcase of terminal research doctorates, executive doctoral pathways, and prestigious academic honors.
             </p>
           </div>
 
@@ -85,142 +66,112 @@ export const FeaturedPrograms: React.FC = () => {
               trailingIcon={<ArrowRight className="h-4 w-4" />}
               className="border-white/20 text-white hover:border-[#DCE3FF] hover:bg-white/10 font-bold shadow-sm"
             >
-              Explore All {programs.length} Programs
+              Explore All Programs
             </Button>
           </div>
         </div>
 
-        {/* Category Filter Navigation Tabs */}
-        <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-8 sm:mb-10 no-scrollbar">
-          {filterTabs.map((tab) => {
-            const Icon = tab.icon;
-            const isActive = activeTab === tab.value;
-            return (
-              <button
-                key={tab.value}
-                type="button"
-                onClick={() => setActiveTab(tab.value)}
-                className={cn(
-                  'inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold tracking-wide transition-all whitespace-nowrap cursor-pointer border',
-                  isActive
-                    ? 'bg-[#182A9A] text-white border-[#DCE3FF]/40 shadow-md shadow-[#182A9A]/30'
-                    : 'bg-[#0D1959] text-[#DCE3FF]/80 border-white/10 hover:border-white/30 hover:text-white'
+        {/* 3-Card Academic Grid */}
+        <motion.div
+          variants={prefersReducedMotion ? undefined : staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={defaultViewport}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7 lg:gap-8"
+        >
+          {featuredPrograms.map((program) => (
+            <motion.article
+              key={program.id}
+              variants={prefersReducedMotion ? undefined : staggerItem}
+              className="group flex flex-col h-full bg-white rounded-2xl border border-white/10 hover:border-[#182A9A]/60 transition-all duration-300 shadow-xl hover:shadow-2xl overflow-hidden"
+            >
+              {/* 1. Program Image Header with Distinct Badge */}
+              <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-100">
+                <Image
+                  src={program.image}
+                  alt={program.title}
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-103"
+                />
+                {program.badge && (
+                  <div className="absolute top-3.5 left-3.5 z-10">
+                    <span className="inline-flex items-center px-3 py-1 rounded-md text-[11px] font-extrabold tracking-wider uppercase bg-[#101F70]/90 text-white backdrop-blur-md border border-white/20 shadow-md">
+                      {program.badge}
+                    </span>
+                  </div>
                 )}
-              >
-                <Icon className={cn('w-4 h-4', isActive ? 'text-white' : 'text-[#DCE3FF]')} />
-                <span>{tab.label}</span>
-              </button>
-            );
-          })}
-        </div>
+              </div>
 
-        {/* 6-Card Academic Grid (Light surfaces with verified contrast) */}
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={activeTab}
-            variants={prefersReducedMotion ? undefined : staggerContainer}
-            initial="hidden"
-            animate="visible"
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7 lg:gap-8"
-          >
-            {displayedPrograms.map((program) => (
-              <motion.article
-                key={program.id}
-                variants={prefersReducedMotion ? undefined : staggerItem}
-                className="group flex flex-col h-full bg-white rounded-2xl border border-white/10 hover:border-[#182A9A]/60 transition-all duration-300 shadow-xl hover:shadow-2xl overflow-hidden"
-              >
-                {/* 1. Program Image Header - 100% Clean Image, NO Text Overlays */}
-                <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-100">
-                  <Image
-                    src={program.image}
-                    alt={program.title}
-                    fill
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    className="object-cover transition-transform duration-500 ease-out group-hover:scale-102"
-                  />
-                </div>
+              {/* 2. Structured Content Body */}
+              <div className="flex flex-1 flex-col p-6 sm:p-7 justify-between">
+                <div>
+                  {/* Category Tag & Duration */}
+                  <div className="flex items-center justify-between gap-2 mb-3">
+                    <span className="px-2.5 py-0.5 rounded-md text-[10px] font-bold tracking-wider uppercase bg-[#F3F5FF] text-[#101F70] border border-[#DCE3FF]">
+                      {program.category}
+                    </span>
 
-                {/* 2. Structured Content Body Below Image */}
-                <div className="flex flex-1 flex-col p-6 sm:p-7 justify-between">
-                  <div>
-                    {/* Category Tag & Duration in clean content area */}
-                    <div className="flex items-center justify-between gap-2 mb-3">
-                      <span
-                        className={cn(
-                          'px-2.5 py-0.5 rounded-md text-[10px] font-bold tracking-wider uppercase border',
-                          program.category === 'Bachelor'
-                            ? 'bg-[#F3F5FF] text-[#182A9A] border-[#DCE3FF]'
-                            : program.category === 'Doctorate'
-                            ? 'bg-[#F3F5FF] text-[#101F70] border-[#DCE3FF]'
-                            : program.category === 'Masters'
-                            ? 'bg-[#F3F5FF] text-[#182A9A] border-[#DCE3FF]'
-                            : 'bg-[#F3F5FF] text-[#26345C] border-[#DCE3FF]'
-                        )}
-                      >
-                        {program.category}
+                    {program.duration && (
+                      <span className="text-xs font-semibold text-[#6573A8] flex items-center gap-1.5">
+                        <Clock className="w-3.5 h-3.5 text-[#6573A8]" />
+                        <span>{program.duration}</span>
                       </span>
-
-                      {program.duration && (
-                        <span className="text-xs font-semibold text-[#6573A8] flex items-center gap-1">
-                          <Clock className="w-3 h-3 text-[#6573A8]" />
-                          <span>{program.duration}</span>
-                        </span>
-                      )}
-                    </div>
-
-                    {/* Program Title */}
-                    <h3 className="text-lg sm:text-xl font-bold text-[#101F70] group-hover:text-[#182A9A] transition-colors leading-snug line-clamp-2">
-                      <Link
-                        href={`/programs/${program.slug}`}
-                        className="focus-visible:outline-2 focus-visible:outline-[#182A9A] rounded-xs"
-                      >
-                        {program.title}
-                      </Link>
-                    </h3>
-
-                    {/* Program Description */}
-                    <p className="mt-2 text-xs sm:text-sm text-[#26345C] leading-relaxed line-clamp-3 font-normal">
-                      {program.shortDescription || program.description}
-                    </p>
-
-                    {/* Highlights Pills */}
-                    {program.highlights && program.highlights.length > 0 && (
-                      <div className="mt-4 pt-3.5 border-t border-[#DCE3FF]/40 flex flex-wrap gap-1.5">
-                        {program.highlights.slice(0, 2).map((h, i) => (
-                          <span
-                            key={i}
-                            className="text-[11px] font-medium text-[#26345C] bg-[#F3F5FF] border border-[#DCE3FF] px-2.5 py-0.5 rounded-md"
-                          >
-                            {h}
-                          </span>
-                        ))}
-                      </div>
                     )}
                   </div>
 
-                  {/* Footer Actions: View Program Details + Inquire */}
-                  <div className="mt-5 pt-4 border-t border-[#DCE3FF]/40 flex items-center justify-between gap-3">
+                  {/* Program Title */}
+                  <h3 className="text-lg sm:text-xl font-bold text-[#101F70] group-hover:text-[#182A9A] transition-colors leading-snug">
                     <Link
                       href={`/programs/${program.slug}`}
-                      className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#101F70] group-hover:text-[#182A9A] transition-colors focus-visible:outline-2 focus-visible:outline-[#182A9A] rounded-xs"
+                      className="focus-visible:outline-2 focus-visible:outline-[#182A9A] rounded-xs"
                     >
-                      <span>View Program Details</span>
-                      <ArrowUpRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-[#182A9A]" />
+                      {program.title}
                     </Link>
+                  </h3>
 
-                    <Link
-                      href={`/contact?program=${program.slug}`}
-                      className="text-xs font-bold text-[#182A9A] bg-[#F3F5FF] hover:bg-[#182A9A] hover:text-white border border-[#DCE3FF] px-3 py-1.5 rounded-lg transition-colors shadow-2xs"
-                      title={`Inquire about ${program.title}`}
-                    >
-                      Inquire
-                    </Link>
-                  </div>
+                  {/* Program Description */}
+                  <p className="mt-2.5 text-xs sm:text-sm text-[#26345C] leading-relaxed line-clamp-3 font-normal">
+                    {program.description}
+                  </p>
+
+                  {/* Highlights Pills */}
+                  {program.highlights && program.highlights.length > 0 && (
+                    <div className="mt-4 pt-3.5 border-t border-[#DCE3FF]/40 flex flex-wrap gap-1.5">
+                      {program.highlights.slice(0, 3).map((h, i) => (
+                        <span
+                          key={i}
+                          className="text-[11px] font-medium text-[#26345C] bg-[#F3F5FF] border border-[#DCE3FF] px-2.5 py-0.5 rounded-md"
+                        >
+                          {h}
+                        </span>
+                      ))}
+                    </div>
+                  )}
                 </div>
-              </motion.article>
-            ))}
-          </motion.div>
-        </AnimatePresence>
+
+                {/* Footer Actions: View Program Details + Inquire */}
+                <div className="mt-6 pt-4 border-t border-[#DCE3FF]/40 flex items-center justify-between gap-3">
+                  <Link
+                    href={`/programs/${program.slug}`}
+                    className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#101F70] group-hover:text-[#182A9A] transition-colors focus-visible:outline-2 focus-visible:outline-[#182A9A] rounded-xs"
+                  >
+                    <span>View Program Details</span>
+                    <ArrowUpRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-[#182A9A]" />
+                  </Link>
+
+                  <Link
+                    href={`/contact?program=${program.slug}`}
+                    className="text-xs font-bold text-[#182A9A] bg-[#F3F5FF] hover:bg-[#182A9A] hover:text-white border border-[#DCE3FF] px-3.5 py-1.5 rounded-lg transition-colors shadow-2xs"
+                    title={`Inquire about ${program.title}`}
+                  >
+                    Inquire
+                  </Link>
+                </div>
+              </div>
+            </motion.article>
+          ))}
+        </motion.div>
 
         {/* Bottom Bespoke Catalog Discovery Strip */}
         <motion.div
@@ -238,7 +189,7 @@ export const FeaturedPrograms: React.FC = () => {
               Looking for a tailored curriculum or specific specialization?
             </h4>
             <p className="mt-1.5 text-xs sm:text-sm text-[#DCE3FF]/90">
-              Explore our full catalog across Management, Computing, Engineering, Health Sciences, Law, and Research.
+              Explore our full catalog across 15 subject disciplines, doctorate pathways, and professional credentials.
             </p>
           </div>
 
@@ -248,7 +199,7 @@ export const FeaturedPrograms: React.FC = () => {
               variant="primary"
               size="md"
               trailingIcon={<ArrowRight className="h-4 w-4" />}
-              className="font-bold shadow-md"
+              className="font-bold shadow-md bg-[#182A9A] hover:bg-[#101F70] text-white"
             >
               Browse All {programs.length} Programs
             </Button>

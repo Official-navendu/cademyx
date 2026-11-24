@@ -16,9 +16,9 @@ export const LearningJourney: React.FC = () => {
       <Container size="default" className="relative z-10">
         <SectionHeading
           eyebrow="YOUR MILESTONES"
-          title="The Four Stages of Your Learning Journey"
-          highlightWords="Learning Journey"
-          description="A transparent, measured progression that transforms academic ambition into measurable achievement."
+          title="Four Stages of Your Academic Guidance Journey"
+          highlightWords="Academic Guidance Journey"
+          description="A structured, transparent progression designed to help you navigate from initial exploration to confident application."
           align="center"
         />
 

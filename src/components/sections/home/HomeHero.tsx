@@ -63,29 +63,26 @@ export const HomeHero: React.FC = () => {
 
               {/* 2. Static Majestic Headline */}
               <h1 className="text-3xl xs:text-4xl sm:text-5xl lg:text-[54px] xl:text-[58px] font-extrabold text-[#101F70] tracking-tight leading-[1.12]">
-                Shape Your <br />
-                <span className="text-[#182A9A]">Academic Future</span> <br />
-                With Clarity and <br />
-                Confidence.
+                Shape Your <br className="hidden sm:inline" />
+                <span className="text-[#182A9A]">Academic Future</span> <br className="hidden sm:inline" />
+                With Clarity and Confidence.
               </h1>
 
               {/* 3. Subtitle Description */}
               <p className="mt-4 sm:mt-5 text-sm sm:text-base lg:text-[17px] text-[#26345C] leading-relaxed max-w-xl font-normal">
-                CademyX helps you discover the right programs, get expert guidance, and
-                achieve your true academic potential — all in one place.
+                CademyX helps you discover the right academic programs, make informed decisions, and move forward with confidence through personalized academic guidance and expert support.
               </p>
 
               {/* 4. Action Row: Exactly TWO Primary Hero CTA Buttons */}
               <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 sm:gap-4 w-full sm:w-auto">
-                {/* Primary CTA: Opens Accessible Enquiry Modal */}
-                <button
-                  type="button"
-                  onClick={() => setIsEnquiryModalOpen(true)}
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-[#182A9A] to-[#101F70] hover:brightness-110 text-white font-bold text-sm sm:text-base shadow-md hover:shadow-lg transition-all active:scale-[0.98] cursor-pointer"
+                {/* Primary CTA: Schedule a Consultation */}
+                <Link
+                  href="/schedule-a-consultation"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-[#182A9A] to-[#101F70] hover:brightness-110 text-white font-bold text-sm sm:text-base shadow-md hover:shadow-lg transition-all active:scale-[0.98]"
                 >
                   <span>Get Expert Guidance</span>
                   <ArrowRight className="w-4 h-4" />
-                </button>
+                </Link>
 
                 {/* Secondary CTA: Explore Full Catalog */}
                 <Link

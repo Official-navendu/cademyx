@@ -294,9 +294,9 @@ export const ContactForm: React.FC = () => {
             </Button>
           </div>
 
-          {/* Technical Note */}
+          {/* Confidentiality Note */}
           <p className="text-xs text-[#6573A8] pt-2">
-            Secure client-side validation powered by Zod and React Hook Form. Configured for direct API integration.
+            Your inquiry is confidential and reviewed by our academic guidance advisors within 1 business day.
           </p>
         </form>
       )}

@@ -245,7 +245,7 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto"
+      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 md:p-6 overflow-y-auto"
       role="dialog"
       aria-modal="true"
       aria-labelledby="enquiry-modal-title"
@@ -260,23 +260,23 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({
       {/* Modal Dialog Card */}
       <div
         ref={modalRef}
-        className="relative w-full max-w-xl bg-white rounded-3xl shadow-2xl border border-[#DCE3FF] overflow-hidden z-10 my-8 animate-in fade-in zoom-in-95 duration-200"
+        className="relative w-full max-w-xl max-h-[92dvh] sm:max-h-[88vh] flex flex-col bg-white rounded-2xl sm:rounded-3xl shadow-2xl border border-[#DCE3FF] overflow-hidden z-10 my-auto animate-in fade-in zoom-in-95 duration-200"
       >
         {/* Top Blue Accent Bar */}
-        <div className="h-1.5 w-full bg-gradient-to-r from-[#101F70] via-[#182A9A] to-[#101F70]" />
+        <div className="h-1.5 w-full bg-gradient-to-r from-[#101F70] via-[#182A9A] to-[#101F70] shrink-0" />
 
         {/* Close Button */}
         <button
           onClick={onClose}
           aria-label="Close modal"
-          className="absolute top-5 right-5 w-9 h-9 rounded-full bg-[#F3F5FF] hover:bg-[#DCE3FF] text-[#101F70] flex items-center justify-center transition-colors z-20 cursor-pointer"
+          className="absolute top-4 right-4 sm:top-5 sm:right-5 w-10 h-10 rounded-full bg-[#F3F5FF] hover:bg-[#DCE3FF] text-[#101F70] flex items-center justify-center transition-colors z-20 cursor-pointer shadow-2xs"
         >
           <X className="w-5 h-5" />
         </button>
 
-        <div className="p-6 sm:p-8">
+        <div className="p-5 sm:p-7 md:p-8 overflow-y-auto overscroll-contain pb-[max(1.25rem,env(safe-area-inset-bottom))]">
           {/* Header */}
-          <div className="flex items-center gap-3 mb-2">
+          <div className="flex items-center gap-3 mb-2 pr-10">
             <div className="w-10 h-10 rounded-xl bg-[#101F70] text-[#DCE3FF] flex items-center justify-center shrink-0 shadow-sm">
               <GraduationCap className="w-5 h-5" />
             </div>
@@ -335,7 +335,7 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({
               </div>
               <div className="pt-3 flex flex-col sm:flex-row items-center justify-center gap-3">
                 <Button
-                  variant="gold"
+                  variant="primary"
                   size="md"
                   onClick={onClose}
                   className="font-bold cursor-pointer"
@@ -524,7 +524,7 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({
               <div className="pt-2">
                 <Button
                   type="submit"
-                  variant="gold"
+                  variant="primary"
                   size="lg"
                   isLoading={isSubmitting}
                   className="w-full font-bold shadow-md cursor-pointer"

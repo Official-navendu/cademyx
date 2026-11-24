@@ -2,7 +2,7 @@ export const BRAND = {
   name: 'CademyX',
   tagline: 'We Setup the Academic Matrix of Your True Aim.',
   subheading: 'Academic Guidance & Excellence',
-  description: 'CademyX provides high-integrity educational advisory, personalized learning roadmaps, and structured academic preparation for ambitious learners.',
+  description: 'CademyX is an academic guidance and advisory platform that helps students and prospective candidates understand academic programmes, evaluate their options, and make informed educational decisions.',
   foundingYear: 2026,
   colors: {
     royalDeepBlue: '#182A9A',
@@ -22,7 +22,7 @@ export const BRAND = {
   },
   assets: {
     logo: '/assets/logo.png',
-    logoWhite: '/assets/logo.png',
+    logoWhite: '/assets/logo-white.png',
     monogram: '/assets/favicon.png',
     favicon: '/assets/favicon.png',
     ogImage: '/assets/og.png',

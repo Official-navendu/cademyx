@@ -5,8 +5,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight, GraduationCap, Award, BookOpen, Clock, CheckCircle2, Sparkles } from 'lucide-react';
 import { Container } from '@/components/ui/Container';
-import { SectionHeading } from '@/components/ui/SectionHeading';
-import { Badge } from '@/components/ui/Badge';
 import { SUBJECT_CATEGORIES, DOCTORATE_TRACKS_META, CERTIFICATION_TRACKS_META } from '@/data/categories';
 
 export const ProgramCatalogExplorer: React.FC = () => {

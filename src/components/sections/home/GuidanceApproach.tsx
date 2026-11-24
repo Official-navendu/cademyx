@@ -56,8 +56,7 @@ export const GuidanceApproach: React.FC = () => {
           </h2>
 
           <p className="mt-4 text-base sm:text-lg text-[#26345C] leading-relaxed font-normal">
-            How CademyX guides scholars: through rigorous diagnostic evaluations, scholarly research
-            methodologies, narrative editorial support, and postgraduate strategy.
+            Structured academic guidance designed to help candidates evaluate disciplines, understand prerequisites, and plan their educational next steps with clarity.
           </p>
         </div>
 

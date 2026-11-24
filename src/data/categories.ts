@@ -81,8 +81,8 @@ export const SUBJECT_CATEGORIES: CategoryDetailData[] = [
         "answer": "Traditional MBA programs provide foundational to advanced management training suited for early-to-mid career professionals, whereas Executive MBA tracks feature intensive, weekend or cohort-based models tailored specifically for working professionals with 3+ years of managerial experience."
       },
       {
-        "question": "Are Management degrees recognized by international credential evaluation bodies?",
-        "answer": "Yes, all CademyX-advised degree programs are awarded by UGC-DEB accredited and AICTE-approved institutions, recognized globally by credential evaluators like WES."
+        "question": "How can I verify whether a Management degree is recognized internationally?",
+        "answer": "CademyX advises candidates on programmes offered by recognized universities and colleges. We help candidates verify institutional approvals, accreditation status, and international credential evaluation standards (such as WES) before applying."
       }
     ]
   },
@@ -204,7 +204,7 @@ export const SUBJECT_CATEGORIES: CategoryDetailData[] = [
       },
       {
         "question": "Are AI degrees recognized for international doctoral and research fellowships?",
-        "answer": "Yes, our partner accredited programs adhere to global STEM curricular benchmarks, facilitating academic and research mobility worldwide."
+        "answer": "We help candidates identify programmes designed to meet recognized STEM curricular guidelines, supporting educational mobility and subsequent academic research pathways."
       }
     ]
   },
@@ -619,8 +619,8 @@ export const SUBJECT_CATEGORIES: CategoryDetailData[] = [
     ],
     "advisoryHighlights": [
       "Accredited engineering university selection and specialization counseling",
-      "Thesis proposal review and IEEE/ACM conference publication guidance",
-      "Industry capstone project alignment with tier-1 technology partners"
+      "Thesis proposal review and conference publication guidance",
+      "Applied capstone project alignment with real-world engineering case studies"
     ],
     "faqs": [
       {

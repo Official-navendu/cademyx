@@ -1,47 +1,47 @@
 import { ValueCardItem, StepItem } from '@/types/common';
 
 export const aboutHeroData = {
-  eyebrow: 'PURPOSE & PHILOSOPHY',
-  heading: 'An Academic Journey Built Around Your Ambitions.',
+  eyebrow: 'PURPOSE & PRINCIPLES',
+  heading: 'Helping Candidates Make Informed Academic Decisions.',
   subheading:
-    'Discover the purpose, principles, and educational approach behind CademyX — dedicated to helping students and professionals navigate higher education with absolute clarity.',
+    'Choosing an academic programme is an important decision. CademyX provides objective advisory, clear information, and structured guidance to help you understand your options with clarity.',
   image: '/assets/images/hero/about-hero.jpg',
 };
 
 export const brandStoryData = {
-  eyebrow: 'THE CADEMYX PHILOSOPHY',
-  heading: 'Transforming Academic Ambition Into Purposeful Direction',
+  eyebrow: 'OUR ADVISORY APPROACH',
+  heading: 'Clarity, Transparency, and Student-First Academic Guidance',
   paragraphs: [
-    'Academic journeys are often shadowed by information overload, conflicting advice, and undue anxiety. In our observations across modern secondary and higher education environments, we noticed that talented learners frequently spend more time guessing what institutions want rather than discovering what kind of scholars they genuinely wish to become.',
-    'CademyX was founded to restore equilibrium to this process. Our approach centers on deep diagnostic inquiry, rigorous scholastic standards, and honest mentorship. We do not endorse generic templates or superficial resume-padding. Instead, we help each student cultivate genuine intellectual voice, rigorous study methodologies, and authentic educational pathways.',
-    'By blending personalized one-on-one advisory with cohort-based scholarly colloquiums, CademyX provides the architecture students need to aim true and reach their highest potential.',
+    'Choosing the right academic programme can feel complex. With diverse disciplines, evolving institutional prerequisites, and varying application procedures, prospective candidates often face conflicting information when deciding their next educational step.',
+    'CademyX was established to bring clarity and structure to this process. As an academic guidance and advisory platform, we help students and candidates evaluate academic programmes, understand eligibility criteria, and choose pathways that genuinely fit their background and career goals.',
+    'By providing personalized advisory consultations and practical documentation assistance, our advisors ensure you have the accurate information needed to move forward with confidence.',
   ],
   quote:
-    '“True academic guidance does not dictate a student’s destination; it equips them with the navigational compass to discover and reach their own summit.”',
-  quoteAuthor: 'CademyX Academic Steering Group',
+    '“Our approach focuses on helping you understand your options so you can make informed academic decisions that align with your long-term ambitions.”',
+  quoteAuthor: 'CademyX Academic Advisory Desk',
 };
 
 export const missionVisionData = {
   mission: {
     title: 'Our Mission',
-    subtitle: 'Dedicated to Scholarly Integrity',
+    subtitle: 'Clear, Objective Educational Guidance',
     description:
-      'To provide transformative academic advisory and rigorous educational programs that empower learners from all backgrounds to make informed, purposeful, and ethical decisions throughout their academic lives.',
+      'To provide accessible, ethical, and structured academic advisory that helps candidates from all backgrounds understand their educational options, meet requirements, and make informed choices.',
     keyPoints: [
-      'Prioritize long-term intellectual growth over short-term expediency',
-      'Foster independent critical thinking and research methodologies',
-      'Maintain total transparency in student assessments and institutional recommendations',
+      'Prioritize candidate needs, educational interests, and long-term career fit',
+      'Provide accurate and transparent information on eligibility and curriculum structures',
+      'Maintain clear and supportive communication throughout the application journey',
     ],
   },
   vision: {
     title: 'Our Vision',
-    subtitle: 'The Standard for Academic Mentorship',
+    subtitle: 'A Trusted Educational Advisory Resource',
     description:
-      'To be the most trusted academic advisory brand globally—recognized for fostering scholars who lead with curiosity, integrity, and disciplined intellect in every sphere of higher education.',
+      'To serve as a dependable, highly respected academic guidance platform known for integrity, practical guidance, and student-focused clarity.',
     keyPoints: [
-      'Set the standard for ethical pre-collegiate and collegiate mentorship',
-      'Bridge secondary education with top-tier research methodologies',
-      'Build an inclusive global community of purposeful, high-aiming scholars',
+      'Set the standard for honest, transparent educational advisory',
+      'Help candidates bridge the gap between their current qualifications and future study',
+      'Foster a supportive environment where every candidate receives personalized attention',
     ],
   },
 };
@@ -49,30 +49,30 @@ export const missionVisionData = {
 export const coreValuesData: ValueCardItem[] = [
   {
     id: 'val-1',
-    title: 'Clarity',
+    title: 'Clear Information',
     description:
-      'We strip away ambiguity and educational jargon, providing students and families with transparent, milestone-driven paths to success.',
+      'We explain programme structures, credit requirements, and prerequisites without unnecessary jargon or ambiguous claims.',
     iconName: 'Sparkles',
   },
   {
     id: 'val-2',
-    title: 'Integrity',
+    title: 'Ethical Integrity',
     description:
-      'Unwavering ethical commitment. We champion authentic student accomplishments, honest self-appraisals, and genuine scholarship.',
+      'We uphold objective guidance. Every recommendation is based on verified eligibility, institutional requirements, and candidate fit.',
     iconName: 'ShieldCheck',
   },
   {
     id: 'val-3',
-    title: 'Intellectual Growth',
+    title: 'Informed Choices',
     description:
-      'We view every application, research paper, and examination as an opportunity to stretch curiosity and deepen analytical capabilities.',
+      'We help you compare academic pathways side by side so you can evaluate how well each option supports your goals.',
     iconName: 'TrendingUp',
   },
   {
     id: 'val-4',
-    title: 'Student-Centered Thinking',
+    title: 'Personalized Focus',
     description:
-      'No two learners are identical. Our frameworks respect individual learning temperaments, creative interests, and life goals.',
+      'No two academic journeys are identical. Our advisory respects individual background, prior education, and professional aspirations.',
     iconName: 'UserCheck',
   },
 ];
@@ -80,71 +80,71 @@ export const coreValuesData: ValueCardItem[] = [
 export const educationalApproachSteps: StepItem[] = [
   {
     step: 1,
-    title: 'Understand Individual Goals',
+    title: 'Initial Consultation',
     description:
-      'We begin with comprehensive diagnostic dialogues to understand scholastic interests, learning preferences, and long-range aspirations.',
+      'We discuss your educational background, subject interests, and professional experience to understand what you want to achieve.',
   },
   {
     step: 2,
-    title: 'Explore Suitable Opportunities',
+    title: 'Explore Relevant Options',
     description:
-      'We review accredited curricula, specialized research fellowships, and institutional programs that harmonize with the student’s profile.',
+      'We introduce suitable academic disciplines, degree tracks, and delivery formats that match your profile.',
   },
   {
     step: 3,
-    title: 'Clarify Requirements & Pathways',
+    title: 'Review Requirements & Eligibility',
     description:
-      'We deconstruct complex admissions standards, test schedules, and prerequisite coursework into understandable, manageable components.',
+      'We break down admissions standards, prerequisite coursework, documentation needs, and key submission deadlines.',
   },
   {
     step: 4,
-    title: 'Plan Practical Next Steps',
+    title: 'Plan Your Application',
     description:
-      'We construct a personalized, reviewable milestone calendar that balances rigorous academic targets with well-being and consistent progress.',
+      'We assist you with an organized checklist and clear milestone calendar to help you complete your application smoothly.',
   },
 ];
 
 export const whoWeServeAudiences = [
   {
-    title: 'Secondary School Scholars',
-    focus: 'Grades 9 – 12',
+    title: 'Undergraduate Candidates',
+    focus: 'Bachelor’s Programs',
     description:
-      'High school students seeking honors curriculum optimization, standardized test strategy, and university application readiness.',
+      'Students completing secondary education who seek clear guidance on selecting undergraduate majors, prerequisites, and university options.',
     iconName: 'BookOpen',
   },
   {
-    title: 'Aspiring Pre-Collegiate Researchers',
-    focus: 'STEM & Humanities',
+    title: 'Postgraduate Aspirants',
+    focus: 'Master’s Degrees',
     description:
-      'Scholars seeking formal mentorship in academic research, scientific literature review, and presentation at youth colloquiums.',
+      'Graduates and early-career professionals evaluating specialized Master’s tracks to advance their subject expertise or transition careers.',
+    iconName: 'GraduationCap',
+  },
+  {
+    title: 'Doctoral Candidates & Scholars',
+    focus: 'PhD & DBA Tracks',
+    description:
+      'Experienced professionals and researchers seeking structured advisory on terminal research doctorates, executive DBAs, or honorary distinctions.',
     iconName: 'Microscope',
   },
   {
-    title: 'International University Applicants',
-    focus: 'Global Pathways',
+    title: 'Professional Upskillers',
+    focus: 'Technical Certifications',
     description:
-      'Students navigating cross-border educational standards, credential equivalencies, language milestones, and international campus transitions.',
+      'Working professionals seeking practical, industry-aligned technical credentials in Full Stack Development, Cloud DevOps, Cybersecurity, or Data Science.',
     iconName: 'Globe',
-  },
-  {
-    title: 'Postgraduate & Fellow Candidates',
-    focus: 'Master’s & Doctoral',
-    description:
-      'Undergraduate seniors and early scholars drafting competitive statements of purpose and identifying faculty research advisors.',
-    iconName: 'GraduationCap',
   },
 ];
 
 export const aboutFinalCTA = {
-  heading: 'Partner With CademyX on Your Academic Path',
+  heading: 'Have Questions About Your Academic Next Steps?',
   description:
-    'Experience the difference of disciplined, thoughtful guidance. Schedule an initial consultation to discuss your academic objectives.',
+    'Schedule a consultation with our advisory team to discuss programme options, review eligibility criteria, and plan your educational journey.',
   primaryCta: {
     label: 'Explore Programs',
     href: '/programs',
   },
   secondaryCta: {
-    label: 'Connect With Our Advisory Team',
-    href: '/contact',
+    label: 'Schedule a Consultation',
+    href: '/schedule-a-consultation',
   },
 };

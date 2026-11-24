@@ -10,7 +10,6 @@ import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
 import { Button } from '@/components/ui/Button';
 import { CATEGORY_META } from '@/data/programs';
 import { staggerContainer, fadeUp, scaleReveal, pulseGlow } from '@/lib/motion';
-import { cn } from '@/lib/utils';
 
 export interface ProgramDetailHeroProps {
   program: Program;

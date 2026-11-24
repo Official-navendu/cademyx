@@ -17,10 +17,10 @@ export const WhyCademyX: React.FC = () => {
 
       <Container size="default" className="relative z-10">
         <SectionHeading
-          eyebrow="THE CADEMYX ADVANTAGE"
-          title="Why Scholars Choose Our Advisory Architecture"
-          highlightWords="Advisory Architecture"
-          description="We combine diagnostic depth, structured roadmaps, and dedicated mentorship to provide true academic direction."
+          eyebrow="THE CADEMYX APPROACH"
+          title="Why Candidates Choose CademyX for Academic Guidance"
+          highlightWords="Academic Guidance"
+          description="We provide clear information, personalized guidance, and structured application support to help you make informed educational decisions."
           align="center"
         />
 

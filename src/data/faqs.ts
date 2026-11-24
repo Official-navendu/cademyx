@@ -32,16 +32,16 @@ export const homeFAQs: FAQItem[] = [
   {
     id: 'faq-5',
     category: 'Admissions',
-    question: 'Do you guarantee admission or completion to specific universities?',
+    question: 'Do you guarantee admission to specific universities?',
     answer:
-      'No ethical educational advisory service can or should guarantee admissions to specific selective institutions. We guarantee rigorous, transparent mentorship, meticulous application preparation, and empowering each student to present their most compelling, authentic scholastic candidacy.',
+      'No ethical academic advisory platform guarantees admission to any institution. Admission decisions are made exclusively by university admissions committees based on their independent criteria. Our role is to provide objective guidance, structured application preparation, and clear support so you can present your credentials accurately and effectively.',
   },
   {
     id: 'faq-6',
     category: 'Recognition',
-    question: 'Are CademyX-guided programs and certifications recognized globally?',
+    question: 'How do I know if a programme is recognized?',
     answer:
-      'Yes. Our guidance frameworks adhere to international academic standards. All affiliated degree pathways and partner-aligned certifications maintain recognized accreditation standards, preparing scholars for worldwide academic and industry recognition.',
+      'CademyX advises candidates on academic programmes and technical certifications offered by recognized universities and organizations. We assist candidates in verifying curricular credentials, institutional approvals, and international evaluation standards before they apply.',
   },
   {
     id: 'faq-7',

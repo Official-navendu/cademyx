@@ -9,7 +9,6 @@ import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { X, ArrowRight, Phone, Mail, ChevronDown, Calendar, Sparkles } from 'lucide-react';
 import { headerNavigation } from '@/data/navigation';
 import { BRAND, CONTACT_INFO } from '@/lib/constants';
-import { programs } from '@/data/programs';
 import { SUBJECT_CATEGORIES, DOCTORATE_TRACKS_META, CERTIFICATION_TRACKS_META } from '@/data/categories';
 import { Button } from '@/components/ui/Button';
 import { cn } from '@/lib/utils';

@@ -21,7 +21,7 @@ export const Testimonials: React.FC = () => {
             eyebrow="SCHOLAR PERSPECTIVES"
             title="Reflections on the CademyX Experience"
             highlightWords="CademyX Experience"
-            description="Read how our structured guidance, research mentorship, and advisory milestones empower learners."
+            description="Read feedback from candidates and families on our structured guidance, academic roadmaps, and advisory support."
             align="center"
           />
         </div>

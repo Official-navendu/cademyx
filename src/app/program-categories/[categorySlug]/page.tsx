@@ -7,8 +7,6 @@ import {
   BookOpen,
   ArrowRight,
   ChevronRight,
-  Clock,
-  Layers,
   Target,
   CheckCircle2,
   HelpCircle,

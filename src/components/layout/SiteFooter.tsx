@@ -3,74 +3,69 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Mail, Phone, MapPin, ArrowRight, ShieldCheck, Clock } from 'lucide-react';
+import { Mail, Phone, MapPin, Clock, ArrowRight, ShieldCheck } from 'lucide-react';
 import { Container } from '@/components/ui/Container';
-import { footerNavigation } from '@/data/navigation';
 import { CONTACT_INFO } from '@/lib/constants';
 
 export const SiteFooter: React.FC = () => {
   const currentYear = 2026;
 
-  // Selected top program tracks derived from central catalog
-  const topPrograms = [
-    { label: 'B.Tech CSE', href: '/programs/b-tech-cse' },
-    { label: 'MBA in AI & Automation', href: '/programs/mba-ai-automation' },
-    { label: 'Master in Data Science', href: '/programs/master-data-science' },
-    { label: 'PhD Admission Program', href: '/programs/phd-admission-program' },
-    { label: 'Full Stack Development', href: '/programs/full-stack-development' },
-  ];
-
   return (
     <footer className="relative bg-[#101F70] text-white border-t border-[#DCE3FF]/20 mt-auto overflow-hidden">
-      {/* Top Luminous Section Divider Glow */}
-      <div className="absolute top-0 left-0 right-0 h-[1.5px] bg-gradient-to-r from-[#182A9A] via-[#DCE3FF]/40 to-[#182A9A] z-10" />
+      {/* Top Section Border Accent */}
+      <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[#182A9A] via-[#DCE3FF]/40 to-[#182A9A] z-10" />
 
-      {/* Atmospheric Lighting */}
-      <div className="absolute top-0 right-1/4 w-96 h-96 bg-gradient-to-b from-[#182A9A]/30 to-transparent rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 left-10 w-80 h-80 bg-gradient-to-t from-[#182A9A]/20 to-transparent rounded-full blur-2xl pointer-events-none" />
+      {/* Ambient Lighting */}
+      <div
+        className="pointer-events-none absolute top-0 right-1/4 w-96 h-96 bg-gradient-to-b from-[#182A9A]/25 to-transparent rounded-full blur-3xl"
+        aria-hidden="true"
+      />
+      <div
+        className="pointer-events-none absolute bottom-0 left-10 w-80 h-80 bg-gradient-to-t from-[#182A9A]/15 to-transparent rounded-full blur-2xl"
+        aria-hidden="true"
+      />
 
       <Container size="default" className="relative z-10">
-        {/* Main 5-Column Grid */}
-        <div className="py-16 sm:py-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8">
-          {/* Column 1 — Brand & Social Channels (4 cols on lg) */}
-          <div className="lg:col-span-4 flex flex-col space-y-5">
+        {/* Main 5-Column Responsive Grid */}
+        <div className="py-12 sm:py-16 lg:py-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-8">
+          {/* Section 1: Brand Column (4 cols on lg) */}
+          <div className="sm:col-span-2 lg:col-span-4 flex flex-col space-y-4">
             <Link
               href="/"
-              className="inline-block focus-visible:outline-2 focus-visible:outline-[#182A9A] rounded-xl transition-transform hover:scale-[1.01] w-fit"
-              aria-label="CademyX — We Setup the Academic Matrix of Your True Aim."
+              className="inline-block focus-visible:outline-2 focus-visible:outline-[#DCE3FF] rounded-lg transition-transform hover:opacity-95 w-fit"
+              aria-label="CademyX Home"
             >
               <Image
                 src="/assets/logo-white.png"
-                alt="CademyX — We Setup the Academic Matrix of Your True Aim."
+                alt="CademyX — Academic Guidance & Advisory"
                 width={180}
                 height={52}
-                className="h-8.5 sm:h-9.5 w-auto object-contain"
+                className="h-8 sm:h-9 w-auto object-contain"
                 priority
               />
             </Link>
 
             <p className="text-xs sm:text-sm text-[#DCE3FF]/90 leading-relaxed max-w-sm font-normal">
-              {footerNavigation.brandDescription}
+              CademyX is an academic guidance and advisory platform helping students and candidates understand academic programmes, evaluate options, and make informed educational decisions.
             </p>
 
-            <div className="flex items-center gap-2.5 text-xs text-[#DCE3FF]">
+            <div className="flex items-center gap-2 text-xs text-[#DCE3FF]/80 pt-1">
               <ShieldCheck className="h-4 w-4 text-[#DCE3FF] shrink-0" aria-hidden="true" />
-              <span className="font-semibold">Ethical academic guidance &amp; structured mentorship</span>
+              <span className="font-medium">Ethical academic guidance &amp; structured advisement</span>
             </div>
 
-            {/* Official Social Media Channels with authentic SVGs and real brand colors */}
+            {/* Social Media Channels */}
             <div className="pt-2">
-              <span className="text-[11px] font-bold uppercase tracking-wider text-[#DCE3FF]/70 block mb-3">
-                Official Channels &amp; Communities
+              <span className="text-[11px] font-bold uppercase tracking-wider text-[#DCE3FF]/70 block mb-2.5">
+                Official Channels
               </span>
               <div className="flex items-center gap-2.5">
-                {/* Facebook (#1877F2) */}
                 <a
                   href="https://facebook.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label="Visit Facebook (CademyX official updates)"
-                  title="Facebook: CademyX Official"
+                  aria-label="Visit Facebook (CademyX updates)"
+                  title="Facebook: CademyX"
                   className="w-9 h-9 rounded-xl bg-[#1877F2] text-white flex items-center justify-center hover:opacity-90 hover:scale-105 transition-all shadow-xs"
                 >
                   <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
@@ -78,13 +73,12 @@ export const SiteFooter: React.FC = () => {
                   </svg>
                 </a>
 
-                {/* Instagram (Official Brand Gradient) */}
                 <a
                   href="https://instagram.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label="Visit Instagram (CademyX campus & academic life)"
-                  title="Instagram: CademyX Community"
+                  aria-label="Visit Instagram (CademyX academic life)"
+                  title="Instagram: CademyX"
                   className="w-9 h-9 rounded-xl text-white flex items-center justify-center hover:opacity-90 hover:scale-105 transition-all shadow-xs bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888]"
                 >
                   <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
@@ -92,13 +86,12 @@ export const SiteFooter: React.FC = () => {
                   </svg>
                 </a>
 
-                {/* LinkedIn (#0A66C2) */}
                 <a
                   href="https://linkedin.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label="Visit LinkedIn (CademyX academic research & network)"
-                  title="LinkedIn: CademyX Network"
+                  aria-label="Visit LinkedIn (CademyX Network)"
+                  title="LinkedIn: CademyX"
                   className="w-9 h-9 rounded-xl bg-[#0A66C2] text-white flex items-center justify-center hover:opacity-90 hover:scale-105 transition-all shadow-xs"
                 >
                   <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
@@ -106,7 +99,6 @@ export const SiteFooter: React.FC = () => {
                   </svg>
                 </a>
 
-                {/* X / Twitter (#000000 / Dark) */}
                 <a
                   href="https://x.com"
                   target="_blank"
@@ -120,12 +112,11 @@ export const SiteFooter: React.FC = () => {
                   </svg>
                 </a>
 
-                {/* WhatsApp (#25D366) */}
                 <a
-                  href="https://wa.me/"
+                  href={`https://wa.me/${CONTACT_INFO.whatsappNumber}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label="Connect on WhatsApp (Advisory assistance)"
+                  aria-label="Connect on WhatsApp"
                   title="WhatsApp: Direct Advisory"
                   className="w-9 h-9 rounded-xl bg-[#25D366] text-white flex items-center justify-center hover:opacity-90 hover:scale-105 transition-all shadow-xs"
                 >
@@ -137,16 +128,16 @@ export const SiteFooter: React.FC = () => {
             </div>
           </div>
 
-          {/* Column 2 — Quick Links (2 cols on lg) */}
+          {/* Section 2: Explore Column (2 cols on lg) */}
           <div className="lg:col-span-2">
-            <h3 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#DCE3FF] mb-4">
-              Quick Links
+            <h3 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#DCE3FF] mb-3 sm:mb-4">
+              Explore
             </h3>
-            <ul className="space-y-2.5 text-xs sm:text-sm">
+            <ul className="space-y-2 sm:space-y-2.5 text-xs sm:text-sm">
               <li>
                 <Link
                   href="/"
-                  className="text-[#DCE3FF]/80 hover:text-white transition-colors inline-block"
+                  className="text-[#DCE3FF]/80 hover:text-white transition-colors inline-block py-1 sm:py-0"
                 >
                   Home
                 </Link>
@@ -154,42 +145,45 @@ export const SiteFooter: React.FC = () => {
               <li>
                 <Link
                   href="/about"
-                  className="text-[#DCE3FF]/80 hover:text-white transition-colors inline-block"
+                  className="text-[#DCE3FF]/80 hover:text-white transition-colors inline-block py-1 sm:py-0"
                 >
-                  About Us
+                  About
                 </Link>
               </li>
               <li>
                 <Link
                   href="/programs"
-                  className="text-[#DCE3FF]/80 hover:text-white transition-colors inline-block"
+                  className="text-[#DCE3FF]/80 hover:text-white transition-colors inline-block py-1 sm:py-0"
                 >
-                  Academic Programs
+                  Programs
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/contact"
-                  className="text-[#DCE3FF]/80 hover:text-white transition-colors inline-block"
+                  href="/blog"
+                  className="text-[#DCE3FF]/80 hover:text-white transition-colors inline-block py-1 sm:py-0"
                 >
-                  Contact &amp; Advisory
+                  Blog
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Column 3 — Programs (2 cols on lg) */}
-          <div className="lg:col-span-2">
-            <h3 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#DCE3FF] mb-4">
-              Programs
+          {/* Section 3: Academic Programmes (3 cols on lg) */}
+          <div className="lg:col-span-3">
+            <h3 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#DCE3FF] mb-3 sm:mb-4">
+              Academic Programmes
             </h3>
 
-            {/* Category Page Links */}
-            <div className="space-y-2 text-xs sm:text-sm">
+            {/* Subject Categories */}
+            <div className="space-y-1.5 text-xs sm:text-sm mb-3">
+              <span className="text-[10px] font-bold uppercase tracking-wider text-[#DCE3FF]/60 block mb-1">
+                Subject Disciplines
+              </span>
               <div>
                 <Link
                   href="/program-categories/management-business"
-                  className="text-[#DCE3FF]/80 hover:text-white transition-colors inline-block font-semibold"
+                  className="text-[#DCE3FF]/80 hover:text-white transition-colors inline-block py-0.5"
                 >
                   Management &amp; Business
                 </Link>
@@ -197,7 +191,7 @@ export const SiteFooter: React.FC = () => {
               <div>
                 <Link
                   href="/program-categories/computer-science-it"
-                  className="text-[#DCE3FF]/80 hover:text-white transition-colors inline-block font-semibold"
+                  className="text-[#DCE3FF]/80 hover:text-white transition-colors inline-block py-0.5"
                 >
                   Computer Science &amp; IT
                 </Link>
@@ -205,175 +199,182 @@ export const SiteFooter: React.FC = () => {
               <div>
                 <Link
                   href="/program-categories/artificial-intelligence"
-                  className="text-[#DCE3FF]/80 hover:text-white transition-colors inline-block font-semibold"
+                  className="text-[#DCE3FF]/80 hover:text-white transition-colors inline-block py-0.5"
                 >
                   Artificial Intelligence
                 </Link>
               </div>
               <div>
                 <Link
-                  href="/program-categories/data-science-analytics"
-                  className="text-[#DCE3FF]/80 hover:text-white transition-colors inline-block font-semibold"
-                >
-                  Data Science &amp; Analytics
-                </Link>
-              </div>
-              <div>
-                <Link
-                  href="/program-categories/engineering-technology"
-                  className="text-[#DCE3FF]/80 hover:text-white transition-colors inline-block font-semibold"
-                >
-                  Engineering &amp; Technology
-                </Link>
-              </div>
-              <div>
-                <Link
                   href="/programs"
-                  className="text-[#DCE3FF] hover:underline transition-colors inline-flex items-center gap-1 font-bold pt-1"
+                  className="text-[#DCE3FF] hover:underline transition-colors inline-flex items-center gap-1 font-semibold text-xs pt-0.5"
                 >
-                  <span>All 15 Disciplines</span>
+                  <span>View All 15 Disciplines</span>
                   <ArrowRight className="w-3 h-3" />
                 </Link>
               </div>
             </div>
 
-            {/* Selected Top Tracks */}
-            <div className="pt-3 mt-3 border-t border-[#DCE3FF]/20">
-              <span className="text-[10px] uppercase font-bold text-[#DCE3FF]/60 tracking-wider block mb-2">
-                Featured Tracks
+            {/* Doctorate Tracks */}
+            <div className="pt-2.5 border-t border-[#DCE3FF]/20 mb-3">
+              <span className="text-[10px] font-bold uppercase tracking-wider text-[#DCE3FF]/60 block mb-1">
+                Doctorate Pathways
               </span>
-              <ul className="space-y-1.5 text-xs">
-                {topPrograms.slice(0, 3).map((p) => (
-                  <li key={p.href}>
-                    <Link
-                      href={p.href}
-                      className="text-[#DCE3FF]/70 hover:text-white transition-colors line-clamp-1"
-                    >
-                      {p.label}
-                    </Link>
-                  </li>
-                ))}
+              <ul className="space-y-1 text-xs">
+                <li>
+                  <Link
+                    href="/programs/honorary-doctorate"
+                    className="text-[#DCE3FF]/80 hover:text-white transition-colors inline-block py-0.5"
+                  >
+                    Honorary Doctorate
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/programs/phd-admission-program"
+                    className="text-[#DCE3FF]/80 hover:text-white transition-colors inline-block py-0.5"
+                  >
+                    PhD Admission Program
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/programs/dba-program"
+                    className="text-[#DCE3FF]/80 hover:text-white transition-colors inline-block py-0.5"
+                  >
+                    DBA Program
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* Certifications */}
+            <div className="pt-2.5 border-t border-[#DCE3FF]/20">
+              <span className="text-[10px] font-bold uppercase tracking-wider text-[#DCE3FF]/60 block mb-1">
+                Certifications
+              </span>
+              <ul className="space-y-1 text-xs">
+                <li>
+                  <Link
+                    href="/programs/full-stack-development"
+                    className="text-[#DCE3FF]/80 hover:text-white transition-colors inline-block py-0.5"
+                  >
+                    Full Stack Development
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/programs/cloud-computing-devops"
+                    className="text-[#DCE3FF]/80 hover:text-white transition-colors inline-block py-0.5"
+                  >
+                    Cloud Computing &amp; DevOps
+                  </Link>
+                </li>
               </ul>
             </div>
           </div>
 
-          {/* Column 4 — Resources (2 cols on lg) */}
-          <div className="lg:col-span-2">
-            <h3 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#DCE3FF] mb-4">
-              Resources
-            </h3>
-            <ul className="space-y-2.5 text-xs sm:text-sm text-[#DCE3FF]/80">
-              <li>
-                <Link
-                  href="/blog"
-                  className="hover:text-white transition-colors inline-block font-medium"
-                >
-                  Academic Pathways Guide
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/blog"
-                  className="hover:text-white transition-colors inline-block font-medium"
-                >
-                  Educational Articles
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/about#faqs"
-                  className="hover:text-white transition-colors inline-block font-medium"
-                >
-                  Advisory FAQs
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/programs"
-                  className="hover:text-white transition-colors inline-block font-medium"
-                >
-                  Course Catalog
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/about"
-                  className="hover:text-white transition-colors inline-block font-medium"
-                >
-                  Advisory Standards
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Column 5 — Advisory Office / Contact (2 cols on lg) */}
-          <div className="lg:col-span-2">
-            <h3 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#DCE3FF] mb-4">
-              Advisory Office
-            </h3>
-            <ul className="space-y-3 text-xs sm:text-sm text-[#DCE3FF]/80">
-              <li className="flex items-start gap-2.5">
-                <MapPin className="h-4 w-4 text-[#DCE3FF] shrink-0 mt-0.5" aria-hidden="true" />
-                <span className="leading-snug">{CONTACT_INFO.address}</span>
-              </li>
-              <li className="flex items-start gap-2.5">
-                <Mail className="h-4 w-4 text-[#DCE3FF] shrink-0 mt-0.5" aria-hidden="true" />
-                <div className="flex flex-col gap-0.5">
-                  <a
-                    href={`mailto:${CONTACT_INFO.primaryEmail}`}
-                    className="hover:text-white transition-colors underline-offset-4 hover:underline"
+          {/* Section 4: Support & Information + Contact Info (3 cols on lg) */}
+          <div className="sm:col-span-2 lg:col-span-3 space-y-6">
+            {/* Support & Information Links */}
+            <div>
+              <h3 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#DCE3FF] mb-3 sm:mb-4">
+                Support &amp; Information
+              </h3>
+              <ul className="space-y-2 text-xs sm:text-sm text-[#DCE3FF]/80">
+                <li>
+                  <Link href="/contact" className="hover:text-white transition-colors inline-block py-0.5">
+                    Contact
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/schedule-a-consultation"
+                    className="hover:text-white transition-colors inline-block py-0.5"
                   >
-                    {CONTACT_INFO.primaryEmail}
-                  </a>
-                  <a
-                    href={`mailto:${CONTACT_INFO.secondaryEmail}`}
-                    className="hover:text-white transition-colors underline-offset-4 hover:underline text-[#DCE3FF]/70"
+                    Schedule a Consultation
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/privacy-policy" className="hover:text-white transition-colors inline-block py-0.5">
+                    Privacy Policy
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/terms-and-conditions"
+                    className="hover:text-white transition-colors inline-block py-0.5"
                   >
-                    {CONTACT_INFO.secondaryEmail}
-                  </a>
-                </div>
-              </li>
-              <li className="flex items-center gap-2.5">
-                <Phone className="h-4 w-4 text-[#DCE3FF] shrink-0" aria-hidden="true" />
-                <a
-                  href={`tel:${CONTACT_INFO.phoneRaw}`}
-                  className="hover:text-white transition-colors font-medium"
-                >
-                  {CONTACT_INFO.phone}
-                </a>
-              </li>
-              <li className="flex items-start gap-2.5 pt-1 text-[11px] text-[#DCE3FF]/60">
-                <Clock className="h-3.5 w-3.5 text-[#DCE3FF] shrink-0 mt-0.5" aria-hidden="true" />
-                <span>{CONTACT_INFO.businessHours}</span>
-              </li>
-            </ul>
+                    Terms &amp; Conditions
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/cookie-policy" className="hover:text-white transition-colors inline-block py-0.5">
+                    Cookie Policy
+                  </Link>
+                </li>
+              </ul>
+            </div>
 
-            <div className="mt-4 pt-3 border-t border-[#DCE3FF]/20">
-              <Link
-                href="/contact"
-                className="text-xs font-bold text-white hover:text-[#DCE3FF] inline-flex items-center gap-1.5 transition-colors"
-              >
-                <span>Advisory Inquiry</span>
-                <ArrowRight className="h-3 w-3 text-[#DCE3FF]" />
-              </Link>
+            {/* Contact Information Details */}
+            <div className="pt-4 border-t border-[#DCE3FF]/20">
+              <h4 className="text-xs font-bold uppercase tracking-wider text-[#DCE3FF] mb-3">
+                Advisory Contact
+              </h4>
+              <ul className="space-y-2.5 text-xs text-[#DCE3FF]/85">
+                <li className="flex items-start gap-2.5">
+                  <MapPin className="h-4 w-4 text-[#DCE3FF] shrink-0 mt-0.5" aria-hidden="true" />
+                  <span className="leading-snug break-words">{CONTACT_INFO.address}</span>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <Mail className="h-4 w-4 text-[#DCE3FF] shrink-0 mt-0.5" aria-hidden="true" />
+                  <div className="flex flex-col gap-0.5 min-w-0">
+                    <a
+                      href={`mailto:${CONTACT_INFO.primaryEmail}`}
+                      className="hover:text-white transition-colors truncate underline-offset-4 hover:underline"
+                    >
+                      {CONTACT_INFO.primaryEmail}
+                    </a>
+                    <a
+                      href={`mailto:${CONTACT_INFO.secondaryEmail}`}
+                      className="hover:text-white transition-colors truncate underline-offset-4 hover:underline text-[#DCE3FF]/70"
+                    >
+                      {CONTACT_INFO.secondaryEmail}
+                    </a>
+                  </div>
+                </li>
+                <li className="flex items-center gap-2.5">
+                  <Phone className="h-4 w-4 text-[#DCE3FF] shrink-0" aria-hidden="true" />
+                  <a
+                    href={`tel:${CONTACT_INFO.phoneRaw}`}
+                    className="hover:text-white transition-colors font-medium"
+                  >
+                    {CONTACT_INFO.phone}
+                  </a>
+                </li>
+                <li className="flex items-start gap-2.5 text-[11px] text-[#DCE3FF]/60">
+                  <Clock className="h-3.5 w-3.5 text-[#DCE3FF] shrink-0 mt-0.5" aria-hidden="true" />
+                  <span>{CONTACT_INFO.businessHours}</span>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
 
         {/* Bottom Bar: Copyright & Legal */}
-        <div className="py-7 border-t border-[#DCE3FF]/20 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#DCE3FF]/70">
+        <div className="py-6 sm:py-7 border-t border-[#DCE3FF]/20 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#DCE3FF]/70 text-center sm:text-left">
           <p suppressHydrationWarning>© {currentYear} CademyX. All rights reserved.</p>
 
-          <div className="flex flex-wrap items-center gap-4 sm:gap-6">
-            {footerNavigation.legalLinks.map((link) => (
-              <Link
-                key={link.label}
-                href={link.href}
-                className="hover:text-white transition-colors"
-              >
-                {link.label}
-              </Link>
-            ))}
+          <div className="flex flex-wrap items-center justify-center sm:justify-end gap-3.5 sm:gap-6">
+            <Link href="/privacy-policy" className="hover:text-white transition-colors py-1 sm:py-0">
+              Privacy Policy
+            </Link>
+            <Link href="/terms-and-conditions" className="hover:text-white transition-colors py-1 sm:py-0">
+              Terms &amp; Conditions
+            </Link>
+            <Link href="/cookie-policy" className="hover:text-white transition-colors py-1 sm:py-0">
+              Cookie Policy
+            </Link>
             <button
               type="button"
               onClick={() => {
@@ -381,7 +382,7 @@ export const SiteFooter: React.FC = () => {
                   window.dispatchEvent(new CustomEvent('cademyx:open-cookie-preferences'));
                 }
               }}
-              className="hover:text-white transition-colors cursor-pointer text-left"
+              className="hover:text-white transition-colors cursor-pointer py-1 sm:py-0"
             >
               Cookie Preferences
             </button>
