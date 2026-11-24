@@ -32,25 +32,25 @@ export const ProgramsHero: React.FC<ProgramsHeroProps> = ({
   const categoryCounts = getCategoryCounts();
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-[#061B35] via-[#061B35] to-[#061B35] py-6 sm:py-8 lg:py-10 border-b border-[#075AC8]/60 bg-grain text-white">
+    <section className="relative overflow-hidden bg-[#101F70] py-6 sm:py-8 lg:py-10 border-b border-[#DCE3FF]/20 bg-grain text-white">
       {/* Background Illumination & Academic Atmospheric Lighting */}
       <div
-        className="pointer-events-none absolute -top-32 right-1/4 h-[420px] w-[420px] rounded-full bg-gradient-to-br from-[#F4B72F]/14 to-transparent blur-3xl"
+        className="pointer-events-none absolute -top-32 right-1/4 h-[420px] w-[420px] rounded-full bg-gradient-to-br from-[#182A9A]/30 to-transparent blur-3xl"
         aria-hidden="true"
       />
       <div
-        className="pointer-events-none absolute bottom-0 left-10 h-64 w-64 rounded-full bg-[#075AC8]/35 blur-2xl"
+        className="pointer-events-none absolute bottom-0 left-10 h-64 w-64 rounded-full bg-[#182A9A]/30 blur-2xl"
         aria-hidden="true"
       />
       <div className="absolute inset-0 bg-academic-grid-dark opacity-45 pointer-events-none" />
 
       {/* Top Hairline Sheen */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#F4B72F]/40 to-transparent pointer-events-none" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#DCE3FF]/30 to-transparent pointer-events-none" />
 
       <Container size="default" className="relative z-10">
         <Breadcrumbs
           items={[{ label: 'Programs' }]}
-          className="py-1 text-slate-300 [&_a]:text-slate-300 [&_a:hover]:text-[#F4B72F] [&_span]:text-slate-100"
+          className="py-1 text-slate-300 [&_a]:text-slate-300 [&_a:hover]:text-[#DCE3FF] [&_span]:text-slate-100"
         />
 
         <motion.div
@@ -64,10 +64,10 @@ export const ProgramsHero: React.FC<ProgramsHeroProps> = ({
             {/* Eyebrow */}
             <motion.div
               variants={fadeUp}
-              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#061B35]/90 border border-[#F4B72F]/40 text-xs font-bold mb-3 shadow-xs backdrop-blur-md"
+              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0D1959]/90 border border-[#DCE3FF]/30 text-xs font-bold mb-3 shadow-xs backdrop-blur-md"
             >
-              <Sparkles className="w-3.5 h-3.5 text-[#F4B72F] animate-pulse" />
-              <span className="text-[11px] font-extrabold tracking-wider uppercase gold-gradient-text">
+              <Sparkles className="w-3.5 h-3.5 text-[#DCE3FF]" />
+              <span className="text-[11px] font-extrabold tracking-wider uppercase text-[#DCE3FF]">
                 Academic Catalogue • {totalCount} Specialized Tracks
               </span>
             </motion.div>
@@ -78,10 +78,10 @@ export const ProgramsHero: React.FC<ProgramsHeroProps> = ({
               className="hero-headline text-white font-extrabold tracking-tight leading-[1.1]"
             >
               Find the Program That{' '}
-              <span className="gold-gradient-text relative inline-block">
+              <span className="text-[#DCE3FF] relative inline-block">
                 Moves You Forward
                 <span
-                  className="absolute -bottom-1 left-0 w-full h-[3px] bg-gradient-to-r from-[#F4B72F] to-[#F4B72F] rounded-full"
+                  className="absolute -bottom-1 left-0 w-full h-[3px] bg-gradient-to-r from-[#182A9A] to-[#DCE3FF] rounded-full"
                   aria-hidden="true"
                 />
               </span>
@@ -99,7 +99,7 @@ export const ProgramsHero: React.FC<ProgramsHeroProps> = ({
             {/* Interactive Search Input Box in Hero */}
             <motion.div variants={fadeUp} className="mt-5 w-full max-w-xl">
               <div className="relative flex items-center">
-                <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4 text-[#F4B72F]">
+                <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4 text-[#DCE3FF]">
                   <Search className="h-4.5 w-4.5" aria-hidden="true" />
                 </div>
                 <input
@@ -108,7 +108,7 @@ export const ProgramsHero: React.FC<ProgramsHeroProps> = ({
                   onChange={(e) => onSearchChange?.(e.target.value)}
                   placeholder="Search by program title, category, or focus area..."
                   aria-label="Search academic programs"
-                  className="w-full rounded-xl bg-[#061B35]/95 border-2 border-[#F4B72F]/50 py-3 pl-11 pr-11 text-sm sm:text-base text-white placeholder-slate-400 backdrop-blur-md shadow-xl transition-all focus:border-[#F4B72F] focus:bg-[#061B35] focus:ring-4 focus:ring-[#F4B72F]/20 focus:outline-none"
+                  className="w-full rounded-xl bg-[#0D1959]/95 border-2 border-[#DCE3FF]/30 py-3 pl-11 pr-11 text-sm sm:text-base text-white placeholder-slate-400 backdrop-blur-md shadow-xl transition-all focus:border-[#182A9A] focus:bg-[#0D1959] focus:ring-4 focus:ring-[#182A9A]/20 focus:outline-none"
                 />
                 {searchQuery && (
                   <button
@@ -131,7 +131,7 @@ export const ProgramsHero: React.FC<ProgramsHeroProps> = ({
                 className={cn(
                   'px-3 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5',
                   selectedCategory === 'All'
-                    ? 'bg-[#F4B72F] text-[#061B35] shadow-md border border-[#F4B72F]'
+                    ? 'bg-[#182A9A] text-white shadow-md border border-[#DCE3FF]/40'
                     : 'bg-white/10 text-slate-300 hover:bg-white/15 hover:text-white border border-white/15'
                 )}
               >
@@ -153,7 +153,7 @@ export const ProgramsHero: React.FC<ProgramsHeroProps> = ({
                     className={cn(
                       'px-3 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5',
                       isSelected
-                        ? 'bg-[#F4B72F] text-[#061B35] shadow-md border border-[#F4B72F]'
+                        ? 'bg-[#182A9A] text-white shadow-md border border-[#DCE3FF]/40'
                         : 'bg-white/10 text-slate-300 hover:bg-white/15 hover:text-white border border-white/15'
                     )}
                   >
@@ -162,12 +162,12 @@ export const ProgramsHero: React.FC<ProgramsHeroProps> = ({
                       style={{
                         backgroundColor:
                           cat === 'Bachelor'
-                            ? '#F59E0B'
+                            ? '#DCE3FF'
                             : cat === 'Doctorate'
-                            ? '#C084FC'
+                            ? '#FFFFFF'
                             : cat === 'Masters'
-                            ? '#60A5FA'
-                            : '#34D399',
+                            ? '#93B5FF'
+                            : '#60A5FA',
                       }}
                       aria-hidden="true"
                     />
@@ -189,15 +189,15 @@ export const ProgramsHero: React.FC<ProgramsHeroProps> = ({
               <motion.div
                 variants={pulseGlow}
                 animate="animate"
-                className="absolute -inset-4 rounded-3xl bg-gradient-to-tr from-[#F4B72F]/25 via-[#075AC8]/30 to-transparent blur-2xl pointer-events-none"
+                className="absolute -inset-4 rounded-3xl bg-gradient-to-tr from-[#182A9A]/30 via-[#101F70]/40 to-transparent blur-2xl pointer-events-none"
               />
 
-              {/* Offset Gold Frame */}
-              <div className="absolute -inset-2.5 sm:-inset-3.5 rounded-2xl border border-[#F4B72F]/40 pointer-events-none transition-transform duration-500" />
+              {/* Offset Frame */}
+              <div className="absolute -inset-2.5 sm:-inset-3.5 rounded-2xl border border-[#DCE3FF]/30 pointer-events-none transition-transform duration-500" />
 
               {/* Visual Frame */}
-              <div className="relative rounded-2xl overflow-hidden border-2 border-[#F4B72F]/60 shadow-2xl bg-[#061B35] p-1.5 group">
-                <div className="aspect-[4/3] relative w-full rounded-xl overflow-hidden bg-[#061B35]">
+              <div className="relative rounded-2xl overflow-hidden border-2 border-[#DCE3FF]/30 shadow-2xl bg-[#101F70] p-1.5 group">
+                <div className="aspect-[4/3] relative w-full rounded-xl overflow-hidden bg-[#101F70]">
                   <Image
                     src="/assets/images/hero/programs-hero.jpg"
                     alt="CademyX Contemporary Academic Library and University Program Discovery"
@@ -207,32 +207,32 @@ export const ProgramsHero: React.FC<ProgramsHeroProps> = ({
                     className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                   />
                   {/* Dark Navy Gradient Overlay at Bottom */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#061B35]/90 via-[#061B35]/25 to-transparent pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#101F70]/90 via-[#101F70]/25 to-transparent pointer-events-none" />
 
-                  {/* Corner Gold Accent L-bracket marks */}
-                  <div className="absolute top-2.5 left-2.5 w-4 h-4 border-t-2 border-l-2 border-[#F4B72F]/80 pointer-events-none" />
-                  <div className="absolute bottom-2.5 right-2.5 w-4 h-4 border-b-2 border-r-2 border-[#F4B72F]/80 pointer-events-none" />
+                  {/* Corner Accent L-bracket marks */}
+                  <div className="absolute top-2.5 left-2.5 w-4 h-4 border-t-2 border-l-2 border-[#DCE3FF]/80 pointer-events-none" />
+                  <div className="absolute bottom-2.5 right-2.5 w-4 h-4 border-b-2 border-r-2 border-[#DCE3FF]/80 pointer-events-none" />
                 </div>
 
                 {/* Floating Academic Badges Micro-Strip */}
-                <div className="absolute bottom-3 left-3 right-3 bg-[#061B35]/90 backdrop-blur-md px-3 py-2 rounded-xl border border-[#F4B72F]/40 shadow-lg flex items-center justify-between text-[10px] sm:text-[11px] font-semibold text-slate-200">
+                <div className="absolute bottom-3 left-3 right-3 bg-[#101F70]/95 backdrop-blur-md px-3 py-2 rounded-xl border border-[#DCE3FF]/30 shadow-lg flex items-center justify-between text-[10px] sm:text-[11px] font-semibold text-slate-200">
                   <div className="flex items-center gap-1">
-                    <BookOpen className="h-3.5 w-3.5 text-amber-400" />
+                    <BookOpen className="h-3.5 w-3.5 text-[#DCE3FF]" />
                     <span>Bachelors</span>
                   </div>
                   <span className="text-white/30">•</span>
                   <div className="flex items-center gap-1">
-                    <Award className="h-3.5 w-3.5 text-blue-400" />
+                    <Award className="h-3.5 w-3.5 text-[#DCE3FF]" />
                     <span>Masters</span>
                   </div>
                   <span className="text-white/30">•</span>
                   <div className="flex items-center gap-1">
-                    <GraduationCap className="h-3.5 w-3.5 text-purple-400" />
+                    <GraduationCap className="h-3.5 w-3.5 text-[#DCE3FF]" />
                     <span>Doctorates</span>
                   </div>
                   <span className="text-white/30">•</span>
                   <div className="flex items-center gap-1">
-                    <Sparkles className="h-3.5 w-3.5 text-emerald-400" />
+                    <Sparkles className="h-3.5 w-3.5 text-[#DCE3FF]" />
                     <span>Certificates</span>
                   </div>
                 </div>

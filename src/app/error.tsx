@@ -28,11 +28,11 @@ export default function ErrorBoundary({
           An Unexpected Error Occurred
         </p>
 
-        <h1 className="text-3xl sm:text-4xl font-extrabold text-[#061B35] tracking-tight">
+        <h1 className="text-3xl sm:text-4xl font-extrabold text-[#101F70] tracking-tight">
           We Encountered a Problem
         </h1>
 
-        <p className="mt-4 text-base text-[#5A6A85] max-w-lg mx-auto leading-relaxed">
+        <p className="mt-4 text-base text-[#26345C] max-w-lg mx-auto leading-relaxed">
           Our application encountered an unexpected state while loading this page. You can attempt to refresh the view or return to the homepage.
         </p>
 

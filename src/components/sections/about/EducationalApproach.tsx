@@ -9,9 +9,9 @@ import { staggerContainer, staggerItem, defaultViewport } from '@/lib/motion';
 
 export const EducationalApproach: React.FC = () => {
   return (
-    <section id="approach" className="relative py-20 sm:py-24 lg:py-28 bg-[#F5F7FB] border-b border-[#E2E8F0] overflow-hidden bg-grain">
+    <section id="approach" className="relative py-20 sm:py-24 lg:py-28 bg-[#F3F5FF] border-b border-[#DCE3FF] overflow-hidden bg-grain">
       {/* Background Radial Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-gradient-to-r from-[#F4B72F]/[0.05] via-[#061B35]/[0.03] to-transparent rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-gradient-to-r from-[#182A9A]/[0.05] via-[#101F70]/[0.03] to-transparent rounded-full blur-3xl pointer-events-none" />
 
       <Container size="default" className="relative z-10">
         <SectionHeading
@@ -25,7 +25,7 @@ export const EducationalApproach: React.FC = () => {
         {/* Timeline Progression Container */}
         <div className="relative">
           {/* Horizontal Desktop Connecting Progression Line */}
-          <div className="hidden lg:block absolute top-[45px] left-12 right-12 h-[2px] bg-gradient-to-r from-[#F4B72F]/20 via-[#F4B72F]/50 to-[#F4B72F]/20 z-0 pointer-events-none" />
+          <div className="hidden lg:block absolute top-[45px] left-12 right-12 h-[2px] bg-gradient-to-r from-[#182A9A]/10 via-[#182A9A]/30 to-[#182A9A]/10 z-0 pointer-events-none" />
 
           <motion.div
             variants={staggerContainer}
@@ -36,30 +36,30 @@ export const EducationalApproach: React.FC = () => {
           >
             {educationalApproachSteps.map((step) => (
               <motion.div key={step.step} variants={staggerItem} className="h-full">
-                <div className="group relative flex flex-col h-full p-7 rounded-2xl bg-white border border-[#E2E8F0] shadow-sm hover:border-[#F4B72F] transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 gold-glow-card overflow-hidden">
-                  {/* Top Gold Hover Glow Line */}
-                  <div className="absolute top-0 left-0 right-0 h-[2.5px] bg-gradient-to-r from-transparent via-[#F4B72F] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="group relative flex flex-col h-full p-7 rounded-2xl bg-white border border-[#DCE3FF] shadow-sm hover:border-[#182A9A] transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 overflow-hidden">
+                  {/* Top Blue Hover Glow Line */}
+                  <div className="absolute top-0 left-0 right-0 h-[2.5px] bg-gradient-to-r from-transparent via-[#182A9A] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
                   <div className="flex items-center justify-between mb-5">
-                    <span className="h-12 w-12 rounded-2xl bg-gradient-to-br from-[#061B35] via-[#061B35] to-[#075AC8] text-[#F4B72F] font-extrabold text-base flex items-center justify-center border border-[#075AC8] shadow-xs group-hover:scale-105 group-hover:border-[#F4B72F]/50 transition-all duration-300">
+                    <span className="h-12 w-12 rounded-2xl bg-gradient-to-br from-[#101F70] via-[#101F70] to-[#182A9A] text-white font-extrabold text-base flex items-center justify-center border border-[#182A9A] shadow-xs group-hover:scale-105 group-hover:border-[#DCE3FF] transition-all duration-300">
                       0{step.step}
                     </span>
-                    <span className="text-xs font-bold uppercase tracking-wider text-[#D99519] bg-gradient-to-r from-[#F4B72F]/15 to-[#F4B72F]/20 px-3 py-1 rounded-full border border-[#F4B72F]/35 shadow-2xs">
+                    <span className="text-xs font-bold uppercase tracking-wider text-[#182A9A] bg-[#F3F5FF] px-3 py-1 rounded-full border border-[#DCE3FF] shadow-2xs">
                       Phase 0{step.step}
                     </span>
                   </div>
 
-                  <h3 className="card-headline font-bold text-[#061B35] mb-2 leading-snug group-hover:text-[#061B35] transition-colors">
+                  <h3 className="card-headline font-bold text-[#101F70] mb-2 leading-snug">
                     {step.title}
                   </h3>
 
-                  <p className="mt-2 text-sm text-[#5A6A85] leading-relaxed flex-1 font-normal">
+                  <p className="mt-2 text-sm text-[#26345C] leading-relaxed flex-1 font-normal">
                     {step.description}
                   </p>
 
-                  <div className="mt-6 pt-4 border-t border-[#F1F5F9] flex items-center justify-between text-xs font-bold text-[#D99519]">
+                  <div className="mt-6 pt-4 border-t border-[#DCE3FF]/40 flex items-center justify-between text-xs font-bold text-[#182A9A]">
                     <span>Standardized Milestone</span>
-                    <span className="h-1.5 w-1.5 rounded-full bg-[#F4B72F]" />
+                    <span className="h-1.5 w-1.5 rounded-full bg-[#182A9A]" />
                   </div>
                 </div>
               </motion.div>

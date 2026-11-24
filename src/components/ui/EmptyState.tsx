@@ -21,15 +21,15 @@ export const EmptyState: React.FC<EmptyStateProps> = ({
   return (
     <div
       className={cn(
-        'flex flex-col items-center justify-center text-center p-8 sm:p-12 rounded-2xl border border-dashed border-[#CBD5E1] bg-[#F8FAFC]',
+        'flex flex-col items-center justify-center text-center p-8 sm:p-12 rounded-2xl border border-dashed border-[#DCE3FF] bg-[#F3F5FF]',
         className
       )}
     >
-      <div className="h-16 w-16 rounded-full bg-[#061B35]/5 border border-[#061B35]/10 flex items-center justify-center text-[#061B35] mb-4">
-        <SearchX className="h-8 w-8 text-[#061B35]" aria-hidden="true" />
+      <div className="h-16 w-16 rounded-full bg-white border border-[#DCE3FF] flex items-center justify-center text-[#182A9A] mb-4 shadow-xs">
+        <SearchX className="h-8 w-8 text-[#182A9A]" aria-hidden="true" />
       </div>
-      <h3 className="text-lg font-bold text-[#061B35]">{title}</h3>
-      <p className="mt-2 text-sm text-[#5A6A85] max-w-md">{description}</p>
+      <h3 className="text-lg font-bold text-[#101F70]">{title}</h3>
+      <p className="mt-2 text-sm text-[#6573A8] max-w-md">{description}</p>
       {onReset && (
         <div className="mt-6">
           <Button

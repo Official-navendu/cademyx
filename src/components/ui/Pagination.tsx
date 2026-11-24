@@ -69,9 +69,9 @@ export const Pagination: React.FC<PaginationProps> = ({
       className={cn('flex flex-col sm:flex-row items-center justify-between gap-4 pt-8', className)}
     >
       {/* Mobile-friendly page indicator */}
-      <div className="text-xs text-[#5A6A85] sm:hidden font-medium">
-        Page <span className="font-bold text-[#061B35]">{currentPage}</span> of{' '}
-        <span className="font-bold text-[#061B35]">{totalPages}</span>
+      <div className="text-xs text-[#6573A8] sm:hidden font-medium">
+        Page <span className="font-bold text-[#101F70]">{currentPage}</span> of{' '}
+        <span className="font-bold text-[#101F70]">{totalPages}</span>
       </div>
 
       {/* Main Controls Wrapper */}
@@ -86,7 +86,7 @@ export const Pagination: React.FC<PaginationProps> = ({
             'inline-flex items-center gap-1 px-2.5 sm:px-3.5 py-1.5 sm:py-2 rounded-lg sm:rounded-xl text-xs sm:text-sm font-bold shrink-0 transition-all duration-200 border',
             currentPage <= 1
               ? 'opacity-40 cursor-not-allowed bg-slate-50 text-slate-400 border-slate-200'
-              : 'bg-white text-[#061B35] border-[#E2E8F0] hover:border-[#F4B72F] hover:bg-[#FEF8E9] hover:text-[#061B35] cursor-pointer shadow-2xs hover:shadow-sm'
+              : 'bg-white text-[#101F70] border-[#DCE3FF] hover:border-[#182A9A] hover:bg-[#F3F5FF] hover:text-[#182A9A] cursor-pointer shadow-2xs hover:shadow-sm'
           )}
         >
           <ChevronLeft className="w-4 h-4" />
@@ -100,7 +100,7 @@ export const Pagination: React.FC<PaginationProps> = ({
               return (
                 <span
                   key={`ellipsis-${idx}`}
-                  className="w-5 sm:w-8 h-8 sm:h-9 flex items-center justify-center text-xs text-[#94A3B8] select-none font-bold shrink-0"
+                  className="w-5 sm:w-8 h-8 sm:h-9 flex items-center justify-center text-xs text-[#6573A8] select-none font-bold shrink-0"
                   aria-hidden="true"
                 >
                   •••
@@ -120,8 +120,8 @@ export const Pagination: React.FC<PaginationProps> = ({
                 className={cn(
                   'w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl text-xs sm:text-sm font-bold shrink-0 transition-all duration-200 flex items-center justify-center cursor-pointer',
                   isCurrent
-                    ? 'bg-[#061B35] text-[#F4B72F] border-2 border-[#F4B72F] shadow-md scale-105'
-                    : 'bg-white text-[#152C45] border border-[#E2E8F0] hover:border-[#F4B72F]/60 hover:bg-[#F8FAFC] hover:text-[#075AC8] shadow-2xs'
+                    ? 'bg-[#182A9A] text-white border-2 border-[#182A9A] shadow-md scale-105'
+                    : 'bg-white text-[#26345C] border border-[#DCE3FF] hover:border-[#182A9A] hover:bg-[#F3F5FF] hover:text-[#182A9A] shadow-2xs'
                 )}
               >
                 {item}
@@ -140,7 +140,7 @@ export const Pagination: React.FC<PaginationProps> = ({
             'inline-flex items-center gap-1 px-2.5 sm:px-3.5 py-1.5 sm:py-2 rounded-lg sm:rounded-xl text-xs sm:text-sm font-bold shrink-0 transition-all duration-200 border',
             currentPage >= totalPages
               ? 'opacity-40 cursor-not-allowed bg-slate-50 text-slate-400 border-slate-200'
-              : 'bg-white text-[#061B35] border-[#E2E8F0] hover:border-[#F4B72F] hover:bg-[#FEF8E9] hover:text-[#061B35] cursor-pointer shadow-2xs hover:shadow-sm'
+              : 'bg-white text-[#101F70] border-[#DCE3FF] hover:border-[#182A9A] hover:bg-[#F3F5FF] hover:text-[#182A9A] cursor-pointer shadow-2xs hover:shadow-sm'
           )}
         >
           <span className="hidden sm:inline">Next</span>
@@ -149,9 +149,9 @@ export const Pagination: React.FC<PaginationProps> = ({
       </div>
 
       {/* Desktop Page summary */}
-      <div className="hidden sm:block text-xs text-[#5A6A85] font-medium">
-        Page <span className="font-bold text-[#061B35]">{currentPage}</span> of{' '}
-        <span className="font-bold text-[#061B35]">{totalPages}</span>
+      <div className="hidden sm:block text-xs text-[#6573A8] font-medium">
+        Page <span className="font-bold text-[#101F70]">{currentPage}</span> of{' '}
+        <span className="font-bold text-[#101F70]">{totalPages}</span>
       </div>
     </nav>
   );

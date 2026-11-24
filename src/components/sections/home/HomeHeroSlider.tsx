@@ -151,7 +151,7 @@ export const HomeHeroSlider: React.FC = () => {
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
-      className="relative w-full max-w-[620px] lg:max-w-[640px] xl:max-w-[670px] mx-auto group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F4B72F] rounded-2xl sm:rounded-3xl pt-3 pb-2"
+      className="relative w-full max-w-[620px] lg:max-w-[640px] xl:max-w-[670px] mx-auto group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#182A9A] rounded-2xl sm:rounded-3xl pt-3 pb-2"
     >
       {/* Scroll-Linked Stack Container */}
       <div className="relative w-full aspect-[4/3] sm:aspect-[16/11]">
@@ -163,7 +163,7 @@ export const HomeHeroSlider: React.FC = () => {
               scale: stackCard2Scale,
               rotate: stackCard2Rotate,
             }}
-            className="absolute inset-0 rounded-2xl sm:rounded-3xl overflow-hidden bg-slate-100 border border-slate-200 shadow-sm pointer-events-none -z-20 hidden md:block select-none"
+            className="absolute inset-0 rounded-2xl sm:rounded-3xl overflow-hidden bg-[#F3F5FF] border border-[#DCE3FF] shadow-sm pointer-events-none -z-20 hidden md:block select-none"
             aria-hidden="true"
           >
             <Image
@@ -184,7 +184,7 @@ export const HomeHeroSlider: React.FC = () => {
               scale: stackCard1Scale,
               rotate: stackCard1Rotate,
             }}
-            className="absolute inset-0 rounded-2xl sm:rounded-3xl overflow-hidden bg-slate-100 border border-slate-200 shadow-md pointer-events-none -z-10 hidden sm:block select-none"
+            className="absolute inset-0 rounded-2xl sm:rounded-3xl overflow-hidden bg-[#F3F5FF] border border-[#DCE3FF] shadow-md pointer-events-none -z-10 hidden sm:block select-none"
             aria-hidden="true"
           >
             <Image
@@ -200,7 +200,7 @@ export const HomeHeroSlider: React.FC = () => {
         {/* Top Active Card with Scroll Lift & Smooth Bright Crossfade */}
         <motion.div
           style={prefersReducedMotion ? {} : { y: mainCardY, scale: mainCardScale }}
-          className="relative w-full h-full rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl bg-slate-100 border border-slate-200/90"
+          className="relative w-full h-full rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl bg-[#F3F5FF] border border-[#DCE3FF]"
         >
           {/* Seamless Crossfade Image Stack — No Dark Overlays, No Black Gaps */}
           {HERO_SLIDES.map((slide, idx) => {
@@ -230,8 +230,8 @@ export const HomeHeroSlider: React.FC = () => {
 
           {/* Clean Floating Caption Pill on Bright Background (No dark image overlay) */}
           <div className="absolute bottom-4 left-4 right-20 sm:bottom-6 sm:left-6 z-20 pointer-events-none select-none">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/95 backdrop-blur-md border border-slate-200 shadow-md text-[#061B35]">
-              <span className="w-2 h-2 rounded-full bg-[#F4B72F] shrink-0" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/95 backdrop-blur-md border border-[#DCE3FF] shadow-md text-[#101F70]">
+              <span className="w-2 h-2 rounded-full bg-[#182A9A] shrink-0" />
               <span className="text-xs font-bold truncate max-w-[240px] sm:max-w-sm">
                 {HERO_SLIDES[current].caption}
               </span>
@@ -243,7 +243,7 @@ export const HomeHeroSlider: React.FC = () => {
             type="button"
             onClick={prevSlide}
             aria-label="Previous slide"
-            className="absolute left-3.5 top-1/2 -translate-y-1/2 z-20 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-white/90 hover:bg-white text-[#061B35] hover:text-[#075AC8] flex items-center justify-center shadow-xl backdrop-blur-xs transition-all duration-200 opacity-90 sm:opacity-0 sm:group-hover:opacity-100 focus:opacity-100 focus:outline-none focus:ring-2 focus:ring-[#F4B72F] cursor-pointer"
+            className="absolute left-3.5 top-1/2 -translate-y-1/2 z-20 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-white/90 hover:bg-white text-[#101F70] hover:text-[#182A9A] flex items-center justify-center shadow-xl backdrop-blur-xs transition-all duration-200 opacity-90 sm:opacity-0 sm:group-hover:opacity-100 focus:opacity-100 focus:outline-none focus:ring-2 focus:ring-[#182A9A] cursor-pointer"
           >
             <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" aria-hidden="true" />
           </button>
@@ -253,7 +253,7 @@ export const HomeHeroSlider: React.FC = () => {
             type="button"
             onClick={nextSlide}
             aria-label="Next slide"
-            className="absolute right-3.5 top-1/2 -translate-y-1/2 z-20 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-white/90 hover:bg-white text-[#061B35] hover:text-[#075AC8] flex items-center justify-center shadow-xl backdrop-blur-xs transition-all duration-200 opacity-90 sm:opacity-0 sm:group-hover:opacity-100 focus:opacity-100 focus:outline-none focus:ring-2 focus:ring-[#F4B72F] cursor-pointer"
+            className="absolute right-3.5 top-1/2 -translate-y-1/2 z-20 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-white/90 hover:bg-white text-[#101F70] hover:text-[#182A9A] flex items-center justify-center shadow-xl backdrop-blur-xs transition-all duration-200 opacity-90 sm:opacity-0 sm:group-hover:opacity-100 focus:opacity-100 focus:outline-none focus:ring-2 focus:ring-[#182A9A] cursor-pointer"
           >
             <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" aria-hidden="true" />
           </button>
@@ -276,10 +276,10 @@ export const HomeHeroSlider: React.FC = () => {
               aria-selected={isActive}
               aria-label={`Go to slide ${idx + 1}`}
               onClick={() => goToSlide(idx)}
-              className={`h-2 rounded-full transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F4B72F] cursor-pointer ${
+              className={`h-2 rounded-full transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#182A9A] cursor-pointer ${
                 isActive
-                  ? 'w-8 bg-[#F4B72F] shadow-xs'
-                  : 'w-2 bg-[#CBD5E1] hover:bg-[#94A3B8]'
+                  ? 'w-8 bg-[#182A9A] shadow-xs'
+                  : 'w-2 bg-[#DCE3FF] hover:bg-[#6573A8]'
               }`}
             />
           );

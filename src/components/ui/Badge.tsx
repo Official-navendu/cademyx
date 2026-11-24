@@ -15,10 +15,10 @@ export const Badge: React.FC<BadgeProps> = ({
   ...props
 }) => {
   const variantStyles = {
-    gold: 'bg-gradient-to-r from-[#F4B72F]/20 via-[#F4B72F]/15 to-[#D99519]/20 text-[#D99519] border border-[#F4B72F]/50 font-semibold shadow-xs',
-    navy: 'bg-gradient-to-r from-[#061B35] via-[#061B35] to-[#075AC8] text-white border border-[#075AC8]/40 shadow-xs',
-    neutral: 'bg-[#F1F5F9] text-[#152C45] border border-[#E2E8F0]',
-    outline: 'bg-transparent text-[#152C45] border border-[#C5D0E3] hover:border-[#F4B72F]',
+    gold: 'bg-[#F3F5FF] text-[#182A9A] border border-[#DCE3FF] font-semibold shadow-xs',
+    navy: 'bg-[#101F70] text-white border border-[#182A9A]/40 shadow-xs',
+    neutral: 'bg-[#F3F5FF] text-[#26345C] border border-[#DCE3FF]',
+    outline: 'bg-transparent text-[#26345C] border border-[#DCE3FF] hover:border-[#182A9A]',
   };
 
   const sizeStyles = {

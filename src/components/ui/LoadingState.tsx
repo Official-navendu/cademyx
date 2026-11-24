@@ -21,10 +21,10 @@ export const LoadingState: React.FC<LoadingStateProps> = ({
       )}
     >
       <div className="relative mb-4">
-        <div className="h-12 w-12 rounded-full border-2 border-[#E2E8F0] border-t-[#F4B72F] animate-spin" />
-        <Loader2 className="h-6 w-6 text-[#061B35] absolute top-3 left-3 animate-pulse" />
+        <div className="h-12 w-12 rounded-full border-2 border-[#DCE3FF] border-t-[#182A9A] animate-spin" />
+        <Loader2 className="h-6 w-6 text-[#182A9A] absolute top-3 left-3 animate-pulse" />
       </div>
-      <p className="text-sm font-semibold text-[#061B35]">{message}</p>
+      <p className="text-sm font-semibold text-[#101F70]">{message}</p>
       <span className="sr-only">Loading</span>
     </div>
   );

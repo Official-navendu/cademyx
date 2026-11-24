@@ -39,25 +39,25 @@ export const SectionHeading: React.FC<SectionHeadingProps> = ({
             'inline-flex items-center gap-2 mb-3.5 px-3 py-1 rounded-full text-xs font-bold tracking-widest uppercase border',
             isCentered && 'justify-center',
             isDarkTheme
-              ? 'bg-[#F4B72F]/15 border-[#F4B72F]/35 text-[#F4B72F]'
-              : 'bg-gradient-to-r from-[#F4B72F]/12 to-[#D99519]/12 border-[#F4B72F]/30 text-[#D99519]'
+              ? 'bg-[#182A9A]/30 border-[#DCE3FF]/30 text-[#DCE3FF]'
+              : 'bg-[#F3F5FF] border-[#DCE3FF] text-[#182A9A]'
           )}
         >
-          <Sparkles className="h-3 w-3 text-[#F4B72F]" aria-hidden="true" />
-          <span className={isDarkTheme ? 'text-[#F4B72F]' : 'gold-gradient-text'}>{eyebrow}</span>
+          <Sparkles className={cn('h-3 w-3', isDarkTheme ? 'text-[#DCE3FF]' : 'text-[#182A9A]')} aria-hidden="true" />
+          <span>{eyebrow}</span>
         </div>
       )}
 
       <h2
         className={cn(
           'section-headline font-extrabold tracking-tight',
-          isDarkTheme ? 'text-white' : 'text-[#061B35]'
+          isDarkTheme ? 'text-white' : 'text-[#101F70]'
         )}
       >
         {highlightWords && title.includes(highlightWords) ? (
           <>
             {title.split(highlightWords)[0]}
-            <span className="gold-gradient-text">{highlightWords}</span>
+            <span className={isDarkTheme ? 'text-[#DCE3FF]' : 'text-[#182A9A]'}>{highlightWords}</span>
             {title.split(highlightWords)[1]}
           </>
         ) : (
@@ -69,7 +69,7 @@ export const SectionHeading: React.FC<SectionHeadingProps> = ({
         <p
           className={cn(
             'mt-4 text-base sm:text-lg leading-relaxed font-normal',
-            isDarkTheme ? 'text-[#BACCE4]' : 'text-[#152C45]'
+            isDarkTheme ? 'text-[#DCE3FF]' : 'text-[#26345C]'
           )}
         >
           {description}

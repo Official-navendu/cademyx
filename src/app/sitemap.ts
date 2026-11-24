@@ -1,18 +1,25 @@
 import type { MetadataRoute } from 'next';
 import { programs } from '@/data/programs';
 import { blogPosts } from '@/data/blog';
+import { CATEGORY_SLUGS } from '@/data/categories';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'https://cademyx.com').replace(/\/+$/, '');
   const now = new Date();
 
-  // Static core marketing & advisory pages
+  // Primary static conversion and marketing routes
   const staticRoutes: MetadataRoute.Sitemap = [
     {
-      url: `${baseUrl}`,
+      url: baseUrl,
       lastModified: now,
-      changeFrequency: 'weekly',
+      changeFrequency: 'daily',
       priority: 1.0,
+    },
+    {
+      url: `${baseUrl}/programs`,
+      lastModified: now,
+      changeFrequency: 'daily',
+      priority: 0.95,
     },
     {
       url: `${baseUrl}/about`,
@@ -21,22 +28,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/programs`,
+      url: `${baseUrl}/contact`,
       lastModified: now,
-      changeFrequency: 'weekly',
-      priority: 0.9,
+      changeFrequency: 'monthly',
+      priority: 0.8,
     },
     {
       url: `${baseUrl}/schedule-a-consultation`,
       lastModified: now,
       changeFrequency: 'weekly',
       priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/contact`,
-      lastModified: now,
-      changeFrequency: 'monthly',
-      priority: 0.8,
     },
     {
       url: `${baseUrl}/blog`,
@@ -56,24 +57,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'yearly',
       priority: 0.5,
     },
+    {
+      url: `${baseUrl}/cookie-policy`,
+      lastModified: now,
+      changeFrequency: 'yearly',
+      priority: 0.5,
+    },
   ];
 
-  // Program category taxonomy routes
-  const categorySlugs = [
-    'bachelor-programs',
-    'masters-programs',
-    'doctorate-programs',
-    'certification-programs',
-  ];
-
-  const categoryRoutes: MetadataRoute.Sitemap = categorySlugs.map((slug) => ({
+  // Program category taxonomy routes (all 15 approved subject disciplines)
+  const categoryRoutes: MetadataRoute.Sitemap = CATEGORY_SLUGS.map((slug) => ({
     url: `${baseUrl}/program-categories/${slug}`,
     lastModified: now,
     changeFrequency: 'weekly',
     priority: 0.85,
   }));
 
-  // Individual academic program tracks
+  // Individual academic program tracks (all 3 Doctorate tracks, 4 Certification tracks, and subject courses)
   const programRoutes: MetadataRoute.Sitemap = programs.map((p) => ({
     url: `${baseUrl}/programs/${p.slug}`,
     lastModified: now,

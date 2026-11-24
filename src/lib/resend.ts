@@ -92,8 +92,7 @@ export async function sendAdminNotificationEmail(
 
   const emailSubject = `New CademyX Website Enquiry — [${safeCategory || 'General'}]`;
 
-  // Premium CademyX branded HTML layout matching official palette:
-  // Midnight Navy: #061B35, Premium Gold: #F4B72F, Royal Blue: #075AC8, Deep Gold: #D99519
+  // Official CademyX Palette: Royal Deep Blue: #182A9A, Deep Navy Blue: #101F70, Pure White: #FFFFFF, Soft Blue White: #F3F5FF, Light Periwinkle: #DCE3FF, Slate Blue: #26345C, Muted Blue: #6573A8
   const htmlContent = `
 <!DOCTYPE html>
 <html lang="en">
@@ -102,23 +101,23 @@ export async function sendAdminNotificationEmail(
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>${emailSubject}</title>
 </head>
-<body style="margin: 0; padding: 24px 12px; background-color: #F1F5F9; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #1E293B;">
-  <div style="max-width: 620px; margin: 0 auto; background-color: #FFFFFF; border-radius: 16px; border: 1px solid #E2E8F0; overflow: hidden; box-shadow: 0 4px 16px rgba(6, 27, 53, 0.08);">
+<body style="margin: 0; padding: 24px 12px; background-color: #F3F5FF; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #26345C;">
+  <div style="max-width: 620px; margin: 0 auto; background-color: #FFFFFF; border-radius: 16px; border: 1px solid #DCE3FF; overflow: hidden; box-shadow: 0 4px 16px rgba(16, 31, 112, 0.08);">
     
-    <!-- Top Navy Brand Bar with Gold Accent Line -->
-    <div style="background-color: #061B35; padding: 28px 32px 24px 32px; border-bottom: 4px solid #F4B72F;">
+    <!-- Top Navy Brand Bar with Royal Blue Accent Line -->
+    <div style="background-color: #101F70; padding: 28px 32px 24px 32px; border-bottom: 4px solid #182A9A;">
       <table style="width: 100%; border-collapse: collapse;">
         <tr>
           <td>
             <div style="font-size: 22px; font-weight: 800; color: #FFFFFF; letter-spacing: -0.5px;">
-              Cademy<span style="color: #F4B72F;">X</span>
+              Cademy<span style="color: #DCE3FF;">X</span>
             </div>
-            <div style="font-size: 12px; color: #BACCE4; margin-top: 4px; font-weight: 500; letter-spacing: 0.5px; text-transform: uppercase;">
+            <div style="font-size: 12px; color: #DCE3FF; margin-top: 4px; font-weight: 500; letter-spacing: 0.5px; text-transform: uppercase;">
               Inbound Advisory Notification
             </div>
           </td>
           <td style="text-align: right; vertical-align: middle;">
-            <span style="display: inline-block; padding: 6px 12px; border-radius: 20px; background-color: rgba(244, 183, 47, 0.15); border: 1px solid rgba(244, 183, 47, 0.4); color: #F4B72F; font-size: 11px; font-weight: 700; text-transform: uppercase;">
+            <span style="display: inline-block; padding: 6px 12px; border-radius: 20px; background-color: rgba(220, 227, 255, 0.18); border: 1px solid rgba(220, 227, 255, 0.5); color: #FFFFFF; font-size: 11px; font-weight: 700; text-transform: uppercase;">
               ${safeCategory}
             </span>
           </td>
@@ -128,55 +127,55 @@ export async function sendAdminNotificationEmail(
 
     <!-- Main Content Area -->
     <div style="padding: 32px;">
-      <h2 style="font-size: 18px; font-weight: 700; color: #061B35; margin: 0 0 8px 0;">
+      <h2 style="font-size: 18px; font-weight: 700; color: #101F70; margin: 0 0 8px 0;">
         New Website Form Submission
       </h2>
-      <p style="font-size: 14px; color: #64748B; margin: 0 0 24px 0; line-height: 1.5;">
+      <p style="font-size: 14px; color: #6573A8; margin: 0 0 24px 0; line-height: 1.5;">
         A visitor has submitted an enquiry through the CademyX portal. Below are the complete submission details:
       </p>
 
       <!-- Visitor Details Table -->
-      <div style="background-color: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 12px; padding: 18px 22px; margin-bottom: 24px;">
+      <div style="background-color: #F3F5FF; border: 1px solid #DCE3FF; border-radius: 12px; padding: 18px 22px; margin-bottom: 24px;">
         <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
           <tr>
-            <td style="padding: 9px 0; color: #64748B; font-weight: 600; width: 145px; vertical-align: top;">Visitor Name:</td>
-            <td style="padding: 9px 0; color: #061B35; font-weight: 700;">${safeName}</td>
+            <td style="padding: 9px 0; color: #6573A8; font-weight: 600; width: 145px; vertical-align: top;">Visitor Name:</td>
+            <td style="padding: 9px 0; color: #101F70; font-weight: 700;">${safeName}</td>
           </tr>
           <tr>
-            <td style="padding: 9px 0; color: #64748B; font-weight: 600; vertical-align: top;">Email Address:</td>
+            <td style="padding: 9px 0; color: #6573A8; font-weight: 600; vertical-align: top;">Email Address:</td>
             <td style="padding: 9px 0; font-weight: 600;">
-              <a href="mailto:${safeEmail}" style="color: #075AC8; text-decoration: none;">${safeEmail}</a>
+              <a href="mailto:${safeEmail}" style="color: #182A9A; text-decoration: none;">${safeEmail}</a>
             </td>
           </tr>
           <tr>
-            <td style="padding: 9px 0; color: #64748B; font-weight: 600; vertical-align: top;">Phone / WhatsApp:</td>
+            <td style="padding: 9px 0; color: #6573A8; font-weight: 600; vertical-align: top;">Phone / WhatsApp:</td>
             <td style="padding: 9px 0; font-weight: 600;">
-              <a href="tel:${safePhone}" style="color: #061B35; text-decoration: none;">${safePhone}</a>
+              <a href="tel:${safePhone}" style="color: #101F70; text-decoration: none;">${safePhone}</a>
             </td>
           </tr>
           <tr>
-            <td style="padding: 9px 0; color: #64748B; font-weight: 600; vertical-align: top;">Program / Track:</td>
-            <td style="padding: 9px 0; color: #061B35; font-weight: 600;">${safeProgram}</td>
+            <td style="padding: 9px 0; color: #6573A8; font-weight: 600; vertical-align: top;">Program / Track:</td>
+            <td style="padding: 9px 0; color: #101F70; font-weight: 600;">${safeProgram}</td>
           </tr>
           <tr>
-            <td style="padding: 9px 0; color: #64748B; font-weight: 600; vertical-align: top;">Category / Type:</td>
-            <td style="padding: 9px 0; color: #061B35; font-weight: 600;">${safeCategory}</td>
+            <td style="padding: 9px 0; color: #6573A8; font-weight: 600; vertical-align: top;">Category / Type:</td>
+            <td style="padding: 9px 0; color: #101F70; font-weight: 600;">${safeCategory}</td>
           </tr>
           ${
             safeSubject
               ? `<tr>
-            <td style="padding: 9px 0; color: #64748B; font-weight: 600; vertical-align: top;">Subject:</td>
-            <td style="padding: 9px 0; color: #061B35;">${safeSubject}</td>
+            <td style="padding: 9px 0; color: #6573A8; font-weight: 600; vertical-align: top;">Subject:</td>
+            <td style="padding: 9px 0; color: #101F70;">${safeSubject}</td>
           </tr>`
               : ''
           }
           <tr>
-            <td style="padding: 9px 0; color: #64748B; font-weight: 600; vertical-align: top;">Submission Source:</td>
-            <td style="padding: 9px 0; color: #475569; font-weight: 500;">${safeSource}</td>
+            <td style="padding: 9px 0; color: #6573A8; font-weight: 600; vertical-align: top;">Submission Source:</td>
+            <td style="padding: 9px 0; color: #26345C; font-weight: 500;">${safeSource}</td>
           </tr>
           <tr>
-            <td style="padding: 9px 0; color: #64748B; font-weight: 600; vertical-align: top;">Timestamp (IST):</td>
-            <td style="padding: 9px 0; color: #475569; font-weight: 500;">${timestampIST}</td>
+            <td style="padding: 9px 0; color: #6573A8; font-weight: 600; vertical-align: top;">Timestamp (IST):</td>
+            <td style="padding: 9px 0; color: #26345C; font-weight: 500;">${timestampIST}</td>
           </tr>
         </table>
       </div>
@@ -186,10 +185,10 @@ export async function sendAdminNotificationEmail(
         safeMessage
           ? `
       <div style="margin-bottom: 24px;">
-        <div style="font-size: 12px; font-weight: 700; color: #061B35; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px;">
+        <div style="font-size: 12px; font-weight: 700; color: #101F70; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px;">
           Submitted Message / Academic Notes
         </div>
-        <div style="background-color: #FEF8E9; border: 1px solid #FDE6B0; border-radius: 10px; padding: 16px 20px; font-size: 14px; line-height: 1.6; color: #1E293B; white-space: pre-wrap;">${safeMessage}</div>
+        <div style="background-color: #F3F5FF; border: 1px solid #DCE3FF; border-radius: 10px; padding: 16px 20px; font-size: 14px; line-height: 1.6; color: #26345C; white-space: pre-wrap;">${safeMessage}</div>
       </div>
       `
           : ''
@@ -197,18 +196,18 @@ export async function sendAdminNotificationEmail(
 
       <!-- Direct Reply Action Button -->
       <div style="padding-top: 12px; text-align: center;">
-        <a href="mailto:${safeEmail}?subject=Regarding%20Your%20CademyX%20Advisory%20Enquiry" style="display: inline-block; background-color: #061B35; color: #F4B72F; font-size: 14px; font-weight: 700; padding: 14px 28px; border-radius: 10px; text-decoration: none; box-shadow: 0 2px 6px rgba(6, 27, 53, 0.2);">
+        <a href="mailto:${safeEmail}?subject=Regarding%20Your%20CademyX%20Advisory%20Enquiry" style="display: inline-block; background-color: #182A9A; color: #FFFFFF; font-size: 14px; font-weight: 700; padding: 14px 28px; border-radius: 10px; text-decoration: none; box-shadow: 0 2px 6px rgba(16, 31, 112, 0.25);">
           Reply Directly to ${safeName}
         </a>
-        <div style="font-size: 12px; color: #94A3B8; margin-top: 10px;">
+        <div style="font-size: 12px; color: #6573A8; margin-top: 10px;">
           (Clicking &lsquo;Reply&rsquo; in your email client will also directly address ${safeEmail})
         </div>
       </div>
     </div>
 
     <!-- Footer -->
-    <div style="background-color: #F8FAFC; padding: 18px 32px; border-top: 1px solid #E2E8F0; text-align: center; font-size: 12px; color: #94A3B8;">
-      Confidential Admin Notification &bull; CademyX. &bull; Delivered via Resend
+    <div style="background-color: #F3F5FF; padding: 18px 32px; border-top: 1px solid #DCE3FF; text-align: center; font-size: 12px; color: #6573A8;">
+      Confidential Admin Notification &bull; CademyX &bull; Delivered via Resend
     </div>
   </div>
 </body>

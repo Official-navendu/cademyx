@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import React from 'react';
 import { motion } from 'framer-motion';
@@ -10,10 +10,10 @@ import { staggerContainer, staggerItem, defaultViewport } from '@/lib/motion';
 
 export const WhyCademyX: React.FC = () => {
   return (
-    <section className="relative py-20 sm:py-24 lg:py-28 bg-white border-b border-[#E2E8F0] overflow-hidden bg-grain">
+    <section className="relative py-20 sm:py-24 lg:py-28 bg-white border-b border-[#DCE3FF] overflow-hidden bg-grain">
       {/* Background Architectural Grid Pattern */}
       <div className="absolute inset-0 bg-academic-grid opacity-60 pointer-events-none" />
-      <div className="absolute top-1/2 right-1/4 w-96 h-96 bg-gradient-to-l from-[#F4B72F]/[0.05] to-transparent rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/2 right-1/4 w-96 h-96 bg-gradient-to-l from-[#182A9A]/[0.05] to-transparent rounded-full blur-3xl pointer-events-none" />
 
       <Container size="default" className="relative z-10">
         <SectionHeading

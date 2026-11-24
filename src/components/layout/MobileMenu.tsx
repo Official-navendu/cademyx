@@ -9,7 +9,8 @@ import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { X, ArrowRight, Phone, Mail, ChevronDown, Calendar, Sparkles } from 'lucide-react';
 import { headerNavigation } from '@/data/navigation';
 import { BRAND, CONTACT_INFO } from '@/lib/constants';
-import { programs, PROGRAM_CATEGORIES, CATEGORY_META } from '@/data/programs';
+import { programs } from '@/data/programs';
+import { SUBJECT_CATEGORIES, DOCTORATE_TRACKS_META, CERTIFICATION_TRACKS_META } from '@/data/categories';
 import { Button } from '@/components/ui/Button';
 import { cn } from '@/lib/utils';
 
@@ -25,12 +26,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
   const prefersReducedMotion = useReducedMotion();
   const mounted = useSyncExternalStore(emptySubscribe, () => true, () => false);
   const [isProgramsExpanded, setIsProgramsExpanded] = useState(false);
-  const [openCategories, setOpenCategories] = useState<Record<string, boolean>>({
-    Bachelor: true,
-    Masters: false,
-    Doctorate: false,
-    Certifications: false,
-  });
+  const [openSection, setOpenSection] = useState<'disciplines' | 'doctorate' | 'certifications' | null>('disciplines');
 
   const closeButtonRef = useRef<HTMLButtonElement>(null);
 
@@ -44,11 +40,8 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
     }
   }, [isOpen]);
 
-  const toggleCategory = (cat: string) => {
-    setOpenCategories((prev) => ({
-      ...prev,
-      [cat]: !prev[cat],
-    }));
+  const toggleSection = (sec: 'disciplines' | 'doctorate' | 'certifications') => {
+    setOpenSection((prev) => (prev === sec ? null : sec));
   };
 
   if (!mounted) return null;
@@ -69,7 +62,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 bg-[#061B35]/75 backdrop-blur-sm touch-none"
+            className="fixed inset-0 bg-[#101F70]/75 backdrop-blur-sm touch-none"
             onClick={onClose}
             aria-hidden="true"
           />
@@ -81,10 +74,10 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
             exit={prefersReducedMotion ? { opacity: 0 } : { x: '100%' }}
             transition={{ type: 'spring', damping: 28, stiffness: 280 }}
             onClick={(e) => e.stopPropagation()}
-            className="fixed inset-y-0 right-0 max-w-sm sm:max-w-md w-full bg-white shadow-2xl flex flex-col z-[71] border-l border-[#E2E8F0] pt-[env(safe-area-inset-top,0px)] pb-[env(safe-area-inset-bottom,0px)] overscroll-contain"
+            className="fixed inset-y-0 right-0 max-w-sm sm:max-w-md w-full bg-white shadow-2xl flex flex-col z-[71] border-l border-[#DCE3FF] pt-[env(safe-area-inset-top,0px)] pb-[env(safe-area-inset-bottom,0px)] overscroll-contain"
           >
             {/* Header: Logo and Close Button */}
-            <div className="flex items-center justify-between p-4 sm:p-5 border-b border-[#F1F5F9] bg-white sticky top-0 z-10">
+            <div className="flex items-center justify-between p-4 sm:p-5 border-b border-[#DCE3FF] bg-white sticky top-0 z-10">
               <Link href="/" onClick={onClose} className="flex items-center gap-2">
                 <Image
                   src="/assets/logo.png"
@@ -101,7 +94,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
                 type="button"
                 onClick={onClose}
                 aria-label="Close navigation menu"
-                className="min-h-[44px] min-w-[44px] p-2.5 rounded-xl text-[#061B35] hover:bg-[#F1F5F9] focus-visible:outline-2 focus-visible:outline-[#F4B72F] flex items-center justify-center cursor-pointer active:scale-95 transition-all"
+                className="min-h-[44px] min-w-[44px] p-2.5 rounded-xl text-[#101F70] hover:bg-[#F3F5FF] focus-visible:outline-2 focus-visible:outline-[#182A9A] flex items-center justify-center cursor-pointer active:scale-95 transition-all"
               >
                 <X className="h-6 w-6" aria-hidden="true" />
               </button>
@@ -131,21 +124,22 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
                         className={cn(
                           'w-full min-h-[46px] flex items-center justify-between px-4 py-2.5 rounded-xl text-base font-bold transition-all cursor-pointer',
                           isActive || isProgramsExpanded
-                            ? 'bg-[#061B35] text-[#F4B72F] shadow-sm border border-[#F4B72F]/50'
-                            : 'text-[#152C45] hover:bg-[#F5F7FB] hover:text-[#061B35]',
-                          'focus-visible:outline-2 focus-visible:outline-[#F4B72F]'
+                            ? 'bg-[#101F70] text-white shadow-sm border border-[#182A9A]'
+                            : 'text-[#26345C] hover:bg-[#F3F5FF] hover:text-[#182A9A]',
+                          'focus-visible:outline-2 focus-visible:outline-[#182A9A]'
                         )}
                       >
                         <span className="flex items-center gap-2">
                           <span>{link.label}</span>
-                          <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-[#F4B72F]/20 text-[#F4B72F]">
+                          <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-[#F3F5FF] text-[#182A9A]">
                             All Degrees
                           </span>
                         </span>
 
                         <ChevronDown
                           className={cn(
-                            'w-4 h-4 transition-transform duration-200 text-[#F4B72F]',
+                            'w-4 h-4 transition-transform duration-200',
+                            isActive || isProgramsExpanded ? 'text-white' : 'text-[#6573A8]',
                             isProgramsExpanded && 'rotate-180'
                           )}
                           aria-hidden="true"
@@ -156,93 +150,162 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
                       {isProgramsExpanded && (
                         <div
                           id="mobile-programs-accordion"
-                          className="pl-2 sm:pl-3 pr-1 py-2 space-y-2 border-l-2 border-[#F4B72F]/50 ml-3 sm:ml-4 my-2"
+                          className="pl-2 sm:pl-3 pr-1 py-2 space-y-2 border-l-2 border-[#182A9A] ml-3 sm:ml-4 my-2"
                         >
                           {/* Direct Link to Programs Landing Page */}
                           <Link
                             href="/programs"
                             onClick={onClose}
-                            className="flex items-center justify-between p-2.5 rounded-xl bg-gradient-to-r from-[#FEF8E9] to-amber-50 border border-[#F4B72F]/40 text-[#061B35] text-xs font-bold hover:bg-[#F4B72F]/20 transition-colors"
+                            className="flex items-center justify-between p-2.5 rounded-xl bg-[#F3F5FF] border border-[#DCE3FF] text-[#101F70] text-xs font-bold hover:bg-[#DCE3FF]/40 transition-colors"
                           >
                             <div className="flex items-center gap-2">
-                              <Sparkles className="w-3.5 h-3.5 text-[#D99519]" />
+                              <Sparkles className="w-3.5 h-3.5 text-[#182A9A]" />
                               <span>Explore Programs Landing Page</span>
                             </div>
-                            <ArrowRight className="w-3.5 h-3.5 text-[#D99519]" />
+                            <ArrowRight className="w-3.5 h-3.5 text-[#182A9A]" />
                           </Link>
 
-                          {/* 4 Category Submenu Accordions */}
-                          {PROGRAM_CATEGORIES.map((category) => {
-                            const catPrograms = programs.filter((p) => p.category === category);
-                            const meta = CATEGORY_META[category];
-                            const isCatOpen = Boolean(openCategories[category]);
-
-                            return (
-                              <div key={category} className="space-y-1">
-                                <button
-                                  type="button"
-                                  onClick={() => toggleCategory(category)}
-                                  aria-expanded={isCatOpen}
-                                  className="w-full min-h-[44px] flex items-center justify-between text-xs font-bold uppercase tracking-wider text-[#152C45]/85 hover:text-[#061B35] px-3 py-2 rounded-lg hover:bg-[#F5F7FB] transition-colors cursor-pointer"
-                                >
-                                  <div className="flex items-center gap-1.5">
-                                    <span className={cn('w-2 h-2 rounded-full', meta.dotClass)} />
-                                    <span>{category}</span>
-                                  </div>
-                                  <div className="flex items-center gap-1.5">
-                                    <span className="text-[10px] font-mono text-[#152C45]/70 font-semibold bg-slate-100 px-1.5 py-0.5 rounded-full">
-                                      {catPrograms.length}
-                                    </span>
-                                    <ChevronDown
-                                      className={cn(
-                                        'w-3.5 h-3.5 text-slate-400 transition-transform duration-200',
-                                        isCatOpen && 'rotate-180'
-                                      )}
-                                      aria-hidden="true"
-                                    />
-                                  </div>
-                                </button>
-
-                                {isCatOpen && (
-                                  <div className="pl-3 space-y-1 py-1">
-                                    {catPrograms.map((p) => (
-                                      <Link
-                                        key={p.id}
-                                        href={`/programs/${p.slug}`}
-                                        onClick={onClose}
-                                        className="flex items-center justify-between px-2.5 py-2 rounded-lg text-xs font-semibold text-[#152C45] hover:bg-[#F5F7FB] hover:text-[#061B35] transition-colors"
-                                      >
-                                        <span className="truncate pr-2">{p.title}</span>
-                                        {p.badge && (
-                                          <span className="text-[9px] font-bold px-1.5 py-0.5 rounded bg-[#F4B72F]/15 text-[#D99519] border border-[#F4B72F]/30 shrink-0">
-                                            {p.badge}
-                                          </span>
-                                        )}
-                                      </Link>
-                                    ))}
-
-                                    <Link
-                                      href={`/programs?category=${encodeURIComponent(category)}`}
-                                      onClick={onClose}
-                                      className="flex items-center gap-1.5 text-xs font-bold text-[#D99519] hover:text-[#061B35] px-2.5 py-1.5 transition-colors"
-                                    >
-                                      <span>View all {catPrograms.length} {category} in catalogue</span>
-                                      <ArrowRight className="w-3 h-3" />
-                                    </Link>
-                                  </div>
-                                )}
+                          {/* Group A: 15 Subject Disciplines */}
+                          <div className="space-y-1">
+                            <button
+                              type="button"
+                              onClick={() => toggleSection('disciplines')}
+                              aria-expanded={openSection === 'disciplines'}
+                              className="w-full min-h-[44px] flex items-center justify-between text-xs font-bold uppercase tracking-wider text-[#26345C] hover:text-[#182A9A] px-3 py-2 rounded-lg hover:bg-[#F3F5FF] transition-colors cursor-pointer"
+                            >
+                              <div className="flex items-center gap-1.5">
+                                <span className="w-2 h-2 rounded-full bg-[#182A9A]" />
+                                <span>15 Subject Disciplines</span>
                               </div>
-                            );
-                          })}
+                              <div className="flex items-center gap-1.5">
+                                <span className="text-[10px] font-mono text-[#182A9A] font-semibold bg-[#F3F5FF] border border-[#DCE3FF] px-1.5 py-0.5 rounded-full">
+                                  15
+                                </span>
+                                <ChevronDown
+                                  className={cn(
+                                    'w-3.5 h-3.5 text-[#6573A8] transition-transform duration-200',
+                                    openSection === 'disciplines' && 'rotate-180'
+                                  )}
+                                  aria-hidden="true"
+                                />
+                              </div>
+                            </button>
+
+                            {openSection === 'disciplines' && (
+                              <div className="pl-3 space-y-1 py-1">
+                                {SUBJECT_CATEGORIES.map((cat) => (
+                                  <Link
+                                    key={cat.slug}
+                                    href={`/program-categories/${cat.slug}`}
+                                    onClick={onClose}
+                                    className="flex items-center justify-between px-2.5 py-2 rounded-lg text-xs font-semibold text-[#26345C] hover:bg-[#F3F5FF] hover:text-[#182A9A] transition-colors"
+                                  >
+                                    <span className="truncate pr-2">{cat.name}</span>
+                                    <ArrowRight className="w-3 h-3 text-[#6573A8] shrink-0" />
+                                  </Link>
+                                ))}
+                              </div>
+                            )}
+                          </div>
+
+                          {/* Group B: Doctorate — 3 Tracks */}
+                          <div className="space-y-1">
+                            <button
+                              type="button"
+                              onClick={() => toggleSection('doctorate')}
+                              aria-expanded={openSection === 'doctorate'}
+                              className="w-full min-h-[44px] flex items-center justify-between text-xs font-bold uppercase tracking-wider text-[#26345C] hover:text-[#182A9A] px-3 py-2 rounded-lg hover:bg-[#F3F5FF] transition-colors cursor-pointer"
+                            >
+                              <div className="flex items-center gap-1.5">
+                                <span className="w-2 h-2 rounded-full bg-[#182A9A]" />
+                                <span>Doctorate</span>
+                              </div>
+                              <div className="flex items-center gap-1.5">
+                                <span className="text-[10px] font-mono text-[#182A9A] font-semibold bg-[#F3F5FF] border border-[#DCE3FF] px-1.5 py-0.5 rounded-full">
+                                  3 Tracks
+                                </span>
+                                <ChevronDown
+                                  className={cn(
+                                    'w-3.5 h-3.5 text-[#6573A8] transition-transform duration-200',
+                                    openSection === 'doctorate' && 'rotate-180'
+                                  )}
+                                  aria-hidden="true"
+                                />
+                              </div>
+                            </button>
+
+                            {openSection === 'doctorate' && (
+                              <div className="pl-3 space-y-1 py-1">
+                                {DOCTORATE_TRACKS_META.map((track) => (
+                                  <Link
+                                    key={track.slug}
+                                    href={`/programs/${track.slug}`}
+                                    onClick={onClose}
+                                    className="flex items-center justify-between px-2.5 py-2 rounded-lg text-xs font-semibold text-[#26345C] hover:bg-[#F3F5FF] hover:text-[#182A9A] transition-colors"
+                                  >
+                                    <span className="truncate pr-2">{track.title}</span>
+                                    <span className="text-[9px] font-bold px-1.5 py-0.5 rounded bg-[#182A9A] text-white shrink-0 uppercase">
+                                      {track.badge}
+                                    </span>
+                                  </Link>
+                                ))}
+                              </div>
+                            )}
+                          </div>
+
+                          {/* Group C: Certifications — 4 Tracks */}
+                          <div className="space-y-1">
+                            <button
+                              type="button"
+                              onClick={() => toggleSection('certifications')}
+                              aria-expanded={openSection === 'certifications'}
+                              className="w-full min-h-[44px] flex items-center justify-between text-xs font-bold uppercase tracking-wider text-[#26345C] hover:text-[#182A9A] px-3 py-2 rounded-lg hover:bg-[#F3F5FF] transition-colors cursor-pointer"
+                            >
+                              <div className="flex items-center gap-1.5">
+                                <span className="w-2 h-2 rounded-full bg-[#182A9A]" />
+                                <span>Certifications</span>
+                              </div>
+                              <div className="flex items-center gap-1.5">
+                                <span className="text-[10px] font-mono text-[#182A9A] font-semibold bg-[#F3F5FF] border border-[#DCE3FF] px-1.5 py-0.5 rounded-full">
+                                  4 Tracks
+                                </span>
+                                <ChevronDown
+                                  className={cn(
+                                    'w-3.5 h-3.5 text-[#6573A8] transition-transform duration-200',
+                                    openSection === 'certifications' && 'rotate-180'
+                                  )}
+                                  aria-hidden="true"
+                                />
+                              </div>
+                            </button>
+
+                            {openSection === 'certifications' && (
+                              <div className="pl-3 space-y-1 py-1">
+                                {CERTIFICATION_TRACKS_META.map((track) => (
+                                  <Link
+                                    key={track.slug}
+                                    href={`/programs/${track.slug}`}
+                                    onClick={onClose}
+                                    className="flex items-center justify-between px-2.5 py-2 rounded-lg text-xs font-semibold text-[#26345C] hover:bg-[#F3F5FF] hover:text-[#182A9A] transition-colors"
+                                  >
+                                    <span className="truncate pr-2">{track.title}</span>
+                                    <span className="text-[9px] font-bold px-1.5 py-0.5 rounded bg-[#101F70] text-white shrink-0 uppercase">
+                                      {track.badge}
+                                    </span>
+                                  </Link>
+                                ))}
+                              </div>
+                            )}
+                          </div>
 
                           {/* View All Programs Catalogue Link */}
                           <Link
                             href="/programs"
                             onClick={onClose}
-                            className="inline-flex items-center justify-between gap-1 text-xs font-bold text-[#061B35] hover:text-[#075AC8] px-3 py-2.5 rounded-lg bg-slate-50 border border-slate-200/80 w-full transition-colors mt-2"
+                            className="inline-flex items-center justify-between gap-1 text-xs font-bold text-[#101F70] hover:text-[#182A9A] px-3 py-2.5 rounded-lg bg-[#F3F5FF] border border-[#DCE3FF] w-full transition-colors mt-2"
                           >
-                            <span>View All {programs.length} Programs Catalogue</span>
-                            <ArrowRight className="w-3.5 h-3.5 text-[#F4B72F]" />
+                            <span>Explore All Academic Programs</span>
+                            <ArrowRight className="w-3.5 h-3.5 text-[#182A9A]" />
                           </Link>
                         </div>
                       )}
@@ -259,15 +322,15 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
                     className={cn(
                       'flex items-center justify-between min-h-[46px] px-4 py-2.5 rounded-xl text-base font-bold transition-all',
                       isActive
-                        ? 'bg-[#061B35] text-[#F4B72F] shadow-sm border border-[#F4B72F]/50'
-                        : 'text-[#152C45] hover:bg-[#F5F7FB] hover:text-[#061B35]'
+                        ? 'bg-[#101F70] text-white shadow-sm border border-[#182A9A]'
+                        : 'text-[#26345C] hover:bg-[#F3F5FF] hover:text-[#182A9A]'
                     )}
                   >
                     <span>{link.label}</span>
                     <ArrowRight
                       className={cn(
                         'h-4 w-4 transition-transform',
-                        isActive ? 'text-[#F4B72F]' : 'text-[#94A3B8]'
+                        isActive ? 'text-white' : 'text-[#6573A8]'
                       )}
                       aria-hidden="true"
                     />
@@ -276,7 +339,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
               })}
 
               {/* Consultation CTA Button */}
-              <div className="pt-4 mt-4 border-t border-[#F1F5F9]">
+              <div className="pt-4 mt-4 border-t border-[#DCE3FF]">
                 <Button
                   href={headerNavigation.ctaButton.href}
                   variant="gold"
@@ -290,31 +353,31 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
               </div>
 
               {/* Quick Advisory Contact Info */}
-              <div className="pt-5 mt-4 border-t border-[#F1F5F9] space-y-2.5 text-xs text-[#152C45]/80">
-                <p className="font-bold text-[#061B35] uppercase tracking-wider text-[11px] gold-gradient-text">
+              <div className="pt-5 mt-4 border-t border-[#DCE3FF] space-y-2.5 text-xs text-[#26345C]">
+                <p className="font-bold text-[#101F70] uppercase tracking-wider text-[11px]">
                   Direct Advisory Contact
                 </p>
                 <a
                   href={`mailto:${CONTACT_INFO.email}`}
-                  className="flex items-center gap-2.5 text-[#152C45] hover:text-[#075AC8] py-1 transition-colors"
+                  className="flex items-center gap-2.5 text-[#26345C] hover:text-[#182A9A] py-1 transition-colors"
                 >
-                  <Mail className="h-4 w-4 text-[#F4B72F] shrink-0" />
+                  <Mail className="h-4 w-4 text-[#182A9A] shrink-0" />
                   <span className="truncate">{CONTACT_INFO.email}</span>
                 </a>
                 <a
                   href={`tel:${CONTACT_INFO.phone.replace(/[^+\d]/g, '')}`}
-                  className="flex items-center gap-2.5 text-[#152C45] hover:text-[#075AC8] py-1 transition-colors"
+                  className="flex items-center gap-2.5 text-[#26345C] hover:text-[#182A9A] py-1 transition-colors"
                 >
-                  <Phone className="h-4 w-4 text-[#F4B72F] shrink-0" />
+                  <Phone className="h-4 w-4 text-[#182A9A] shrink-0" />
                   <span>{CONTACT_INFO.phone}</span>
                 </a>
               </div>
             </nav>
 
             {/* Footer Info in Drawer */}
-            <div className="p-4 sm:p-5 border-t border-[#F1F5F9] bg-[#F8FAFC] text-[11px] text-[#152C45]/70 flex items-center justify-between">
+            <div className="p-4 sm:p-5 border-t border-[#DCE3FF] bg-[#F3F5FF] text-[11px] text-[#6573A8] flex items-center justify-between">
               <span>CademyX Academic Guidance</span>
-              <span className="font-semibold text-[#061B35]">Est. {BRAND.foundingYear}</span>
+              <span className="font-semibold text-[#101F70]">Est. {BRAND.foundingYear}</span>
             </div>
           </motion.div>
         </div>

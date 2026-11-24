@@ -10,9 +10,9 @@ import { staggerContainer, staggerItem, defaultViewport } from '@/lib/motion';
 
 export const CoreValues: React.FC = () => {
   return (
-    <section className="relative py-20 sm:py-24 lg:py-28 bg-[#F5F7FB] border-b border-[#E2E8F0] overflow-hidden bg-grain">
+    <section className="relative py-20 sm:py-24 lg:py-28 bg-[#F3F5FF] border-b border-[#DCE3FF] overflow-hidden bg-grain">
       {/* Background Radial Glow */}
-      <div className="absolute top-1/2 right-10 w-96 h-96 bg-gradient-to-l from-[#F4B72F]/[0.05] to-transparent rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/2 right-10 w-96 h-96 bg-gradient-to-l from-[#182A9A]/[0.05] to-transparent rounded-full blur-3xl pointer-events-none" />
 
       <Container size="default" className="relative z-10">
         <SectionHeading

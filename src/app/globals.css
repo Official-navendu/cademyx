@@ -2,27 +2,33 @@
 @import "../styles/design-tokens.css";
 
 @theme {
-  --color-brand-navy: #061B35;
-  --color-brand-navy-dark: #061B35;
-  --color-brand-navy-deepest: #041326;
-  --color-brand-navy-surface: #0E2748;
-  --color-brand-slate: #152C45;
-  --color-brand-blue: #075AC8;
-  --color-brand-blue-royal: #075AC8;
+  --color-brand-royal: #182A9A;
+  --color-brand-navy: #101F70;
+  --color-brand-navy-dark: #101F70;
+  --color-brand-navy-deepest: #0B1650;
+  --color-brand-navy-surface: #101F70;
+  --color-brand-slate: #26345C;
+  --color-brand-blue: #182A9A;
+  --color-brand-blue-royal: #182A9A;
 
-  --color-brand-gold: #F4B72F;
-  --color-brand-gold-premium: #F4B72F;
-  --color-brand-gold-deep: #D99519;
-  --color-brand-gold-light: #FDE5AD;
-  --color-brand-gold-subtle: rgba(244, 183, 47, 0.14);
+  --color-brand-soft: #F3F5FF;
+  --color-brand-periwinkle: #DCE3FF;
+  --color-brand-muted: #6573A8;
+
+  /* Legacy gold tokens mapped to refined brand blue palette */
+  --color-brand-gold: #182A9A;
+  --color-brand-gold-premium: #182A9A;
+  --color-brand-gold-deep: #101F70;
+  --color-brand-gold-light: #DCE3FF;
+  --color-brand-gold-subtle: rgba(24, 42, 154, 0.08);
 
   --color-brand-white: #FFFFFF;
-  --color-brand-gray-light: #F8FAFC;
-  --color-brand-border-subtle: #E2E8F0;
-  --color-brand-border-card: #E5EBF2;
-  --color-brand-text-dark: #061B35;
-  --color-brand-text-secondary: #152C45;
-  --color-brand-text-muted: #5C7491;
+  --color-brand-gray-light: #F3F5FF;
+  --color-brand-border-subtle: #DCE3FF;
+  --color-brand-border-card: #DCE3FF;
+  --color-brand-text-dark: #101F70;
+  --color-brand-text-secondary: #26345C;
+  --color-brand-text-muted: #6573A8;
 
   --font-sans: var(--font-sans), 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
 }
@@ -38,7 +44,7 @@ html {
 
 body {
   background-color: #FFFFFF;
-  color: #152C45;
+  color: #26345C;
   font-family: var(--font-sans);
   min-height: 100vh;
   display: flex;
@@ -56,14 +62,14 @@ body {
 
 /* Accessible outline states */
 :focus-visible {
-  outline: 2px solid #F4B72F;
+  outline: 2px solid #182A9A;
   outline-offset: 2px;
 }
 
 /* Selection Color */
 ::selection {
-  background-color: rgba(244, 183, 47, 0.22);
-  color: #061B35;
+  background-color: rgba(24, 42, 154, 0.15);
+  color: #182A9A;
 }
 
 /* Custom Scrollbar */
@@ -72,16 +78,16 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #F8FAFC;
+  background: #F3F5FF;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #CBD5E1;
+  background: #DCE3FF;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #F4B72F;
+  background: #182A9A;
 }
 
 /* Hide scrollbar utility */

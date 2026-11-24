@@ -1,11 +1,12 @@
 'use client';
 
 import { useState, useCallback } from 'react';
+import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { contactFormSchema, ContactFormSchemaType } from '@/lib/validations';
 import { SubmissionStatus } from '@/types/contact';
-import { markSubmissionSuccess } from '@/lib/enquirySession';
+import { navigateToThankYou } from '@/lib/enquirySession';
 
 export interface UseContactFormProps {
   defaultProgramSlug?: string;
@@ -16,6 +17,7 @@ export function useContactForm({
   defaultProgramSlug = '',
   defaultInquiryType = 'Program Inquiry',
 }: UseContactFormProps = {}) {
+  const router = useRouter();
   const [status, setStatus] = useState<SubmissionStatus>('idle');
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
@@ -74,8 +76,8 @@ export function useContactForm({
         }
 
         setStatus('success');
-        markSubmissionSuccess();
         reset();
+        navigateToThankYou(undefined, router);
       } catch (err: unknown) {
         setStatus('error');
         setErrorMessage(
@@ -85,7 +87,7 @@ export function useContactForm({
         );
       }
     },
-    [reset]
+    [reset, router]
   );
 
   const resetStatus = useCallback(() => {

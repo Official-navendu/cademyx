@@ -16,7 +16,7 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
         <label
           htmlFor={inputId}
           className={cn(
-            'inline-flex items-start gap-3 cursor-pointer text-sm text-[#061B35] select-none',
+            'inline-flex items-start gap-3 cursor-pointer text-sm text-[#101F70] select-none',
             disabled && 'cursor-not-allowed opacity-60'
           )}
         >
@@ -32,16 +32,16 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
             <div
               className={cn(
                 'h-5 w-5 rounded border transition-colors flex items-center justify-center',
-                'bg-white border-[#CBD5E1]',
-                'peer-focus-visible:ring-2 peer-focus-visible:ring-[#F4B72F] peer-focus-visible:ring-offset-1',
-                'peer-checked:bg-[#061B35] peer-checked:border-[#061B35]',
+                'bg-white border-[#DCE3FF]',
+                'peer-focus-visible:ring-2 peer-focus-visible:ring-[#182A9A] peer-focus-visible:ring-offset-1',
+                'peer-checked:bg-[#182A9A] peer-checked:border-[#182A9A]',
                 error && 'border-red-500'
               )}
             >
-              <Check className="h-3.5 w-3.5 text-[#F4B72F] opacity-0 peer-checked:opacity-100 stroke-[3]" />
+              <Check className="h-3.5 w-3.5 text-white opacity-0 peer-checked:opacity-100 stroke-[3]" />
             </div>
           </div>
-          <span className="leading-snug text-[#152C45]">{label}</span>
+          <span className="leading-snug text-[#26345C]">{label}</span>
         </label>
         {error && (
           <span className="text-xs text-red-600 pl-8" role="alert">

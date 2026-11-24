@@ -34,8 +34,8 @@ export const ProgramFilters: React.FC<ProgramFiltersProps> = ({
           className={cn(
             'px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all duration-200 shrink-0 cursor-pointer flex items-center gap-2',
             selectedCategory === 'All'
-              ? 'bg-[#061B35] text-[#F4B72F] shadow-md border border-[#F4B72F]/60'
-              : 'bg-white text-[#475569] hover:bg-white hover:text-[#061B35] hover:border-[#F4B72F]/40 border border-[#E2E8F0] shadow-2xs'
+              ? 'bg-[#101F70] text-white shadow-md border border-[#182A9A]'
+              : 'bg-white text-[#26345C] hover:bg-white hover:text-[#101F70] hover:border-[#182A9A]/40 border border-[#DCE3FF] shadow-2xs'
           )}
         >
           <span>All Programs</span>
@@ -43,8 +43,8 @@ export const ProgramFilters: React.FC<ProgramFiltersProps> = ({
             className={cn(
               'px-1.5 py-0.2 rounded-full text-[10px] font-extrabold',
               selectedCategory === 'All'
-                ? 'bg-[#F4B72F]/25 text-[#F4B72F]'
-                : 'bg-[#F1F5F9] text-[#64748B]'
+                ? 'bg-[#182A9A] text-white'
+                : 'bg-[#F3F5FF] text-[#6573A8]'
             )}
           >
             {totalCount}
@@ -64,8 +64,8 @@ export const ProgramFilters: React.FC<ProgramFiltersProps> = ({
               className={cn(
                 'px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all duration-200 shrink-0 cursor-pointer flex items-center gap-2',
                 isSelected
-                  ? 'bg-[#061B35] text-[#F4B72F] shadow-md border border-[#F4B72F]/60'
-                  : 'bg-white text-[#475569] hover:bg-white hover:text-[#061B35] hover:border-[#F4B72F]/40 border border-[#E2E8F0] shadow-2xs'
+                  ? 'bg-[#101F70] text-white shadow-md border border-[#182A9A]'
+                  : 'bg-white text-[#26345C] hover:bg-white hover:text-[#101F70] hover:border-[#182A9A]/40 border border-[#DCE3FF] shadow-2xs'
               )}
             >
               <span className={cn('w-2 h-2 rounded-full shrink-0', meta.dotClass)} />
@@ -74,8 +74,8 @@ export const ProgramFilters: React.FC<ProgramFiltersProps> = ({
                 className={cn(
                   'px-1.5 py-0.2 rounded-full text-[10px] font-extrabold',
                   isSelected
-                    ? 'bg-[#F4B72F]/25 text-[#F4B72F]'
-                    : 'bg-[#F1F5F9] text-[#64748B]'
+                    ? 'bg-[#182A9A] text-white'
+                    : 'bg-[#F3F5FF] text-[#6573A8]'
                 )}
               >
                 {count}
@@ -91,10 +91,10 @@ export const ProgramFilters: React.FC<ProgramFiltersProps> = ({
           <button
             type="button"
             onClick={onReset}
-            className="inline-flex items-center gap-1.5 text-xs text-[#D99519] bg-gradient-to-r from-[#F4B72F]/15 to-[#F4B72F]/15 border border-[#F4B72F]/35 font-bold px-3.5 py-2 rounded-xl hover:bg-[#F4B72F]/25 transition-all cursor-pointer shadow-2xs"
+            className="inline-flex items-center gap-1.5 text-xs text-[#182A9A] bg-[#F3F5FF] border border-[#DCE3FF] font-bold px-3.5 py-2 rounded-xl hover:bg-[#182A9A] hover:text-white transition-all cursor-pointer shadow-2xs"
             title="Reset all filters"
           >
-            <RotateCcw className="h-3 w-3 text-[#F4B72F]" />
+            <RotateCcw className="h-3 w-3" />
             <span>Clear Filters</span>
           </button>
         </div>

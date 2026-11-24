@@ -1,10 +1,23 @@
 import { Program, ProgramCategory } from '@/types/program';
 
 export const PROGRAM_CATEGORIES: ProgramCategory[] = [
-  'Bachelor',
-  'Masters',
-  'Doctorate',
-  'Certifications',
+  "Management & Business",
+  "Computer Science & IT",
+  "Artificial Intelligence",
+  "Data Science & Analytics",
+  "Commerce & Finance",
+  "Business Analytics",
+  "Economics",
+  "Psychology",
+  "Digital Marketing",
+  "Cybersecurity",
+  "Engineering & Technology",
+  "Law",
+  "Media & Communication",
+  "Design & Creative Technology",
+  "Hospitality & Tourism",
+  "Doctorate",
+  "Certifications"
 ];
 
 export const CATEGORY_META: Record<
@@ -20,46 +33,176 @@ export const CATEGORY_META: Record<
     description: string;
   }
 > = {
-  Bachelor: {
-    name: 'Bachelor',
-    accent: 'amber',
-    hex: '#F4B72F',
-    lightBg: '#FEF8E9',
-    badgeClass: 'bg-amber-50 text-[#D99519] border-amber-200',
-    dotClass: 'bg-[#F4B72F]',
-    borderHoverClass: 'hover:border-[#F4B72F]',
-    description: 'Foundational undergraduate degree pathways spanning 15 disciplines from Engineering and Management to Healthcare and Arts.',
+  "Management & Business": {
+    "name": "Management & Business",
+    "accent": "blue",
+    "hex": "#182A9A",
+    "lightBg": "#F3F5FF",
+    "badgeClass": "bg-[#F3F5FF] text-[#182A9A] border-[#DCE3FF]",
+    "dotClass": "bg-[#182A9A]",
+    "borderHoverClass": "hover:border-[#182A9A]",
+    "description": "Foundational undergraduate degree pathways and executive leadership tracks spanning management, marketing, and enterprise finance."
   },
-  Masters: {
-    name: 'Masters',
-    accent: 'blue',
-    hex: '#075AC8',
-    lightBg: '#EFF6FF',
-    badgeClass: 'bg-blue-50 text-[#075AC8] border-blue-200',
-    dotClass: 'bg-[#075AC8]',
-    borderHoverClass: 'hover:border-[#075AC8]',
-    description: 'Postgraduate management, engineering, computing, and humanities master degrees specializing in advanced leadership and research.',
+  "Computer Science & IT": {
+    "name": "Computer Science & IT",
+    "accent": "blue",
+    "hex": "#182A9A",
+    "lightBg": "#F3F5FF",
+    "badgeClass": "bg-[#F3F5FF] text-[#182A9A] border-[#DCE3FF]",
+    "dotClass": "bg-[#182A9A]",
+    "borderHoverClass": "hover:border-[#182A9A]",
+    "description": "Computer science, software engineering, cloud computing, and enterprise database systems."
   },
-  Doctorate: {
-    name: 'Doctorate',
-    accent: 'purple',
-    hex: '#7C3AED',
-    lightBg: '#F5F3FF',
-    badgeClass: 'bg-purple-50 text-purple-700 border-purple-200',
-    dotClass: 'bg-purple-500',
-    borderHoverClass: 'hover:border-purple-400',
-    description: 'Premier academic pathways and research-driven terminal degrees for scholars and senior executives.',
+  "Artificial Intelligence": {
+    "name": "Artificial Intelligence",
+    "accent": "blue",
+    "hex": "#182A9A",
+    "lightBg": "#F3F5FF",
+    "badgeClass": "bg-[#F3F5FF] text-[#182A9A] border-[#DCE3FF]",
+    "dotClass": "bg-[#182A9A]",
+    "borderHoverClass": "hover:border-[#182A9A]",
+    "description": "Applied machine learning, deep neural networks, computer vision, and foundation AI models."
   },
-  Certifications: {
-    name: 'Certifications',
-    accent: 'green',
-    hex: '#059669',
-    lightBg: '#ECFDF5',
-    badgeClass: 'bg-emerald-50 text-emerald-700 border-emerald-200',
-    dotClass: 'bg-emerald-500',
-    borderHoverClass: 'hover:border-emerald-400',
-    description: 'Hands-on practical credentials focused on full stack development, cloud computing, and offensive cybersecurity.',
+  "Data Science & Analytics": {
+    "name": "Data Science & Analytics",
+    "accent": "blue",
+    "hex": "#182A9A",
+    "lightBg": "#F3F5FF",
+    "badgeClass": "bg-[#F3F5FF] text-[#182A9A] border-[#DCE3FF]",
+    "dotClass": "bg-[#182A9A]",
+    "borderHoverClass": "hover:border-[#182A9A]",
+    "description": "Statistical modeling, big data distributed systems, predictive forecasting, and quantitative analytics."
   },
+  "Commerce & Finance": {
+    "name": "Commerce & Finance",
+    "accent": "blue",
+    "hex": "#182A9A",
+    "lightBg": "#F3F5FF",
+    "badgeClass": "bg-[#F3F5FF] text-[#182A9A] border-[#DCE3FF]",
+    "dotClass": "bg-[#182A9A]",
+    "borderHoverClass": "hover:border-[#182A9A]",
+    "description": "Corporate financial engineering, statutory auditing, forensic accounting, and wealth management."
+  },
+  "Business Analytics": {
+    "name": "Business Analytics",
+    "accent": "blue",
+    "hex": "#182A9A",
+    "lightBg": "#F3F5FF",
+    "badgeClass": "bg-[#F3F5FF] text-[#182A9A] border-[#DCE3FF]",
+    "dotClass": "bg-[#182A9A]",
+    "borderHoverClass": "hover:border-[#182A9A]",
+    "description": "Commercial intelligence, decision science, executive KPI dashboards, and enterprise optimization."
+  },
+  "Economics": {
+    "name": "Economics",
+    "accent": "blue",
+    "hex": "#182A9A",
+    "lightBg": "#F3F5FF",
+    "badgeClass": "bg-[#F3F5FF] text-[#182A9A] border-[#DCE3FF]",
+    "dotClass": "bg-[#182A9A]",
+    "borderHoverClass": "hover:border-[#182A9A]",
+    "description": "Econometric regression modeling, macroeconomic policy analysis, game theory, and public finance."
+  },
+  "Psychology": {
+    "name": "Psychology",
+    "accent": "blue",
+    "hex": "#182A9A",
+    "lightBg": "#F3F5FF",
+    "badgeClass": "bg-[#F3F5FF] text-[#182A9A] border-[#DCE3FF]",
+    "dotClass": "bg-[#182A9A]",
+    "borderHoverClass": "hover:border-[#182A9A]",
+    "description": "Cognitive behavioral science, psychometrics, counseling therapies, and clinical research."
+  },
+  "Digital Marketing": {
+    "name": "Digital Marketing",
+    "accent": "blue",
+    "hex": "#182A9A",
+    "lightBg": "#F3F5FF",
+    "badgeClass": "bg-[#F3F5FF] text-[#182A9A] border-[#DCE3FF]",
+    "dotClass": "bg-[#182A9A]",
+    "borderHoverClass": "hover:border-[#182A9A]",
+    "description": "Performance media advertising, conversion optimization, MarTech stacks, and brand growth."
+  },
+  "Cybersecurity": {
+    "name": "Cybersecurity",
+    "accent": "blue",
+    "hex": "#182A9A",
+    "lightBg": "#F3F5FF",
+    "badgeClass": "bg-[#F3F5FF] text-[#182A9A] border-[#DCE3FF]",
+    "dotClass": "bg-[#182A9A]",
+    "borderHoverClass": "hover:border-[#182A9A]",
+    "description": "Defensive information architecture, penetration testing, threat intelligence, and zero-trust networks."
+  },
+  "Engineering & Technology": {
+    "name": "Engineering & Technology",
+    "accent": "blue",
+    "hex": "#182A9A",
+    "lightBg": "#F3F5FF",
+    "badgeClass": "bg-[#F3F5FF] text-[#182A9A] border-[#DCE3FF]",
+    "dotClass": "bg-[#182A9A]",
+    "borderHoverClass": "hover:border-[#182A9A]",
+    "description": "Advanced computational engineering, embedded systems, high-performance architectures, and R&D."
+  },
+  "Law": {
+    "name": "Law",
+    "accent": "blue",
+    "hex": "#182A9A",
+    "lightBg": "#F3F5FF",
+    "badgeClass": "bg-[#F3F5FF] text-[#182A9A] border-[#DCE3FF]",
+    "dotClass": "bg-[#182A9A]",
+    "borderHoverClass": "hover:border-[#182A9A]",
+    "description": "Constitutional jurisprudence, corporate compliance, intellectual property, and arbitration."
+  },
+  "Media & Communication": {
+    "name": "Media & Communication",
+    "accent": "blue",
+    "hex": "#182A9A",
+    "lightBg": "#F3F5FF",
+    "badgeClass": "bg-[#F3F5FF] text-[#182A9A] border-[#DCE3FF]",
+    "dotClass": "bg-[#182A9A]",
+    "borderHoverClass": "hover:border-[#182A9A]",
+    "description": "Investigative reporting, digital broadcasting, strategic public relations, and multimedia storytelling."
+  },
+  "Design & Creative Technology": {
+    "name": "Design & Creative Technology",
+    "accent": "blue",
+    "hex": "#182A9A",
+    "lightBg": "#F3F5FF",
+    "badgeClass": "bg-[#F3F5FF] text-[#182A9A] border-[#DCE3FF]",
+    "dotClass": "bg-[#182A9A]",
+    "borderHoverClass": "hover:border-[#182A9A]",
+    "description": "User experience architecture, product design, interaction design, and multi-platform design systems."
+  },
+  "Hospitality & Tourism": {
+    "name": "Hospitality & Tourism",
+    "accent": "blue",
+    "hex": "#182A9A",
+    "lightBg": "#F3F5FF",
+    "badgeClass": "bg-[#F3F5FF] text-[#182A9A] border-[#DCE3FF]",
+    "dotClass": "bg-[#182A9A]",
+    "borderHoverClass": "hover:border-[#182A9A]",
+    "description": "Luxury resort operations, international travel logistics, destination branding, and culinary administration."
+  },
+  "Doctorate": {
+    "name": "Doctorate",
+    "accent": "purple",
+    "hex": "#182A9A",
+    "lightBg": "#F3F5FF",
+    "badgeClass": "bg-[#F3F5FF] text-[#182A9A] border-[#DCE3FF]",
+    "dotClass": "bg-[#182A9A]",
+    "borderHoverClass": "hover:border-[#182A9A]",
+    "description": "Terminal research doctorate degrees and honorary academic distinctions (3 Tracks)."
+  },
+  "Certifications": {
+    "name": "Certifications",
+    "accent": "green",
+    "hex": "#182A9A",
+    "lightBg": "#F3F5FF",
+    "badgeClass": "bg-[#F3F5FF] text-[#182A9A] border-[#DCE3FF]",
+    "dotClass": "bg-[#182A9A]",
+    "borderHoverClass": "hover:border-[#182A9A]",
+    "description": "Accelerated, hands-on professional technical credentials in modern software, cloud, and security (4 Tracks)."
+  }
 };
 
 export const PROGRAM_FORMATS: string[] = [
@@ -79,7 +222,7 @@ export const programs: Program[] = [
     "id": "bach-01",
     "slug": "bba",
     "title": "BBA",
-    "category": "Bachelor",
+    "category": "Management & Business",
     "discipline": "Management",
     "shortDescription": "Bachelor of Business Administration building fundamental corporate leadership.",
     "description": "Bachelor of Business Administration building fundamental corporate leadership. CademyX delivers comprehensive undergraduate counseling, entrance milestone structuring, university selection advisory, and scholarly development for this program.",
@@ -103,13 +246,14 @@ export const programs: Program[] = [
       "Applied semester practicum, industrial case studies, and field projects",
       "Advanced capstone project and undergraduate academic seminar"
     ],
-    "featured": true
+    "featured": true,
+    "categorySlug": "management-business"
   },
   {
     "id": "bach-02",
     "slug": "bms",
     "title": "BMS",
-    "category": "Bachelor",
+    "category": "Management & Business",
     "discipline": "Management",
     "shortDescription": "Bachelor of Management Studies with emphasis on analytical organizational decision-making.",
     "description": "Bachelor of Management Studies with emphasis on analytical organizational decision-making. CademyX delivers comprehensive undergraduate counseling, entrance milestone structuring, university selection advisory, and scholarly development for this program.",
@@ -133,13 +277,14 @@ export const programs: Program[] = [
       "Applied semester practicum, industrial case studies, and field projects",
       "Advanced capstone project and undergraduate academic seminar"
     ],
-    "featured": false
+    "featured": false,
+    "categorySlug": "management-business"
   },
   {
     "id": "bach-03",
     "slug": "bbm",
     "title": "BBM",
-    "category": "Bachelor",
+    "category": "Management & Business",
     "discipline": "Management",
     "shortDescription": "Bachelor of Business Management covering operations, human resources, and marketing.",
     "description": "Bachelor of Business Management covering operations, human resources, and marketing. CademyX delivers comprehensive undergraduate counseling, entrance milestone structuring, university selection advisory, and scholarly development for this program.",
@@ -163,13 +308,14 @@ export const programs: Program[] = [
       "Applied semester practicum, industrial case studies, and field projects",
       "Advanced capstone project and undergraduate academic seminar"
     ],
-    "featured": false
+    "featured": false,
+    "categorySlug": "management-business"
   },
   {
     "id": "bach-04",
     "slug": "integrated-bba-mba",
     "title": "Integrated BBA + MBA",
-    "category": "Bachelor",
+    "category": "Management & Business",
     "discipline": "Management",
     "shortDescription": "Comprehensive 5-year dual-degree pathway seamlessly bridging undergrad and executive management.",
     "description": "Comprehensive 5-year dual-degree pathway seamlessly bridging undergrad and executive management. CademyX delivers comprehensive undergraduate counseling, entrance milestone structuring, university selection advisory, and scholarly development for this program.",
@@ -193,13 +339,14 @@ export const programs: Program[] = [
       "Applied semester practicum, industrial case studies, and field projects",
       "Advanced capstone project and undergraduate academic seminar"
     ],
-    "featured": false
+    "featured": false,
+    "categorySlug": "management-business"
   },
   {
     "id": "bach-05",
     "slug": "b-com",
     "title": "B.Com",
-    "category": "Bachelor",
+    "category": "Commerce & Finance",
     "discipline": "Commerce & Finance",
     "shortDescription": "Bachelor of Commerce providing fundamental financial accounting and mercantile law knowledge.",
     "description": "Bachelor of Commerce providing fundamental financial accounting and mercantile law knowledge. CademyX delivers comprehensive undergraduate counseling, entrance milestone structuring, university selection advisory, and scholarly development for this program.",
@@ -223,13 +370,14 @@ export const programs: Program[] = [
       "Applied semester practicum, industrial case studies, and field projects",
       "Advanced capstone project and undergraduate academic seminar"
     ],
-    "featured": false
+    "featured": false,
+    "categorySlug": "commerce-finance"
   },
   {
     "id": "bach-06",
     "slug": "b-com-hons",
     "title": "B.Com (Hons.)",
-    "category": "Bachelor",
+    "category": "Commerce & Finance",
     "discipline": "Commerce & Finance",
     "shortDescription": "Honours-level commerce degree with intensive training in auditing, corporate finance, and taxation.",
     "description": "Honours-level commerce degree with intensive training in auditing, corporate finance, and taxation. CademyX delivers comprehensive undergraduate counseling, entrance milestone structuring, university selection advisory, and scholarly development for this program.",
@@ -253,13 +401,14 @@ export const programs: Program[] = [
       "Applied semester practicum, industrial case studies, and field projects",
       "Advanced capstone project and undergraduate academic seminar"
     ],
-    "featured": false
+    "featured": false,
+    "categorySlug": "commerce-finance"
   },
   {
     "id": "bach-07",
     "slug": "b-com-accounting-finance",
     "title": "B.Com Accounting & Finance",
-    "category": "Bachelor",
+    "category": "Commerce & Finance",
     "discipline": "Commerce & Finance",
     "shortDescription": "Specialized commerce curriculum centered on forensic accounting, cost auditing, and corporate finance.",
     "description": "Specialized commerce curriculum centered on forensic accounting, cost auditing, and corporate finance. CademyX delivers comprehensive undergraduate counseling, entrance milestone structuring, university selection advisory, and scholarly development for this program.",
@@ -283,13 +432,14 @@ export const programs: Program[] = [
       "Applied semester practicum, industrial case studies, and field projects",
       "Advanced capstone project and undergraduate academic seminar"
     ],
-    "featured": false
+    "featured": false,
+    "categorySlug": "commerce-finance"
   },
   {
     "id": "bach-08",
     "slug": "b-com-banking-insurance",
     "title": "B.Com Banking & Insurance",
-    "category": "Bachelor",
+    "category": "Commerce & Finance",
     "discipline": "Commerce & Finance",
     "shortDescription": "Targeted undergraduate track for retail banking, credit underwriting, and actuarial insurance.",
     "description": "Targeted undergraduate track for retail banking, credit underwriting, and actuarial insurance. CademyX delivers comprehensive undergraduate counseling, entrance milestone structuring, university selection advisory, and scholarly development for this program.",
@@ -313,13 +463,14 @@ export const programs: Program[] = [
       "Applied semester practicum, industrial case studies, and field projects",
       "Advanced capstone project and undergraduate academic seminar"
     ],
-    "featured": false
+    "featured": false,
+    "categorySlug": "commerce-finance"
   },
   {
     "id": "bach-09",
     "slug": "bca",
     "title": "BCA",
-    "category": "Bachelor",
+    "category": "Computer Science & IT",
     "discipline": "Computer & IT",
     "shortDescription": "Bachelor of Computer Applications focusing on software programming, web stacks, and databases.",
     "description": "Bachelor of Computer Applications focusing on software programming, web stacks, and databases. CademyX delivers comprehensive undergraduate counseling, entrance milestone structuring, university selection advisory, and scholarly development for this program.",
@@ -343,13 +494,14 @@ export const programs: Program[] = [
       "Applied semester practicum, industrial case studies, and field projects",
       "Advanced capstone project and undergraduate academic seminar"
     ],
-    "featured": true
+    "featured": true,
+    "categorySlug": "computer-science-it"
   },
   {
     "id": "bach-10",
     "slug": "b-sc-computer-science",
     "title": "B.Sc. Computer Science",
-    "category": "Bachelor",
+    "category": "Commerce & Finance",
     "discipline": "Computer & IT",
     "shortDescription": "Foundations of computing theory, data structures, algorithms, and systems architecture.",
     "description": "Foundations of computing theory, data structures, algorithms, and systems architecture. CademyX delivers comprehensive undergraduate counseling, entrance milestone structuring, university selection advisory, and scholarly development for this program.",
@@ -373,13 +525,14 @@ export const programs: Program[] = [
       "Applied semester practicum, industrial case studies, and field projects",
       "Advanced capstone project and undergraduate academic seminar"
     ],
-    "featured": false
+    "featured": false,
+    "categorySlug": "commerce-finance"
   },
   {
     "id": "bach-11",
     "slug": "b-sc-it",
     "title": "B.Sc. IT",
-    "category": "Bachelor",
+    "category": "Computer Science & IT",
     "discipline": "Computer & IT",
     "shortDescription": "Information technology systems, cloud networks, database administration, and security.",
     "description": "Information technology systems, cloud networks, database administration, and security. CademyX delivers comprehensive undergraduate counseling, entrance milestone structuring, university selection advisory, and scholarly development for this program.",
@@ -403,13 +556,14 @@ export const programs: Program[] = [
       "Applied semester practicum, industrial case studies, and field projects",
       "Advanced capstone project and undergraduate academic seminar"
     ],
-    "featured": false
+    "featured": false,
+    "categorySlug": "computer-science-it"
   },
   {
     "id": "bach-12",
     "slug": "b-sc-data-science",
     "title": "B.Sc. Data Science",
-    "category": "Bachelor",
+    "category": "Data Science & Analytics",
     "discipline": "Computer & IT",
     "shortDescription": "Undergraduate data science covering Python, predictive statistics, and machine learning pipelines.",
     "description": "Undergraduate data science covering Python, predictive statistics, and machine learning pipelines. CademyX delivers comprehensive undergraduate counseling, entrance milestone structuring, university selection advisory, and scholarly development for this program.",
@@ -433,13 +587,14 @@ export const programs: Program[] = [
       "Applied semester practicum, industrial case studies, and field projects",
       "Advanced capstone project and undergraduate academic seminar"
     ],
-    "featured": false
+    "featured": false,
+    "categorySlug": "data-science-analytics"
   },
   {
     "id": "bach-13",
     "slug": "b-sc-ai-ml",
     "title": "B.Sc. AI & ML",
-    "category": "Bachelor",
+    "category": "Artificial Intelligence",
     "discipline": "Computer & IT",
     "shortDescription": "Specialized artificial intelligence track covering neural nets, computer vision, and cognitive computing.",
     "description": "Specialized artificial intelligence track covering neural nets, computer vision, and cognitive computing. CademyX delivers comprehensive undergraduate counseling, entrance milestone structuring, university selection advisory, and scholarly development for this program.",
@@ -463,13 +618,14 @@ export const programs: Program[] = [
       "Applied semester practicum, industrial case studies, and field projects",
       "Advanced capstone project and undergraduate academic seminar"
     ],
-    "featured": false
+    "featured": false,
+    "categorySlug": "artificial-intelligence"
   },
   {
     "id": "bach-14",
     "slug": "b-tech",
     "title": "B.Tech",
-    "category": "Bachelor",
+    "category": "Engineering & Technology",
     "discipline": "Engineering",
     "shortDescription": "Bachelor of Technology offering world-class engineering fundamentals and laboratory design.",
     "description": "Bachelor of Technology offering world-class engineering fundamentals and laboratory design. CademyX delivers comprehensive undergraduate counseling, entrance milestone structuring, university selection advisory, and scholarly development for this program.",
@@ -493,13 +649,14 @@ export const programs: Program[] = [
       "Applied semester practicum, industrial case studies, and field projects",
       "Advanced capstone project and undergraduate academic seminar"
     ],
-    "featured": false
+    "featured": false,
+    "categorySlug": "engineering-technology"
   },
   {
     "id": "bach-15",
     "slug": "be",
     "title": "BE",
-    "category": "Bachelor",
+    "category": "Engineering & Technology",
     "discipline": "Engineering",
     "shortDescription": "Bachelor of Engineering focusing on core scientific principles, thermodynamics, and circuit design.",
     "description": "Bachelor of Engineering focusing on core scientific principles, thermodynamics, and circuit design. CademyX delivers comprehensive undergraduate counseling, entrance milestone structuring, university selection advisory, and scholarly development for this program.",
@@ -523,13 +680,14 @@ export const programs: Program[] = [
       "Applied semester practicum, industrial case studies, and field projects",
       "Advanced capstone project and undergraduate academic seminar"
     ],
-    "featured": false
+    "featured": false,
+    "categorySlug": "engineering-technology"
   },
   {
     "id": "bach-16",
     "slug": "b-tech-cse",
     "title": "B.Tech CSE",
-    "category": "Bachelor",
+    "category": "Engineering & Technology",
     "discipline": "Engineering",
     "shortDescription": "B.Tech in Computer Science & Engineering covering full stack software, operating systems, and clouds.",
     "description": "B.Tech in Computer Science & Engineering covering full stack software, operating systems, and clouds. CademyX delivers comprehensive undergraduate counseling, entrance milestone structuring, university selection advisory, and scholarly development for this program.",
@@ -553,13 +711,14 @@ export const programs: Program[] = [
       "Applied semester practicum, industrial case studies, and field projects",
       "Advanced capstone project and undergraduate academic seminar"
     ],
-    "featured": true
+    "featured": true,
+    "categorySlug": "engineering-technology"
   },
   {
     "id": "bach-17",
     "slug": "b-tech-ai-ml",
     "title": "B.Tech AI & ML",
-    "category": "Bachelor",
+    "category": "Artificial Intelligence",
     "discipline": "Engineering",
     "shortDescription": "Four-year engineering degree engineered for applied machine intelligence, deep learning, and robotics.",
     "description": "Four-year engineering degree engineered for applied machine intelligence, deep learning, and robotics. CademyX delivers comprehensive undergraduate counseling, entrance milestone structuring, university selection advisory, and scholarly development for this program.",
@@ -583,13 +742,14 @@ export const programs: Program[] = [
       "Applied semester practicum, industrial case studies, and field projects",
       "Advanced capstone project and undergraduate academic seminar"
     ],
-    "featured": false
+    "featured": false,
+    "categorySlug": "artificial-intelligence"
   },
   {
     "id": "bach-18",
     "slug": "b-tech-data-science",
     "title": "B.Tech Data Science",
-    "category": "Bachelor",
+    "category": "Data Science & Analytics",
     "discipline": "Engineering",
     "shortDescription": "Big data engineering, distributed computing architectures, and quantitative algorithms.",
     "description": "Big data engineering, distributed computing architectures, and quantitative algorithms. CademyX delivers comprehensive undergraduate counseling, entrance milestone structuring, university selection advisory, and scholarly development for this program.",
@@ -613,13 +773,14 @@ export const programs: Program[] = [
       "Applied semester practicum, industrial case studies, and field projects",
       "Advanced capstone project and undergraduate academic seminar"
     ],
-    "featured": false
+    "featured": false,
+    "categorySlug": "data-science-analytics"
   },
   {
     "id": "bach-19",
     "slug": "b-sc-mathematics",
     "title": "B.Sc. Mathematics",
-    "category": "Bachelor",
+    "category": "Computer Science & IT",
     "discipline": "Science",
     "shortDescription": "Pure mathematics, calculus, linear algebra, discrete math, and probability models.",
     "description": "Pure mathematics, calculus, linear algebra, discrete math, and probability models. CademyX delivers comprehensive undergraduate counseling, entrance milestone structuring, university selection advisory, and scholarly development for this program.",
@@ -643,13 +804,14 @@ export const programs: Program[] = [
       "Applied semester practicum, industrial case studies, and field projects",
       "Advanced capstone project and undergraduate academic seminar"
     ],
-    "featured": false
+    "featured": false,
+    "categorySlug": "computer-science-it"
   },
   {
     "id": "bach-20",
     "slug": "b-sc-physics",
     "title": "B.Sc. Physics",
-    "category": "Bachelor",
+    "category": "Computer Science & IT",
     "discipline": "Science",
     "shortDescription": "Classical mechanics, quantum basics, electromagnetism, and optics laboratory experiments.",
     "description": "Classical mechanics, quantum basics, electromagnetism, and optics laboratory experiments. CademyX delivers comprehensive undergraduate counseling, entrance milestone structuring, university selection advisory, and scholarly development for this program.",
@@ -673,13 +835,14 @@ export const programs: Program[] = [
       "Applied semester practicum, industrial case studies, and field projects",
       "Advanced capstone project and undergraduate academic seminar"
     ],
-    "featured": false
+    "featured": false,
+    "categorySlug": "computer-science-it"
   },
   {
     "id": "bach-21",
     "slug": "b-sc-chemistry",
     "title": "B.Sc. Chemistry",
-    "category": "Bachelor",
+    "category": "Computer Science & IT",
     "discipline": "Science",
     "shortDescription": "Organic synthesis, inorganic compounds, physical chemistry, and qualitative laboratory testing.",
     "description": "Organic synthesis, inorganic compounds, physical chemistry, and qualitative laboratory testing. CademyX delivers comprehensive undergraduate counseling, entrance milestone structuring, university selection advisory, and scholarly development for this program.",
@@ -703,13 +866,14 @@ export const programs: Program[] = [
       "Applied semester practicum, industrial case studies, and field projects",
       "Advanced capstone project and undergraduate academic seminar"
     ],
-    "featured": false
+    "featured": false,
+    "categorySlug": "computer-science-it"
   },
   {
     "id": "bach-22",
     "slug": "b-sc-biotechnology",
     "title": "B.Sc. Biotechnology",
-    "category": "Bachelor",
+    "category": "Engineering & Technology",
     "discipline": "Science",
     "shortDescription": "Cell biology, microbiology, genetics, and biotechnology laboratory practices.",
     "description": "Cell biology, microbiology, genetics, and biotechnology laboratory practices. CademyX delivers comprehensive undergraduate counseling, entrance milestone structuring, university selection advisory, and scholarly development for this program.",
@@ -733,13 +897,14 @@ export const programs: Program[] = [
       "Applied semester practicum, industrial case studies, and field projects",
       "Advanced capstone project and undergraduate academic seminar"
     ],
-    "featured": false
+    "featured": false,
+    "categorySlug": "engineering-technology"
   },
   {
     "id": "bach-23",
     "slug": "b-sc-microbiology",
     "title": "B.Sc. Microbiology",
-    "category": "Bachelor",
+    "category": "Computer Science & IT",
     "discipline": "Science",
     "shortDescription": "Bacteriology, virology, immunology, and clinical microbiology diagnostics.",
     "description": "Bacteriology, virology, immunology, and clinical microbiology diagnostics. CademyX delivers comprehensive undergraduate counseling, entrance milestone structuring, university selection advisory, and scholarly development for this program.",
@@ -763,13 +928,14 @@ export const programs: Program[] = [
       "Applied semester practicum, industrial case studies, and field projects",
       "Advanced capstone project and undergraduate academic seminar"
     ],
-    "featured": false
+    "featured": false,
+    "categorySlug": "computer-science-it"
   },
   {
     "id": "bach-24",
     "slug": "ba",
     "title": "BA",
-    "category": "Bachelor",
+    "category": "Computer Science & IT",
     "discipline": "Arts & Humanities",
     "shortDescription": "Bachelor of Arts offering broad interdisciplinary foundations across liberal arts and social sciences.",
     "description": "Bachelor of Arts offering broad interdisciplinary foundations across liberal arts and social sciences. CademyX delivers comprehensive undergraduate counseling, entrance milestone structuring, university selection advisory, and scholarly development for this program.",
@@ -793,13 +959,14 @@ export const programs: Program[] = [
       "Applied semester practicum, industrial case studies, and field projects",
       "Advanced capstone project and undergraduate academic seminar"
     ],
-    "featured": false
+    "featured": false,
+    "categorySlug": "computer-science-it"
   },
   {
     "id": "bach-25",
     "slug": "ba-english",
     "title": "BA English",
-    "category": "Bachelor",
+    "category": "Computer Science & IT",
     "discipline": "Arts & Humanities",
     "shortDescription": "English literature, critical writing, rhetoric, and cultural textual analysis.",
     "description": "English literature, critical writing, rhetoric, and cultural textual analysis. CademyX delivers comprehensive undergraduate counseling, entrance milestone structuring, university selection advisory, and scholarly development for this program.",
@@ -823,13 +990,14 @@ export const programs: Program[] = [
       "Applied semester practicum, industrial case studies, and field projects",
       "Advanced capstone project and undergraduate academic seminar"
     ],
-    "featured": false
+    "featured": false,
+    "categorySlug": "computer-science-it"
   },
   {
     "id": "bach-26",
     "slug": "ba-psychology",
     "title": "BA Psychology",
-    "category": "Bachelor",
+    "category": "Psychology",
     "discipline": "Arts & Humanities",
     "shortDescription": "Human cognition, developmental psychology, social behavior, and introductory counseling.",
     "description": "Human cognition, developmental psychology, social behavior, and introductory counseling. CademyX delivers comprehensive undergraduate counseling, entrance milestone structuring, university selection advisory, and scholarly development for this program.",
@@ -853,13 +1021,14 @@ export const programs: Program[] = [
       "Applied semester practicum, industrial case studies, and field projects",
       "Advanced capstone project and undergraduate academic seminar"
     ],
-    "featured": false
+    "featured": false,
+    "categorySlug": "psychology"
   },
   {
     "id": "bach-27",
     "slug": "ba-economics",
     "title": "BA Economics",
-    "category": "Bachelor",
+    "category": "Economics",
     "discipline": "Arts & Humanities",
     "shortDescription": "Micro and macro economics, quantitative methods, banking, and public finance.",
     "description": "Micro and macro economics, quantitative methods, banking, and public finance. CademyX delivers comprehensive undergraduate counseling, entrance milestone structuring, university selection advisory, and scholarly development for this program.",
@@ -883,13 +1052,14 @@ export const programs: Program[] = [
       "Applied semester practicum, industrial case studies, and field projects",
       "Advanced capstone project and undergraduate academic seminar"
     ],
-    "featured": false
+    "featured": false,
+    "categorySlug": "economics"
   },
   {
     "id": "bach-28",
     "slug": "ba-political-science",
     "title": "BA Political Science",
-    "category": "Bachelor",
+    "category": "Computer Science & IT",
     "discipline": "Arts & Humanities",
     "shortDescription": "Political theory, constitutional frameworks, international relations, and public governance.",
     "description": "Political theory, constitutional frameworks, international relations, and public governance. CademyX delivers comprehensive undergraduate counseling, entrance milestone structuring, university selection advisory, and scholarly development for this program.",
@@ -913,13 +1083,14 @@ export const programs: Program[] = [
       "Applied semester practicum, industrial case studies, and field projects",
       "Advanced capstone project and undergraduate academic seminar"
     ],
-    "featured": false
+    "featured": false,
+    "categorySlug": "computer-science-it"
   },
   {
     "id": "bach-29",
     "slug": "ba-sociology",
     "title": "BA Sociology",
-    "category": "Bachelor",
+    "category": "Computer Science & IT",
     "discipline": "Arts & Humanities",
     "shortDescription": "Social institutions, cultural anthropology, stratification, and social research methods.",
     "description": "Social institutions, cultural anthropology, stratification, and social research methods. CademyX delivers comprehensive undergraduate counseling, entrance milestone structuring, university selection advisory, and scholarly development for this program.",
@@ -943,13 +1114,14 @@ export const programs: Program[] = [
       "Applied semester practicum, industrial case studies, and field projects",
       "Advanced capstone project and undergraduate academic seminar"
     ],
-    "featured": false
+    "featured": false,
+    "categorySlug": "computer-science-it"
   },
   {
     "id": "bach-30",
     "slug": "mbbs",
     "title": "MBBS",
-    "category": "Bachelor",
+    "category": "Management & Business",
     "discipline": "Healthcare",
     "shortDescription": "Bachelor of Medicine and Bachelor of Surgery providing comprehensive medical training and clinical rotations.",
     "description": "Bachelor of Medicine and Bachelor of Surgery providing comprehensive medical training and clinical rotations. CademyX delivers comprehensive undergraduate counseling, entrance milestone structuring, university selection advisory, and scholarly development for this program.",
@@ -973,13 +1145,14 @@ export const programs: Program[] = [
       "Applied semester practicum, industrial case studies, and field projects",
       "Advanced capstone project and undergraduate academic seminar"
     ],
-    "featured": false
+    "featured": false,
+    "categorySlug": "management-business"
   },
   {
     "id": "bach-31",
     "slug": "bds",
     "title": "BDS",
-    "category": "Bachelor",
+    "category": "Management & Business",
     "discipline": "Healthcare",
     "shortDescription": "Bachelor of Dental Surgery preparing students for dental clinical practice and oral surgery.",
     "description": "Bachelor of Dental Surgery preparing students for dental clinical practice and oral surgery. CademyX delivers comprehensive undergraduate counseling, entrance milestone structuring, university selection advisory, and scholarly development for this program.",
@@ -1003,13 +1176,14 @@ export const programs: Program[] = [
       "Applied semester practicum, industrial case studies, and field projects",
       "Advanced capstone project and undergraduate academic seminar"
     ],
-    "featured": false
+    "featured": false,
+    "categorySlug": "management-business"
   },
   {
     "id": "bach-32",
     "slug": "b-sc-nursing",
     "title": "B.Sc. Nursing",
-    "category": "Bachelor",
+    "category": "Management & Business",
     "discipline": "Healthcare",
     "shortDescription": "Professional clinical nursing, patient care management, pharmacology, and hospital protocols.",
     "description": "Professional clinical nursing, patient care management, pharmacology, and hospital protocols. CademyX delivers comprehensive undergraduate counseling, entrance milestone structuring, university selection advisory, and scholarly development for this program.",
@@ -1033,13 +1207,14 @@ export const programs: Program[] = [
       "Applied semester practicum, industrial case studies, and field projects",
       "Advanced capstone project and undergraduate academic seminar"
     ],
-    "featured": false
+    "featured": false,
+    "categorySlug": "management-business"
   },
   {
     "id": "bach-33",
     "slug": "b-pharm",
     "title": "B.Pharm",
-    "category": "Bachelor",
+    "category": "Management & Business",
     "discipline": "Healthcare",
     "shortDescription": "Bachelor of Pharmacy covering pharmaceutical chemistry, medicinal pharmacology, and drug formulation.",
     "description": "Bachelor of Pharmacy covering pharmaceutical chemistry, medicinal pharmacology, and drug formulation. CademyX delivers comprehensive undergraduate counseling, entrance milestone structuring, university selection advisory, and scholarly development for this program.",
@@ -1063,13 +1238,14 @@ export const programs: Program[] = [
       "Applied semester practicum, industrial case studies, and field projects",
       "Advanced capstone project and undergraduate academic seminar"
     ],
-    "featured": false
+    "featured": false,
+    "categorySlug": "management-business"
   },
   {
     "id": "bach-34",
     "slug": "bpt",
     "title": "BPT",
-    "category": "Bachelor",
+    "category": "Management & Business",
     "discipline": "Healthcare",
     "shortDescription": "Bachelor of Physiotherapy covering rehabilitation, kinesiology, and musculoskeletal therapy.",
     "description": "Bachelor of Physiotherapy covering rehabilitation, kinesiology, and musculoskeletal therapy. CademyX delivers comprehensive undergraduate counseling, entrance milestone structuring, university selection advisory, and scholarly development for this program.",
@@ -1093,13 +1269,14 @@ export const programs: Program[] = [
       "Applied semester practicum, industrial case studies, and field projects",
       "Advanced capstone project and undergraduate academic seminar"
     ],
-    "featured": false
+    "featured": false,
+    "categorySlug": "management-business"
   },
   {
     "id": "bach-35",
     "slug": "bmlt",
     "title": "BMLT",
-    "category": "Bachelor",
+    "category": "Management & Business",
     "discipline": "Healthcare",
     "shortDescription": "Bachelor in Medical Laboratory Technology for diagnostic pathology, hematology, and biochemistry.",
     "description": "Bachelor in Medical Laboratory Technology for diagnostic pathology, hematology, and biochemistry. CademyX delivers comprehensive undergraduate counseling, entrance milestone structuring, university selection advisory, and scholarly development for this program.",
@@ -1123,13 +1300,14 @@ export const programs: Program[] = [
       "Applied semester practicum, industrial case studies, and field projects",
       "Advanced capstone project and undergraduate academic seminar"
     ],
-    "featured": false
+    "featured": false,
+    "categorySlug": "management-business"
   },
   {
     "id": "bach-36",
     "slug": "bachelor-of-optometry",
     "title": "Bachelor of Optometry",
-    "category": "Bachelor",
+    "category": "Management & Business",
     "discipline": "Healthcare",
     "shortDescription": "Ophthalmic optics, vision therapy, ocular diagnostics, and refractive correction.",
     "description": "Ophthalmic optics, vision therapy, ocular diagnostics, and refractive correction. CademyX delivers comprehensive undergraduate counseling, entrance milestone structuring, university selection advisory, and scholarly development for this program.",
@@ -1153,13 +1331,14 @@ export const programs: Program[] = [
       "Applied semester practicum, industrial case studies, and field projects",
       "Advanced capstone project and undergraduate academic seminar"
     ],
-    "featured": false
+    "featured": false,
+    "categorySlug": "management-business"
   },
   {
     "id": "bach-37",
     "slug": "ba-llb",
     "title": "BA LLB",
-    "category": "Bachelor",
+    "category": "Law",
     "discipline": "Law",
     "shortDescription": "Integrated 5-year undergraduate law degree blending humanities, sociology, and criminal/civil jurisprudence.",
     "description": "Integrated 5-year undergraduate law degree blending humanities, sociology, and criminal/civil jurisprudence. CademyX delivers comprehensive undergraduate counseling, entrance milestone structuring, university selection advisory, and scholarly development for this program.",
@@ -1183,13 +1362,14 @@ export const programs: Program[] = [
       "Applied semester practicum, industrial case studies, and field projects",
       "Advanced capstone project and undergraduate academic seminar"
     ],
-    "featured": false
+    "featured": false,
+    "categorySlug": "law"
   },
   {
     "id": "bach-38",
     "slug": "bba-llb",
     "title": "BBA LLB",
-    "category": "Bachelor",
+    "category": "Law",
     "discipline": "Law",
     "shortDescription": "Integrated law curriculum combining corporate management, finance, and enterprise legal frameworks.",
     "description": "Integrated law curriculum combining corporate management, finance, and enterprise legal frameworks. CademyX delivers comprehensive undergraduate counseling, entrance milestone structuring, university selection advisory, and scholarly development for this program.",
@@ -1213,13 +1393,14 @@ export const programs: Program[] = [
       "Applied semester practicum, industrial case studies, and field projects",
       "Advanced capstone project and undergraduate academic seminar"
     ],
-    "featured": false
+    "featured": false,
+    "categorySlug": "law"
   },
   {
     "id": "bach-39",
     "slug": "b-com-llb",
     "title": "B.Com LLB",
-    "category": "Bachelor",
+    "category": "Law",
     "discipline": "Law",
     "shortDescription": "Integrated law degree emphasizing corporate taxation, mercantile law, auditing, and financial litigation.",
     "description": "Integrated law degree emphasizing corporate taxation, mercantile law, auditing, and financial litigation. CademyX delivers comprehensive undergraduate counseling, entrance milestone structuring, university selection advisory, and scholarly development for this program.",
@@ -1243,13 +1424,14 @@ export const programs: Program[] = [
       "Applied semester practicum, industrial case studies, and field projects",
       "Advanced capstone project and undergraduate academic seminar"
     ],
-    "featured": false
+    "featured": false,
+    "categorySlug": "law"
   },
   {
     "id": "bach-40",
     "slug": "integrated-law-programs",
     "title": "5-Year Integrated Law Programs",
-    "category": "Bachelor",
+    "category": "Law",
     "discipline": "Law",
     "shortDescription": "Holistic bar council-approved 5-year integrated law curriculum with moot court and judicial internship.",
     "description": "Holistic bar council-approved 5-year integrated law curriculum with moot court and judicial internship. CademyX delivers comprehensive undergraduate counseling, entrance milestone structuring, university selection advisory, and scholarly development for this program.",
@@ -1273,13 +1455,14 @@ export const programs: Program[] = [
       "Applied semester practicum, industrial case studies, and field projects",
       "Advanced capstone project and undergraduate academic seminar"
     ],
-    "featured": false
+    "featured": false,
+    "categorySlug": "law"
   },
   {
     "id": "bach-41",
     "slug": "b-el-ed",
     "title": "B.El.Ed.",
-    "category": "Bachelor",
+    "category": "Management & Business",
     "discipline": "Education",
     "shortDescription": "Bachelor of Elementary Education preparing educators for foundational primary and elementary schooling.",
     "description": "Bachelor of Elementary Education preparing educators for foundational primary and elementary schooling. CademyX delivers comprehensive undergraduate counseling, entrance milestone structuring, university selection advisory, and scholarly development for this program.",
@@ -1303,13 +1486,14 @@ export const programs: Program[] = [
       "Applied semester practicum, industrial case studies, and field projects",
       "Advanced capstone project and undergraduate academic seminar"
     ],
-    "featured": false
+    "featured": false,
+    "categorySlug": "management-business"
   },
   {
     "id": "bach-42",
     "slug": "d-el-ed",
     "title": "D.El.Ed.",
-    "category": "Bachelor",
+    "category": "Management & Business",
     "discipline": "Education",
     "shortDescription": "Diploma in Elementary Education focusing on classroom psychology, pedagogical teaching, and child development.",
     "description": "Diploma in Elementary Education focusing on classroom psychology, pedagogical teaching, and child development. CademyX delivers comprehensive undergraduate counseling, entrance milestone structuring, university selection advisory, and scholarly development for this program.",
@@ -1333,13 +1517,14 @@ export const programs: Program[] = [
       "Applied semester practicum, industrial case studies, and field projects",
       "Advanced capstone project and undergraduate academic seminar"
     ],
-    "featured": false
+    "featured": false,
+    "categorySlug": "management-business"
   },
   {
     "id": "bach-43",
     "slug": "b-ed",
     "title": "B.Ed. (where eligible under applicable rules)",
-    "category": "Bachelor",
+    "category": "Management & Business",
     "discipline": "Education",
     "shortDescription": "Bachelor of Education preparing graduate candidates for professional secondary and senior secondary teaching.",
     "description": "Bachelor of Education preparing graduate candidates for professional secondary and senior secondary teaching. CademyX delivers comprehensive undergraduate counseling, entrance milestone structuring, university selection advisory, and scholarly development for this program.",
@@ -1363,13 +1548,14 @@ export const programs: Program[] = [
       "Applied semester practicum, industrial case studies, and field projects",
       "Advanced capstone project and undergraduate academic seminar"
     ],
-    "featured": false
+    "featured": false,
+    "categorySlug": "management-business"
   },
   {
     "id": "bach-44",
     "slug": "bjmc",
     "title": "BJMC",
-    "category": "Bachelor",
+    "category": "Media & Communication",
     "discipline": "Media & Design",
     "shortDescription": "Bachelor of Journalism and Mass Communication covering reporting, print media, television, and radio.",
     "description": "Bachelor of Journalism and Mass Communication covering reporting, print media, television, and radio. CademyX delivers comprehensive undergraduate counseling, entrance milestone structuring, university selection advisory, and scholarly development for this program.",
@@ -1393,13 +1579,14 @@ export const programs: Program[] = [
       "Applied semester practicum, industrial case studies, and field projects",
       "Advanced capstone project and undergraduate academic seminar"
     ],
-    "featured": false
+    "featured": false,
+    "categorySlug": "media-communication"
   },
   {
     "id": "bach-45",
     "slug": "ba-journalism-mass-communication",
     "title": "BA Journalism & Mass Communication",
-    "category": "Bachelor",
+    "category": "Media & Communication",
     "discipline": "Media & Design",
     "shortDescription": "Comprehensive degree covering news reporting, digital public relations, advertising, and film studies.",
     "description": "Comprehensive degree covering news reporting, digital public relations, advertising, and film studies. CademyX delivers comprehensive undergraduate counseling, entrance milestone structuring, university selection advisory, and scholarly development for this program.",
@@ -1423,13 +1610,14 @@ export const programs: Program[] = [
       "Applied semester practicum, industrial case studies, and field projects",
       "Advanced capstone project and undergraduate academic seminar"
     ],
-    "featured": false
+    "featured": false,
+    "categorySlug": "media-communication"
   },
   {
     "id": "bach-46",
     "slug": "b-des",
     "title": "B.Des",
-    "category": "Bachelor",
+    "category": "Media & Communication",
     "discipline": "Media & Design",
     "shortDescription": "Bachelor of Design covering industrial product design, visual branding, and interactive experience design.",
     "description": "Bachelor of Design covering industrial product design, visual branding, and interactive experience design. CademyX delivers comprehensive undergraduate counseling, entrance milestone structuring, university selection advisory, and scholarly development for this program.",
@@ -1453,13 +1641,14 @@ export const programs: Program[] = [
       "Applied semester practicum, industrial case studies, and field projects",
       "Advanced capstone project and undergraduate academic seminar"
     ],
-    "featured": false
+    "featured": false,
+    "categorySlug": "media-communication"
   },
   {
     "id": "bach-47",
     "slug": "bfa",
     "title": "BFA",
-    "category": "Bachelor",
+    "category": "Media & Communication",
     "discipline": "Media & Design",
     "shortDescription": "Bachelor of Fine Arts specializing in painting, sculpture, visual arts, and digital illustration.",
     "description": "Bachelor of Fine Arts specializing in painting, sculpture, visual arts, and digital illustration. CademyX delivers comprehensive undergraduate counseling, entrance milestone structuring, university selection advisory, and scholarly development for this program.",
@@ -1483,13 +1672,14 @@ export const programs: Program[] = [
       "Applied semester practicum, industrial case studies, and field projects",
       "Advanced capstone project and undergraduate academic seminar"
     ],
-    "featured": false
+    "featured": false,
+    "categorySlug": "media-communication"
   },
   {
     "id": "bach-48",
     "slug": "b-sc-animation",
     "title": "B.Sc. Animation",
-    "category": "Bachelor",
+    "category": "Media & Communication",
     "discipline": "Media & Design",
     "shortDescription": "3D animation, VFX visual effects, CGI compositing, and video game character modeling.",
     "description": "3D animation, VFX visual effects, CGI compositing, and video game character modeling. CademyX delivers comprehensive undergraduate counseling, entrance milestone structuring, university selection advisory, and scholarly development for this program.",
@@ -1513,13 +1703,14 @@ export const programs: Program[] = [
       "Applied semester practicum, industrial case studies, and field projects",
       "Advanced capstone project and undergraduate academic seminar"
     ],
-    "featured": false
+    "featured": false,
+    "categorySlug": "media-communication"
   },
   {
     "id": "bach-49",
     "slug": "bhm",
     "title": "BHM",
-    "category": "Bachelor",
+    "category": "Hospitality & Tourism",
     "discipline": "Hospitality & Tourism",
     "shortDescription": "Bachelor of Hotel Management covering front office operations, culinary arts, and housekeeping.",
     "description": "Bachelor of Hotel Management covering front office operations, culinary arts, and housekeeping. CademyX delivers comprehensive undergraduate counseling, entrance milestone structuring, university selection advisory, and scholarly development for this program.",
@@ -1543,13 +1734,14 @@ export const programs: Program[] = [
       "Applied semester practicum, industrial case studies, and field projects",
       "Advanced capstone project and undergraduate academic seminar"
     ],
-    "featured": false
+    "featured": false,
+    "categorySlug": "hospitality-tourism"
   },
   {
     "id": "bach-50",
     "slug": "b-sc-hospitality-hotel-administration",
     "title": "B.Sc. Hospitality & Hotel Administration",
-    "category": "Bachelor",
+    "category": "Hospitality & Tourism",
     "discipline": "Hospitality & Tourism",
     "shortDescription": "Rigorous hotel administration covering revenue management, hospitality law, and resort operations.",
     "description": "Rigorous hotel administration covering revenue management, hospitality law, and resort operations. CademyX delivers comprehensive undergraduate counseling, entrance milestone structuring, university selection advisory, and scholarly development for this program.",
@@ -1573,13 +1765,14 @@ export const programs: Program[] = [
       "Applied semester practicum, industrial case studies, and field projects",
       "Advanced capstone project and undergraduate academic seminar"
     ],
-    "featured": false
+    "featured": false,
+    "categorySlug": "hospitality-tourism"
   },
   {
     "id": "bach-51",
     "slug": "bachelor-of-tourism-management",
     "title": "Bachelor of Tourism Management",
-    "category": "Bachelor",
+    "category": "Hospitality & Tourism",
     "discipline": "Hospitality & Tourism",
     "shortDescription": "Global travel marketing, ticketing systems, tour logistics, and destination heritage development.",
     "description": "Global travel marketing, ticketing systems, tour logistics, and destination heritage development. CademyX delivers comprehensive undergraduate counseling, entrance milestone structuring, university selection advisory, and scholarly development for this program.",
@@ -1603,13 +1796,14 @@ export const programs: Program[] = [
       "Applied semester practicum, industrial case studies, and field projects",
       "Advanced capstone project and undergraduate academic seminar"
     ],
-    "featured": false
+    "featured": false,
+    "categorySlug": "hospitality-tourism"
   },
   {
     "id": "bach-52",
     "slug": "b-arch",
     "title": "B.Arch",
-    "category": "Bachelor",
+    "category": "Computer Science & IT",
     "discipline": "Architecture & Planning",
     "shortDescription": "Council of Architecture approved 5-year degree covering architectural drafting, urban design, and structures.",
     "description": "Council of Architecture approved 5-year degree covering architectural drafting, urban design, and structures. CademyX delivers comprehensive undergraduate counseling, entrance milestone structuring, university selection advisory, and scholarly development for this program.",
@@ -1633,13 +1827,14 @@ export const programs: Program[] = [
       "Applied semester practicum, industrial case studies, and field projects",
       "Advanced capstone project and undergraduate academic seminar"
     ],
-    "featured": false
+    "featured": false,
+    "categorySlug": "computer-science-it"
   },
   {
     "id": "bach-53",
     "slug": "b-plan",
     "title": "B.Plan",
-    "category": "Bachelor",
+    "category": "Computer Science & IT",
     "discipline": "Architecture & Planning",
     "shortDescription": "Bachelor of Planning focusing on urban infrastructure, smart city planning, and environmental design.",
     "description": "Bachelor of Planning focusing on urban infrastructure, smart city planning, and environmental design. CademyX delivers comprehensive undergraduate counseling, entrance milestone structuring, university selection advisory, and scholarly development for this program.",
@@ -1663,13 +1858,14 @@ export const programs: Program[] = [
       "Applied semester practicum, industrial case studies, and field projects",
       "Advanced capstone project and undergraduate academic seminar"
     ],
-    "featured": false
+    "featured": false,
+    "categorySlug": "computer-science-it"
   },
   {
     "id": "bach-54",
     "slug": "bachelor-of-interior-design",
     "title": "Bachelor of Interior Design",
-    "category": "Bachelor",
+    "category": "Design & Creative Technology",
     "discipline": "Architecture & Planning",
     "shortDescription": "Interior architectural space planning, furniture design, lighting ergonomics, and 3D CAD visualization.",
     "description": "Interior architectural space planning, furniture design, lighting ergonomics, and 3D CAD visualization. CademyX delivers comprehensive undergraduate counseling, entrance milestone structuring, university selection advisory, and scholarly development for this program.",
@@ -1693,13 +1889,14 @@ export const programs: Program[] = [
       "Applied semester practicum, industrial case studies, and field projects",
       "Advanced capstone project and undergraduate academic seminar"
     ],
-    "featured": false
+    "featured": false,
+    "categorySlug": "design-creative-technology"
   },
   {
     "id": "bach-55",
     "slug": "b-sc-agriculture",
     "title": "B.Sc. Agriculture",
-    "category": "Bachelor",
+    "category": "Management & Business",
     "discipline": "Agriculture",
     "shortDescription": "Agronomy, soil science, agricultural entomology, plant pathology, and precision farming techniques.",
     "description": "Agronomy, soil science, agricultural entomology, plant pathology, and precision farming techniques. CademyX delivers comprehensive undergraduate counseling, entrance milestone structuring, university selection advisory, and scholarly development for this program.",
@@ -1723,13 +1920,14 @@ export const programs: Program[] = [
       "Applied semester practicum, industrial case studies, and field projects",
       "Advanced capstone project and undergraduate academic seminar"
     ],
-    "featured": false
+    "featured": false,
+    "categorySlug": "management-business"
   },
   {
     "id": "bach-56",
     "slug": "b-sc-horticulture",
     "title": "B.Sc. Horticulture",
-    "category": "Bachelor",
+    "category": "Management & Business",
     "discipline": "Agriculture",
     "shortDescription": "Cultivation of medicinal plants, floriculture, pomology, post-harvest technology, and greenhouse design.",
     "description": "Cultivation of medicinal plants, floriculture, pomology, post-harvest technology, and greenhouse design. CademyX delivers comprehensive undergraduate counseling, entrance milestone structuring, university selection advisory, and scholarly development for this program.",
@@ -1753,13 +1951,14 @@ export const programs: Program[] = [
       "Applied semester practicum, industrial case studies, and field projects",
       "Advanced capstone project and undergraduate academic seminar"
     ],
-    "featured": false
+    "featured": false,
+    "categorySlug": "management-business"
   },
   {
     "id": "bach-57",
     "slug": "b-sc-forestry",
     "title": "B.Sc. Forestry",
-    "category": "Bachelor",
+    "category": "Management & Business",
     "discipline": "Agriculture",
     "shortDescription": "Forest ecology, silviculture, wildlife conservation, wood science, and environmental management.",
     "description": "Forest ecology, silviculture, wildlife conservation, wood science, and environmental management. CademyX delivers comprehensive undergraduate counseling, entrance milestone structuring, university selection advisory, and scholarly development for this program.",
@@ -1783,13 +1982,14 @@ export const programs: Program[] = [
       "Applied semester practicum, industrial case studies, and field projects",
       "Advanced capstone project and undergraduate academic seminar"
     ],
-    "featured": false
+    "featured": false,
+    "categorySlug": "management-business"
   },
   {
     "id": "bach-58",
     "slug": "b-f-sc-fisheries-science",
     "title": "B.F.Sc. Fisheries Science",
-    "category": "Bachelor",
+    "category": "Management & Business",
     "discipline": "Agriculture",
     "shortDescription": "Aquaculture engineering, fish pathology, marine biology, and aquatic resource conservation.",
     "description": "Aquaculture engineering, fish pathology, marine biology, and aquatic resource conservation. CademyX delivers comprehensive undergraduate counseling, entrance milestone structuring, university selection advisory, and scholarly development for this program.",
@@ -1813,13 +2013,14 @@ export const programs: Program[] = [
       "Applied semester practicum, industrial case studies, and field projects",
       "Advanced capstone project and undergraduate academic seminar"
     ],
-    "featured": false
+    "featured": false,
+    "categorySlug": "management-business"
   },
   {
     "id": "bach-59",
     "slug": "bba-aviation-management",
     "title": "BBA Aviation Management",
-    "category": "Bachelor",
+    "category": "Management & Business",
     "discipline": "Aviation",
     "shortDescription": "Airport ground handling, airline logistics, passenger traffic management, and civil aviation law.",
     "description": "Airport ground handling, airline logistics, passenger traffic management, and civil aviation law. CademyX delivers comprehensive undergraduate counseling, entrance milestone structuring, university selection advisory, and scholarly development for this program.",
@@ -1843,13 +2044,14 @@ export const programs: Program[] = [
       "Applied semester practicum, industrial case studies, and field projects",
       "Advanced capstone project and undergraduate academic seminar"
     ],
-    "featured": false
+    "featured": false,
+    "categorySlug": "management-business"
   },
   {
     "id": "bach-60",
     "slug": "b-sc-aviation",
     "title": "B.Sc. Aviation",
-    "category": "Bachelor",
+    "category": "Management & Business",
     "discipline": "Aviation",
     "shortDescription": "Aviation aerodynamics, air navigation, meteorological analysis, and aircraft systems technology.",
     "description": "Aviation aerodynamics, air navigation, meteorological analysis, and aircraft systems technology. CademyX delivers comprehensive undergraduate counseling, entrance milestone structuring, university selection advisory, and scholarly development for this program.",
@@ -1873,13 +2075,14 @@ export const programs: Program[] = [
       "Applied semester practicum, industrial case studies, and field projects",
       "Advanced capstone project and undergraduate academic seminar"
     ],
-    "featured": false
+    "featured": false,
+    "categorySlug": "management-business"
   },
   {
     "id": "bach-61",
     "slug": "commercial-pilot-training-programs",
     "title": "Commercial Pilot Training programs",
-    "category": "Bachelor",
+    "category": "Artificial Intelligence",
     "discipline": "Aviation",
     "shortDescription": "DGCA-aligned commercial flight training, instrument rating, multi-engine certification, and simulator hours.",
     "description": "DGCA-aligned commercial flight training, instrument rating, multi-engine certification, and simulator hours. CademyX delivers comprehensive undergraduate counseling, entrance milestone structuring, university selection advisory, and scholarly development for this program.",
@@ -1903,13 +2106,14 @@ export const programs: Program[] = [
       "Applied semester practicum, industrial case studies, and field projects",
       "Advanced capstone project and undergraduate academic seminar"
     ],
-    "featured": false
+    "featured": false,
+    "categorySlug": "artificial-intelligence"
   },
   {
     "id": "bach-62",
     "slug": "bachelor-of-physical-education",
     "title": "Bachelor of Physical Education",
-    "category": "Bachelor",
+    "category": "Computer Science & IT",
     "discipline": "Sports & Fitness",
     "shortDescription": "Exercise physiology, sports coaching, athletic training, and physical fitness pedagogy.",
     "description": "Exercise physiology, sports coaching, athletic training, and physical fitness pedagogy. CademyX delivers comprehensive undergraduate counseling, entrance milestone structuring, university selection advisory, and scholarly development for this program.",
@@ -1933,13 +2137,14 @@ export const programs: Program[] = [
       "Applied semester practicum, industrial case studies, and field projects",
       "Advanced capstone project and undergraduate academic seminar"
     ],
-    "featured": false
+    "featured": false,
+    "categorySlug": "computer-science-it"
   },
   {
     "id": "bach-63",
     "slug": "b-sc-sports-science",
     "title": "B.Sc. Sports Science",
-    "category": "Bachelor",
+    "category": "Computer Science & IT",
     "discipline": "Sports & Fitness",
     "shortDescription": "Biomechanics, sports nutrition, performance analytics, athletic rehabilitation, and sports psychology.",
     "description": "Biomechanics, sports nutrition, performance analytics, athletic rehabilitation, and sports psychology. CademyX delivers comprehensive undergraduate counseling, entrance milestone structuring, university selection advisory, and scholarly development for this program.",
@@ -1963,13 +2168,14 @@ export const programs: Program[] = [
       "Applied semester practicum, industrial case studies, and field projects",
       "Advanced capstone project and undergraduate academic seminar"
     ],
-    "featured": false
+    "featured": false,
+    "categorySlug": "computer-science-it"
   },
   {
     "id": "bach-64",
     "slug": "b-p-ed",
     "title": "B.P.Ed. (subject to eligibility)",
-    "category": "Bachelor",
+    "category": "Computer Science & IT",
     "discipline": "Sports & Fitness",
     "shortDescription": "Professional physical education teacher training covering curriculum delivery, officiating, and sports administration.",
     "description": "Professional physical education teacher training covering curriculum delivery, officiating, and sports administration. CademyX delivers comprehensive undergraduate counseling, entrance milestone structuring, university selection advisory, and scholarly development for this program.",
@@ -1993,13 +2199,14 @@ export const programs: Program[] = [
       "Applied semester practicum, industrial case studies, and field projects",
       "Advanced capstone project and undergraduate academic seminar"
     ],
-    "featured": false
+    "featured": false,
+    "categorySlug": "computer-science-it"
   },
   {
     "id": "mast-01",
     "slug": "mba",
     "title": "MBA",
-    "category": "Masters",
+    "category": "Management & Business",
     "discipline": "Management",
     "shortDescription": "Master of Business Administration with global management specialization.",
     "description": "Master of Business Administration with global management specialization. CademyX provides complete academic advisory, university curriculum guidance, faculty mentorship, and career pathway coaching for scholars pursuing this prestigious degree.",
@@ -2023,13 +2230,14 @@ export const programs: Program[] = [
       "Corporate Finance, Accounting & Managerial Economics",
       "Marketing Strategy, Digital Transformation & Operations"
     ],
-    "featured": true
+    "featured": true,
+    "categorySlug": "management-business"
   },
   {
     "id": "mast-02",
     "slug": "pgdm",
     "title": "PGDM",
-    "category": "Masters",
+    "category": "Management & Business",
     "discipline": "Management",
     "shortDescription": "Post Graduate Diploma in Management with industry-focused curriculum.",
     "description": "Post Graduate Diploma in Management with industry-focused curriculum. CademyX provides complete academic advisory, university curriculum guidance, faculty mentorship, and career pathway coaching for scholars pursuing this prestigious degree.",
@@ -2053,13 +2261,14 @@ export const programs: Program[] = [
       "Supply Chain Management & Strategic Operations",
       "Applied Business Ethics & Global Corporate Strategy"
     ],
-    "featured": false
+    "featured": false,
+    "categorySlug": "management-business"
   },
   {
     "id": "mast-03",
     "slug": "executive-mba",
     "title": "Executive MBA",
-    "category": "Masters",
+    "category": "Management & Business",
     "discipline": "Management",
     "shortDescription": "Accelerated master’s program for mid-career and senior executive leaders.",
     "description": "Accelerated master’s program for mid-career and senior executive leaders. CademyX provides complete academic advisory, university curriculum guidance, faculty mentorship, and career pathway coaching for scholars pursuing this prestigious degree.",
@@ -2083,13 +2292,14 @@ export const programs: Program[] = [
       "Transformational Leadership in Disruptive Environments",
       "Global Mergers, Acquisitions & Venture Capital"
     ],
-    "featured": false
+    "featured": false,
+    "categorySlug": "management-business"
   },
   {
     "id": "mast-04",
     "slug": "m-com",
     "title": "M.Com",
-    "category": "Masters",
+    "category": "Commerce & Finance",
     "discipline": "Commerce & Finance",
     "shortDescription": "Master of Commerce emphasizing advanced financial management and taxation.",
     "description": "Master of Commerce emphasizing advanced financial management and taxation. CademyX provides complete academic advisory, university curriculum guidance, faculty mentorship, and career pathway coaching for scholars pursuing this prestigious degree.",
@@ -2113,13 +2323,14 @@ export const programs: Program[] = [
       "Direct Tax Laws, GST & International Taxation",
       "Financial Markets, Institutions & Regulatory Frameworks"
     ],
-    "featured": false
+    "featured": false,
+    "categorySlug": "commerce-finance"
   },
   {
     "id": "mast-05",
     "slug": "m-sc-finance",
     "title": "M.Sc. Finance",
-    "category": "Masters",
+    "category": "Commerce & Finance",
     "discipline": "Commerce & Finance",
     "shortDescription": "Quantitative financial modeling, risk analysis, and capital market analytics.",
     "description": "Quantitative financial modeling, risk analysis, and capital market analytics. CademyX provides complete academic advisory, university curriculum guidance, faculty mentorship, and career pathway coaching for scholars pursuing this prestigious degree.",
@@ -2143,13 +2354,14 @@ export const programs: Program[] = [
       "Derivatives, Fixed Income Securities & Risk Engineering",
       "Computational Finance with Python & Algorithmic Trading"
     ],
-    "featured": false
+    "featured": false,
+    "categorySlug": "commerce-finance"
   },
   {
     "id": "mast-06",
     "slug": "masters-in-economics",
     "title": "Master's in Economics",
-    "category": "Masters",
+    "category": "Economics",
     "discipline": "Commerce & Finance",
     "shortDescription": "Advanced microeconomics, macroeconomic theory, and empirical econometrics.",
     "description": "Advanced microeconomics, macroeconomic theory, and empirical econometrics. CademyX provides complete academic advisory, university curriculum guidance, faculty mentorship, and career pathway coaching for scholars pursuing this prestigious degree.",
@@ -2173,13 +2385,14 @@ export const programs: Program[] = [
       "Macroeconomic Dynamics, Growth Models & Fiscal Systems",
       "Applied Econometrics, Time-Series Modeling & Policy Impact"
     ],
-    "featured": false
+    "featured": false,
+    "categorySlug": "economics"
   },
   {
     "id": "mast-07",
     "slug": "mca",
     "title": "MCA",
-    "category": "Masters",
+    "category": "Computer Science & IT",
     "discipline": "Computer & IT",
     "shortDescription": "Master of Computer Applications with comprehensive enterprise software engineering.",
     "description": "Master of Computer Applications with comprehensive enterprise software engineering. CademyX provides complete academic advisory, university curriculum guidance, faculty mentorship, and career pathway coaching for scholars pursuing this prestigious degree.",
@@ -2203,13 +2416,14 @@ export const programs: Program[] = [
       "Cloud-Native Web Architecture & Distributed Database Systems",
       "DevOps Pipelines, Software Testing & Cyber Security Standards"
     ],
-    "featured": false
+    "featured": false,
+    "categorySlug": "computer-science-it"
   },
   {
     "id": "mast-08",
     "slug": "m-sc-computer-science",
     "title": "M.Sc. Computer Science",
-    "category": "Masters",
+    "category": "Commerce & Finance",
     "discipline": "Computer & IT",
     "shortDescription": "Theoretical computing, distributed systems, and algorithm complexity.",
     "description": "Theoretical computing, distributed systems, and algorithm complexity. CademyX provides complete academic advisory, university curriculum guidance, faculty mentorship, and career pathway coaching for scholars pursuing this prestigious degree.",
@@ -2233,13 +2447,14 @@ export const programs: Program[] = [
       "Distributed Systems, Consensus Protocols & Cloud Virtualization",
       "Network Architecture, Cryptography & Advanced Operating Systems"
     ],
-    "featured": false
+    "featured": false,
+    "categorySlug": "commerce-finance"
   },
   {
     "id": "mast-09",
     "slug": "m-sc-data-science",
     "title": "M.Sc. Data Science",
-    "category": "Masters",
+    "category": "Data Science & Analytics",
     "discipline": "Computer & IT",
     "shortDescription": "Big data pipelines, statistical learning, and predictive machine intelligence.",
     "description": "Big data pipelines, statistical learning, and predictive machine intelligence. CademyX provides complete academic advisory, university curriculum guidance, faculty mentorship, and career pathway coaching for scholars pursuing this prestigious degree.",
@@ -2263,13 +2478,14 @@ export const programs: Program[] = [
       "Big Data Processing Architectures & Distributed Computing",
       "Deep Learning, Natural Language Processing & Model Deployment"
     ],
-    "featured": false
+    "featured": false,
+    "categorySlug": "data-science-analytics"
   },
   {
     "id": "mast-10",
     "slug": "m-sc-ai",
     "title": "M.Sc. AI",
-    "category": "Masters",
+    "category": "Artificial Intelligence",
     "discipline": "Computer & IT",
     "shortDescription": "Artificial intelligence, deep learning architectures, and neural computation.",
     "description": "Artificial intelligence, deep learning architectures, and neural computation. CademyX provides complete academic advisory, university curriculum guidance, faculty mentorship, and career pathway coaching for scholars pursuing this prestigious degree.",
@@ -2293,13 +2509,14 @@ export const programs: Program[] = [
       "Computer Vision, Multimodal Models & Generative AI Systems",
       "Reinforcement Learning, Robotics & Ethical AI Frameworks"
     ],
-    "featured": true
+    "featured": true,
+    "categorySlug": "artificial-intelligence"
   },
   {
     "id": "mast-11",
     "slug": "m-tech",
     "title": "M.Tech",
-    "category": "Masters",
+    "category": "Engineering & Technology",
     "discipline": "Engineering",
     "shortDescription": "Master of Technology offering deep specialization and technological research.",
     "description": "Master of Technology offering deep specialization and technological research. CademyX provides complete academic advisory, university curriculum guidance, faculty mentorship, and career pathway coaching for scholars pursuing this prestigious degree.",
@@ -2323,13 +2540,14 @@ export const programs: Program[] = [
       "Discipline-Specific Advanced Engineering Systems & Lab Research",
       "Master’s Thesis, Experimental Validation & Industry Collaboration"
     ],
-    "featured": false
+    "featured": false,
+    "categorySlug": "engineering-technology"
   },
   {
     "id": "mast-12",
     "slug": "me",
     "title": "ME",
-    "category": "Masters",
+    "category": "Engineering & Technology",
     "discipline": "Engineering",
     "shortDescription": "Master of Engineering emphasizing core engineering mechanics and applied systems.",
     "description": "Master of Engineering emphasizing core engineering mechanics and applied systems. CademyX provides complete academic advisory, university curriculum guidance, faculty mentorship, and career pathway coaching for scholars pursuing this prestigious degree.",
@@ -2353,13 +2571,14 @@ export const programs: Program[] = [
       "Applied Optimization & Control Systems Engineering",
       "Research Methodology, Technical Paper Writing & Thesis Dissertation"
     ],
-    "featured": false
+    "featured": false,
+    "categorySlug": "engineering-technology"
   },
   {
     "id": "mast-13",
     "slug": "m-sc-mathematics",
     "title": "M.Sc. Mathematics",
-    "category": "Masters",
+    "category": "Computer Science & IT",
     "discipline": "Science",
     "shortDescription": "Pure and applied mathematics, topology, differential geometry, and numerical methods.",
     "description": "Pure and applied mathematics, topology, differential geometry, and numerical methods. CademyX provides complete academic advisory, university curriculum guidance, faculty mentorship, and career pathway coaching for scholars pursuing this prestigious degree.",
@@ -2383,13 +2602,14 @@ export const programs: Program[] = [
       "Topology, Differential Geometry & Real/Complex Analysis",
       "Partial Differential Equations & Advanced Numerical Techniques"
     ],
-    "featured": false
+    "featured": false,
+    "categorySlug": "computer-science-it"
   },
   {
     "id": "mast-14",
     "slug": "m-sc-physics",
     "title": "M.Sc. Physics",
-    "category": "Masters",
+    "category": "Computer Science & IT",
     "discipline": "Science",
     "shortDescription": "Quantum mechanics, condensed matter physics, thermodynamics, and electrodynamics.",
     "description": "Quantum mechanics, condensed matter physics, thermodynamics, and electrodynamics. CademyX provides complete academic advisory, university curriculum guidance, faculty mentorship, and career pathway coaching for scholars pursuing this prestigious degree.",
@@ -2413,13 +2633,14 @@ export const programs: Program[] = [
       "Electrodynamics, Plasma Physics & Nuclear Particle Physics",
       "Condensed Matter Physics & Experimental Spectroscopy Laboratory"
     ],
-    "featured": false
+    "featured": false,
+    "categorySlug": "computer-science-it"
   },
   {
     "id": "mast-15",
     "slug": "m-sc-chemistry",
     "title": "M.Sc. Chemistry",
-    "category": "Masters",
+    "category": "Computer Science & IT",
     "discipline": "Science",
     "shortDescription": "Organic synthesis, physical chemistry kinetics, and analytical spectroscopic methods.",
     "description": "Organic synthesis, physical chemistry kinetics, and analytical spectroscopic methods. CademyX provides complete academic advisory, university curriculum guidance, faculty mentorship, and career pathway coaching for scholars pursuing this prestigious degree.",
@@ -2443,13 +2664,14 @@ export const programs: Program[] = [
       "Quantum Chemistry, Chemical Kinetics & Molecular Spectroscopy",
       "Analytical Chemistry, Instrumental Analysis & Advanced Lab Synthesis"
     ],
-    "featured": false
+    "featured": false,
+    "categorySlug": "computer-science-it"
   },
   {
     "id": "mast-16",
     "slug": "m-sc-biotechnology",
     "title": "M.Sc. Biotechnology",
-    "category": "Masters",
+    "category": "Engineering & Technology",
     "discipline": "Science",
     "shortDescription": "Recombinant DNA technology, bioprocess engineering, genomics, and bioinformatics.",
     "description": "Recombinant DNA technology, bioprocess engineering, genomics, and bioinformatics. CademyX provides complete academic advisory, university curriculum guidance, faculty mentorship, and career pathway coaching for scholars pursuing this prestigious degree.",
@@ -2473,13 +2695,14 @@ export const programs: Program[] = [
       "Bioprocess Engineering, Fermentation & Downstream Processing",
       "Genomics, Proteomics & Computational Bioinformatics"
     ],
-    "featured": false
+    "featured": false,
+    "categorySlug": "engineering-technology"
   },
   {
     "id": "mast-17",
     "slug": "ma-english",
     "title": "MA English",
-    "category": "Masters",
+    "category": "Computer Science & IT",
     "discipline": "Arts & Humanities",
     "shortDescription": "Literary criticism, world literatures, cultural studies, and advanced textual theory.",
     "description": "Literary criticism, world literatures, cultural studies, and advanced textual theory. CademyX provides complete academic advisory, university curriculum guidance, faculty mentorship, and career pathway coaching for scholars pursuing this prestigious degree.",
@@ -2503,13 +2726,14 @@ export const programs: Program[] = [
       "British, American, Post-Colonial & World Literatures",
       "Rhetoric, Stylistics, Cultural Studies & Academic Thesis"
     ],
-    "featured": false
+    "featured": false,
+    "categorySlug": "computer-science-it"
   },
   {
     "id": "mast-18",
     "slug": "ma-psychology",
     "title": "MA Psychology",
-    "category": "Masters",
+    "category": "Psychology",
     "discipline": "Arts & Humanities",
     "shortDescription": "Cognitive psychology, clinical psychopathology, counseling, and empirical research.",
     "description": "Cognitive psychology, clinical psychopathology, counseling, and empirical research. CademyX provides complete academic advisory, university curriculum guidance, faculty mentorship, and career pathway coaching for scholars pursuing this prestigious degree.",
@@ -2533,13 +2757,14 @@ export const programs: Program[] = [
       "Psychopathology, Diagnostic Formulations & Clinical Assessment",
       "Counseling Theories, Psychotherapy Models & Supervised Practicum"
     ],
-    "featured": false
+    "featured": false,
+    "categorySlug": "psychology"
   },
   {
     "id": "mast-19",
     "slug": "ma-economics",
     "title": "MA Economics",
-    "category": "Masters",
+    "category": "Economics",
     "discipline": "Arts & Humanities",
     "shortDescription": "Applied development economics, international trade, public policy, and finance.",
     "description": "Applied development economics, international trade, public policy, and finance. CademyX provides complete academic advisory, university curriculum guidance, faculty mentorship, and career pathway coaching for scholars pursuing this prestigious degree.",
@@ -2563,13 +2788,14 @@ export const programs: Program[] = [
       "Macroeconomics of Open Economies & Public Finance",
       "Applied Econometric Research & Policy Impact Assessment"
     ],
-    "featured": false
+    "featured": false,
+    "categorySlug": "economics"
   },
   {
     "id": "mast-20",
     "slug": "ma-political-science",
     "title": "MA Political Science",
-    "category": "Masters",
+    "category": "Computer Science & IT",
     "discipline": "Arts & Humanities",
     "shortDescription": "Comparative politics, political philosophy, international relations, and governance.",
     "description": "Comparative politics, political philosophy, international relations, and governance. CademyX provides complete academic advisory, university curriculum guidance, faculty mentorship, and career pathway coaching for scholars pursuing this prestigious degree.",
@@ -2593,13 +2819,14 @@ export const programs: Program[] = [
       "Comparative Politics & International Strategic Relations",
       "Public Administration, Policy Design & Global Geopolitics"
     ],
-    "featured": false
+    "featured": false,
+    "categorySlug": "computer-science-it"
   },
   {
     "id": "mast-21",
     "slug": "llm",
     "title": "LLM",
-    "category": "Masters",
+    "category": "Law",
     "discipline": "Law",
     "shortDescription": "Master of Laws specializing in corporate jurisprudence, constitutional law, and IPR.",
     "description": "Master of Laws specializing in corporate jurisprudence, constitutional law, and IPR. CademyX provides complete academic advisory, university curriculum guidance, faculty mentorship, and career pathway coaching for scholars pursuing this prestigious degree.",
@@ -2623,13 +2850,14 @@ export const programs: Program[] = [
       "Corporate & Commercial Law, Cross-Border Mergers & Dispute Arbitration",
       "Intellectual Property Rights, Cyber Law & Master’s Legal Dissertation"
     ],
-    "featured": false
+    "featured": false,
+    "categorySlug": "law"
   },
   {
     "id": "mast-22",
     "slug": "m-ed",
     "title": "M.Ed.",
-    "category": "Masters",
+    "category": "Management & Business",
     "discipline": "Education",
     "shortDescription": "Master of Education for pedagogical leadership, curriculum design, and policy.",
     "description": "Master of Education for pedagogical leadership, curriculum design, and policy. CademyX provides complete academic advisory, university curriculum guidance, faculty mentorship, and career pathway coaching for scholars pursuing this prestigious degree.",
@@ -2653,13 +2881,14 @@ export const programs: Program[] = [
       "Curriculum Development, Instructional Design & Assessment Systems",
       "Educational Research Methodology, Statistics & Leadership Practicum"
     ],
-    "featured": false
+    "featured": false,
+    "categorySlug": "management-business"
   },
   {
     "id": "mast-23",
     "slug": "ma-education",
     "title": "MA Education",
-    "category": "Masters",
+    "category": "Management & Business",
     "discipline": "Education",
     "shortDescription": "Educational theory, policy analysis, child development, and institutional guidance.",
     "description": "Educational theory, policy analysis, child development, and institutional guidance. CademyX provides complete academic advisory, university curriculum guidance, faculty mentorship, and career pathway coaching for scholars pursuing this prestigious degree.",
@@ -2683,13 +2912,14 @@ export const programs: Program[] = [
       "Child Development, Learning Theories & Special Education",
       "Educational Planning, Institutional Management & Field Research"
     ],
-    "featured": false
+    "featured": false,
+    "categorySlug": "management-business"
   },
   {
     "id": "mast-24",
     "slug": "ma-journalism",
     "title": "MA Journalism",
-    "category": "Masters",
+    "category": "Media & Communication",
     "discipline": "Media & Design",
     "shortDescription": "Investigative reporting, digital multimedia storytelling, broadcasting, and ethics.",
     "description": "Investigative reporting, digital multimedia storytelling, broadcasting, and ethics. CademyX provides complete academic advisory, university curriculum guidance, faculty mentorship, and career pathway coaching for scholars pursuing this prestigious degree.",
@@ -2713,13 +2943,14 @@ export const programs: Program[] = [
       "Media Ethics, Press Freedom Laws & Investigative Methodologies",
       "Multimedia Storytelling, Podcast Production & Digital Capstone"
     ],
-    "featured": false
+    "featured": false,
+    "categorySlug": "media-communication"
   },
   {
     "id": "mast-25",
     "slug": "masters-in-design",
     "title": "Master's in Design",
-    "category": "Masters",
+    "category": "Media & Communication",
     "discipline": "Media & Design",
     "shortDescription": "Human-centered design, UI/UX systems, industrial design, and creative direction.",
     "description": "Human-centered design, UI/UX systems, industrial design, and creative direction. CademyX provides complete academic advisory, university curriculum guidance, faculty mentorship, and career pathway coaching for scholars pursuing this prestigious degree.",
@@ -2743,13 +2974,14 @@ export const programs: Program[] = [
       "Advanced UI/UX Architecture, Interaction Design & Prototyping",
       "Strategic Design Management, Sustainable Systems & Master’s Studio Project"
     ],
-    "featured": false
+    "featured": false,
+    "categorySlug": "media-communication"
   },
   {
     "id": "mast-26",
     "slug": "masters-in-hotel-management",
     "title": "Master's in Hotel Management",
-    "category": "Masters",
+    "category": "Hospitality & Tourism",
     "discipline": "Hospitality",
     "shortDescription": "Luxury hotel operations, revenue management, global food & beverage strategy.",
     "description": "Luxury hotel operations, revenue management, global food & beverage strategy. CademyX provides complete academic advisory, university curriculum guidance, faculty mentorship, and career pathway coaching for scholars pursuing this prestigious degree.",
@@ -2773,13 +3005,14 @@ export const programs: Program[] = [
       "Hotel Financial Management, Yield Optimization & Digital Distribution",
       "Food & Beverage Concept Development, Quality Standards & Field Immersion"
     ],
-    "featured": false
+    "featured": false,
+    "categorySlug": "hospitality-tourism"
   },
   {
     "id": "mast-27",
     "slug": "masters-in-tourism-management",
     "title": "Tourism Management",
-    "category": "Masters",
+    "category": "Hospitality & Tourism",
     "discipline": "Hospitality",
     "shortDescription": "Sustainable tourism planning, destination marketing, and international travel logistics.",
     "description": "Sustainable tourism planning, destination marketing, and international travel logistics. CademyX provides complete academic advisory, university curriculum guidance, faculty mentorship, and career pathway coaching for scholars pursuing this prestigious degree.",
@@ -2803,7 +3036,8 @@ export const programs: Program[] = [
       "Airline & Travel Logistics, Global Distribution Systems (GDS)",
       "Sustainable Tourism Development, Heritage Management & Field Research"
     ],
-    "featured": false
+    "featured": false,
+    "categorySlug": "hospitality-tourism"
   },
   {
     "id": "prog-01",
@@ -2814,7 +3048,7 @@ export const programs: Program[] = [
     "shortDescription": "For established professionals.",
     "description": "Distinguished academic and professional recognition honoring exceptional lifetime achievement, public service, and pioneering leadership across industry, science, and the humanities. Candidates undergo rigorous dossier evaluation by senior academic steering committees.",
     "badge": "PRESTIGIOUS",
-    "image": "/assets/images/programs/program-honorary-doctorate.jpg",
+    "image": "/assets/images/hero/programs/honorary-doctorate.jpg",
     "highlights": [
       "Distinguished Laureate",
       "Dossier Committee Review",
@@ -2833,7 +3067,8 @@ export const programs: Program[] = [
       "Institutional credentials validation and verification",
       "Conferral ceremony and laureate register publication"
     ],
-    "featured": false
+    "featured": false,
+    "categorySlug": "doctorate"
   },
   {
     "id": "prog-02",
@@ -2844,7 +3079,7 @@ export const programs: Program[] = [
     "shortDescription": "Research excellence pathway.",
     "description": "Comprehensive advisory engineered for aspiring doctoral researchers. From formulating rigorous research proposals to securing senior faculty supervision and competitive institutional funding at globally ranked research universities.",
     "badge": "POPULAR",
-    "image": "/assets/images/programs/program-phd-admission-program.jpg",
+    "image": "/assets/images/hero/programs/phd-admission.jpg",
     "highlights": [
       "Proposal Formulation",
       "Advisor Alignment",
@@ -2864,7 +3099,8 @@ export const programs: Program[] = [
       "Funding, institutional fellowship applications, and interview coaching"
     ],
     "featured": true,
-    "featuredDescription": "A structured advisory track designed for scholars aiming to gain acceptance into selective doctoral programs globally. Led by senior academic mentors."
+    "featuredDescription": "A structured advisory track designed for scholars aiming to gain acceptance into selective doctoral programs globally. Led by senior academic mentors.",
+    "categorySlug": "doctorate"
   },
   {
     "id": "prog-03",
@@ -2875,7 +3111,7 @@ export const programs: Program[] = [
     "shortDescription": "Doctor of Business Administration.",
     "description": "A prestigious terminal degree tailored for seasoned corporate executives and management consultants. Bridges empirical academic research with executive business leadership, culminating in an applied executive dissertation.",
     "badge": "EXECUTIVE",
-    "image": "/assets/images/programs/program-dba-program.jpg",
+    "image": "/assets/images/hero/programs/dba-program.jpg",
     "highlights": [
       "Executive Research Seminar",
       "Applied Field Dissertation",
@@ -2894,7 +3130,8 @@ export const programs: Program[] = [
       "Theoretical foundations of strategic management and digital enterprise transformation",
       "Executive dissertation synthesis, peer review, and doctoral defense"
     ],
-    "featured": false
+    "featured": false,
+    "categorySlug": "doctorate"
   },
   {
     "id": "prog-09",
@@ -2925,7 +3162,8 @@ export const programs: Program[] = [
       "Containerization with Docker, automated testing, and production deployment"
     ],
     "featured": true,
-    "featuredDescription": "Master modern web architectures from TypeScript and Next.js to distributed databases and automated cloud deployments."
+    "featuredDescription": "Master modern web architectures from TypeScript and Next.js to distributed databases and automated cloud deployments.",
+    "categorySlug": "certifications"
   },
   {
     "id": "prog-10",
@@ -2936,7 +3174,7 @@ export const programs: Program[] = [
     "shortDescription": "Enterprise cloud infrastructure.",
     "description": "Deep technical mastery in enterprise cloud engineering, Infrastructure as Code, container orchestration with Kubernetes, and automated continuous delivery pipelines across leading public cloud ecosystems.",
     "badge": "CLOUD-READY",
-    "image": "/assets/images/hero/programs/cloud-computing-devops.webp",
+    "image": "/assets/images/programs/cloud-computing-devops.webp",
     "highlights": [
       "AWS & GCP Cloud Architecture",
       "Kubernetes Orchestration",
@@ -2955,7 +3193,8 @@ export const programs: Program[] = [
       "Infrastructure as Code (IaC) with Terraform and GitOps practices",
       "Container orchestration using Docker, Kubernetes, Prometheus, and Grafana"
     ],
-    "featured": false
+    "featured": false,
+    "categorySlug": "certifications"
   },
   {
     "id": "prog-11",
@@ -2966,7 +3205,7 @@ export const programs: Program[] = [
     "shortDescription": "Defense & penetration testing.",
     "description": "Rigorous offensive and defensive cybersecurity training covering ethical hacking, vulnerability assessment, network penetration testing, and enterprise incident response protocols in sandboxed lab environments.",
     "badge": "PRACTICAL",
-    "image": "/assets/images/hero/programs/cyber-security-certification.webp",
+    "image": "/assets/images/programs/cyber-security-certification.webp",
     "highlights": [
       "Ethical Hacking Labs",
       "Vulnerability Assessment",
@@ -2985,7 +3224,8 @@ export const programs: Program[] = [
       "Network defense, cryptography, perimeter security, and SIEM monitoring",
       "Cloud security hardening, application security testing (OWASP Top 10), and forensics"
     ],
-    "featured": false
+    "featured": false,
+    "categorySlug": "certifications"
   },
   {
     "id": "prog-12",
@@ -3015,44 +3255,323 @@ export const programs: Program[] = [
       "Business intelligence storytelling with Microsoft Power BI",
       "Supervised and unsupervised machine learning algorithms with Scikit-Learn"
     ],
-    "featured": false
+    "featured": false,
+    "categorySlug": "certifications"
+  },
+  {
+    "id": "ai-02",
+    "slug": "m-sc-ai-ml",
+    "title": "M.Sc. AI & ML",
+    "category": "Artificial Intelligence",
+    "categorySlug": "artificial-intelligence",
+    "discipline": "Artificial Intelligence",
+    "shortDescription": "Master of Science in Artificial Intelligence & Machine Learning.",
+    "description": "Master of Science in Artificial Intelligence & Machine Learning exploring deep neural networks, transformer architectures, reinforcement learning, and production computer vision pipelines.",
+    "badge": "STEM CERTIFIED",
+    "image": "/assets/images/programs/program-m-sc-ai.jpg",
+    "highlights": [
+      "Artificial Intelligence",
+      "2 Years",
+      "Full-Time Degree Track"
+    ],
+    "duration": "2 Years",
+    "format": "Full-Time Degree Track",
+    "eligibility": "B.Tech, BCA, or B.Sc. in STEM disciplines with strong mathematics foundation",
+    "learningOutcomes": [
+      "Architect and fine-tune modern Transformer models and multimodal LLM agents",
+      "Design production GPU inference pipelines with PyTorch and TensorRT",
+      "Formulate defensible AI research hypotheses and peer-reviewed technical papers"
+    ]
+  },
+  {
+    "id": "ba-01",
+    "slug": "bba-business-analytics",
+    "title": "BBA Business Analytics",
+    "category": "Business Analytics",
+    "categorySlug": "business-analytics",
+    "discipline": "Business Analytics",
+    "shortDescription": "Undergraduate business administration track specialized in quantitative analytics and data-driven management.",
+    "description": "Bachelor of Business Administration in Business Analytics equipping undergraduates with SQL, Power BI, Python for business metrics, and strategic organizational decision modeling.",
+    "badge": "IN DEMAND",
+    "image": "/assets/images/hero/programs/executive-mba-business-analytics-genai.jpg",
+    "highlights": [
+      "Business Analytics",
+      "3 Years",
+      "Full-Time Degree Track"
+    ],
+    "duration": "3 Years",
+    "format": "Full-Time Degree Track",
+    "eligibility": "10+2 with minimum 50% aggregate marks",
+    "learningOutcomes": [
+      "Master relational database querying and dashboard development using SQL and Power BI",
+      "Translate commercial metrics into executive KPI reporting pipelines",
+      "Apply statistical hypothesis testing to marketing and operational challenges"
+    ]
+  },
+  {
+    "id": "ba-02",
+    "slug": "mba-business-analytics",
+    "title": "MBA Business Analytics",
+    "category": "Business Analytics",
+    "categorySlug": "business-analytics",
+    "discipline": "Business Analytics",
+    "shortDescription": "Advanced MBA specializing in predictive commercial modeling, AI integration, and enterprise decision science.",
+    "description": "Master of Business Administration in Business Analytics delivering advanced predictive forecasting, supply chain analytics, customer lifetime value modeling, and executive consulting acumen.",
+    "badge": "POPULAR",
+    "image": "/assets/images/hero/programs/executive-mba-business-analytics-genai.jpg",
+    "highlights": [
+      "Business Analytics",
+      "2 Years",
+      "Cohort-Based"
+    ],
+    "duration": "2 Years",
+    "format": "Cohort-Based",
+    "eligibility": "Accredited Bachelor’s degree in any discipline with minimum 50% aggregate",
+    "learningOutcomes": [
+      "Synthesize enterprise-wide business intelligence architectures and cloud data lakehouses",
+      "Formulate econometric predictive models to forecast consumer and market behavior",
+      "Present data-backed corporate restructuring proposals to executive committees"
+    ]
+  },
+  {
+    "id": "dm-01",
+    "slug": "bba-digital-marketing",
+    "title": "BBA Digital Marketing",
+    "category": "Digital Marketing",
+    "categorySlug": "digital-marketing",
+    "discipline": "Digital Marketing",
+    "shortDescription": "Undergraduate business degree covering omnichannel performance media, brand strategy, and growth marketing.",
+    "description": "Bachelor of Business Administration in Digital Marketing providing practical grounding in search engine optimization, programmatic media buying, conversion optimization, and digital brand building.",
+    "badge": "IN DEMAND",
+    "image": "/assets/images/hero/programs/mba-ai-automation.jpg",
+    "highlights": [
+      "Digital Marketing",
+      "3 Years",
+      "Full-Time Degree Track"
+    ],
+    "duration": "3 Years",
+    "format": "Full-Time Degree Track",
+    "eligibility": "10+2 in any stream with minimum 50% aggregate marks",
+    "learningOutcomes": [
+      "Execute full-funnel digital advertising campaigns across search and social channels",
+      "Analyze attribution models and marketing ROI using analytics platforms",
+      "Develop cohesive brand positioning narratives for digital-first enterprises"
+    ]
+  },
+  {
+    "id": "dm-02",
+    "slug": "mba-digital-marketing",
+    "title": "MBA Digital Marketing",
+    "category": "Digital Marketing",
+    "categorySlug": "digital-marketing",
+    "discipline": "Digital Marketing",
+    "shortDescription": "Executive-tier MBA track for digital marketing leaders, growth directors, and omnichannel brand strategists.",
+    "description": "Master of Business Administration in Digital Marketing focusing on MarTech stack architecture, customer data platforms (CDP), media budget attribution, and enterprise digital transformation.",
+    "badge": "POPULAR",
+    "image": "/assets/images/hero/programs/mba-ai-automation.jpg",
+    "highlights": [
+      "Digital Marketing",
+      "2 Years",
+      "Cohort-Based"
+    ],
+    "duration": "2 Years",
+    "format": "Cohort-Based",
+    "eligibility": "Accredited Bachelor’s degree in any discipline with minimum 50% aggregate",
+    "learningOutcomes": [
+      "Architect multi-million dollar performance marketing media allocations",
+      "Integrate AI automation and predictive analytics into customer acquisition workflows",
+      "Lead cross-functional creative, media, and technology growth teams"
+    ]
+  },
+  {
+    "id": "sec-01",
+    "slug": "b-sc-cybersecurity",
+    "title": "B.Sc. Cybersecurity",
+    "category": "Cybersecurity",
+    "categorySlug": "cybersecurity",
+    "discipline": "Cybersecurity",
+    "shortDescription": "Bachelor of Science in Cybersecurity focusing on network packet analysis, defensive hardening, and incident triage.",
+    "description": "Bachelor of Science in Cybersecurity delivering comprehensive lab training in operating system internals, defensive cryptography, intrusion detection systems, and vulnerability triage.",
+    "badge": "IN DEMAND",
+    "image": "/assets/images/hero/programs/master-cyber-security.jpg",
+    "highlights": [
+      "Cybersecurity",
+      "3 Years",
+      "Full-Time Degree Track"
+    ],
+    "duration": "3 Years",
+    "format": "Full-Time Degree Track",
+    "eligibility": "10+2 with STEM or Computer Science background",
+    "learningOutcomes": [
+      "Configure and monitor enterprise Security Information and Event Management (SIEM) systems",
+      "Conduct packet-level network traffic analysis and malware containment",
+      "Implement defensive security standards aligned with NIST and ISO 27001 frameworks"
+    ]
+  },
+  {
+    "id": "sec-02",
+    "slug": "m-sc-cybersecurity",
+    "title": "M.Sc. Cybersecurity",
+    "category": "Cybersecurity",
+    "categorySlug": "cybersecurity",
+    "discipline": "Cybersecurity",
+    "shortDescription": "Master of Science in Cybersecurity specializing in cryptographic protocols, cloud security, and enterprise cyber resilience.",
+    "description": "Master of Science in Cybersecurity preparing future CISOs and security architects with advanced threat hunting, reverse engineering, ethical penetration testing, and regulatory governance.",
+    "badge": "STEM CERTIFIED",
+    "image": "/assets/images/hero/programs/master-cyber-security.jpg",
+    "highlights": [
+      "Cybersecurity",
+      "2 Years",
+      "Full-Time Degree Track"
+    ],
+    "duration": "2 Years",
+    "format": "Full-Time Degree Track",
+    "eligibility": "B.Tech, BCA, or B.Sc. in CS/IT/Electronics with competitive aggregate",
+    "learningOutcomes": [
+      "Formulate cryptographic defense mechanisms for distributed enterprise systems",
+      "Lead complex cyber incident response and digital forensic investigations",
+      "Audit cloud container environments and zero-trust network architectures"
+    ]
+  },
+  {
+    "id": "eng-02",
+    "slug": "m-tech-cse",
+    "title": "M.Tech CSE",
+    "category": "Engineering & Technology",
+    "categorySlug": "engineering-technology",
+    "discipline": "Engineering & Technology",
+    "shortDescription": "Master of Technology in Computer Science & Engineering focusing on high-performance computing and advanced algorithms.",
+    "description": "Master of Technology in Computer Science & Engineering delivering deep theoretical and laboratory research in distributed systems, compiler architecture, high-performance computing, and hardware acceleration.",
+    "badge": "PRESTIGIOUS",
+    "image": "/assets/images/programs/program-m-tech.jpg",
+    "highlights": [
+      "Engineering",
+      "2 Years",
+      "Research Mentorship"
+    ],
+    "duration": "2 Years",
+    "format": "Research Mentorship",
+    "eligibility": "B.Tech/BE in CSE, IT, or allied branch with competitive GATE or academic score",
+    "learningOutcomes": [
+      "Publish peer-reviewed computer science research in indexed scientific venues",
+      "Design low-latency distributed computing architectures and kernel modules",
+      "Defend rigorous master’s thesis before academic and industry committees"
+    ]
+  },
+  {
+    "id": "des-02",
+    "slug": "m-des",
+    "title": "M.Des",
+    "category": "Design & Creative Technology",
+    "categorySlug": "design-creative-technology",
+    "discipline": "Design & Creative Technology",
+    "shortDescription": "Master of Design specializing in advanced interaction architecture, service design, and design systems.",
+    "description": "Master of Design preparing design directors and strategic UX leaders with human-centered research methodologies, accessibility architecture, high-fidelity interactive prototyping, and cross-platform design systems.",
+    "badge": "PRESTIGIOUS",
+    "image": "/assets/images/programs/program-masters-in-design.jpg",
+    "highlights": [
+      "Design",
+      "2 Years",
+      "Hybrid Studio"
+    ],
+    "duration": "2 Years",
+    "format": "Hybrid Studio",
+    "eligibility": "B.Des, B.Arch, B.Tech or Bachelor’s degree with demonstrable creative portfolio",
+    "learningOutcomes": [
+      "Architect multi-brand enterprise design systems with Figma and design tokens",
+      "Conduct complex qualitative and quantitative user research across diverse user cohorts",
+      "Deliver defensible design proposals addressing real-world socio-technical challenges"
+    ]
+  },
+  {
+    "id": "tour-02",
+    "slug": "master-of-tourism-management",
+    "title": "Master of Tourism Management",
+    "category": "Hospitality & Tourism",
+    "categorySlug": "hospitality-tourism",
+    "discipline": "Hospitality & Tourism",
+    "shortDescription": "Postgraduate degree in global tourism economics, destination branding, and luxury hospitality operations.",
+    "description": "Master of Tourism Management preparing international travel executives with destination marketing strategy, airline route economics, sustainable eco-tourism governance, and luxury hospitality administration.",
+    "badge": "EXECUTIVE",
+    "image": "/assets/images/programs/program-masters-in-tourism-management.jpg",
+    "highlights": [
+      "Hospitality & Tourism",
+      "2 Years",
+      "Full-Time Degree Track"
+    ],
+    "duration": "2 Years",
+    "format": "Full-Time Degree Track",
+    "eligibility": "Bachelor’s degree in Tourism, Hospitality, Management, or allied fields",
+    "learningOutcomes": [
+      "Formulate international tourism development policies and destination branding campaigns",
+      "Manage large-scale luxury hospitality operations and airline global distribution systems",
+      "Evaluate ecological sustainability standards for global heritage destinations"
+    ]
+  },
+  {
+    "id": "jour-01",
+    "slug": "ba-journalism",
+    "title": "BA Journalism",
+    "category": "Media & Communication",
+    "categorySlug": "media-communication",
+    "discipline": "Media & Communication",
+    "shortDescription": "Bachelor of Arts in Journalism covering news gathering, digital broadcasting, and investigative reporting.",
+    "description": "Bachelor of Arts in Journalism delivering intensive studio training in digital newsroom workflows, investigative feature reporting, multimedia audio-visual production, and media law ethics.",
+    "badge": "POPULAR",
+    "image": "/assets/images/programs/program-ma-journalism.jpg",
+    "highlights": [
+      "Media & Communication",
+      "3 Years",
+      "Full-Time Degree Track"
+    ],
+    "duration": "3 Years",
+    "format": "Full-Time Degree Track",
+    "eligibility": "10+2 in any stream with strong English writing and communication skills",
+    "learningOutcomes": [
+      "Produce broadcast-ready investigative video journalism and digital podcasts",
+      "Apply statutory media law, intellectual property, and journalistic ethical standards",
+      "Publish editorial features and news reports across digital news platforms"
+    ]
   }
 ];
 
-export function getFeaturedPrograms(): Program[] {
-  return programs.filter((p) => p.featured);
-}
+export const DOCTORATE_PROGRAMS: Program[] = programs.filter(p => p.category === 'Doctorate');
+
+export const CERTIFICATION_PROGRAMS: Program[] = programs.filter(p => p.category === 'Certifications');
 
 export function getProgramBySlug(slug: string): Program | undefined {
   return programs.find((p) => p.slug === slug);
 }
 
-export function getProgramsByCategory(category: ProgramCategory): Program[] {
+export function getProgramsByCategory(category: string): Program[] {
   return programs.filter((p) => p.category === category);
 }
 
-export function getCategoryCounts(): Record<ProgramCategory, number> {
-  return {
-    Bachelor: programs.filter((p) => p.category === 'Bachelor').length,
-    Masters: programs.filter((p) => p.category === 'Masters').length,
-    Doctorate: programs.filter((p) => p.category === 'Doctorate').length,
-    Certifications: programs.filter((p) => p.category === 'Certifications').length,
-  };
+export function getProgramsByCategorySlug(categorySlug: string): Program[] {
+  return programs.filter((p) => p.categorySlug === categorySlug);
 }
 
-export function getRelatedPrograms(currentSlug: string, limit = 3): Program[] {
+export function getFeaturedPrograms(): Program[] {
+  return programs.filter((p) => p.featured);
+}
+
+export function getRelatedPrograms(currentSlug: string, limit: number = 3): Program[] {
   const current = getProgramBySlug(currentSlug);
   if (!current) return programs.slice(0, limit);
-
-  const sameCategory = programs.filter(
-    (p) => p.slug !== currentSlug && p.category === current.category
+  const sameCat = programs.filter(
+    (p) => p.slug !== currentSlug && (p.category === current.category || p.categorySlug === current.categorySlug)
   );
-  if (sameCategory.length >= limit) {
-    return sameCategory.slice(0, limit);
-  }
-
-  const remaining = programs.filter(
-    (p) => p.slug !== currentSlug && p.category !== current.category
-  );
-  return [...sameCategory, ...remaining].slice(0, limit);
+  if (sameCat.length >= limit) return sameCat.slice(0, limit);
+  const remaining = programs.filter((p) => p.slug !== currentSlug && !sameCat.includes(p));
+  return [...sameCat, ...remaining].slice(0, limit);
 }
+
+export function getCategoryCounts(): Record<string, number> {
+  const counts: Record<string, number> = {};
+  programs.forEach((p) => {
+    counts[p.category] = (counts[p.category] || 0) + 1;
+  });
+  return counts;
+}
+
+

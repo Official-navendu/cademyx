@@ -10,9 +10,9 @@ import { fadeUp, defaultViewport } from '@/lib/motion';
 
 export const HomeFAQ: React.FC = () => {
   return (
-    <section className="relative py-20 sm:py-24 lg:py-28 bg-[#F5F7FB] border-b border-[#E2E8F0] overflow-hidden bg-grain">
+    <section className="relative py-20 sm:py-24 lg:py-28 bg-[#F3F5FF] border-b border-[#DCE3FF] overflow-hidden bg-grain">
       {/* Background Ambient Glow */}
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-gradient-to-r from-[#F4B72F]/[0.05] to-[#061B35]/[0.03] rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-gradient-to-r from-[#182A9A]/[0.05] to-[#101F70]/[0.03] rounded-full blur-3xl pointer-events-none" />
 
       <Container size="default" className="relative z-10">
         <SectionHeading

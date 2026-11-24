@@ -21,13 +21,13 @@ export const SiteFooter: React.FC = () => {
   ];
 
   return (
-    <footer className="relative bg-[#061B35] text-white border-t border-[#075AC8]/30 mt-auto overflow-hidden bg-grain">
+    <footer className="relative bg-[#101F70] text-white border-t border-[#DCE3FF]/20 mt-auto overflow-hidden">
       {/* Top Luminous Section Divider Glow */}
-      <div className="section-divider-glow absolute top-0 left-0 right-0 z-10" />
+      <div className="absolute top-0 left-0 right-0 h-[1.5px] bg-gradient-to-r from-[#182A9A] via-[#DCE3FF]/40 to-[#182A9A] z-10" />
 
       {/* Atmospheric Lighting */}
-      <div className="absolute top-0 right-1/4 w-96 h-96 bg-gradient-to-b from-[#F4B72F]/[0.06] to-transparent rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 left-10 w-80 h-80 bg-gradient-to-t from-[#075AC8]/[0.15] to-transparent rounded-full blur-2xl pointer-events-none" />
+      <div className="absolute top-0 right-1/4 w-96 h-96 bg-gradient-to-b from-[#182A9A]/30 to-transparent rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-10 w-80 h-80 bg-gradient-to-t from-[#182A9A]/20 to-transparent rounded-full blur-2xl pointer-events-none" />
 
       <Container size="default" className="relative z-10">
         {/* Main 5-Column Grid */}
@@ -36,30 +36,31 @@ export const SiteFooter: React.FC = () => {
           <div className="lg:col-span-4 flex flex-col space-y-5">
             <Link
               href="/"
-              className="inline-block focus-visible:outline-2 focus-visible:outline-[#F4B72F] rounded transition-transform hover:scale-[1.01]"
+              className="inline-block focus-visible:outline-2 focus-visible:outline-[#182A9A] rounded-xl transition-transform hover:scale-[1.01] w-fit"
               aria-label="CademyX — We Setup the Academic Matrix of Your True Aim."
             >
               <Image
                 src="/assets/logo-white.png"
                 alt="CademyX — We Setup the Academic Matrix of Your True Aim."
-                width={210}
-                height={70}
-                className="h-11 sm:h-12 w-auto object-contain"
+                width={180}
+                height={52}
+                className="h-8.5 sm:h-9.5 w-auto object-contain"
+                priority
               />
             </Link>
 
-            <p className="text-xs sm:text-sm text-[#BACCE4] leading-relaxed max-w-sm font-normal">
+            <p className="text-xs sm:text-sm text-[#DCE3FF]/90 leading-relaxed max-w-sm font-normal">
               {footerNavigation.brandDescription}
             </p>
 
-            <div className="flex items-center gap-2.5 text-xs text-[#F4B72F]">
-              <ShieldCheck className="h-4 w-4 text-[#F4B72F] shrink-0" aria-hidden="true" />
+            <div className="flex items-center gap-2.5 text-xs text-[#DCE3FF]">
+              <ShieldCheck className="h-4 w-4 text-[#DCE3FF] shrink-0" aria-hidden="true" />
               <span className="font-semibold">Ethical academic guidance &amp; structured mentorship</span>
             </div>
 
             {/* Official Social Media Channels with authentic SVGs and real brand colors */}
             <div className="pt-2">
-              <span className="text-[11px] font-bold uppercase tracking-wider text-[#7E96B8] block mb-3">
+              <span className="text-[11px] font-bold uppercase tracking-wider text-[#DCE3FF]/70 block mb-3">
                 Official Channels &amp; Communities
               </span>
               <div className="flex items-center gap-2.5">
@@ -138,14 +139,14 @@ export const SiteFooter: React.FC = () => {
 
           {/* Column 2 — Quick Links (2 cols on lg) */}
           <div className="lg:col-span-2">
-            <h3 className="text-xs sm:text-sm font-bold uppercase tracking-wider gold-gradient-text mb-4">
+            <h3 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#DCE3FF] mb-4">
               Quick Links
             </h3>
             <ul className="space-y-2.5 text-xs sm:text-sm">
               <li>
                 <Link
                   href="/"
-                  className="text-[#BACCE4] hover:text-[#F4B72F] transition-colors inline-block"
+                  className="text-[#DCE3FF]/80 hover:text-white transition-colors inline-block"
                 >
                   Home
                 </Link>
@@ -153,7 +154,7 @@ export const SiteFooter: React.FC = () => {
               <li>
                 <Link
                   href="/about"
-                  className="text-[#BACCE4] hover:text-[#F4B72F] transition-colors inline-block"
+                  className="text-[#DCE3FF]/80 hover:text-white transition-colors inline-block"
                 >
                   About Us
                 </Link>
@@ -161,7 +162,7 @@ export const SiteFooter: React.FC = () => {
               <li>
                 <Link
                   href="/programs"
-                  className="text-[#BACCE4] hover:text-[#F4B72F] transition-colors inline-block"
+                  className="text-[#DCE3FF]/80 hover:text-white transition-colors inline-block"
                 >
                   Academic Programs
                 </Link>
@@ -169,7 +170,7 @@ export const SiteFooter: React.FC = () => {
               <li>
                 <Link
                   href="/contact"
-                  className="text-[#BACCE4] hover:text-[#F4B72F] transition-colors inline-block"
+                  className="text-[#DCE3FF]/80 hover:text-white transition-colors inline-block"
                 >
                   Contact &amp; Advisory
                 </Link>
@@ -179,7 +180,7 @@ export const SiteFooter: React.FC = () => {
 
           {/* Column 3 — Programs (2 cols on lg) */}
           <div className="lg:col-span-2">
-            <h3 className="text-xs sm:text-sm font-bold uppercase tracking-wider gold-gradient-text mb-4">
+            <h3 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#DCE3FF] mb-4">
               Programs
             </h3>
 
@@ -187,41 +188,58 @@ export const SiteFooter: React.FC = () => {
             <div className="space-y-2 text-xs sm:text-sm">
               <div>
                 <Link
-                  href="/program-categories/bachelor-programs"
-                  className="text-[#BACCE4] hover:text-[#F4B72F] transition-colors inline-block font-semibold"
+                  href="/program-categories/management-business"
+                  className="text-[#DCE3FF]/80 hover:text-white transition-colors inline-block font-semibold"
                 >
-                  Bachelor Programs
+                  Management &amp; Business
                 </Link>
               </div>
               <div>
                 <Link
-                  href="/program-categories/masters-programs"
-                  className="text-[#BACCE4] hover:text-[#F4B72F] transition-colors inline-block font-semibold"
+                  href="/program-categories/computer-science-it"
+                  className="text-[#DCE3FF]/80 hover:text-white transition-colors inline-block font-semibold"
                 >
-                  Masters Programs
+                  Computer Science &amp; IT
                 </Link>
               </div>
               <div>
                 <Link
-                  href="/program-categories/doctorate-programs"
-                  className="text-[#BACCE4] hover:text-[#F4B72F] transition-colors inline-block font-semibold"
+                  href="/program-categories/artificial-intelligence"
+                  className="text-[#DCE3FF]/80 hover:text-white transition-colors inline-block font-semibold"
                 >
-                  Doctorate Programs
+                  Artificial Intelligence
                 </Link>
               </div>
               <div>
                 <Link
-                  href="/program-categories/certification-programs"
-                  className="text-[#BACCE4] hover:text-[#F4B72F] transition-colors inline-block font-semibold"
+                  href="/program-categories/data-science-analytics"
+                  className="text-[#DCE3FF]/80 hover:text-white transition-colors inline-block font-semibold"
                 >
-                  Certifications
+                  Data Science &amp; Analytics
+                </Link>
+              </div>
+              <div>
+                <Link
+                  href="/program-categories/engineering-technology"
+                  className="text-[#DCE3FF]/80 hover:text-white transition-colors inline-block font-semibold"
+                >
+                  Engineering &amp; Technology
+                </Link>
+              </div>
+              <div>
+                <Link
+                  href="/programs"
+                  className="text-[#DCE3FF] hover:underline transition-colors inline-flex items-center gap-1 font-bold pt-1"
+                >
+                  <span>All 15 Disciplines</span>
+                  <ArrowRight className="w-3 h-3" />
                 </Link>
               </div>
             </div>
 
             {/* Selected Top Tracks */}
-            <div className="pt-3 mt-3 border-t border-[#075AC8]/25">
-              <span className="text-[10px] uppercase font-bold text-[#7E96B8] tracking-wider block mb-2">
+            <div className="pt-3 mt-3 border-t border-[#DCE3FF]/20">
+              <span className="text-[10px] uppercase font-bold text-[#DCE3FF]/60 tracking-wider block mb-2">
                 Featured Tracks
               </span>
               <ul className="space-y-1.5 text-xs">
@@ -229,7 +247,7 @@ export const SiteFooter: React.FC = () => {
                   <li key={p.href}>
                     <Link
                       href={p.href}
-                      className="text-[#BACCE4]/80 hover:text-[#F4B72F] transition-colors line-clamp-1"
+                      className="text-[#DCE3FF]/70 hover:text-white transition-colors line-clamp-1"
                     >
                       {p.label}
                     </Link>
@@ -241,14 +259,14 @@ export const SiteFooter: React.FC = () => {
 
           {/* Column 4 — Resources (2 cols on lg) */}
           <div className="lg:col-span-2">
-            <h3 className="text-xs sm:text-sm font-bold uppercase tracking-wider gold-gradient-text mb-4">
+            <h3 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#DCE3FF] mb-4">
               Resources
             </h3>
-            <ul className="space-y-2.5 text-xs sm:text-sm text-[#BACCE4]">
+            <ul className="space-y-2.5 text-xs sm:text-sm text-[#DCE3FF]/80">
               <li>
                 <Link
                   href="/blog"
-                  className="hover:text-[#F4B72F] transition-colors inline-block font-medium"
+                  className="hover:text-white transition-colors inline-block font-medium"
                 >
                   Academic Pathways Guide
                 </Link>
@@ -256,7 +274,7 @@ export const SiteFooter: React.FC = () => {
               <li>
                 <Link
                   href="/blog"
-                  className="hover:text-[#F4B72F] transition-colors inline-block font-medium"
+                  className="hover:text-white transition-colors inline-block font-medium"
                 >
                   Educational Articles
                 </Link>
@@ -264,7 +282,7 @@ export const SiteFooter: React.FC = () => {
               <li>
                 <Link
                   href="/about#faqs"
-                  className="hover:text-[#F4B72F] transition-colors inline-block font-medium"
+                  className="hover:text-white transition-colors inline-block font-medium"
                 >
                   Advisory FAQs
                 </Link>
@@ -272,7 +290,7 @@ export const SiteFooter: React.FC = () => {
               <li>
                 <Link
                   href="/programs"
-                  className="hover:text-[#F4B72F] transition-colors inline-block font-medium"
+                  className="hover:text-white transition-colors inline-block font-medium"
                 >
                   Course Catalog
                 </Link>
@@ -280,7 +298,7 @@ export const SiteFooter: React.FC = () => {
               <li>
                 <Link
                   href="/about"
-                  className="hover:text-[#F4B72F] transition-colors inline-block font-medium"
+                  className="hover:text-white transition-colors inline-block font-medium"
                 >
                   Advisory Standards
                 </Link>
@@ -290,60 +308,60 @@ export const SiteFooter: React.FC = () => {
 
           {/* Column 5 — Advisory Office / Contact (2 cols on lg) */}
           <div className="lg:col-span-2">
-            <h3 className="text-xs sm:text-sm font-bold uppercase tracking-wider gold-gradient-text mb-4">
+            <h3 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#DCE3FF] mb-4">
               Advisory Office
             </h3>
-            <ul className="space-y-3 text-xs sm:text-sm text-[#BACCE4]">
+            <ul className="space-y-3 text-xs sm:text-sm text-[#DCE3FF]/80">
               <li className="flex items-start gap-2.5">
-                <MapPin className="h-4 w-4 text-[#F4B72F] shrink-0 mt-0.5" aria-hidden="true" />
+                <MapPin className="h-4 w-4 text-[#DCE3FF] shrink-0 mt-0.5" aria-hidden="true" />
                 <span className="leading-snug">{CONTACT_INFO.address}</span>
               </li>
               <li className="flex items-start gap-2.5">
-                <Mail className="h-4 w-4 text-[#F4B72F] shrink-0 mt-0.5" aria-hidden="true" />
+                <Mail className="h-4 w-4 text-[#DCE3FF] shrink-0 mt-0.5" aria-hidden="true" />
                 <div className="flex flex-col gap-0.5">
                   <a
                     href={`mailto:${CONTACT_INFO.primaryEmail}`}
-                    className="hover:text-[#F4B72F] transition-colors underline-offset-4 hover:underline"
+                    className="hover:text-white transition-colors underline-offset-4 hover:underline"
                   >
                     {CONTACT_INFO.primaryEmail}
                   </a>
                   <a
                     href={`mailto:${CONTACT_INFO.secondaryEmail}`}
-                    className="hover:text-[#F4B72F] transition-colors underline-offset-4 hover:underline text-[#BACCE4]/80"
+                    className="hover:text-white transition-colors underline-offset-4 hover:underline text-[#DCE3FF]/70"
                   >
                     {CONTACT_INFO.secondaryEmail}
                   </a>
                 </div>
               </li>
               <li className="flex items-center gap-2.5">
-                <Phone className="h-4 w-4 text-[#F4B72F] shrink-0" aria-hidden="true" />
+                <Phone className="h-4 w-4 text-[#DCE3FF] shrink-0" aria-hidden="true" />
                 <a
                   href={`tel:${CONTACT_INFO.phoneRaw}`}
-                  className="hover:text-[#F4B72F] transition-colors font-medium"
+                  className="hover:text-white transition-colors font-medium"
                 >
                   {CONTACT_INFO.phone}
                 </a>
               </li>
-              <li className="flex items-start gap-2.5 pt-1 text-[11px] text-[#7E96B8]">
-                <Clock className="h-3.5 w-3.5 text-[#F4B72F] shrink-0 mt-0.5" aria-hidden="true" />
+              <li className="flex items-start gap-2.5 pt-1 text-[11px] text-[#DCE3FF]/60">
+                <Clock className="h-3.5 w-3.5 text-[#DCE3FF] shrink-0 mt-0.5" aria-hidden="true" />
                 <span>{CONTACT_INFO.businessHours}</span>
               </li>
             </ul>
 
-            <div className="mt-4 pt-3 border-t border-[#075AC8]/30">
+            <div className="mt-4 pt-3 border-t border-[#DCE3FF]/20">
               <Link
                 href="/contact"
-                className="text-xs font-bold text-[#F4B72F] hover:text-white inline-flex items-center gap-1.5 transition-colors"
+                className="text-xs font-bold text-white hover:text-[#DCE3FF] inline-flex items-center gap-1.5 transition-colors"
               >
                 <span>Advisory Inquiry</span>
-                <ArrowRight className="h-3 w-3 text-[#F4B72F]" />
+                <ArrowRight className="h-3 w-3 text-[#DCE3FF]" />
               </Link>
             </div>
           </div>
         </div>
 
         {/* Bottom Bar: Copyright & Legal */}
-        <div className="py-7 border-t border-[#075AC8]/25 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#7E96B8]">
+        <div className="py-7 border-t border-[#DCE3FF]/20 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#DCE3FF]/70">
           <p suppressHydrationWarning>© {currentYear} CademyX. All rights reserved.</p>
 
           <div className="flex flex-wrap items-center gap-4 sm:gap-6">
@@ -351,7 +369,7 @@ export const SiteFooter: React.FC = () => {
               <Link
                 key={link.label}
                 href={link.href}
-                className="hover:text-[#BACCE4] transition-colors"
+                className="hover:text-white transition-colors"
               >
                 {link.label}
               </Link>
@@ -363,7 +381,7 @@ export const SiteFooter: React.FC = () => {
                   window.dispatchEvent(new CustomEvent('cademyx:open-cookie-preferences'));
                 }
               }}
-              className="hover:text-[#BACCE4] transition-colors cursor-pointer text-left"
+              className="hover:text-white transition-colors cursor-pointer text-left"
             >
               Cookie Preferences
             </button>

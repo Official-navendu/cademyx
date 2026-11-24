@@ -1,7 +1,8 @@
 import React from 'react';
-import { notFound } from 'next/navigation';
+import { notFound, redirect } from 'next/navigation';
 import type { Metadata } from 'next';
 import { programs, getProgramBySlug } from '@/data/programs';
+import { CATEGORY_SLUGS } from '@/data/categories';
 import { ProgramDetails } from '@/components/sections/programs/ProgramDetails';
 import { constructMetadata } from '@/lib/metadata';
 import { BRAND } from '@/lib/constants';
@@ -22,6 +23,11 @@ export async function generateMetadata({
   params,
 }: ProgramDetailPageProps): Promise<Metadata> {
   const { slug } = await params;
+
+  if (CATEGORY_SLUGS.includes(slug)) {
+    redirect(`/program-categories/${slug}`);
+  }
+
   const program = getProgramBySlug(slug);
 
   if (!program) {
@@ -46,6 +52,11 @@ export default async function ProgramDetailPage({
   params,
 }: ProgramDetailPageProps) {
   const { slug } = await params;
+
+  if (CATEGORY_SLUGS.includes(slug)) {
+    redirect(`/program-categories/${slug}`);
+  }
+
   const program = getProgramBySlug(slug);
 
   if (!program) {

@@ -100,11 +100,11 @@ export const FloatingHelpWidget: React.FC = () => {
   const handleShortcutSelect = (shortcut: WhatsAppShortcut) => {
     if (!whatsappNumber) {
       alert('WhatsApp advisory number is currently pending official configuration.');
-      return;
+    } else {
+      const targetUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(shortcut.message)}`;
+      window.open(targetUrl, '_blank', 'noopener,noreferrer');
+      handleClose();
     }
-    const targetUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(shortcut.message)}`;
-    window.open(targetUrl, '_blank', 'noopener,noreferrer');
-    handleClose();
   };
 
   return (
@@ -122,7 +122,7 @@ export const FloatingHelpWidget: React.FC = () => {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 12, scale: 0.95 }}
               transition={{ duration: 0.22, ease: 'easeOut' }}
-              className="mb-3 w-72 sm:w-80 max-w-[calc(100vw-2rem)] bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden"
+              className="mb-3 w-72 sm:w-80 max-w-[calc(100vw-2rem)] bg-white rounded-2xl shadow-2xl border border-[#DCE3FF] overflow-hidden"
               role="dialog"
               aria-label="Advisory Help Menu"
             >
@@ -130,11 +130,11 @@ export const FloatingHelpWidget: React.FC = () => {
               {showWhatsAppShortcuts ? (
                 <div className="p-4 space-y-3">
                   {/* Shortcuts Header */}
-                  <div className="flex items-center justify-between pb-2.5 border-b border-slate-100">
+                  <div className="flex items-center justify-between pb-2.5 border-b border-[#DCE3FF]">
                     <button
                       type="button"
                       onClick={() => setShowWhatsAppShortcuts(false)}
-                      className="inline-flex items-center gap-1.5 text-xs font-bold text-[#061B35] hover:text-[#075AC8] cursor-pointer transition-colors"
+                      className="inline-flex items-center gap-1.5 text-xs font-bold text-[#101F70] hover:text-[#182A9A] cursor-pointer transition-colors"
                       aria-label="Back to channels"
                     >
                       <ArrowLeft className="w-3.5 h-3.5" />
@@ -142,13 +142,13 @@ export const FloatingHelpWidget: React.FC = () => {
                     </button>
                     <div className="flex items-center gap-1.5">
                       <span className="w-2 h-2 rounded-full bg-[#25D366]" />
-                      <span className="text-[11px] font-bold text-[#061B35] uppercase tracking-wider">
+                      <span className="text-[11px] font-bold text-[#101F70] uppercase tracking-wider">
                         WhatsApp Help
                       </span>
                     </div>
                   </div>
 
-                  <p className="text-[11px] text-[#152C45]/80 font-medium leading-snug">
+                  <p className="text-[11px] text-[#26345C] font-medium leading-snug">
                     Select a topic to open WhatsApp with a prefilled message:
                   </p>
 
@@ -159,17 +159,17 @@ export const FloatingHelpWidget: React.FC = () => {
                         key={shortcut.id}
                         type="button"
                         onClick={() => handleShortcutSelect(shortcut)}
-                        className="w-full text-left p-2.5 rounded-xl bg-slate-50 hover:bg-[#25D366]/10 border border-slate-200/80 hover:border-[#25D366]/50 transition-all cursor-pointer group flex items-start justify-between gap-2"
+                        className="w-full text-left p-2.5 rounded-xl bg-[#F3F5FF] hover:bg-[#25D366]/10 border border-[#DCE3FF] hover:border-[#25D366]/50 transition-all cursor-pointer group flex items-start justify-between gap-2"
                       >
                         <div className="flex-1 min-w-0">
-                          <p className="text-xs font-bold text-[#061B35] group-hover:text-[#25D366] transition-colors leading-snug">
+                          <p className="text-xs font-bold text-[#101F70] group-hover:text-[#25D366] transition-colors leading-snug">
                             {shortcut.title}
                           </p>
-                          <p className="text-[10px] text-[#152C45]/70 truncate mt-0.5">
+                          <p className="text-[10px] text-[#6573A8] truncate mt-0.5">
                             {shortcut.subtitle}
                           </p>
                         </div>
-                        <ArrowUpRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-[#25D366] shrink-0 mt-0.5 transition-colors" />
+                        <ArrowUpRight className="w-3.5 h-3.5 text-[#6573A8] group-hover:text-[#25D366] shrink-0 mt-0.5 transition-colors" />
                       </button>
                     ))}
                   </div>
@@ -177,14 +177,14 @@ export const FloatingHelpWidget: React.FC = () => {
               ) : (
                 /* VIEW 2: 3 Primary Action Channels */
                 <div className="p-3.5 space-y-2.5">
-                  <div className="px-2 py-1 flex items-center justify-between border-b border-slate-100">
-                    <span className="text-[11px] font-bold uppercase tracking-wider text-[#061B35]">
+                  <div className="px-2 py-1 flex items-center justify-between border-b border-[#DCE3FF]">
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-[#101F70]">
                       Connect With CademyX
                     </span>
                     <button
                       type="button"
                       onClick={handleClose}
-                      className="text-slate-400 hover:text-[#061B35] p-1 rounded-md transition-colors cursor-pointer"
+                      className="text-[#6573A8] hover:text-[#101F70] p-1 rounded-md transition-colors cursor-pointer"
                       aria-label="Close menu"
                     >
                       <X className="w-3.5 h-3.5" />
@@ -195,25 +195,25 @@ export const FloatingHelpWidget: React.FC = () => {
                   <button
                     type="button"
                     onClick={() => setShowWhatsAppShortcuts(true)}
-                    className="w-full group flex items-center gap-3 p-2.5 rounded-xl bg-slate-50 hover:bg-[#25D366]/10 border border-slate-200/80 hover:border-[#25D366]/40 transition-all cursor-pointer text-left"
+                    className="w-full group flex items-center gap-3 p-2.5 rounded-xl bg-[#F3F5FF] hover:bg-[#25D366]/10 border border-[#DCE3FF] hover:border-[#25D366]/40 transition-all cursor-pointer text-left"
                     aria-label="Open WhatsApp message choices"
                   >
                     <div className="w-10 h-10 rounded-full bg-[#25D366] text-white flex items-center justify-center shrink-0 shadow-sm group-hover:scale-105 transition-transform">
                       {/* Authentic WhatsApp SVG Logo */}
                       <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M12.031 0C5.396 0 0 5.397 0 12.034c0 2.12.553 4.188 1.606 6.012L.065 24l6.126-1.607a11.968 11.968 0 005.84 1.503h.005c6.635 0 12.032-5.397 12.032-12.034 0-3.214-1.252-6.236-3.525-8.51A11.956 11.956 0 0012.031 0zm0 22.025h-.004a9.98 9.98 0 01-5.093-1.392l-.365-.216-3.785.993 1.01-3.69-.238-.378a9.983 9.983 0 01-1.533-5.308c0-5.525 4.495-10.02 10.02-10.02 2.676 0 5.192 1.043 7.084 2.937a9.972 9.972 0 012.934 7.087c0 5.525-4.494 10.02-10.02 10.02z" />
+                        <path d="M12.031 0C5.396 0 0 5.397 0 12.034c0 2.12.553 4.188 1.606 6.012L.065 24l6.126-1.607a11.968 11.968 0 005.84 1.503h.005c6.635 0 12.032-5.397 12.032-12.034 0-3.214-1.252-6.236-3.525-8.51A11.956 11.956 0 0012.031 0zm0 22.025h-.004a9.98 9.98 0 01-5.093-1.392l-.365-.216-3.785.993 1.01-3.69-.238-.378a9.983 9.983 0 01-1.533-5.308c0-5.525 4.495-10.02 10.02-10.02 2.676 0 5.192 1.043 7.084 2.937a9.972 9.972 0 012.934 7.087c0 5.525-4.494 10.02-10.02 10.02zm5.498-7.508c-.301-.15-1.783-.879-2.06-.98-.276-.1-.477-.15-.678.15-.2.301-.779.98-.955 1.18-.176.2-.351.226-.653.075-.301-.15-1.272-.469-2.423-1.496-.895-.798-1.5-1.784-1.675-2.085-.176-.301-.019-.464.132-.614.136-.135.301-.351.452-.527.151-.176.2-.301.301-.502.101-.2.05-.376-.025-.527-.075-.15-.678-1.633-.93-2.236-.245-.588-.494-.508-.678-.518l-.578-.01c-.2 0-.527.075-.803.376s-1.054 1.029-1.054 2.509 1.079 2.909 1.23 3.11c.15.2 2.123 3.242 5.144 4.548.718.311 1.279.497 1.716.636.721.23 1.377.197 1.896.12.578-.087 1.783-.728 2.034-1.432.251-.703.251-1.306.176-1.432-.075-.126-.276-.201-.577-.352z" />
                       </svg>
                     </div>
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center justify-between">
-                        <span className="text-xs font-bold text-[#061B35] group-hover:text-[#25D366] transition-colors">
+                        <span className="text-xs font-bold text-[#101F70] group-hover:text-[#25D366] transition-colors">
                           WhatsApp Advisory
                         </span>
                         <span className="text-[9px] font-bold uppercase text-emerald-800 bg-emerald-100 px-1.5 py-0.2 rounded">
                           Quick Chat
                         </span>
                       </div>
-                      <p className="text-[11px] text-[#152C45]/70 truncate">Choose predefined inquiry topic</p>
+                      <p className="text-[11px] text-[#6573A8] truncate">Choose predefined inquiry topic</p>
                     </div>
                   </button>
 
@@ -221,22 +221,22 @@ export const FloatingHelpWidget: React.FC = () => {
                   <a
                     href={telUrl}
                     onClick={handleClose}
-                    className="group flex items-center gap-3 p-2.5 rounded-xl bg-slate-50 hover:bg-[#075AC8]/10 border border-slate-200/80 hover:border-[#075AC8]/40 transition-all cursor-pointer text-left"
+                    className="group flex items-center gap-3 p-2.5 rounded-xl bg-[#F3F5FF] hover:bg-[#DCE3FF]/40 border border-[#DCE3FF] hover:border-[#182A9A]/40 transition-all cursor-pointer text-left"
                     aria-label={`Call advisory line at ${rawPhone}`}
                   >
-                    <div className="w-10 h-10 rounded-full bg-[#075AC8] text-white flex items-center justify-center shrink-0 shadow-sm group-hover:scale-105 transition-transform">
+                    <div className="w-10 h-10 rounded-full bg-[#182A9A] text-white flex items-center justify-center shrink-0 shadow-sm group-hover:scale-105 transition-transform">
                       <Phone className="w-4 h-4" />
                     </div>
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center justify-between">
-                        <span className="text-xs font-bold text-[#061B35] group-hover:text-[#075AC8] transition-colors">
+                        <span className="text-xs font-bold text-[#101F70] group-hover:text-[#182A9A] transition-colors">
                           Call Advisor
                         </span>
-                        <span className="text-[9px] font-mono font-bold text-slate-500">
+                        <span className="text-[9px] font-mono font-bold text-[#6573A8]">
                           {rawPhone}
                         </span>
                       </div>
-                      <p className="text-[11px] text-[#152C45]/70 truncate">Direct telephone consultation</p>
+                      <p className="text-[11px] text-[#6573A8] truncate">Direct telephone consultation</p>
                     </div>
                   </a>
 
@@ -247,22 +247,22 @@ export const FloatingHelpWidget: React.FC = () => {
                       handleClose();
                       setIsQueryModalOpen(true);
                     }}
-                    className="w-full group flex items-center gap-3 p-2.5 rounded-xl bg-[#FEF8E9] hover:bg-[#F4B72F]/20 border border-[#F4B72F]/40 transition-all cursor-pointer text-left"
+                    className="w-full group flex items-center gap-3 p-2.5 rounded-xl bg-[#F3F5FF] hover:bg-[#DCE3FF]/50 border border-[#DCE3FF] hover:border-[#182A9A]/40 transition-all cursor-pointer text-left"
                     aria-label="Submit an academic profile query"
                   >
-                    <div className="w-10 h-10 rounded-full bg-[#061B35] text-[#F4B72F] flex items-center justify-center shrink-0 shadow-sm group-hover:scale-105 transition-transform">
+                    <div className="w-10 h-10 rounded-full bg-[#101F70] text-[#DCE3FF] flex items-center justify-center shrink-0 shadow-sm group-hover:scale-105 transition-transform">
                       <HelpCircle className="w-4 h-4" />
                     </div>
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center justify-between">
-                        <span className="text-xs font-bold text-[#061B35] group-hover:text-[#D99519] transition-colors">
+                        <span className="text-xs font-bold text-[#101F70] group-hover:text-[#182A9A] transition-colors">
                           Submit Query
                         </span>
-                        <span className="text-[9px] font-extrabold uppercase text-[#061B35] bg-[#F4B72F] px-1.5 py-0.2 rounded">
+                        <span className="text-[9px] font-extrabold uppercase text-white bg-[#182A9A] px-1.5 py-0.2 rounded">
                           Form
                         </span>
                       </div>
-                      <p className="text-[11px] text-[#152C45]/70 truncate">Profile review &amp; roadmap request</p>
+                      <p className="text-[11px] text-[#6573A8] truncate">Profile review &amp; roadmap request</p>
                     </div>
                   </button>
                 </div>
@@ -280,7 +280,7 @@ export const FloatingHelpWidget: React.FC = () => {
               exit={{ opacity: 0, y: 4, scale: 0.95 }}
               transition={{ duration: 0.2 }}
               onClick={() => setIsOpen(true)}
-              className="mb-2 px-3 py-1 rounded-full bg-[#061B35] text-white border border-[#F4B72F]/50 shadow-lg text-[11px] font-bold flex items-center gap-2 whitespace-nowrap cursor-pointer hover:border-[#F4B72F] max-w-[calc(100vw-2.5rem)] truncate"
+              className="mb-2 px-3 py-1 rounded-full bg-[#101F70] text-white border border-[#DCE3FF]/40 shadow-lg text-[11px] font-bold flex items-center gap-2 whitespace-nowrap cursor-pointer hover:border-[#DCE3FF] max-w-[calc(100vw-2.5rem)] truncate"
             >
               {/* Green Live Indicator (decorative availability signal) */}
               <span className="relative flex h-2 w-2 shrink-0">
@@ -302,12 +302,12 @@ export const FloatingHelpWidget: React.FC = () => {
           aria-label={isOpen ? 'Close advisory help menu' : 'Open advisory help options'}
           whileHover={{ scale: 1.08 }}
           whileTap={{ scale: 0.92 }}
-          className="w-13 h-13 sm:w-14 sm:h-14 rounded-full bg-[#061B35] hover:bg-[#092244] text-[#F4B72F] border-2 border-[#F4B72F] shadow-2xl flex items-center justify-center cursor-pointer transition-colors focus:outline-none focus:ring-4 focus:ring-[#F4B72F]/40 active:scale-95"
+          className="w-13 h-13 sm:w-14 sm:h-14 rounded-full bg-[#182A9A] hover:bg-[#101F70] text-white border-2 border-white/80 shadow-2xl flex items-center justify-center cursor-pointer transition-colors focus:outline-none focus:ring-4 focus:ring-[#182A9A]/40 active:scale-95"
         >
           {isOpen ? (
-            <X className="w-6 h-6 text-[#F4B72F]" />
+            <X className="w-6 h-6 text-white" />
           ) : (
-            <MessageSquare className="w-6 h-6 text-[#F4B72F]" />
+            <MessageSquare className="w-6 h-6 text-white" />
           )}
         </motion.button>
       </aside>

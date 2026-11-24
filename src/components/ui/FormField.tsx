@@ -25,7 +25,7 @@ export const FormField: React.FC<FormFieldProps> = ({
       {label && (
         <label
           htmlFor={id}
-          className="text-sm font-semibold text-[#061B35] tracking-wide flex items-center gap-1 select-none"
+          className="text-sm font-semibold text-[#101F70] tracking-wide flex items-center gap-1 select-none"
         >
           <span>{label}</span>
           {required && (
@@ -40,7 +40,7 @@ export const FormField: React.FC<FormFieldProps> = ({
       {children}
 
       {hint && !error && (
-        <p className="text-xs text-[#152C45]/70 mt-0.5">{hint}</p>
+        <p className="text-xs text-[#6573A8] mt-0.5">{hint}</p>
       )}
 
       {error && (

@@ -1,68 +1,80 @@
 /* ==========================================================================
    CademyX Design Tokens & Central Background System
-   Official Brand Palette (Source of Truth):
-   - Midnight Navy: #061B35 (Primary brand colour, headings, key elements)
-   - Royal Blue:    #075AC8 (Secondary colour, interactive highlights, links)
-   - Premium Gold:  #F4B72F (Primary accent, CTA highlights, important icons)
-   - Deep Gold:     #D99519 (Supporting accent, gradients, hover states)
-   - Pure White:    #FFFFFF (Main background, cards, forms, clean layouts)
-   - Slate Navy:    #152C45 (Supporting colour, body text, secondary headings)
+   Official New Brand Palette (Source of Truth):
+   - Royal Deep Blue:  #182A9A (Primary brand colour, CTAs, interactive highlights)
+   - Deep Navy Blue:   #101F70 (Dark backgrounds, footer, important sections)
+   - Pure White:       #FFFFFF (Main background, cards, text on dark sections)
+   - Soft Blue White:  #F3F5FF (Alternate section backgrounds, subtle containers)
+   - Light Periwinkle: #DCE3FF (Borders, subtle accents, separators)
+   - Slate Blue:       #26345C (Body text and secondary text)
+   - Muted Blue:       #6573A8 (Secondary labels and muted text)
    ========================================================================== */
 
 :root {
-  /* Official Brand Palette */
-  --brand-navy-midnight: #061B35;
-  --brand-navy-slate: #152C45;
-  --brand-blue-royal: #075AC8;
-  --brand-gold-premium: #F4B72F;
-  --brand-gold-deep: #D99519;
+  /* Official Brand Palette Tokens */
+  --brand-blue-royal: #182A9A;
+  --brand-navy-deep: #101F70;
   --brand-white: #FFFFFF;
+  --brand-blue-soft: #F3F5FF;
+  --brand-periwinkle: #DCE3FF;
+  --brand-blue-slate: #26345C;
+  --brand-blue-muted: #6573A8;
 
   /* Aliases for Semantic Alignment */
-  --brand-navy-primary: #061B35;
-  --brand-navy-dark: #061B35;
-  --brand-navy-deepest: #041326;
-  --brand-navy-surface: #0E2748;
-  --brand-navy-royal: #075AC8;
-  --brand-navy-sapphire: #075AC8;
-  --brand-navy-sheen: #0968E4;
+  --brand-primary: #182A9A;
+  --brand-navy-primary: #101F70;
+  --brand-navy-dark: #101F70;
+  --brand-navy-deepest: #0B1650;
+  --brand-navy-surface: #101F70;
+  --brand-navy-midnight: #101F70;
+  --brand-navy-slate: #26345C;
 
-  /* Gold Spectrum */
-  --brand-gold: #F4B72F;
-  --brand-gold-light: #FDE5AD;
-  --brand-gold-bright: #F7C34D;
-  --brand-gold-sun: #F4B72F;
-  --brand-gold-mid: #EAA71C;
-  --brand-gold-deep: #D99519;
-  --brand-gold-dark: #C4820E;
+  /* Legacy gold tokens mapped cleanly to new brand blue tokens */
+  --brand-gold: #182A9A;
+  --brand-gold-premium: #182A9A;
+  --brand-gold-deep: #101F70;
+  --brand-gold-light: #DCE3FF;
+  --brand-gold-bright: #182A9A;
+  --brand-gold-sun: #182A9A;
+  --brand-gold-mid: #182A9A;
+  --brand-gold-dark: #101F70;
 
   /* Strict Brand Gradients */
-  --brand-gold-gradient: linear-gradient(90deg, #F4B72F 0%, #D99519 100%);
-  --brand-gold-gradient-editorial: linear-gradient(100deg, #F4B72F 0%, #D99519 50%, #F4B72F 100%);
-  --brand-gold-gradient-3d: linear-gradient(135deg, #F4B72F 0%, #E2A321 40%, #D99519 75%, #B8780B 100%);
-  --brand-gold-gradient-soft: linear-gradient(135deg, rgba(244, 183, 47, 0.16) 0%, rgba(217, 149, 25, 0.06) 100%);
+  --brand-blue-gradient: linear-gradient(90deg, #182A9A 0%, #101F70 100%);
+  --brand-blue-gradient-editorial: linear-gradient(100deg, #182A9A 0%, #101F70 50%, #182A9A 100%);
+  --brand-blue-gradient-subtle: linear-gradient(135deg, #F3F5FF 0%, #FFFFFF 100%);
 
-  --brand-navy-gradient: linear-gradient(135deg, #061B35 0%, #152C45 60%, #075AC8 100%);
+  /* Legacy gradient aliases */
+  --brand-gold-gradient: linear-gradient(90deg, #182A9A 0%, #101F70 100%);
+  --brand-gold-gradient-editorial: linear-gradient(100deg, #182A9A 0%, #101F70 50%, #182A9A 100%);
+  --brand-gold-gradient-3d: linear-gradient(135deg, #182A9A 0%, #152588 40%, #101F70 75%, #0B1650 100%);
+  --brand-gold-gradient-soft: linear-gradient(135deg, rgba(24, 42, 154, 0.08) 0%, rgba(16, 31, 112, 0.04) 100%);
+
+  --brand-navy-gradient: linear-gradient(135deg, #101F70 0%, #182A9A 60%, #101F70 100%);
   --brand-navy-atmospheric: 
-    radial-gradient(ellipse at 85% 15%, rgba(244, 183, 47, 0.14), transparent 45%),
-    radial-gradient(ellipse at 15% 85%, rgba(7, 90, 200, 0.18), transparent 50%),
-    radial-gradient(circle at 50% 50%, rgba(6, 27, 53, 0.6), transparent 70%),
-    linear-gradient(135deg, #061B35 0%, #152C45 60%, #075AC8 100%);
+    radial-gradient(ellipse at 85% 15%, rgba(220, 227, 255, 0.15), transparent 45%),
+    radial-gradient(ellipse at 15% 85%, rgba(24, 42, 154, 0.2), transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(16, 31, 112, 0.6), transparent 70%),
+    linear-gradient(135deg, #101F70 0%, #182A9A 60%, #101F70 100%);
 
   /* Neutrals & Surfaces */
-  --brand-light-gray: #F8FAFC;
-  --brand-border-subtle: #E2E8F0;
-  --brand-border-card: #E5EBF2;
-  --brand-border-gold: rgba(244, 183, 47, 0.45);
-  --brand-text-dark: #061B35;
-  --brand-text-secondary: #152C45;
-  --brand-text-muted: #5C7491;
+  --brand-light-gray: #F3F5FF;
+  --brand-border-subtle: #DCE3FF;
+  --brand-border-card: #DCE3FF;
+  --brand-border-gold: #DCE3FF;
+  --brand-text-dark: #101F70;
+  --brand-text-secondary: #26345C;
+  --brand-text-muted: #6573A8;
 
   /* Ambient Shadows */
-  --shadow-gold-glow: 0 4px 24px rgba(244, 183, 47, 0.32);
-  --shadow-gold-card: 0 12px 36px -8px rgba(244, 183, 47, 0.16);
-  --shadow-navy-glow: 0 12px 40px rgba(6, 27, 53, 0.45);
-  --shadow-editorial: 0 24px 60px -15px rgba(6, 27, 53, 0.22);
+  --shadow-blue-glow: 0 4px 24px rgba(24, 42, 154, 0.25);
+  --shadow-blue-card: 0 12px 36px -8px rgba(24, 42, 154, 0.12);
+  --shadow-navy-glow: 0 12px 40px rgba(16, 31, 112, 0.35);
+  --shadow-editorial: 0 24px 60px -15px rgba(16, 31, 112, 0.15);
+
+  /* Legacy shadow aliases */
+  --shadow-gold-glow: 0 4px 24px rgba(24, 42, 154, 0.25);
+  --shadow-gold-card: 0 12px 36px -8px rgba(24, 42, 154, 0.12);
 
   /* ==========================================================================
      Central Responsive Typography Scale Tokens
@@ -193,25 +205,27 @@
    1. Typography & Gradient Text Utilities
    ========================================================================== */
 
-/* Editorial Gold Gradient Text */
+/* Royal Deep Blue Gradient Text */
+.blue-gradient-text,
 .gold-gradient-text {
-  background: linear-gradient(100deg, #F4B72F 0%, #D99519 50%, #F4B72F 100%);
+  background: linear-gradient(100deg, #182A9A 0%, #101F70 60%, #182A9A 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;
 }
 
-/* 3D Rich Gold Gradient Text for Apex Highlights */
+/* Rich Royal Blue Gradient Text */
+.blue-gradient-text-rich,
 .gold-gradient-text-rich {
-  background: linear-gradient(135deg, #F4B72F 0%, #E2A321 40%, #D99519 75%, #B8780B 100%);
+  background: linear-gradient(135deg, #182A9A 0%, #101F70 50%, #2035B5 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;
 }
 
-/* Midnight Navy Gradient Text */
+/* Deep Navy Gradient Text */
 .navy-gradient-text {
-  background: linear-gradient(135deg, #061B35 0%, #152C45 50%, #075AC8 100%);
+  background: linear-gradient(135deg, #101F70 0%, #182A9A 60%, #101F70 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;
@@ -224,41 +238,42 @@
 /* Dark Atmospheric Background: Multi-layered cinematic illumination */
 .bg-atmospheric {
   background:
-    radial-gradient(ellipse at 85% 15%, rgba(244, 183, 47, 0.14), transparent 40%),
-    radial-gradient(ellipse at 15% 85%, rgba(7, 90, 200, 0.18), transparent 45%),
-    radial-gradient(circle at 50% 30%, rgba(14, 39, 72, 0.5), transparent 60%),
-    linear-gradient(135deg, #061B35 0%, #152C45 60%, #075AC8 100%);
+    radial-gradient(ellipse at 85% 15%, rgba(220, 227, 255, 0.15), transparent 40%),
+    radial-gradient(ellipse at 15% 85%, rgba(24, 42, 154, 0.2), transparent 45%),
+    radial-gradient(circle at 50% 30%, rgba(16, 31, 112, 0.5), transparent 60%),
+    linear-gradient(135deg, #101F70 0%, #182A9A 60%, #101F70 100%);
 }
 
-/* Light Background with Warm Gold Glow */
+/* Light Background with Subtle Blue Glow */
 .bg-soft-glow {
   background:
-    radial-gradient(ellipse at 50% 0%, rgba(244, 183, 47, 0.08), transparent 50%),
-    radial-gradient(ellipse at 85% 90%, rgba(217, 149, 25, 0.05), transparent 45%),
+    radial-gradient(ellipse at 50% 0%, rgba(24, 42, 154, 0.06), transparent 50%),
+    radial-gradient(ellipse at 85% 90%, rgba(16, 31, 112, 0.04), transparent 45%),
     #FFFFFF;
 }
 
-/* Light Gray Section with Layered Gold Wash */
-.bg-gold-wash {
+/* Soft Blue White Section Wash */
+.bg-gold-wash,
+.bg-blue-wash {
   background:
-    radial-gradient(circle at 10% 20%, rgba(244, 183, 47, 0.07), transparent 40%),
-    radial-gradient(circle at 90% 80%, rgba(217, 149, 25, 0.07), transparent 45%),
-    #F8FAFC;
+    radial-gradient(circle at 10% 20%, rgba(220, 227, 255, 0.5), transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(24, 42, 154, 0.04), transparent 45%),
+    #F3F5FF;
 }
 
 /* Architectural Fine Grid for Light Backgrounds */
 .bg-academic-grid {
   background-image: 
-    linear-gradient(to right, rgba(244, 183, 47, 0.08) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(244, 183, 47, 0.08) 1px, transparent 1px);
+    linear-gradient(to right, rgba(24, 42, 154, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(24, 42, 154, 0.05) 1px, transparent 1px);
   background-size: 40px 40px;
 }
 
 /* Architectural Fine Grid for Dark Backgrounds */
 .bg-academic-grid-dark {
   background-image: 
-    linear-gradient(to right, rgba(244, 183, 47, 0.06) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(244, 183, 47, 0.06) 1px, transparent 1px);
+    linear-gradient(to right, rgba(220, 227, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(220, 227, 255, 0.08) 1px, transparent 1px);
   background-size: 40px 40px;
 }
 
@@ -271,16 +286,16 @@
   position: absolute;
   inset: 0;
   pointer-events: none;
-  opacity: 0.035;
+  opacity: 0.025;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
   z-index: 1;
 }
 
-/* Section Divider Glow (Luminous golden separator) */
+/* Section Divider Glow (Luminous blue separator) */
 .section-divider-glow {
   position: relative;
   height: 1px;
-  background: linear-gradient(90deg, transparent 0%, rgba(244, 183, 47, 0.2) 20%, #F4B72F 50%, rgba(244, 183, 47, 0.2) 80%, transparent 100%);
+  background: linear-gradient(90deg, transparent 0%, rgba(220, 227, 255, 0.3) 20%, #182A9A 50%, rgba(220, 227, 255, 0.3) 80%, transparent 100%);
 }
 .section-divider-glow::after {
   content: "";
@@ -289,19 +304,21 @@
   left: 20%;
   right: 20%;
   height: 13px;
-  background: radial-gradient(ellipse at 50% 50%, rgba(244, 183, 47, 0.25), transparent 70%);
+  background: radial-gradient(ellipse at 50% 50%, rgba(24, 42, 154, 0.25), transparent 70%);
   pointer-events: none;
 }
 
-/* Gold Accent Line (hairline) */
+/* Blue Accent Line (hairline) */
+.blue-accent-line,
 .gold-accent-line {
   height: 2px;
-  background: linear-gradient(90deg, transparent 0%, #F4B72F 25%, #D99519 50%, #F4B72F 75%, transparent 100%);
+  background: linear-gradient(90deg, transparent 0%, #182A9A 25%, #101F70 50%, #182A9A 75%, transparent 100%);
 }
 
+.blue-accent-line-solid,
 .gold-accent-line-solid {
   height: 2px;
-  background: linear-gradient(90deg, #F4B72F 0%, #D99519 100%);
+  background: linear-gradient(90deg, #182A9A 0%, #101F70 100%);
 }
 
 /* ==========================================================================
@@ -323,7 +340,7 @@
   background: linear-gradient(
     60deg,
     transparent 0%,
-    rgba(255, 255, 255, 0.35) 50%,
+    rgba(255, 255, 255, 0.25) 50%,
     transparent 100%
   );
   transform: rotate(25deg);
@@ -340,23 +357,25 @@
   border-radius: 20px 6px 20px 6px;
   overflow: hidden;
   box-shadow: var(--shadow-editorial);
-  border: 1px solid rgba(244, 183, 47, 0.4);
+  border: 1px solid #DCE3FF;
 }
 .editorial-frame::before {
   content: '';
   position: absolute;
   inset: -6px;
   border-radius: 24px 8px 24px 8px;
-  border: 1px dashed rgba(244, 183, 47, 0.3);
+  border: 1px dashed rgba(24, 42, 154, 0.25);
   pointer-events: none;
   z-index: 0;
 }
 
 /* Luminous Card Sheen on Hover */
+.blue-glow-card,
 .gold-glow-card {
   transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
+.blue-glow-card:hover,
 .gold-glow-card:hover {
-  border-color: rgba(244, 183, 47, 0.65);
-  box-shadow: 0 12px 32px -8px rgba(244, 183, 47, 0.2);
+  border-color: #182A9A;
+  box-shadow: 0 12px 32px -8px rgba(24, 42, 154, 0.18);
 }

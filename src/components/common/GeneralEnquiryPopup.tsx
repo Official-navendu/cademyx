@@ -21,14 +21,14 @@ export const GeneralEnquiryPopup: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    // 1. Immediately suppress if on a dedicated program detail route (/programs/[slug])
-    // The program detail page runs its own prioritized 20-second program-specific popup.
+    // 1. Immediately suppress if on a dedicated program detail route or on /thank-you
     const isProgramDetailRoute =
       pathname.startsWith('/programs/') &&
       pathname !== '/programs' &&
       pathname !== '/programs/';
+    const isThankYouRoute = pathname === '/thank-you' || pathname.startsWith('/thank-you/');
 
-    if (isProgramDetailRoute) {
+    if (isProgramDetailRoute || isThankYouRoute) {
       if (timerRef.current) clearTimeout(timerRef.current);
       return;
     }

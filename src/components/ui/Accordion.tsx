@@ -46,8 +46,8 @@ export const Accordion: React.FC<AccordionProps> = ({
             className={cn(
               'rounded-2xl transition-all duration-300 overflow-hidden',
               isOpen
-                ? 'bg-[#061B35] border-2 border-[#F4B72F] shadow-[0_8px_28px_rgba(244,183,47,0.18)]'
-                : 'bg-white border border-[#E2E8F0] hover:border-[#F4B72F]/60 shadow-xs hover:shadow-sm'
+                ? 'bg-[#101F70] border-2 border-[#182A9A] shadow-[0_8px_28px_rgba(24,42,154,0.18)]'
+                : 'bg-white border border-[#DCE3FF] hover:border-[#182A9A]/60 shadow-xs hover:shadow-sm'
             )}
           >
             <h3>
@@ -57,12 +57,12 @@ export const Accordion: React.FC<AccordionProps> = ({
                 aria-expanded={isOpen}
                 aria-controls={panelId}
                 onClick={() => toggleItem(item.id)}
-                className="w-full flex items-center justify-between text-left px-6 py-5 gap-4 group focus-visible:outline-2 focus-visible:outline-[#F4B72F] cursor-pointer"
+                className="w-full flex items-center justify-between text-left px-6 py-5 gap-4 group focus-visible:outline-2 focus-visible:outline-[#182A9A] cursor-pointer"
               >
                 <span
                   className={cn(
                     'font-bold text-base sm:text-lg leading-snug transition-colors',
-                    isOpen ? 'text-white' : 'text-[#061B35] group-hover:text-[#075AC8]'
+                    isOpen ? 'text-white' : 'text-[#101F70] group-hover:text-[#182A9A]'
                   )}
                 >
                   {item.question}
@@ -71,8 +71,8 @@ export const Accordion: React.FC<AccordionProps> = ({
                   className={cn(
                     'shrink-0 h-8 w-8 rounded-full flex items-center justify-center transition-all duration-300',
                     isOpen
-                      ? 'bg-[#F4B72F] text-[#061B35] rotate-180 shadow-sm'
-                      : 'bg-[#F1F4F9] text-[#061B35] group-hover:bg-[#E2E8F0]'
+                      ? 'bg-[#182A9A] text-white rotate-180 shadow-sm'
+                      : 'bg-[#F3F5FF] text-[#182A9A] group-hover:bg-[#DCE3FF]'
                   )}
                 >
                   <ChevronDown className="h-4 w-4 stroke-[2.5]" aria-hidden="true" />
@@ -99,7 +99,7 @@ export const Accordion: React.FC<AccordionProps> = ({
                   }}
                   className="overflow-hidden border-t border-white/15"
                 >
-                  <div className="px-6 pb-6 pt-3 text-sm sm:text-base text-[#BACCE4] leading-relaxed">
+                  <div className="px-6 pb-6 pt-3 text-sm sm:text-base text-[#DCE3FF] leading-relaxed">
                     <p>{item.answer}</p>
                   </div>
                 </motion.div>

@@ -22,7 +22,7 @@ export default function CookiePolicyPage() {
         <div className="mb-8">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 text-xs font-semibold text-[#075AC8] hover:text-[#061B35] transition-colors"
+            className="inline-flex items-center gap-2 text-xs font-semibold text-[#182A9A] hover:text-[#101F70] transition-colors"
           >
             <ArrowLeft className="h-3.5 w-3.5" />
             <span>Return to Homepage</span>
@@ -30,32 +30,32 @@ export default function CookiePolicyPage() {
         </div>
 
         {/* Page Header Banner */}
-        <div className="relative p-8 sm:p-12 rounded-3xl bg-gradient-to-br from-[#061B35] via-[#0A2244] to-[#152C45] text-white overflow-hidden mb-12 shadow-xl border border-[#075AC8]/30">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-[#F4B72F]/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="relative p-8 sm:p-12 rounded-3xl bg-gradient-to-br from-[#101F70] via-[#0D1959] to-[#101F70] text-white overflow-hidden mb-12 shadow-xl border border-[#DCE3FF]/20">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-[#182A9A]/20 rounded-full blur-3xl pointer-events-none" />
           <div className="relative z-10 max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#F4B72F]/15 border border-[#F4B72F]/30 text-[#F4B72F] text-xs font-bold uppercase tracking-wider mb-4">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#182A9A]/30 border border-[#DCE3FF]/30 text-[#DCE3FF] text-xs font-bold uppercase tracking-wider mb-4">
               <Cookie className="h-3.5 w-3.5" />
               <span>Transparency &amp; Privacy</span>
             </div>
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white mb-4">
               Cookie Policy
             </h1>
-            <p className="text-sm sm:text-base text-[#BACCE4] leading-relaxed">
+            <p className="text-sm sm:text-base text-[#DCE3FF]/90 leading-relaxed">
               This Cookie Policy explains how CademyX uses cookies and similar storage technologies when you visit our website. We believe in clear disclosure, minimal tracking, and giving you full control over your digital preferences.
             </p>
-            <p className="text-xs text-[#7E96B8] mt-4">
+            <p className="text-xs text-[#DCE3FF]/70 mt-4">
               Effective Date: {lastUpdated} • Version 1.0 • Applicable across all CademyX public portals
             </p>
           </div>
         </div>
 
         {/* Quick Management Callout Banner */}
-        <div className="mb-12 p-6 sm:p-8 rounded-2xl bg-[#FEF8E9] border border-[#FDE6B0] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-sm">
+        <div className="mb-12 p-6 sm:p-8 rounded-2xl bg-[#F3F5FF] border border-[#DCE3FF] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-sm">
           <div>
-            <h2 className="text-base sm:text-lg font-bold text-[#061B35]">
+            <h2 className="text-base sm:text-lg font-bold text-[#101F70]">
               Looking to adjust your cookie preferences?
             </h2>
-            <p className="text-xs sm:text-sm text-[#475569] mt-1">
+            <p className="text-xs sm:text-sm text-[#26345C] mt-1">
               You can review, enable, or withdraw consent for optional cookie categories at any time.
             </p>
           </div>
@@ -65,15 +65,15 @@ export default function CookiePolicyPage() {
         </div>
 
         {/* Policy Document Body */}
-        <div className="max-w-4xl mx-auto prose prose-slate prose-headings:text-[#061B35] prose-headings:font-bold prose-p:text-[#475569] prose-p:leading-relaxed prose-strong:text-[#061B35] space-y-10">
+        <div className="max-w-4xl mx-auto prose prose-slate prose-headings:text-[#101F70] prose-headings:font-bold prose-p:text-[#26345C] prose-p:leading-relaxed prose-strong:text-[#101F70] space-y-10">
           {/* Section 1 */}
           <section className="space-y-4">
-            <h2 className="text-xl sm:text-2xl font-bold text-[#061B35] border-b border-[#E2E8F0] pb-2">
+            <h2 className="text-xl sm:text-2xl font-bold text-[#101F70] border-b border-[#DCE3FF] pb-2">
               1. Introduction
             </h2>
             <p>
               CademyX (&ldquo;we,&rdquo; &ldquo;our,&rdquo; or &ldquo;us&rdquo;) is committed to protecting your privacy and ensuring transparency in all our educational advisory operations. This Cookie Policy works in conjunction with our{' '}
-              <Link href="/privacy-policy" className="font-bold text-[#075AC8] hover:underline">
+              <Link href="/privacy-policy" className="font-bold text-[#182A9A] hover:underline">
                 Privacy Policy
               </Link>{' '}
               to explain how, why, and when cookies and similar browser storage mechanisms are utilized on our domain.
@@ -82,7 +82,7 @@ export default function CookiePolicyPage() {
 
           {/* Section 2 */}
           <section className="space-y-4">
-            <h2 className="text-xl sm:text-2xl font-bold text-[#061B35] border-b border-[#E2E8F0] pb-2">
+            <h2 className="text-xl sm:text-2xl font-bold text-[#101F70] border-b border-[#DCE3FF] pb-2">
               2. What Cookies Are
             </h2>
             <p>
@@ -95,13 +95,13 @@ export default function CookiePolicyPage() {
 
           {/* Section 3 */}
           <section className="space-y-4">
-            <h2 className="text-xl sm:text-2xl font-bold text-[#061B35] border-b border-[#E2E8F0] pb-2">
+            <h2 className="text-xl sm:text-2xl font-bold text-[#101F70] border-b border-[#DCE3FF] pb-2">
               3. Why CademyX Uses Cookies
             </h2>
             <p>
               Our primary goal is to provide a reliable, frictionless educational advisory experience. We use cookies and browser storage strictly to:
             </p>
-            <ul className="list-disc pl-6 space-y-2 text-sm text-[#475569]">
+            <ul className="list-disc pl-6 space-y-2 text-sm text-[#26345C]">
               <li>Maintain session integrity and prevent cross-site request forgery during consultation form submissions.</li>
               <li>Remember your privacy and cookie preferences so you do not encounter repeated banners on every visit.</li>
               <li>Deliver interactive academic advisory scheduling tools (such as our direct 30-minute Calendly consultation interface).</li>
@@ -111,22 +111,22 @@ export default function CookiePolicyPage() {
 
           {/* Section 4 */}
           <section className="space-y-4">
-            <h2 className="text-xl sm:text-2xl font-bold text-[#061B35] border-b border-[#E2E8F0] pb-2">
+            <h2 className="text-xl sm:text-2xl font-bold text-[#101F70] border-b border-[#DCE3FF] pb-2">
               4. Types of Cookies Implemented
             </h2>
 
             {/* Essential */}
-            <div className="p-5 rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] space-y-2 mt-4">
+            <div className="p-5 rounded-2xl bg-[#F3F5FF] border border-[#DCE3FF] space-y-2 mt-4">
               <div className="flex items-center gap-2">
-                <ShieldCheck className="w-4 h-4 text-[#061B35]" />
-                <h3 className="text-base font-bold text-[#061B35]">
+                <ShieldCheck className="w-4 h-4 text-[#101F70]" />
+                <h3 className="text-base font-bold text-[#101F70]">
                   A. Strictly Essential Cookies (Always Active)
                 </h3>
               </div>
-              <p className="text-sm text-[#475569]">
+              <p className="text-sm text-[#26345C]">
                 These cookies are necessary for core site operations, network routing, and security. They cannot be deactivated without fundamentally breaking basic website navigation and lead submission verification.
               </p>
-              <ul className="list-disc pl-6 text-xs text-[#5A6A85] space-y-1 pt-1">
+              <ul className="list-disc pl-6 text-xs text-[#6573A8] space-y-1 pt-1">
                 <li><strong>cademyx_cookie_consent_v1</strong>: Stores your verified cookie consent selections (Retention: 1 year).</li>
                 <li><strong>cademyx_welcome_popup_dismissed_v1</strong>: Remembers if you dismissed the welcome dialogue so you are not disrupted repeatedly (Retention: 180 days).</li>
                 <li><strong>Security &amp; Rate-Limiting Tokens</strong>: Session cookies to prevent automated spam on contact forms.</li>
@@ -134,40 +134,40 @@ export default function CookiePolicyPage() {
             </div>
 
             {/* Functional */}
-            <div className="p-5 rounded-2xl bg-white border border-[#E2E8F0] space-y-2 mt-4">
+            <div className="p-5 rounded-2xl bg-white border border-[#DCE3FF] space-y-2 mt-4">
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-[#075AC8]" />
-                <h3 className="text-base font-bold text-[#061B35]">
+                <CheckCircle2 className="w-4 h-4 text-[#182A9A]" />
+                <h3 className="text-base font-bold text-[#101F70]">
                   B. Functional Cookies (Optional)
                 </h3>
               </div>
-              <p className="text-sm text-[#475569]">
+              <p className="text-sm text-[#26345C]">
                 Functional cookies allow enhanced usability, regional timezone detection for appointment scheduling, and preserving your preferred viewing state. If disabled, third-party scheduler embeds will offer direct link alternatives instead.
               </p>
             </div>
 
             {/* Analytics */}
-            <div className="p-5 rounded-2xl bg-white border border-[#E2E8F0] space-y-2 mt-4">
+            <div className="p-5 rounded-2xl bg-white border border-[#DCE3FF] space-y-2 mt-4">
               <div className="flex items-center gap-2">
-                <Info className="w-4 h-4 text-[#D99519]" />
-                <h3 className="text-base font-bold text-[#061B35]">
+                <Info className="w-4 h-4 text-[#182A9A]" />
+                <h3 className="text-base font-bold text-[#101F70]">
                   C. Analytics Cookies (Optional)
                 </h3>
               </div>
-              <p className="text-sm text-[#475569]">
+              <p className="text-sm text-[#26345C]">
                 These collect anonymized information regarding which degree programs receive the highest interest, average session durations, and server load speeds. No personally identifiable profiling is performed.
               </p>
             </div>
 
             {/* Marketing */}
-            <div className="p-5 rounded-2xl bg-white border border-[#E2E8F0] space-y-2 mt-4">
+            <div className="p-5 rounded-2xl bg-white border border-[#DCE3FF] space-y-2 mt-4">
               <div className="flex items-center gap-2">
-                <Sliders className="w-4 h-4 text-[#8B5CF6]" />
-                <h3 className="text-base font-bold text-[#061B35]">
+                <Sliders className="w-4 h-4 text-[#182A9A]" />
+                <h3 className="text-base font-bold text-[#101F70]">
                   D. Marketing &amp; Outreach Cookies (Optional)
                 </h3>
               </div>
-              <p className="text-sm text-[#475569]">
+              <p className="text-sm text-[#26345C]">
                 Used exclusively if targeted enrollment announcements or educational campaigns are active, preventing you from receiving redundant recommendations across external channels.
               </p>
             </div>
@@ -175,15 +175,15 @@ export default function CookiePolicyPage() {
 
           {/* Section 5 */}
           <section className="space-y-4">
-            <h2 className="text-xl sm:text-2xl font-bold text-[#061B35] border-b border-[#E2E8F0] pb-2">
+            <h2 className="text-xl sm:text-2xl font-bold text-[#101F70] border-b border-[#DCE3FF] pb-2">
               5. Third-Party Services
             </h2>
             <p>
               To deliver specialized academic services, CademyX interfaces with trusted service providers:
             </p>
-            <ul className="list-disc pl-6 space-y-2 text-sm text-[#475569]">
+            <ul className="list-disc pl-6 space-y-2 text-sm text-[#26345C]">
               <li>
-                <strong>Calendly LLC</strong>: Powering our direct 30-minute academic consultation booking portal on <Link href="/schedule-a-consultation" className="font-bold text-[#075AC8]">/schedule-a-consultation</Link>. When the scheduler widget initializes, Calendly may set functional cookies to maintain time slot selection.
+                <strong>Calendly LLC</strong>: Powering our direct 30-minute academic consultation booking portal on <Link href="/schedule-a-consultation" className="font-bold text-[#182A9A]">/schedule-a-consultation</Link>. When the scheduler widget initializes, Calendly may set functional cookies to maintain time slot selection.
               </li>
               <li>
                 <strong>Resend Technologies</strong>: Handling administrative notification dispatch server-side. Resend operates strictly through server-to-server API endpoints and does not place client-side tracking cookies on your device.
@@ -193,13 +193,13 @@ export default function CookiePolicyPage() {
 
           {/* Section 6 */}
           <section className="space-y-4">
-            <h2 className="text-xl sm:text-2xl font-bold text-[#061B35] border-b border-[#E2E8F0] pb-2">
+            <h2 className="text-xl sm:text-2xl font-bold text-[#101F70] border-b border-[#DCE3FF] pb-2">
               6. Cookie Storage and Duration
             </h2>
             <p>
               Cookies placed by CademyX adhere strictly to defined lifetimes:
             </p>
-            <ul className="list-disc pl-6 space-y-2 text-sm text-[#475569]">
+            <ul className="list-disc pl-6 space-y-2 text-sm text-[#26345C]">
               <li><strong>Session Cookies</strong>: Cleared immediately when you terminate your browser session.</li>
               <li><strong>Preference Cookies</strong>: Stored for a maximum of 12 months, after which you will be invited to refresh your choices.</li>
             </ul>
@@ -207,7 +207,7 @@ export default function CookiePolicyPage() {
 
           {/* Section 7 */}
           <section className="space-y-4">
-            <h2 className="text-xl sm:text-2xl font-bold text-[#061B35] border-b border-[#E2E8F0] pb-2">
+            <h2 className="text-xl sm:text-2xl font-bold text-[#101F70] border-b border-[#DCE3FF] pb-2">
               7. How to Manage Cookie Preferences
             </h2>
             <p>
@@ -220,7 +220,7 @@ export default function CookiePolicyPage() {
 
           {/* Section 8 */}
           <section className="space-y-4">
-            <h2 className="text-xl sm:text-2xl font-bold text-[#061B35] border-b border-[#E2E8F0] pb-2">
+            <h2 className="text-xl sm:text-2xl font-bold text-[#101F70] border-b border-[#DCE3FF] pb-2">
               8. How to Change or Withdraw Consent
             </h2>
             <p>
@@ -230,13 +230,13 @@ export default function CookiePolicyPage() {
 
           {/* Section 9 */}
           <section className="space-y-4">
-            <h2 className="text-xl sm:text-2xl font-bold text-[#061B35] border-b border-[#E2E8F0] pb-2">
+            <h2 className="text-xl sm:text-2xl font-bold text-[#101F70] border-b border-[#DCE3FF] pb-2">
               9. Browser Cookie Controls
             </h2>
             <p>
               In addition to our on-site controls, all major web browsers allow you to inspect, restrict, or block cookies through browser settings. For detailed instructions, refer to your browser’s official documentation:
             </p>
-            <ul className="list-disc pl-6 space-y-1.5 text-xs text-[#075AC8]">
+            <ul className="list-disc pl-6 space-y-1.5 text-xs text-[#182A9A]">
               <li><a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener noreferrer" className="hover:underline">Google Chrome Cookie Settings</a></li>
               <li><a href="https://support.apple.com/guide/safari/manage-cookies-sfri11471/mac" target="_blank" rel="noopener noreferrer" className="hover:underline">Apple Safari Cookie Settings</a></li>
               <li><a href="https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop" target="_blank" rel="noopener noreferrer" className="hover:underline">Mozilla Firefox Privacy Settings</a></li>
@@ -246,7 +246,7 @@ export default function CookiePolicyPage() {
 
           {/* Section 10 */}
           <section className="space-y-4">
-            <h2 className="text-xl sm:text-2xl font-bold text-[#061B35] border-b border-[#E2E8F0] pb-2">
+            <h2 className="text-xl sm:text-2xl font-bold text-[#101F70] border-b border-[#DCE3FF] pb-2">
               10. Updates to This Policy
             </h2>
             <p>
@@ -256,24 +256,24 @@ export default function CookiePolicyPage() {
 
           {/* Section 11 */}
           <section className="space-y-4">
-            <h2 className="text-xl sm:text-2xl font-bold text-[#061B35] border-b border-[#E2E8F0] pb-2">
+            <h2 className="text-xl sm:text-2xl font-bold text-[#101F70] border-b border-[#DCE3FF] pb-2">
               11. Contact Information
             </h2>
             <p>
               For inquiries regarding this Cookie Policy or our data protection practices, please contact our academic privacy officers:
             </p>
-            <div className="p-5 rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] space-y-2 text-xs sm:text-sm">
+            <div className="p-5 rounded-2xl bg-[#F3F5FF] border border-[#DCE3FF] space-y-2 text-xs sm:text-sm">
               <div className="flex items-center gap-2">
-                <Mail className="w-4 h-4 text-[#F4B72F]" />
-                <span className="font-bold text-[#061B35]">Primary Inquiries:</span>
-                <a href="mailto:info@cademyx.com" className="text-[#075AC8] hover:underline">
+                <Mail className="w-4 h-4 text-[#182A9A]" />
+                <span className="font-bold text-[#101F70]">Primary Inquiries:</span>
+                <a href="mailto:info@cademyx.com" className="text-[#182A9A] hover:underline">
                   info@cademyx.com
                 </a>
               </div>
               <div className="flex items-center gap-2">
-                <Mail className="w-4 h-4 text-[#F4B72F]" />
-                <span className="font-bold text-[#061B35]">Alternative Advisory:</span>
-                <a href="mailto:hello@cademyx.com" className="text-[#075AC8] hover:underline">
+                <Mail className="w-4 h-4 text-[#182A9A]" />
+                <span className="font-bold text-[#101F70]">Alternative Advisory:</span>
+                <a href="mailto:hello@cademyx.com" className="text-[#182A9A] hover:underline">
                   hello@cademyx.com
                 </a>
               </div>

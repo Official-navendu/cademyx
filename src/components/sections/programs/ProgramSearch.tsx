@@ -22,7 +22,7 @@ export const ProgramSearch: React.FC<ProgramSearchProps> = ({
       </label>
       <div className="relative group">
         <Search
-          className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-[#64748B] group-focus-within:text-[#F4B72F] transition-colors pointer-events-none"
+          className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-[#6573A8] group-focus-within:text-[#182A9A] transition-colors pointer-events-none"
           aria-hidden="true"
         />
         <input
@@ -31,14 +31,14 @@ export const ProgramSearch: React.FC<ProgramSearchProps> = ({
           value={value}
           onChange={(e) => onChange(e.target.value)}
           placeholder="Search by title, topic, or keyword..."
-          className="w-full pl-10 pr-10 py-2.5 rounded-xl text-sm bg-white border border-[#CBD5E1] text-[#061B35] placeholder:text-[#94A3B8] shadow-xs hover:border-[#94A3B8] focus:border-[#F4B72F] focus:ring-2 focus:ring-[#F4B72F]/25 focus:outline-none transition-all"
+          className="w-full pl-10 pr-10 py-2.5 rounded-xl text-sm bg-white border border-[#DCE3FF] text-[#101F70] placeholder:text-[#6573A8] shadow-xs hover:border-[#182A9A]/50 focus:border-[#182A9A] focus:ring-2 focus:ring-[#182A9A]/20 focus:outline-none transition-all"
         />
         {value && (
           <button
             type="button"
             onClick={onClear}
             aria-label="Clear search query"
-            className="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-[#94A3B8] hover:text-[#061B35] hover:bg-[#F1F5F9] rounded-md transition-colors"
+            className="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-[#6573A8] hover:text-[#101F70] hover:bg-[#F3F5FF] rounded-md transition-colors"
           >
             <X className="h-4 w-4" aria-hidden="true" />
           </button>

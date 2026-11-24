@@ -40,7 +40,7 @@ export const Button: React.FC<ButtonProps> = ({
   ...rest
 }) => {
   const baseStyles =
-    'group relative inline-flex items-center justify-center font-bold tracking-tight transition-all duration-250 ease-out focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F4B72F] disabled:pointer-events-none disabled:opacity-50 select-none cursor-pointer';
+    'group relative inline-flex items-center justify-center font-bold tracking-tight transition-all duration-250 ease-out focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#182A9A] disabled:pointer-events-none disabled:opacity-50 select-none cursor-pointer';
 
   const sizeStyles: Record<ButtonSize, string> = {
     sm: 'text-xs px-4 py-2 rounded-lg gap-2 shadow-xs',
@@ -49,27 +49,27 @@ export const Button: React.FC<ButtonProps> = ({
   };
 
   const variantStyles: Record<ButtonVariant, string> = {
-    // Primary: Midnight Navy to Royal Blue with subtle gold border on hover
+    // Primary: Royal Deep Blue with clean hover state
     primary:
-      'bg-gradient-to-r from-[#061B35] via-[#152C45] to-[#075AC8] text-white border border-[#075AC8]/60 hover:border-[#F4B72F] hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0',
-    // Gold: Premium Gold to Deep Gold gradient with Midnight Navy text and light sweep
+      'bg-[#182A9A] text-white border border-[#182A9A] hover:bg-[#101F70] hover:border-[#101F70] hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0',
+    // Gold: (Primary branded CTA) Royal Deep Blue to Deep Navy Blue gradient with light sweep
     gold:
-      'bg-gradient-to-r from-[#F4B72F] via-[#F4B72F] to-[#D99519] text-[#061B35] border border-[#F4B72F] hover:from-[#F4B72F] hover:to-[#C4820E] hover:shadow-xl hover:-translate-y-0.5 btn-shine-sweep active:translate-y-0 font-extrabold',
-    // Secondary: Midnight Navy base with gold accent border
+      'bg-gradient-to-r from-[#182A9A] via-[#182A9A] to-[#101F70] text-white border border-[#182A9A] hover:from-[#101F70] hover:to-[#0B1650] hover:shadow-xl hover:-translate-y-0.5 btn-shine-sweep active:translate-y-0 font-extrabold',
+    // Secondary: Deep Navy Blue base with subtle periwinkle border
     secondary:
-      'bg-[#061B35] text-white hover:bg-[#152C45] border border-[#F4B72F]/40 hover:border-[#F4B72F] hover:shadow-md hover:-translate-y-0.5 active:translate-y-0',
-    // Outline: Clean transparent background with Royal Blue hover
+      'bg-[#101F70] text-white hover:bg-[#182A9A] border border-[#DCE3FF]/20 hover:border-[#DCE3FF]/40 hover:shadow-md hover:-translate-y-0.5 active:translate-y-0',
+    // Outline: Clean transparent background with Royal Deep Blue hover
     outline:
-      'bg-transparent text-[#061B35] border border-[#CBD5E1] hover:border-[#075AC8] hover:text-[#075AC8] hover:bg-white hover:shadow-md hover:-translate-y-0.5 active:translate-y-0',
-    // Outline Light: For dark navy backgrounds with gold hover
+      'bg-transparent text-[#182A9A] border border-[#DCE3FF] hover:border-[#182A9A] hover:text-[#101F70] hover:bg-[#F3F5FF] hover:shadow-md hover:-translate-y-0.5 active:translate-y-0',
+    // Outline Light: For dark navy backgrounds with white hover
     'outline-light':
-      'bg-white/5 text-white border border-white/25 hover:border-[#F4B72F] hover:bg-white/10 hover:text-[#F4B72F] hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 backdrop-blur-xs',
-    // Outline Gold: Crisp Premium Gold outline on dark backgrounds
+      'bg-white/10 text-white border border-white/25 hover:border-white hover:bg-white hover:text-[#182A9A] hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 backdrop-blur-xs',
+    // Outline Gold: Crisp Royal Deep Blue outline
     'outline-gold':
-      'bg-transparent text-[#F4B72F] border border-[#F4B72F] hover:bg-[#F4B72F] hover:text-[#061B35] hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0',
-    // Text: Minimal link button with Royal Blue hover
+      'bg-transparent text-[#182A9A] border border-[#182A9A] hover:bg-[#182A9A] hover:text-white hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0',
+    // Text: Minimal link button with Royal Deep Blue hover
     text:
-      'bg-transparent text-[#061B35] hover:text-[#075AC8] p-0 font-semibold underline-offset-4 hover:underline shadow-none',
+      'bg-transparent text-[#182A9A] hover:text-[#101F70] p-0 font-semibold underline-offset-4 hover:underline shadow-none',
   };
 
   const content = (

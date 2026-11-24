@@ -4,9 +4,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import {
-  GraduationCap,
-  Sparkles,
-  Award,
   BookOpen,
   ArrowRight,
   ChevronRight,
@@ -14,20 +11,18 @@ import {
   Layers,
   Target,
   CheckCircle2,
-  FileCheck2,
+  HelpCircle,
+  Sparkles,
 } from 'lucide-react';
 import { Container } from '@/components/ui/Container';
 import { programs } from '@/data/programs';
-import { CATEGORIES_DETAIL_DATA } from '@/data/categories';
+import { CATEGORIES_DETAIL_DATA, CATEGORY_SLUGS } from '@/data/categories';
 import { constructMetadata } from '@/lib/metadata';
 
 export function generateStaticParams() {
-  return [
-    { categorySlug: 'bachelor-programs' },
-    { categorySlug: 'masters-programs' },
-    { categorySlug: 'doctorate-programs' },
-    { categorySlug: 'certification-programs' },
-  ];
+  return CATEGORY_SLUGS.map((slug) => ({
+    categorySlug: slug,
+  }));
 }
 
 interface PageProps {
@@ -45,10 +40,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 
   return constructMetadata({
-    title: `${data.title} — Academic Curriculum & Catalog`,
+    title: `${data.name} — Curriculum, Eligibility & Degrees | CademyX`,
     description: data.overview.slice(0, 155),
     canonical: `/program-categories/${data.slug}`,
-    image: '/assets/og.png',
+    image: data.image || '/assets/og.png',
   });
 }
 
@@ -60,288 +55,289 @@ export default async function ProgramCategoryDetailPage({ params }: PageProps) {
     notFound();
   }
 
-  // Filter all programs from central catalog belonging to this category
-  const categoryPrograms = programs.filter((p) => p.category === data.category);
-
-  // Icon mapping for header
-  const categoryIcons: Record<string, React.ElementType> = {
-    Bachelor: BookOpen,
-    Masters: Sparkles,
-    Doctorate: GraduationCap,
-    Certifications: Award,
-  };
-  const MainIcon = categoryIcons[data.category] || GraduationCap;
+  // Find all programs belonging to this discipline
+  const categoryPrograms = programs.filter(
+    (p) => p.categorySlug === categorySlug || p.category === data.name
+  );
 
   return (
-    <main className="min-h-screen bg-[#FDFDFE]">
-      {/* Category Hero Section */}
-      <section className="relative overflow-hidden bg-[#061B35] text-white pt-12 pb-20 sm:pt-16 sm:pb-24 border-b border-[#075AC8] bg-grain">
-        {/* Glow auroras */}
-        <div className="absolute top-0 right-1/4 w-[500px] h-[500px] rounded-full bg-gradient-to-b from-[#F4B72F]/[0.09] to-transparent blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 left-10 w-96 h-96 rounded-full bg-gradient-to-t from-[#075AC8]/[0.2] to-transparent blur-3xl pointer-events-none" />
+    <main className="min-h-screen bg-white">
+      {/* 1. Category Hero */}
+      <section className="relative pt-32 pb-16 lg:pt-36 lg:pb-20 bg-gradient-to-b from-[#101F70] via-[#101F70] to-[#0A1445] text-white overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#182A9A]/30 via-transparent to-transparent pointer-events-none" />
+        <div className="absolute -top-32 -right-32 w-96 h-96 bg-[#182A9A]/20 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-[#DCE3FF]/20" />
 
         <Container size="default" className="relative z-10">
           {/* Breadcrumbs */}
-          <nav aria-label="Breadcrumb" className="mb-6">
-            <ol className="flex items-center gap-2 text-xs text-[#BACCE4]">
-              <li>
-                <Link href="/" className="hover:text-[#F4B72F] transition-colors">
-                  Home
-                </Link>
-              </li>
-              <li>
-                <ChevronRight className="w-3.5 h-3.5 text-[#F4B72F]" />
-              </li>
-              <li>
-                <Link href="/programs" className="hover:text-[#F4B72F] transition-colors">
-                  Programs
-                </Link>
-              </li>
-              <li>
-                <ChevronRight className="w-3.5 h-3.5 text-[#F4B72F]" />
-              </li>
-              <li className="text-[#F4B72F] font-semibold" aria-current="page">
-                {data.title}
-              </li>
-            </ol>
+          <nav aria-label="Breadcrumb" className="mb-6 flex items-center gap-2 text-xs text-[#DCE3FF]/80">
+            <Link href="/" className="hover:text-white transition-colors">
+              Home
+            </Link>
+            <ChevronRight className="w-3.5 h-3.5 text-[#DCE3FF]/40" />
+            <Link href="/programs" className="hover:text-white transition-colors">
+              Programs
+            </Link>
+            <ChevronRight className="w-3.5 h-3.5 text-[#DCE3FF]/40" />
+            <span className="text-white font-medium">{data.name}</span>
           </nav>
 
-          <div className="max-w-4xl">
-            {/* Category Eyebrow Pill */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-[#F4B72F]/35 text-[#F4B72F] text-xs font-bold uppercase tracking-wider mb-5">
-              <MainIcon className="w-3.5 h-3.5 text-[#F4B72F]" />
-              <span>{data.eyebrow}</span>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            <div className="lg:col-span-7">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-sm border border-[#DCE3FF]/30 text-xs font-semibold text-[#DCE3FF] uppercase tracking-wider mb-4">
+                <BookOpen className="w-3.5 h-3.5 text-[#DCE3FF]" />
+                <span>Academic Discipline</span>
+              </div>
+
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white mb-4 leading-tight">
+                {data.name}
+              </h1>
+
+              <p className="text-base sm:text-lg text-[#DCE3FF]/90 font-medium italic mb-5">
+                {data.tagline}
+              </p>
+
+              <p className="text-sm sm:text-base text-[#DCE3FF]/80 leading-relaxed mb-8">
+                {data.overview}
+              </p>
+
+              {/* Quick Advisory Meta Badges */}
+              <div className="flex flex-wrap gap-2 pt-2 border-t border-[#DCE3FF]/20">
+                {data.advisoryHighlights.map((hl, idx) => (
+                  <div
+                    key={idx}
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/10 text-xs text-white border border-[#DCE3FF]/20"
+                  >
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#DCE3FF]" />
+                    <span>{hl}</span>
+                  </div>
+                ))}
+              </div>
             </div>
 
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight">
-              {data.title}
-            </h1>
-
-            <p className="mt-3 text-lg sm:text-xl font-medium text-[#F4B72F] leading-snug">
-              {data.tagline}
-            </p>
-
-            <p className="mt-5 text-sm sm:text-base text-[#BACCE4] leading-relaxed max-w-3xl font-normal">
-              {data.overview}
-            </p>
-
-            {/* Quick Metrics Bar */}
-            <div className="mt-8 pt-6 border-t border-[#075AC8]/70 grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs">
-              <div className="p-3.5 rounded-xl bg-white/5 border border-white/10">
-                <span className="text-[#7E96B8] block text-[11px] uppercase font-bold tracking-wider">
-                  Catalog Depth
-                </span>
-                <span className="text-xl font-extrabold text-white mt-0.5 block">
-                  {categoryPrograms.length} Tracks
-                </span>
-              </div>
-              <div className="p-3.5 rounded-xl bg-white/5 border border-white/10">
-                <span className="text-[#7E96B8] block text-[11px] uppercase font-bold tracking-wider">
-                  Academic Focus
-                </span>
-                <span className="text-sm font-bold text-[#F4B72F] mt-0.5 block truncate">
-                  {data.disciplines.length} Disciplines
-                </span>
-              </div>
-              <div className="p-3.5 rounded-xl bg-white/5 border border-white/10">
-                <span className="text-[#7E96B8] block text-[11px] uppercase font-bold tracking-wider">
-                  Guidance Standard
-                </span>
-                <span className="text-sm font-bold text-white mt-0.5 block">
-                  1-on-1 Mentorship
-                </span>
-              </div>
-              <div className="p-3.5 rounded-xl bg-white/5 border border-white/10">
-                <span className="text-[#7E96B8] block text-[11px] uppercase font-bold tracking-wider">
-                  Advisory Mode
-                </span>
-                <span className="text-sm font-bold text-white mt-0.5 block">
-                  Global &amp; Hybrid
-                </span>
+            {/* Visual Header Image Container */}
+            <div className="lg:col-span-5">
+              <div className="relative aspect-[16/11] rounded-2xl overflow-hidden border border-[#DCE3FF]/30 shadow-2xl bg-[#101F70]">
+                <Image
+                  src={data.image}
+                  alt={data.name}
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#101F70]/80 via-transparent to-transparent" />
+                <div className="absolute bottom-4 left-4 right-4 p-4 rounded-xl bg-[#101F70]/80 backdrop-blur-md border border-[#DCE3FF]/20 text-xs text-white">
+                  <div className="font-bold mb-1">{data.name} Catalog</div>
+                  <div className="text-[11px] text-[#DCE3FF]/80">
+                    {categoryPrograms.length} Accredited Degree Programs &amp; Specializations
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </Container>
       </section>
 
-      {/* Target Audience, Prerequisites & Scholastic Outcomes */}
-      <section className="py-14 sm:py-18 bg-white border-b border-[#E2E8F0]">
+      {/* 2. Target Audience & Prerequisites */}
+      <section className="py-16 bg-[#F3F5FF] border-b border-[#DCE3FF]/60">
         <Container size="default">
-          <div className="max-w-3xl mb-10">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#F4B72F]">
-              Academic Candidacy &amp; Standards
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#061B35] mt-1.5 tracking-tight">
-              Who This Academic Tier Is Engineered For
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-7">
-            {/* 1. Target Audience */}
-            <div className="p-6 rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-[#061B35] text-[#F4B72F] flex items-center justify-center border border-[#075AC8] shadow-xs">
-                <Target className="w-5 h-5" />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="p-7 rounded-2xl bg-white border border-[#DCE3FF] shadow-sm">
+              <div className="flex items-center gap-2.5 text-[#182A9A] font-bold text-sm uppercase tracking-wider mb-3">
+                <Target className="w-4 h-4" />
+                <span>Target Audience &amp; Candidacy</span>
               </div>
-              <h3 className="text-base font-bold text-[#061B35]">Target Audience</h3>
-              <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
+              <p className="text-xs sm:text-sm text-[#26345C] leading-relaxed">
                 {data.targetAudience}
               </p>
             </div>
 
-            {/* 2. Prerequisites */}
-            <div className="p-6 rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-[#061B35] text-[#F4B72F] flex items-center justify-center border border-[#075AC8] shadow-xs">
-                <FileCheck2 className="w-5 h-5" />
+            <div className="p-7 rounded-2xl bg-white border border-[#DCE3FF] shadow-sm">
+              <div className="flex items-center gap-2.5 text-[#182A9A] font-bold text-sm uppercase tracking-wider mb-3">
+                <CheckCircle2 className="w-4 h-4" />
+                <span>Prerequisites &amp; Academic Background</span>
               </div>
-              <h3 className="text-base font-bold text-[#061B35]">Prerequisites &amp; Eligibility</h3>
-              <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
+              <p className="text-xs sm:text-sm text-[#26345C] leading-relaxed">
                 {data.prerequisites}
               </p>
-            </div>
-
-            {/* 3. Scholastic Outcomes */}
-            <div className="p-6 rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-[#061B35] text-[#F4B72F] flex items-center justify-center border border-[#075AC8] shadow-xs">
-                <CheckCircle2 className="w-5 h-5 text-[#F4B72F]" />
-              </div>
-              <h3 className="text-base font-bold text-[#061B35]">Scholastic Outcomes</h3>
-              <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
-                {data.scholasticOutcomes}
-              </p>
-            </div>
-          </div>
-
-          {/* Key Disciplines Sub-Tracks */}
-          <div className="mt-14 pt-10 border-t border-[#E2E8F0]">
-            <h3 className="text-lg sm:text-xl font-bold text-[#061B35] mb-6">
-              Key Academic Disciplines Covered in This Category
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-              {data.disciplines.map((d) => (
-                <div
-                  key={d.name}
-                  className="p-5 rounded-2xl bg-white border border-[#E2E8F0] shadow-2xs hover:border-[#F4B72F]/40 transition-colors"
-                >
-                  <h4 className="text-sm font-bold text-[#061B35]">{d.name}</h4>
-                  <p className="text-xs text-[#556987] mt-1.5 leading-relaxed">{d.description}</p>
-                  <div className="mt-3 flex flex-wrap gap-1.5">
-                    {d.sampleTracks.map((st) => (
-                      <span
-                        key={st}
-                        className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-[#FEF8E9] text-[#D99519] border border-[#FDE6B0]"
-                      >
-                        {st}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              ))}
             </div>
           </div>
         </Container>
       </section>
 
-      {/* Program Listing Grid from Central Data */}
-      <section className="py-16 sm:py-20 bg-[#F8FAFC]">
-        <Container size="default">
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
-            <div>
-              <span className="text-xs font-bold uppercase tracking-widest text-[#F4B72F]">
-                Central Program Catalog
-              </span>
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-[#061B35] mt-1 tracking-tight">
-                All {categoryPrograms.length} {data.title}
+      {/* 3. Popular Courses in Discipline */}
+      {data.popularCourses && data.popularCourses.length > 0 && (
+        <section className="py-20 bg-white border-b border-[#DCE3FF]/40">
+          <Container size="default">
+            <div className="mb-12">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#F3F5FF] border border-[#DCE3FF] text-[11px] font-bold uppercase tracking-wider text-[#182A9A] mb-3">
+                <Sparkles className="w-3.5 h-3.5" />
+                <span>Featured Offerings</span>
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-[#101F70] tracking-tight">
+                Popular Courses in {data.name}
               </h2>
-              <p className="text-xs sm:text-sm text-[#556987] mt-1">
-                Explore full curriculum specifications, career outcomes, and individual syllabus outlines.
+              <p className="mt-2 text-sm text-[#26345C] max-w-2xl leading-relaxed">
+                Explore the premier undergraduate and postgraduate tracks most frequently selected by scholars in this discipline.
               </p>
             </div>
 
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {data.popularCourses.map((course) => {
+                const programRecord = programs.find((p) => p.slug === course.slug);
+                const title = course.title;
+                const badge = course.badge || programRecord?.badge || 'POPULAR';
+                const image = programRecord?.image || data.image;
+                const desc =
+                  programRecord?.shortDescription ||
+                  `Accredited ${title} degree pathway delivering comprehensive academic curriculum and verified university credentials.`;
+
+                return (
+                  <div
+                    key={course.slug}
+                    className="group flex flex-col h-full bg-white rounded-2xl border border-[#DCE3FF] hover:border-[#182A9A] hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden"
+                  >
+                    <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#101F70]">
+                      <Image
+                        src={image}
+                        alt={title}
+                        fill
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#101F70]/80 via-transparent to-transparent" />
+                      <div className="absolute top-3 right-3">
+                        <span className="px-2.5 py-0.5 rounded-full bg-[#182A9A] text-white text-[10px] font-bold tracking-wider uppercase">
+                          {badge}
+                        </span>
+                      </div>
+                    </div>
+
+                    <div className="flex flex-col flex-grow p-5">
+                      <h3 className="text-lg font-bold text-[#101F70] group-hover:text-[#182A9A] transition-colors mb-2">
+                        {title}
+                      </h3>
+                      <p className="text-xs text-[#26345C]/80 line-clamp-3 leading-relaxed mb-5">
+                        {desc}
+                      </p>
+
+                      <div className="mt-auto pt-4 border-t border-[#DCE3FF]/40">
+                        <Link
+                          href={`/programs/${course.slug}`}
+                          className="inline-flex items-center justify-center gap-1.5 w-full py-2 px-3 rounded-xl bg-[#F3F5FF] hover:bg-[#182A9A] text-[#182A9A] hover:text-white font-semibold text-xs tracking-wide transition-colors border border-[#DCE3FF] hover:border-[#182A9A]"
+                        >
+                          <span>View Course Curriculum</span>
+                          <ArrowRight className="w-3.5 h-3.5" />
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </Container>
+        </section>
+      )}
+
+      {/* 4. Complete Program Catalog for Discipline */}
+      {categoryPrograms.length > 0 && (
+        <section className="py-20 bg-[#F3F5FF] border-b border-[#DCE3FF]/60">
+          <Container size="default">
+            <div className="mb-10">
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-[#101F70] tracking-tight">
+                All {data.name} Degree Programs ({categoryPrograms.length})
+              </h2>
+              <p className="mt-2 text-sm text-[#26345C] max-w-2xl leading-relaxed">
+                Full directory of accredited university tracks available through CademyX academic counseling.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {categoryPrograms.map((p) => (
+                <Link
+                  key={p.id}
+                  href={`/programs/${p.slug}`}
+                  className="group flex flex-col p-5 rounded-2xl bg-white border border-[#DCE3FF] hover:border-[#182A9A] hover:shadow-lg transition-all duration-300"
+                >
+                  <div className="flex items-center justify-between gap-2 mb-2">
+                    <span className="text-base font-bold text-[#101F70] group-hover:text-[#182A9A] transition-colors">
+                      {p.title}
+                    </span>
+                    {p.badge && (
+                      <span className="text-[9px] font-bold px-2 py-0.5 rounded-full bg-[#F3F5FF] text-[#182A9A] border border-[#DCE3FF] uppercase shrink-0">
+                        {p.badge}
+                      </span>
+                    )}
+                  </div>
+                  <p className="text-xs text-[#26345C]/80 line-clamp-2 leading-relaxed mb-4">
+                    {p.shortDescription}
+                  </p>
+                  <div className="mt-auto pt-3 border-t border-[#DCE3FF]/40 flex items-center justify-between text-xs text-[#6573A8]">
+                    <span>{p.duration || 'Full Track'}</span>
+                    <span className="font-bold text-[#182A9A] inline-flex items-center gap-1 group-hover:translate-x-0.5 transition-transform">
+                      Details <ArrowRight className="w-3 h-3" />
+                    </span>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </Container>
+        </section>
+      )}
+
+      {/* 5. Frequently Asked Questions */}
+      {data.faqs && data.faqs.length > 0 && (
+        <section className="py-20 bg-white border-b border-[#DCE3FF]/40">
+          <Container size="default">
+            <div className="max-w-3xl mx-auto">
+              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#182A9A] mb-3">
+                <HelpCircle className="w-4 h-4" />
+                <span>Advisory FAQs</span>
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-[#101F70] tracking-tight mb-8">
+                Questions Regarding {data.name}
+              </h2>
+
+              <div className="space-y-4">
+                {data.faqs.map((faq, idx) => (
+                  <div
+                    key={idx}
+                    className="p-6 rounded-2xl bg-[#F3F5FF] border border-[#DCE3FF]"
+                  >
+                    <h3 className="text-sm sm:text-base font-bold text-[#101F70] mb-2">
+                      {faq.question}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-[#26345C]/80 leading-relaxed">
+                      {faq.answer}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </Container>
+        </section>
+      )}
+
+      {/* 6. Consultation CTA */}
+      <section className="py-16 bg-[#101F70] text-white">
+        <Container size="default">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-8 p-8 sm:p-10 rounded-3xl bg-gradient-to-r from-[#182A9A]/40 to-transparent border border-[#DCE3FF]/20">
+            <div className="max-w-xl">
+              <h3 className="text-2xl sm:text-3xl font-extrabold text-white mb-3">
+                Ready to Apply in {data.name}?
+              </h3>
+              <p className="text-sm text-[#DCE3FF]/90 leading-relaxed">
+                Receive personalized guidance on syllabus prerequisites, accredited university options, entrance requirements, and application deadlines.
+              </p>
+            </div>
             <Link
               href="/schedule-a-consultation"
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#061B35] hover:bg-[#061B35] text-[#F4B72F] text-xs font-bold shadow-sm transition-all shrink-0"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-white text-[#101F70] hover:bg-[#F3F5FF] font-bold text-sm tracking-wide transition-all shrink-0 shadow-lg"
             >
-              <span>Consult an Advisor for This Tier</span>
-              <ArrowRight className="w-3.5 h-3.5 text-[#F4B72F]" />
+              <span>Book Advisory Session</span>
+              <ArrowRight className="w-4 h-4 text-[#182A9A]" />
             </Link>
-          </div>
-
-          {/* Cards Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {categoryPrograms.map((program) => (
-              <div
-                key={program.id}
-                className="group flex flex-col bg-white rounded-2xl border border-[#E2E8F0] hover:border-[#F4B72F] hover:shadow-xl transition-all duration-200 overflow-hidden"
-              >
-                {/* Image */}
-                <div className="relative h-44 w-full bg-[#061B35] overflow-hidden">
-                  <Image
-                    src={program.image}
-                    alt={program.title}
-                    fill
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#061B35]/60 via-transparent to-transparent pointer-events-none" />
-
-                  {/* Badge */}
-                  {program.badge && (
-                    <div className="absolute top-3 left-3 z-10">
-                      <span className="px-2.5 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-wider bg-white/95 text-[#D99519] border border-[#F4B72F]/30 shadow-xs">
-                        {program.badge}
-                      </span>
-                    </div>
-                  )}
-
-                  {/* Discipline / Category indicator */}
-                  {program.discipline && (
-                    <div className="absolute bottom-3 left-3 z-10">
-                      <span className="px-2 py-0.5 rounded text-[10px] font-semibold bg-[#061B35]/80 text-[#BACCE4] backdrop-blur-xs">
-                        {program.discipline}
-                      </span>
-                    </div>
-                  )}
-                </div>
-
-                {/* Content */}
-                <div className="p-5 flex-1 flex flex-col">
-                  <h3 className="text-base font-bold text-[#061B35] group-hover:text-[#F4B72F] transition-colors leading-snug line-clamp-1">
-                    {program.title}
-                  </h3>
-
-                  <p className="mt-2 text-xs text-[#556987] leading-relaxed line-clamp-2 flex-1">
-                    {program.shortDescription}
-                  </p>
-
-                  {/* Meta details */}
-                  <div className="mt-4 pt-3 border-t border-[#F1F5F9] flex items-center justify-between text-[11px] text-[#64748B]">
-                    {program.duration && (
-                      <span className="flex items-center gap-1 font-medium">
-                        <Clock className="w-3.5 h-3.5 text-[#F4B72F]" />
-                        <span>{program.duration}</span>
-                      </span>
-                    )}
-                    {program.format && (
-                      <span className="flex items-center gap-1 font-medium text-slate-500">
-                        <Layers className="w-3.5 h-3.5 text-slate-400" />
-                        <span>{program.format}</span>
-                      </span>
-                    )}
-                  </div>
-
-                  {/* Action Link */}
-                  <div className="mt-4 pt-3 border-t border-[#F1F5F9]">
-                    <Link
-                      href={`/programs/${program.slug}`}
-                      className="w-full inline-flex items-center justify-between text-xs font-bold text-[#061B35] group-hover:text-[#F4B72F] transition-colors py-1 focus-visible:outline-2 focus-visible:outline-[#F4B72F]"
-                    >
-                      <span>Explore Program Details</span>
-                      <ArrowRight className="w-3.5 h-3.5 text-[#F4B72F] group-hover:translate-x-1 transition-transform" />
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            ))}
           </div>
         </Container>
       </section>

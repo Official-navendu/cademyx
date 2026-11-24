@@ -22,7 +22,7 @@ export default function PrivacyPolicyPage() {
         <div className="mb-8">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 text-xs font-semibold text-[#075AC8] hover:text-[#061B35] transition-colors"
+            className="inline-flex items-center gap-2 text-xs font-semibold text-[#182A9A] hover:text-[#101F70] transition-colors"
           >
             <ArrowLeft className="h-3.5 w-3.5" />
             <span>Return to Homepage</span>
@@ -30,29 +30,29 @@ export default function PrivacyPolicyPage() {
         </div>
 
         {/* Page Header */}
-        <div className="relative p-8 sm:p-12 rounded-3xl bg-gradient-to-br from-[#061B35] via-[#0A2244] to-[#152C45] text-white overflow-hidden mb-12 shadow-xl border border-[#075AC8]/30">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-[#F4B72F]/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="relative p-8 sm:p-12 rounded-3xl bg-gradient-to-br from-[#101F70] via-[#0D1959] to-[#101F70] text-white overflow-hidden mb-12 shadow-xl border border-[#DCE3FF]/20">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-[#182A9A]/20 rounded-full blur-3xl pointer-events-none" />
           <div className="relative z-10 max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#F4B72F]/15 border border-[#F4B72F]/30 text-[#F4B72F] text-xs font-bold uppercase tracking-wider mb-4">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#182A9A]/30 border border-[#DCE3FF]/30 text-[#DCE3FF] text-xs font-bold uppercase tracking-wider mb-4">
               <ShieldCheck className="h-3.5 w-3.5" />
               <span>Academic Data Integrity</span>
             </div>
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white mb-4">
               Privacy Policy
             </h1>
-            <p className="text-sm sm:text-base text-[#BACCE4] leading-relaxed">
+            <p className="text-sm sm:text-base text-[#DCE3FF]/90 leading-relaxed">
               At CademyX, we hold candidate confidentiality and academic privacy to the highest standard. This policy outlines how your personal and educational information is collected, safeguarded, and utilized.
             </p>
-            <p className="text-xs text-[#7E96B8] mt-4">
+            <p className="text-xs text-[#DCE3FF]/70 mt-4">
               Effective Date: {lastUpdated} • Applicable to all prospective and enrolled candidates
             </p>
           </div>
         </div>
 
         {/* Document Content */}
-        <div className="max-w-4xl mx-auto prose prose-slate prose-headings:text-[#061B35] prose-headings:font-bold prose-p:text-[#475569] prose-p:leading-relaxed prose-strong:text-[#061B35] space-y-10">
+        <div className="max-w-4xl mx-auto prose prose-slate prose-headings:text-[#101F70] prose-headings:font-bold prose-p:text-[#26345C] prose-p:leading-relaxed prose-strong:text-[#101F70] space-y-10">
           <section className="space-y-4">
-            <h2 className="text-xl sm:text-2xl font-bold text-[#061B35] border-b border-[#E2E8F0] pb-2">
+            <h2 className="text-xl sm:text-2xl font-bold text-[#101F70] border-b border-[#DCE3FF] pb-2">
               1. Overview &amp; Commitment
             </h2>
             <p>
@@ -64,11 +64,11 @@ export default function PrivacyPolicyPage() {
           </section>
 
           <section className="space-y-4">
-            <h2 className="text-xl sm:text-2xl font-bold text-[#061B35] border-b border-[#E2E8F0] pb-2">
+            <h2 className="text-xl sm:text-2xl font-bold text-[#101F70] border-b border-[#DCE3FF] pb-2">
               2. Information We Collect
             </h2>
             <p>We collect information that you knowingly and voluntarily provide when you interact with our website, request a consultation, submit an inquiry form, or communicate with our advisory office:</p>
-            <ul className="list-disc pl-5 space-y-2 text-[#475569]">
+            <ul className="list-disc pl-5 space-y-2 text-[#26345C]">
               <li>
                 <strong>Contact Identifiers:</strong> Your full name, email address, telephone / WhatsApp number.
               </li>
@@ -85,11 +85,11 @@ export default function PrivacyPolicyPage() {
           </section>
 
           <section className="space-y-4">
-            <h2 className="text-xl sm:text-2xl font-bold text-[#061B35] border-b border-[#E2E8F0] pb-2">
+            <h2 className="text-xl sm:text-2xl font-bold text-[#101F70] border-b border-[#DCE3FF] pb-2">
               3. How We Use Your Information
             </h2>
             <p>Your information is used strictly for legitimate educational advisory purposes:</p>
-            <ul className="list-disc pl-5 space-y-2 text-[#475569]">
+            <ul className="list-disc pl-5 space-y-2 text-[#26345C]">
               <li>Scheduling, coordinating, and conducting requested academic consultations.</li>
               <li>Reviewing your educational background against institutional admission prerequisites.</li>
               <li>Providing customized syllabus outlines, course schedules, and curriculum recommendations.</li>
@@ -99,7 +99,7 @@ export default function PrivacyPolicyPage() {
           </section>
 
           <section className="space-y-4">
-            <h2 className="text-xl sm:text-2xl font-bold text-[#061B35] border-b border-[#E2E8F0] pb-2">
+            <h2 className="text-xl sm:text-2xl font-bold text-[#101F70] border-b border-[#DCE3FF] pb-2">
               4. Communications &amp; Consent
             </h2>
             <p>
@@ -107,7 +107,7 @@ export default function PrivacyPolicyPage() {
             </p>
             <p>
               You may opt out of further communications at any time by replying &ldquo;STOP&rdquo; on WhatsApp or by contacting us via email at{' '}
-              <a href={`mailto:${CONTACT_INFO.primaryEmail}`} className="text-[#075AC8] font-semibold hover:underline">
+              <a href={`mailto:${CONTACT_INFO.primaryEmail}`} className="text-[#182A9A] font-semibold hover:underline">
                 {CONTACT_INFO.primaryEmail}
               </a>
               .
@@ -115,7 +115,7 @@ export default function PrivacyPolicyPage() {
           </section>
 
           <section className="space-y-4">
-            <h2 className="text-xl sm:text-2xl font-bold text-[#061B35] border-b border-[#E2E8F0] pb-2">
+            <h2 className="text-xl sm:text-2xl font-bold text-[#101F70] border-b border-[#DCE3FF] pb-2">
               5. Data Protection &amp; Retention
             </h2>
             <p>
@@ -124,11 +124,11 @@ export default function PrivacyPolicyPage() {
           </section>
 
           <section className="space-y-4">
-            <h2 className="text-xl sm:text-2xl font-bold text-[#061B35] border-b border-[#E2E8F0] pb-2">
+            <h2 className="text-xl sm:text-2xl font-bold text-[#101F70] border-b border-[#DCE3FF] pb-2">
               6. Candidate Rights
             </h2>
             <p>Depending on your jurisdiction, you have the right to:</p>
-            <ul className="list-disc pl-5 space-y-2 text-[#475569]">
+            <ul className="list-disc pl-5 space-y-2 text-[#26345C]">
               <li>Request a copy of the personal information we maintain concerning your inquiries.</li>
               <li>Request correction or rectification of any incomplete or inaccurate data.</li>
               <li>Request the complete deletion or erasure of your consultation records from our active repositories.</li>
@@ -137,37 +137,37 @@ export default function PrivacyPolicyPage() {
           </section>
 
           <section className="space-y-4">
-            <h2 className="text-xl sm:text-2xl font-bold text-[#061B35] border-b border-[#E2E8F0] pb-2">
+            <h2 className="text-xl sm:text-2xl font-bold text-[#101F70] border-b border-[#DCE3FF] pb-2">
               7. Contact Our Advisory Center
             </h2>
             <p>
               For privacy-related inquiries, data requests, or academic guidance verification, please reach out directly to our dedicated advisory center:
             </p>
-            <div className="not-prose p-6 rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] space-y-3 text-sm text-[#061B35]">
+            <div className="not-prose p-6 rounded-2xl bg-[#F3F5FF] border border-[#DCE3FF] space-y-3 text-sm text-[#101F70]">
               <div className="flex items-start gap-3">
-                <MapPin className="h-4 w-4 text-[#F4B72F] shrink-0 mt-0.5" />
+                <MapPin className="h-4 w-4 text-[#182A9A] shrink-0 mt-0.5" />
                 <span>
                   <strong>CademyX Advisory Center:</strong> {CONTACT_INFO.address}
                 </span>
               </div>
               <div className="flex items-center gap-3">
-                <Mail className="h-4 w-4 text-[#F4B72F] shrink-0" />
+                <Mail className="h-4 w-4 text-[#182A9A] shrink-0" />
                 <span>
                   <strong>Official Emails:</strong>{' '}
-                  <a href={`mailto:${CONTACT_INFO.primaryEmail}`} className="text-[#075AC8] hover:underline">
+                  <a href={`mailto:${CONTACT_INFO.primaryEmail}`} className="text-[#182A9A] hover:underline">
                     {CONTACT_INFO.primaryEmail}
                   </a>{' '}
                   |{' '}
-                  <a href={`mailto:${CONTACT_INFO.secondaryEmail}`} className="text-[#075AC8] hover:underline">
+                  <a href={`mailto:${CONTACT_INFO.secondaryEmail}`} className="text-[#182A9A] hover:underline">
                     {CONTACT_INFO.secondaryEmail}
                   </a>
                 </span>
               </div>
               <div className="flex items-center gap-3">
-                <Phone className="h-4 w-4 text-[#F4B72F] shrink-0" />
+                <Phone className="h-4 w-4 text-[#182A9A] shrink-0" />
                 <span>
                   <strong>Advisory Desk:</strong>{' '}
-                  <a href={`tel:${CONTACT_INFO.phoneRaw}`} className="text-[#075AC8] hover:underline">
+                  <a href={`tel:${CONTACT_INFO.phoneRaw}`} className="text-[#182A9A] hover:underline">
                     {CONTACT_INFO.phone}
                   </a>{' '}
                   ({CONTACT_INFO.businessHours})

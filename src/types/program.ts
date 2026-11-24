@@ -1,4 +1,25 @@
-export type ProgramCategory = 'Bachelor' | 'Masters' | 'Doctorate' | 'Certifications';
+export type SubjectCategory =
+  | 'Management & Business'
+  | 'Computer Science & IT'
+  | 'Artificial Intelligence'
+  | 'Data Science & Analytics'
+  | 'Commerce & Finance'
+  | 'Business Analytics'
+  | 'Economics'
+  | 'Psychology'
+  | 'Digital Marketing'
+  | 'Cybersecurity'
+  | 'Engineering & Technology'
+  | 'Law'
+  | 'Media & Communication'
+  | 'Design & Creative Technology'
+  | 'Hospitality & Tourism';
+
+export type ProgramCategory =
+  | SubjectCategory
+  | 'Doctorate'
+  | 'Certifications'
+  | string;
 
 export type ProgramFormat =
   | 'Executive Track'
@@ -32,6 +53,7 @@ export interface Program {
   slug: string;
   title: string;
   category: ProgramCategory;
+  categorySlug?: string;
   discipline?: string;
   shortDescription: string;
   description: string;
@@ -46,6 +68,9 @@ export interface Program {
   learningOutcomes?: string[];
   curriculumHighlights?: string[];
   advisoryScope?: string[];
+  intendedAudience?: string;
+  keyLearningAreas?: string[];
+  academicPathway?: string;
 }
 
 export interface ProgramFilterState {

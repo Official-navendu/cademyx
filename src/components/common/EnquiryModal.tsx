@@ -2,10 +2,11 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { X, CheckCircle2, ShieldCheck, Send, GraduationCap, AlertCircle } from 'lucide-react';
 import { programs, PROGRAM_CATEGORIES } from '@/data/programs';
 import { Button } from '@/components/ui/Button';
-import { markSubmissionSuccess, registerModalOpen } from '@/lib/enquirySession';
+import { registerModalOpen, navigateToThankYou } from '@/lib/enquirySession';
 
 export interface EnquiryModalProps {
   isOpen: boolean;
@@ -41,6 +42,7 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({
   source,
   onSuccess,
 }) => {
+  const router = useRouter();
   const modalRef = useRef<HTMLDivElement>(null);
 
   // Auto-resolve initial category if a program slug was passed
@@ -194,11 +196,11 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({
       }
 
       setIsSubmitting(false);
-      setIsSubmitted(true);
-      markSubmissionSuccess();
+      onClose();
       if (onSuccess) {
         onSuccess();
       }
+      navigateToThankYou(undefined, router);
     } catch (err: unknown) {
       setIsSubmitting(false);
       setSubmitError(
@@ -250,7 +252,7 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({
     >
       {/* Backdrop */}
       <div
-        className="fixed inset-0 bg-[#061B35]/80 backdrop-blur-md transition-opacity"
+        className="fixed inset-0 bg-[#101F70]/80 backdrop-blur-md transition-opacity"
         onClick={onClose}
         aria-hidden="true"
       />
@@ -258,16 +260,16 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({
       {/* Modal Dialog Card */}
       <div
         ref={modalRef}
-        className="relative w-full max-w-xl bg-white rounded-3xl shadow-2xl border border-[#CBD5E1] overflow-hidden z-10 my-8 animate-in fade-in zoom-in-95 duration-200"
+        className="relative w-full max-w-xl bg-white rounded-3xl shadow-2xl border border-[#DCE3FF] overflow-hidden z-10 my-8 animate-in fade-in zoom-in-95 duration-200"
       >
-        {/* Top Gold Accent Bar */}
-        <div className="h-1.5 w-full bg-gradient-to-r from-[#061B35] via-[#F4B72F] to-[#D99519]" />
+        {/* Top Blue Accent Bar */}
+        <div className="h-1.5 w-full bg-gradient-to-r from-[#101F70] via-[#182A9A] to-[#101F70]" />
 
         {/* Close Button */}
         <button
           onClick={onClose}
           aria-label="Close modal"
-          className="absolute top-5 right-5 w-9 h-9 rounded-full bg-[#F1F5F9] hover:bg-[#E2E8F0] text-[#152C45] flex items-center justify-center transition-colors z-20 cursor-pointer"
+          className="absolute top-5 right-5 w-9 h-9 rounded-full bg-[#F3F5FF] hover:bg-[#DCE3FF] text-[#101F70] flex items-center justify-center transition-colors z-20 cursor-pointer"
         >
           <X className="w-5 h-5" />
         </button>
@@ -275,28 +277,27 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({
         <div className="p-6 sm:p-8">
           {/* Header */}
           <div className="flex items-center gap-3 mb-2">
-            <div className="w-10 h-10 rounded-xl bg-[#061B35] text-[#F4B72F] flex items-center justify-center shrink-0 shadow-sm">
+            <div className="w-10 h-10 rounded-xl bg-[#101F70] text-[#DCE3FF] flex items-center justify-center shrink-0 shadow-sm">
               <GraduationCap className="w-5 h-5" />
             </div>
             <div>
-              <span className="text-[11px] font-bold text-[#D99519] uppercase tracking-wider block">
+              <span className="text-[11px] font-bold text-[#182A9A] uppercase tracking-wider block">
                 {displayEyebrow}
               </span>
               <h2
                 id="enquiry-modal-title"
-                className="text-xl sm:text-2xl font-extrabold text-[#061B35] tracking-tight"
+                className="text-xl sm:text-2xl font-extrabold text-[#101F70] tracking-tight"
               >
                 {displayTitle}
               </h2>
             </div>
           </div>
 
-          <p className="text-xs sm:text-sm text-[#5A6A85] mb-6 leading-relaxed">
+          <p className="text-xs sm:text-sm text-[#26345C] mb-6 leading-relaxed">
             {displaySubtitle}
           </p>
 
 
-          {/* Submission Feedback */}
           {submitError && (
             <div
               role="alert"
@@ -316,21 +317,21 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({
               <div className="w-16 h-16 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center mx-auto border border-emerald-200">
                 <CheckCircle2 className="w-9 h-9" />
               </div>
-              <h3 className="text-xl font-extrabold text-[#061B35]">
+              <h3 className="text-xl font-extrabold text-[#101F70]">
                 Consultation Request Received
               </h3>
-              <p className="text-sm text-[#5A6A85] max-w-md mx-auto leading-relaxed">
-                Thank you, <strong className="text-[#061B35]">{formData.fullName}</strong>. Your consultation request for{' '}
-                <strong className="text-[#061B35]">
+              <p className="text-sm text-[#26345C] max-w-md mx-auto leading-relaxed">
+                Thank you, <strong className="text-[#101F70]">{formData.fullName}</strong>. Your consultation request for{' '}
+                <strong className="text-[#101F70]">
                   {programs.find((p) => p.slug === formData.targetProgram)?.title ||
                     formData.targetProgram}
                 </strong>{' '}
                 has been recorded. A senior academic advisor will reach out within 1 business day.
               </p>
-              <div className="p-3.5 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] text-xs text-[#5A6A85] max-w-sm mx-auto">
+              <div className="p-3.5 rounded-xl bg-[#F3F5FF] border border-[#DCE3FF] text-xs text-[#26345C] max-w-sm mx-auto">
                 Our educational advisory committee will reach out to you directly via{' '}
-                <strong className="text-[#061B35]">{formData.email}</strong> or{' '}
-                <strong className="text-[#061B35]">{formData.phone}</strong>.
+                <strong className="text-[#101F70]">{formData.email}</strong> or{' '}
+                <strong className="text-[#101F70]">{formData.phone}</strong>.
               </div>
               <div className="pt-3 flex flex-col sm:flex-row items-center justify-center gap-3">
                 <Button
@@ -344,7 +345,7 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({
                 <button
                   type="button"
                   onClick={handleReset}
-                  className="text-xs text-[#075AC8] font-semibold hover:underline cursor-pointer"
+                  className="text-xs text-[#182A9A] font-semibold hover:underline cursor-pointer"
                 >
                   Submit Another Inquiry
                 </button>
@@ -367,7 +368,7 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({
 
               {/* Full Name */}
               <div>
-                <label className="block text-xs font-bold text-[#061B35] uppercase tracking-wider mb-1">
+                <label className="block text-xs font-bold text-[#101F70] uppercase tracking-wider mb-1">
                   Full Name <span className="text-rose-500">*</span>
                 </label>
                 <input
@@ -375,10 +376,10 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({
                   value={formData.fullName}
                   onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
                   placeholder="e.g. John Doe"
-                  className={`w-full px-3.5 py-2.5 rounded-xl border text-sm text-[#061B35] placeholder:text-[#94A3B8] focus:outline-none focus:ring-2 transition-all ${
+                  className={`w-full px-3.5 py-2.5 rounded-xl border text-sm text-[#101F70] placeholder:text-[#6573A8] focus:outline-none focus:ring-2 transition-all ${
                     errors.fullName
                       ? 'border-rose-500 focus:ring-rose-200'
-                      : 'border-[#CBD5E1] focus:border-[#F4B72F] focus:ring-[#F4B72F]/20'
+                      : 'border-[#DCE3FF] focus:border-[#182A9A] focus:ring-[#182A9A]/20'
                   }`}
                 />
                 {errors.fullName && (
@@ -389,7 +390,7 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({
               {/* Email & Phone */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                 <div>
-                  <label className="block text-xs font-bold text-[#061B35] uppercase tracking-wider mb-1">
+                  <label className="block text-xs font-bold text-[#101F70] uppercase tracking-wider mb-1">
                     Email Address <span className="text-rose-500">*</span>
                   </label>
                   <input
@@ -397,10 +398,10 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     placeholder="name@example.com"
-                    className={`w-full px-3.5 py-2.5 rounded-xl border text-sm text-[#061B35] placeholder:text-[#94A3B8] focus:outline-none focus:ring-2 transition-all ${
+                    className={`w-full px-3.5 py-2.5 rounded-xl border text-sm text-[#101F70] placeholder:text-[#6573A8] focus:outline-none focus:ring-2 transition-all ${
                       errors.email
                         ? 'border-rose-500 focus:ring-rose-200'
-                        : 'border-[#CBD5E1] focus:border-[#F4B72F] focus:ring-[#F4B72F]/20'
+                        : 'border-[#DCE3FF] focus:border-[#182A9A] focus:ring-[#182A9A]/20'
                     }`}
                   />
                   {errors.email && (
@@ -409,7 +410,7 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-[#061B35] uppercase tracking-wider mb-1">
+                  <label className="block text-xs font-bold text-[#101F70] uppercase tracking-wider mb-1">
                     Phone / WhatsApp <span className="text-rose-500">*</span>
                   </label>
                   <input
@@ -417,10 +418,10 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                     placeholder="+91 83758 97148"
-                    className={`w-full px-3.5 py-2.5 rounded-xl border text-sm text-[#061B35] placeholder:text-[#94A3B8] focus:outline-none focus:ring-2 transition-all ${
+                    className={`w-full px-3.5 py-2.5 rounded-xl border text-sm text-[#101F70] placeholder:text-[#6573A8] focus:outline-none focus:ring-2 transition-all ${
                       errors.phone
                         ? 'border-rose-500 focus:ring-rose-200'
-                        : 'border-[#CBD5E1] focus:border-[#F4B72F] focus:ring-[#F4B72F]/20'
+                        : 'border-[#DCE3FF] focus:border-[#182A9A] focus:ring-[#182A9A]/20'
                     }`}
                   />
                   {errors.phone && (
@@ -432,7 +433,7 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({
               {/* Academic Level & Program Track */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                 <div>
-                  <label className="block text-xs font-bold text-[#061B35] uppercase tracking-wider mb-1">
+                  <label className="block text-xs font-bold text-[#101F70] uppercase tracking-wider mb-1">
                     Academic Level
                   </label>
                   <select
@@ -445,7 +446,7 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({
                         targetProgram: 'general-advisory',
                       });
                     }}
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-[#CBD5E1] text-sm text-[#061B35] bg-white focus:outline-none focus:border-[#F4B72F] focus:ring-2 focus:ring-[#F4B72F]/20 transition-all cursor-pointer"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-[#DCE3FF] text-sm text-[#101F70] bg-white focus:outline-none focus:border-[#182A9A] focus:ring-2 focus:ring-[#182A9A]/20 transition-all cursor-pointer"
                   >
                     {PROGRAM_CATEGORIES.map((cat) => (
                       <option key={cat} value={cat}>
@@ -456,13 +457,13 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-[#061B35] uppercase tracking-wider mb-1">
+                  <label className="block text-xs font-bold text-[#101F70] uppercase tracking-wider mb-1">
                     Specific Program Track
                   </label>
                   <select
                     value={formData.targetProgram}
                     onChange={(e) => setFormData({ ...formData, targetProgram: e.target.value })}
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-[#CBD5E1] text-sm text-[#061B35] bg-white focus:outline-none focus:border-[#F4B72F] focus:ring-2 focus:ring-[#F4B72F]/20 transition-all cursor-pointer"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-[#DCE3FF] text-sm text-[#101F70] bg-white focus:outline-none focus:border-[#182A9A] focus:ring-2 focus:ring-[#182A9A]/20 transition-all cursor-pointer"
                   >
                     <option value="general-advisory">General Advisory (Explore Options)</option>
                     {filteredPrograms.map((prog) => (
@@ -476,7 +477,7 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({
 
               {/* Notes */}
               <div>
-                <label className="block text-xs font-bold text-[#061B35] uppercase tracking-wider mb-1">
+                <label className="block text-xs font-bold text-[#101F70] uppercase tracking-wider mb-1">
                   Questions or Current Academic Goals
                 </label>
                 <textarea
@@ -484,25 +485,25 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({
                   value={formData.notes}
                   onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
                   placeholder="Tell us about your educational background, target universities, or desired career direction..."
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#CBD5E1] text-sm text-[#061B35] placeholder:text-[#94A3B8] focus:outline-none focus:border-[#F4B72F] focus:ring-2 focus:ring-[#F4B72F]/20 transition-all"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#DCE3FF] text-sm text-[#101F70] placeholder:text-[#6573A8] focus:outline-none focus:border-[#182A9A] focus:ring-2 focus:ring-[#182A9A]/20 transition-all"
                 />
               </div>
 
               {/* Privacy Consent Checkbox */}
               <div>
-                <label className="flex items-start gap-2.5 cursor-pointer text-xs text-[#334155]">
+                <label className="flex items-start gap-2.5 cursor-pointer text-xs text-[#26345C]">
                   <input
                     type="checkbox"
                     checked={formData.consent}
                     onChange={(e) => setFormData({ ...formData, consent: e.target.checked })}
-                    className="mt-0.5 h-4 w-4 rounded border-[#CBD5E1] text-[#075AC8] focus:ring-[#F4B72F]"
+                    className="mt-0.5 h-4 w-4 rounded border-[#DCE3FF] text-[#182A9A] focus:ring-[#182A9A]"
                   />
                   <span>
                     I agree to the processing of my academic details in accordance with the{' '}
                     <Link
                       href="/privacy-policy"
                       target="_blank"
-                      className="text-[#075AC8] font-semibold underline hover:text-[#061B35]"
+                      className="text-[#182A9A] font-semibold underline hover:text-[#101F70]"
                     >
                       Privacy Policy
                     </Link>
@@ -515,8 +516,8 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({
               </div>
 
               {/* Trust statement */}
-              <div className="flex items-center gap-2 text-[11px] text-[#152C45]/70 pt-1">
-                <ShieldCheck className="w-3.5 h-3.5 text-[#F4B72F] shrink-0" />
+              <div className="flex items-center gap-2 text-[11px] text-[#6573A8] pt-1">
+                <ShieldCheck className="w-3.5 h-3.5 text-[#182A9A] shrink-0" />
                 <span>Strict academic privacy. We never share your details.</span>
               </div>
 

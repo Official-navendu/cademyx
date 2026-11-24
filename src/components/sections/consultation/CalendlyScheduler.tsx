@@ -65,7 +65,7 @@ export const CalendlyScheduler: React.FC<CalendlySchedulerProps> = ({
       initCalendlyWidget();
     }
 
-    // Safety timeout: If third-party script is blocked by an adblocker (uBlock, Brave, Privacy Badger)
+    // Safety timeout: If third-party script is blocked by an adblocker
     // after 7 seconds, display the direct booking fallback without leaving user stranded.
     const timeoutTimer = setTimeout(() => {
       if (!scriptLoaded && isInitializing) {
@@ -107,18 +107,18 @@ export const CalendlyScheduler: React.FC<CalendlySchedulerProps> = ({
       />
 
       {/* Main Scheduler Container */}
-      <div className="bg-white rounded-3xl border border-[#E2E8F0] shadow-xl overflow-hidden relative">
-        {/* Top Gold Accent Ribbon */}
-        <div className="h-1.5 bg-gradient-to-r from-[#061B35] via-[#F4B72F] to-[#D99519]" />
+      <div className="bg-white rounded-3xl border border-[#DCE3FF] shadow-xl overflow-hidden relative">
+        {/* Top Brand Blue Accent Ribbon */}
+        <div className="h-1.5 bg-gradient-to-r from-[#101F70] via-[#182A9A] to-[#101F70]" />
 
         {/* Security & Header Meta Bar */}
-        <div className="px-5 py-3.5 sm:px-7 sm:py-4 border-b border-[#E2E8F0] bg-[#F8FAFC]/80 flex flex-wrap items-center justify-between gap-3 text-xs">
-          <div className="flex items-center gap-2 text-[#061B35] font-bold">
-            <Calendar className="w-4 h-4 text-[#F4B72F]" />
+        <div className="px-5 py-3.5 sm:px-7 sm:py-4 border-b border-[#DCE3FF] bg-[#F3F5FF]/80 flex flex-wrap items-center justify-between gap-3 text-xs">
+          <div className="flex items-center gap-2 text-[#101F70] font-bold">
+            <Calendar className="w-4 h-4 text-[#182A9A]" />
             <span>Direct Advisory Calendar</span>
           </div>
 
-          <div className="flex items-center gap-4 text-[#5A6A85]">
+          <div className="flex items-center gap-4 text-[#6573A8]">
             <div className="flex items-center gap-1.5 text-emerald-700 font-semibold">
               <ShieldCheck className="w-4 h-4 text-emerald-600" />
               <span>Verified Direct Scheduling</span>
@@ -127,7 +127,7 @@ export const CalendlyScheduler: React.FC<CalendlySchedulerProps> = ({
               href={cleanUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 text-[#075AC8] hover:text-[#061B35] font-semibold transition-colors"
+              className="inline-flex items-center gap-1 text-[#182A9A] hover:text-[#101F70] font-semibold transition-colors"
             >
               <span>Open in New Tab</span>
               <ExternalLink className="w-3.5 h-3.5" />
@@ -139,15 +139,15 @@ export const CalendlyScheduler: React.FC<CalendlySchedulerProps> = ({
         <div className="p-2 sm:p-4 lg:p-6 relative min-h-[720px]">
           {loadError ? (
             /* Adblocker / Network Fallback */
-            <div className="p-8 sm:p-12 text-center space-y-5 rounded-2xl bg-[#FEF8E9] border border-[#FDE6B0] my-8 max-w-xl mx-auto shadow-sm">
-              <div className="w-14 h-14 rounded-full bg-[#F4B72F]/20 text-[#061B35] flex items-center justify-center mx-auto border border-[#F4B72F]/40">
-                <AlertCircle className="w-7 h-7 text-[#D99519]" />
+            <div className="p-8 sm:p-12 text-center space-y-5 rounded-2xl bg-[#F3F5FF] border border-[#DCE3FF] my-8 max-w-xl mx-auto shadow-sm">
+              <div className="w-14 h-14 rounded-full bg-[#182A9A]/15 text-[#101F70] flex items-center justify-center mx-auto border border-[#DCE3FF]">
+                <AlertCircle className="w-7 h-7 text-[#182A9A]" />
               </div>
               <div className="space-y-2">
-                <h3 className="text-xl font-bold text-[#061B35]">
+                <h3 className="text-xl font-bold text-[#101F70]">
                   Instant Direct Booking Portal
                 </h3>
-                <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
+                <p className="text-xs sm:text-sm text-[#26345C] leading-relaxed">
                   Your browser or privacy extension may have restricted third-party widget loading. You can access the official CademyX 30-minute calendar directly:
                 </p>
               </div>
@@ -157,9 +157,9 @@ export const CalendlyScheduler: React.FC<CalendlySchedulerProps> = ({
                   href={cleanUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-[#061B35] text-[#F4B72F] font-bold text-sm shadow-md hover:bg-[#0A2244] transition-all hover:scale-[1.02]"
+                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-[#182A9A] text-white font-bold text-sm shadow-md hover:bg-[#101F70] transition-all hover:scale-[1.02]"
                 >
-                  <Zap className="w-4 h-4 text-[#F4B72F]" />
+                  <Zap className="w-4 h-4 text-white" />
                   <span>Book on Calendly (30 Min)</span>
                   <ExternalLink className="w-4 h-4" />
                 </a>
@@ -171,20 +171,20 @@ export const CalendlyScheduler: React.FC<CalendlySchedulerProps> = ({
                     setIsInitializing(true);
                     initCalendlyWidget();
                   }}
-                  className="inline-flex items-center gap-1.5 px-4 py-2.5 text-xs text-[#5A6A85] hover:text-[#061B35] font-semibold transition-colors"
+                  className="inline-flex items-center gap-1.5 px-4 py-2.5 text-xs text-[#26345C] hover:text-[#101F70] font-semibold transition-colors"
                 >
                   <RefreshCw className="w-3.5 h-3.5" />
                   <span>Retry Embed</span>
                 </button>
               </div>
 
-              <div className="pt-4 border-t border-[#FDE6B0] text-xs text-[#64748B]">
+              <div className="pt-4 border-t border-[#DCE3FF] text-xs text-[#6573A8]">
                 Need immediate assistance? Contact our advisory desk at{' '}
-                <a href={`tel:${CONTACT_INFO.phoneRaw}`} className="font-bold text-[#061B35] hover:underline">
+                <a href={`tel:${CONTACT_INFO.phoneRaw}`} className="font-bold text-[#101F70] hover:underline">
                   {CONTACT_INFO.phone}
                 </a>{' '}
                 or email{' '}
-                <a href={`mailto:${CONTACT_INFO.primaryEmail}`} className="font-bold text-[#075AC8] hover:underline">
+                <a href={`mailto:${CONTACT_INFO.primaryEmail}`} className="font-bold text-[#182A9A] hover:underline">
                   {CONTACT_INFO.primaryEmail}
                 </a>
                 .
@@ -195,17 +195,17 @@ export const CalendlyScheduler: React.FC<CalendlySchedulerProps> = ({
               {/* Branded Loading Skeleton Overlay */}
               {(!scriptLoaded || isInitializing) && (
                 <div
-                  className="absolute inset-0 z-10 w-full h-full rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] flex flex-col items-center justify-center space-y-4 p-6 text-center animate-pulse"
+                  className="absolute inset-0 z-10 w-full h-full rounded-2xl bg-[#F3F5FF] border border-[#DCE3FF] flex flex-col items-center justify-center space-y-4 p-6 text-center animate-pulse"
                   aria-live="polite"
                 >
-                  <div className="w-12 h-12 rounded-full bg-[#F4B72F]/20 flex items-center justify-center text-[#F4B72F]">
-                    <Clock className="w-6 h-6 animate-spin text-[#D99519]" />
+                  <div className="w-12 h-12 rounded-full bg-[#182A9A]/15 flex items-center justify-center text-[#182A9A]">
+                    <Clock className="w-6 h-6 animate-spin text-[#182A9A]" />
                   </div>
                   <div className="space-y-1.5">
-                    <p className="text-sm font-bold text-[#061B35]">
+                    <p className="text-sm font-bold text-[#101F70]">
                       Connecting to CademyX Advisory Calendar...
                     </p>
-                    <p className="text-xs text-[#64748B] max-w-sm">
+                    <p className="text-xs text-[#6573A8] max-w-sm">
                       Loading real-time availability and timezones directly from Calendly.
                     </p>
                   </div>
@@ -214,10 +214,10 @@ export const CalendlyScheduler: React.FC<CalendlySchedulerProps> = ({
                       href={cleanUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-xs font-semibold text-[#075AC8] hover:text-[#061B35] inline-flex items-center gap-1 underline underline-offset-2"
+                      className="text-xs font-semibold text-[#182A9A] hover:text-[#101F70] inline-flex items-center gap-1 underline underline-offset-2"
                     >
                       <span>Direct booking link</span>
-                      <ExternalLink className="w-3 h-3" />
+                      <ExternalLink className="w-3.5 h-3.5" />
                     </a>
                   </div>
                 </div>
@@ -235,16 +235,16 @@ export const CalendlyScheduler: React.FC<CalendlySchedulerProps> = ({
         </div>
 
         {/* Bottom Helper Bar */}
-        <div className="px-5 py-3 border-t border-[#E2E8F0] bg-[#F8FAFC]/50 flex flex-col sm:flex-row items-center justify-between gap-2 text-[11px] text-[#64748B]">
+        <div className="px-5 py-3 border-t border-[#DCE3FF] bg-[#F3F5FF]/50 flex flex-col sm:flex-row items-center justify-between gap-2 text-[11px] text-[#6573A8]">
           <span>Timezone automatically adjusts to your regional location.</span>
           <a
             href={cleanUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="font-semibold text-[#075AC8] hover:text-[#061B35] inline-flex items-center gap-1 transition-colors"
+            className="font-semibold text-[#182A9A] hover:text-[#101F70] inline-flex items-center gap-1 transition-colors"
           >
             <span>Open in full window</span>
-            <ExternalLink className="w-3 h-3" />
+            <ExternalLink className="w-3.5 h-3.5" />
           </a>
         </div>
       </div>

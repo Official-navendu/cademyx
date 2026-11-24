@@ -29,28 +29,28 @@ export const ValueCard: React.FC<ValueCardProps> = ({ value, className }) => {
   return (
     <div
       className={cn(
-        'group relative flex flex-col h-full p-7 rounded-2xl bg-white border border-[#E2E8F0] hover:border-[#F4B72F] transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 gold-glow-card overflow-hidden',
+        'group relative flex flex-col h-full p-7 rounded-2xl bg-white border border-[#DCE3FF] hover:border-[#182A9A] transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 overflow-hidden',
         className
       )}
     >
-      {/* Top Gold Hover Accent Rule */}
-      <div className="absolute top-0 left-0 right-0 h-[2.5px] bg-gradient-to-r from-transparent via-[#F4B72F] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+      {/* Top Blue Hover Accent Rule */}
+      <div className="absolute top-0 left-0 right-0 h-[2.5px] bg-gradient-to-r from-transparent via-[#182A9A] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
-      <div className="h-13 w-13 rounded-2xl bg-gradient-to-br from-[#061B35] via-[#152C45] to-[#075AC8] text-[#F4B72F] border border-[#075AC8]/40 flex items-center justify-center mb-5 transition-all duration-300 group-hover:scale-105 group-hover:border-[#F4B72F]/50 shadow-xs">
+      <div className="h-13 w-13 rounded-2xl bg-[#F3F5FF] text-[#182A9A] border border-[#DCE3FF] flex items-center justify-center mb-5 transition-all duration-300 group-hover:scale-105 group-hover:border-[#182A9A] shadow-xs">
         <IconComponent className="h-6 w-6 stroke-[1.8]" />
       </div>
 
-      <h3 className="card-headline font-bold text-[#061B35] mb-2.5 group-hover:text-[#075AC8] transition-colors">
+      <h3 className="card-headline font-bold text-[#101F70] mb-2.5 group-hover:text-[#182A9A] transition-colors">
         {value.title}
       </h3>
 
-      <p className="text-sm text-[#152C45] leading-relaxed flex-1 font-normal">
+      <p className="text-sm text-[#26345C] leading-relaxed flex-1 font-normal">
         {value.description}
       </p>
 
       {/* Bottom Expanding Line on Hover */}
-      <div className="mt-6 pt-4 border-t border-[#F8FAFC]">
-        <div className="h-0.5 w-7 bg-gradient-to-r from-[#F4B72F] via-[#F4B72F] to-[#D99519] transition-all duration-300 group-hover:w-full rounded-full" />
+      <div className="mt-6 pt-4 border-t border-[#DCE3FF]/40">
+        <div className="h-0.5 w-7 bg-gradient-to-r from-[#182A9A] to-[#101F70] transition-all duration-300 group-hover:w-full rounded-full" />
       </div>
     </div>
   );

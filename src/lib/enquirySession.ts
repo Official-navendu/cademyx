@@ -79,19 +79,93 @@ export function markSubmissionSuccess(): void {
   }
 
   try {
-    const url = new URL(window.location.href);
-    if (url.searchParams.get('form') !== 'submitted') {
-      url.searchParams.set('form', 'submitted');
-      window.history.replaceState(window.history.state, '', url.toString());
-    }
-  } catch (e) {
-    console.warn('[CademyX URL Update Error]:', e);
-  }
-
-  try {
     window.dispatchEvent(new CustomEvent('cademyx:form-submitted'));
   } catch {
     // Ignore event error in legacy environments
+  }
+}
+
+/**
+ * Captures the current browser URL (pathname, search params, and hash) safely.
+ * Returns '/' if unavailable or if already on /thank-you.
+ */
+export function getSafeCurrentUrl(): string {
+  if (typeof window === 'undefined') return '/';
+  try {
+    const { pathname, search, hash } = window.location;
+    if (pathname === '/thank-you' || pathname === '/thank-you/') {
+      return '/';
+    }
+    return pathname + search + hash;
+  } catch {
+    return '/';
+  }
+}
+
+/**
+ * Sanitizes a return URL to prevent open redirects to external hosts or schemes.
+ * Only allows internal relative paths starting with '/'.
+ * Rejects '//', '/\', external protocols, and self-referencing '/thank-you'.
+ */
+export function sanitizeReturnUrl(rawUrl: string | null | undefined): string {
+  if (!rawUrl || typeof rawUrl !== 'string') {
+    return '/';
+  }
+
+  const trimmed = rawUrl.trim();
+
+  // Must begin with a single '/' and NOT '//' or '/\' (prevents protocol-relative open redirect)
+  if (!trimmed.startsWith('/') || trimmed.startsWith('//') || trimmed.startsWith('/\\')) {
+    return '/';
+  }
+
+  try {
+    // Parse against internal dummy base to safely inspect parsed host/protocol
+    const parsed = new URL(trimmed, 'https://cademyx.internal');
+    if (parsed.origin !== 'https://cademyx.internal') {
+      return '/';
+    }
+
+    // Prevent infinite redirect loops to /thank-you
+    if (parsed.pathname === '/thank-you' || parsed.pathname === '/thank-you/') {
+      return '/';
+    }
+
+    return parsed.pathname + parsed.search + parsed.hash;
+  } catch {
+    return '/';
+  }
+}
+
+/**
+ * Navigates to the /thank-you page with the sanitized originating URL.
+ * Also marks the session as submitted and unfreezes any body scroll lock.
+ */
+export function navigateToThankYou(
+  returnUrl?: string,
+  router?: { push: (url: string) => void }
+): void {
+  if (typeof window === 'undefined') return;
+
+  // 1. Capture safe return URL BEFORE changing session or history
+  const safeReturn = sanitizeReturnUrl(returnUrl || getSafeCurrentUrl());
+
+  // 2. Mark submission in sessionStorage and notify all components
+  markSubmissionSuccess();
+
+  // 3. Ensure document scroll lock is cleaned up
+  if (typeof document !== 'undefined') {
+    document.body.style.overflow = '';
+  }
+
+  const destination = `/thank-you?returnUrl=${encodeURIComponent(safeReturn)}`;
+
+  // 4. Client navigate if router provided, otherwise fallback to window navigation
+  if (router && typeof router.push === 'function') {
+    router.push(destination);
+  } else {
+    // eslint-disable-next-line @next/next/no-location-assign-relative-destination
+    window.location.assign(destination);
   }
 }
 
@@ -119,3 +193,4 @@ function notifyModalListeners(): void {
     }
   });
 }
+

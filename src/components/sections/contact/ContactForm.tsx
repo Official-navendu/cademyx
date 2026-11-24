@@ -54,26 +54,26 @@ export const ContactForm: React.FC = () => {
   ];
 
   return (
-    <div className="relative p-6 sm:p-8 lg:p-10 rounded-2xl bg-white border border-[#E2E8F0] shadow-xl hover:border-[#F4B72F]/40 transition-all duration-300 overflow-hidden">
-      {/* Top gold bar */}
-      <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#061B35] via-[#F4B72F] to-[#F4B72F]" />
+    <div className="relative p-6 sm:p-8 lg:p-10 rounded-2xl bg-white border border-[#DCE3FF] shadow-xl hover:border-[#182A9A]/60 transition-all duration-300 overflow-hidden">
+      {/* Top brand blue bar */}
+      <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#101F70] via-[#182A9A] to-[#101F70]" />
 
       <div className="mb-8">
-        <h2 className="text-2xl sm:text-3xl font-extrabold text-[#061B35]">
+        <h2 className="text-2xl sm:text-3xl font-extrabold text-[#101F70]">
           Schedule a Consultation
         </h2>
-        <p className="mt-2 text-sm sm:text-base text-[#5A6A85]">
+        <p className="mt-2 text-sm sm:text-base text-[#26345C]">
           Complete this form to connect with an academic advisor. All consultations are confidential.
         </p>
       </div>
 
       {/* Preselected Program Notification Banner */}
       {preselectedProgram && status !== 'success' && (
-        <div className="mb-6 p-4 rounded-xl bg-gradient-to-r from-[#F4B72F]/15 to-[#F4B72F]/15 border border-[#F4B72F]/35 flex items-center gap-3 text-sm text-[#D99519]">
-          <BookOpen className="h-4 w-4 text-[#F4B72F] shrink-0" />
+        <div className="mb-6 p-4 rounded-xl bg-[#F3F5FF] border border-[#DCE3FF] flex items-center gap-3 text-sm text-[#182A9A]">
+          <BookOpen className="h-4 w-4 text-[#182A9A] shrink-0" />
           <span>
             Inquiring about:{' '}
-            <strong className="font-bold text-[#061B35]">{preselectedProgram.title}</strong>
+            <strong className="font-bold text-[#101F70]">{preselectedProgram.title}</strong>
           </span>
         </div>
       )}
@@ -262,12 +262,12 @@ export const ContactForm: React.FC = () => {
             <Checkbox
               id="consent"
               label={
-                <span className="text-xs sm:text-sm text-[#334155]">
+                <span className="text-xs sm:text-sm text-[#26345C]">
                   I agree that CademyX advisors may review my academic inquiry in accordance with the{' '}
                   <Link
                     href="/privacy-policy"
                     target="_blank"
-                    className="text-[#075AC8] font-semibold underline underline-offset-2 hover:text-[#061B35]"
+                    className="text-[#182A9A] font-semibold underline underline-offset-2 hover:text-[#101F70]"
                   >
                     Privacy Policy
                   </Link>
@@ -284,7 +284,7 @@ export const ContactForm: React.FC = () => {
           <div className="pt-3">
             <Button
               type="submit"
-              variant="gold"
+              variant="primary"
               size="lg"
               isLoading={isSubmitting}
               trailingIcon={!isSubmitting ? <Send className="h-4 w-4" /> : undefined}
@@ -295,7 +295,7 @@ export const ContactForm: React.FC = () => {
           </div>
 
           {/* Technical Note */}
-          <p className="text-xs text-[#94A3B8] pt-2">
+          <p className="text-xs text-[#6573A8] pt-2">
             Secure client-side validation powered by Zod and React Hook Form. Configured for direct API integration.
           </p>
         </form>

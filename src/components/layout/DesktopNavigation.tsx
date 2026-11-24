@@ -95,22 +95,22 @@ export const DesktopNavigation: React.FC = () => {
                   className={cn(
                     'px-2.5 xl:px-3.5 py-1.5 xl:py-2 rounded-lg text-xs xl:text-sm font-semibold transition-all duration-150 relative inline-flex items-center gap-1 cursor-pointer',
                     isActive || isMegaMenuOpen
-                      ? 'text-[#061B35] font-bold'
-                      : 'text-[#152C45] hover:text-[#075AC8] hover:bg-[#F8FAFC]',
-                    'focus-visible:outline-2 focus-visible:outline-[#F4B72F]'
+                      ? 'text-[#182A9A] font-bold bg-[#F3F5FF]'
+                      : 'text-[#26345C] hover:text-[#182A9A] hover:bg-[#F3F5FF]',
+                    'focus-visible:outline-2 focus-visible:outline-[#182A9A]'
                   )}
                 >
                   <span>{link.label}</span>
                   <ChevronDown
                     className={cn(
-                      'w-3.5 h-3.5 text-[#F4B72F] transition-transform duration-200',
+                      'w-3.5 h-3.5 text-[#182A9A] transition-transform duration-200',
                       isMegaMenuOpen && 'rotate-180'
                     )}
                     aria-hidden="true"
                   />
                   {isActive && (
                     <span
-                      className="absolute bottom-0 left-2.5 right-2.5 xl:left-3.5 xl:right-3.5 h-[2.5px] bg-gradient-to-r from-[#F4B72F] to-[#D99519] rounded-full shadow-xs"
+                      className="absolute bottom-0 left-2.5 right-2.5 xl:left-3.5 xl:right-3.5 h-[2.5px] bg-gradient-to-r from-[#182A9A] to-[#101F70] rounded-full shadow-xs"
                       aria-hidden="true"
                     />
                   )}
@@ -129,15 +129,15 @@ export const DesktopNavigation: React.FC = () => {
               className={cn(
                 'px-2.5 xl:px-3.5 py-1.5 xl:py-2 rounded-lg text-xs xl:text-sm font-semibold transition-all duration-150 relative',
                 isActive
-                  ? 'text-[#061B35] font-bold'
-                  : 'text-[#152C45] hover:text-[#075AC8] hover:bg-[#F8FAFC]',
-                'focus-visible:outline-2 focus-visible:outline-[#F4B72F]'
+                  ? 'text-[#182A9A] font-bold bg-[#F3F5FF]'
+                  : 'text-[#26345C] hover:text-[#182A9A] hover:bg-[#F3F5FF]',
+                'focus-visible:outline-2 focus-visible:outline-[#182A9A]'
               )}
             >
               {link.label}
               {isActive && (
                 <span
-                  className="absolute bottom-0 left-2.5 right-2.5 xl:left-3.5 xl:right-3.5 h-[2.5px] bg-gradient-to-r from-[#F4B72F] to-[#D99519] rounded-full shadow-xs"
+                  className="absolute bottom-0 left-2.5 right-2.5 xl:left-3.5 xl:right-3.5 h-[2.5px] bg-gradient-to-r from-[#182A9A] to-[#101F70] rounded-full shadow-xs"
                   aria-hidden="true"
                 />
               )}
@@ -146,7 +146,7 @@ export const DesktopNavigation: React.FC = () => {
         })}
 
         <div
-          className="ml-2 xl:ml-4 pl-2 xl:pl-4 border-l border-[#E2E8F0]"
+          className="ml-2 xl:ml-4 pl-2 xl:pl-4 border-l border-[#DCE3FF]"
           onMouseEnter={handleUnrelatedItemEnter}
         >
           <Button
