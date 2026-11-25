@@ -1,10 +1,10 @@
 import { ValueCardItem, StepItem } from '@/types/common';
 
 export const aboutHeroData = {
-  eyebrow: 'PURPOSE & PRINCIPLES',
-  heading: 'Helping Candidates Make Informed Academic Decisions.',
+  eyebrow: 'ACADEMIC GUIDANCE & ADVISORY',
+  heading: 'Empowering Candidates to Make Informed Educational Decisions',
   subheading:
-    'Choosing an academic programme is an important decision. CademyX provides objective advisory, clear information, and structured guidance to help you understand your options with clarity.',
+    'CademyX is an independent academic guidance platform dedicated to helping students and professionals evaluate higher education options. We provide structured curriculum evaluation, eligibility assessments, and transparent advisory to navigate your academic pathway with complete confidence.',
   image: '/assets/images/hero/about-hero.jpg',
 };
 

@@ -71,34 +71,33 @@ export const ProgramSearchStrip: React.FC = () => {
   return (
     <section className="relative z-30 -mt-6 sm:-mt-8 px-4 sm:px-6">
       <Container size="default" className="max-w-5xl">
+        {/* Section Heading & Description */}
+        <div className="text-center max-w-2xl mx-auto mb-4 sm:mb-6">
+          <div className="inline-flex items-center gap-2 mb-2 px-3 py-1 rounded-full text-xs font-extrabold tracking-widest uppercase bg-[#F3F5FF] border border-[#DCE3FF] text-[#182A9A] shadow-2xs">
+            <Sparkles className="h-3.5 w-3.5 text-[#182A9A]" />
+            <span>FAST DISCOVERY</span>
+          </div>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#101F70] tracking-tight">
+            Find Your Ideal Program
+          </h2>
+          <p className="mt-2 text-xs sm:text-sm text-[#26345C] max-w-lg mx-auto leading-relaxed">
+            Explore academic disciplines, doctorate tracks, and professional certifications with guided clarity.
+          </p>
+        </div>
+
         <div ref={containerRef} className="relative">
-          {/* Main Capsule Search Bar - CademyX Dark Blue Theme */}
-          <div className="bg-[#101F70] rounded-2xl sm:rounded-full p-2.5 sm:p-3 shadow-2xl border border-[#DCE3FF]/20 hover:border-[#182A9A] transition-all duration-300 ring-1 ring-white/10">
+          {/* Main Capsule Search Bar - High Contrast CademyX Navy/White Theme */}
+          <div className="bg-[#101F70] rounded-2xl sm:rounded-3xl p-3 sm:p-4 shadow-2xl border border-[#DCE3FF]/20 hover:border-[#182A9A] transition-all duration-300 ring-1 ring-white/10">
             <form
               onSubmit={(e) => {
                 e.preventDefault();
                 setIsOpen(true);
               }}
-              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3"
+              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3"
             >
-              {/* Heading / Icon Badge */}
-              <div className="hidden lg:flex items-center gap-2.5 pl-3.5 pr-3 py-1 shrink-0 border-r border-[#DCE3FF]/20">
-                <div className="w-8 h-8 rounded-full bg-[#182A9A] text-white flex items-center justify-center shrink-0 shadow-sm">
-                  <Sparkles className="w-4 h-4 text-[#DCE3FF]" />
-                </div>
-                <div>
-                  <span className="text-[10px] font-bold text-[#DCE3FF] uppercase tracking-wider block leading-none">
-                    Fast Discovery
-                  </span>
-                  <span className="text-xs font-extrabold text-white leading-snug">
-                    Find Your Ideal Program
-                  </span>
-                </div>
-              </div>
-
-              {/* Text Search Input */}
+              {/* Text Search Input with Elevated Contrast */}
               <div className="relative flex-1 flex items-center">
-                <Search className="w-4.5 h-4.5 text-[#DCE3FF] absolute left-3.5 pointer-events-none" />
+                <Search className="w-5 h-5 text-[#182A9A] absolute left-3.5 pointer-events-none" />
                 <input
                   type="text"
                   value={searchTerm}
@@ -107,23 +106,23 @@ export const ProgramSearchStrip: React.FC = () => {
                     setIsOpen(true);
                   }}
                   onFocus={() => setIsOpen(true)}
-                  placeholder="Search 150+ programs (e.g. B.Tech, MBA, Data Science, PhD)..."
+                  placeholder="Search programs (e.g. MBA, Computer Science, Artificial Intelligence, PhD)..."
                   aria-label="Search academic programs"
-                  className="w-full pl-10 pr-9 py-2.5 sm:py-2 text-sm text-white placeholder:text-[#DCE3FF]/60 bg-[#26345C]/80 hover:bg-[#26345C] focus:bg-[#26345C] border border-[#DCE3FF]/20 focus:border-[#DCE3FF] rounded-xl sm:rounded-full focus:outline-none transition-colors"
+                  className="w-full pl-11 pr-10 py-3 sm:py-3.5 text-sm sm:text-base text-[#101F70] placeholder:text-[#6573A8] bg-white border border-[#DCE3FF] focus:border-[#182A9A] focus:ring-2 focus:ring-[#182A9A]/20 rounded-xl sm:rounded-2xl focus:outline-none transition-all shadow-inner font-medium"
                 />
                 {searchTerm && (
                   <button
                     type="button"
                     onClick={() => setSearchTerm('')}
                     aria-label="Clear search text"
-                    className="absolute right-3 p-1 rounded-full text-slate-300 hover:text-white hover:bg-white/10 transition-colors"
+                    className="absolute right-3 p-1.5 rounded-full text-[#6573A8] hover:text-[#101F70] hover:bg-slate-100 transition-colors cursor-pointer"
                   >
                     <X className="w-4 h-4" />
                   </button>
                 )}
               </div>
 
-              {/* Category Dropdown Filter */}
+              {/* Category Dropdown Filter — Clean Labels with ZERO Numbers */}
               <div className="shrink-0 flex items-center">
                 <select
                   value={selectedCategory}
@@ -132,17 +131,16 @@ export const ProgramSearchStrip: React.FC = () => {
                     setIsOpen(true);
                   }}
                   aria-label="Filter by academic category"
-                  className="w-full sm:w-auto px-4 py-2.5 text-xs sm:text-sm font-semibold text-white bg-[#26345C]/80 hover:bg-[#26345C] border border-[#DCE3FF]/20 rounded-xl sm:rounded-full focus:outline-none focus:ring-1 focus:ring-[#182A9A] transition-all cursor-pointer"
+                  className="w-full sm:w-auto px-4 py-3 sm:py-3.5 text-xs sm:text-sm font-bold text-white bg-[#182A9A] hover:bg-[#182A9A]/90 border border-white/20 rounded-xl sm:rounded-2xl focus:outline-none focus:ring-2 focus:ring-white/40 transition-all cursor-pointer shadow-sm"
                 >
-                  <option value="All" className="bg-[#101F70] text-white">All Categories ({programs.length})</option>
-                  {PROGRAM_CATEGORIES.map((cat) => {
-                    const count = programs.filter((p) => p.category === cat).length;
-                    return (
-                      <option key={cat} value={cat} className="bg-[#101F70] text-white">
-                        {cat} ({count})
-                      </option>
-                    );
-                  })}
+                  <option value="All" className="bg-[#101F70] text-white">
+                    All Categories
+                  </option>
+                  {PROGRAM_CATEGORIES.map((cat) => (
+                    <option key={cat} value={cat} className="bg-[#101F70] text-white">
+                      {cat}
+                    </option>
+                  ))}
                 </select>
               </div>
 
@@ -150,9 +148,9 @@ export const ProgramSearchStrip: React.FC = () => {
               <div className="flex items-center gap-2 shrink-0">
                 <button
                   type="submit"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-2.5 sm:py-2.5 rounded-xl sm:rounded-full bg-gradient-to-r from-[#182A9A] to-[#101F70] hover:brightness-110 text-white font-extrabold text-xs sm:text-sm shadow-md hover:shadow-lg transition-all active:scale-[0.98] cursor-pointer"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 sm:py-3.5 rounded-xl sm:rounded-2xl bg-white hover:bg-[#F3F5FF] text-[#101F70] font-extrabold text-xs sm:text-sm shadow-md hover:shadow-lg transition-all active:scale-[0.98] cursor-pointer"
                 >
-                  <Search className="w-4 h-4 text-white" />
+                  <Search className="w-4 h-4 text-[#182A9A]" />
                   <span>Search</span>
                 </button>
 
@@ -170,6 +168,43 @@ export const ProgramSearchStrip: React.FC = () => {
                 )}
               </div>
             </form>
+          </div>
+
+          {/* Clean Category Filter Quick-Pills — Clean labels, No numbers, Horizontally scrollable on mobile */}
+          <div className="mt-3 sm:mt-3.5 overflow-hidden">
+            <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-1 px-1 overscroll-contain">
+              <button
+                type="button"
+                onClick={() => {
+                  setSelectedCategory('All');
+                  setIsOpen(true);
+                }}
+                className={`shrink-0 px-3.5 py-1.5 rounded-full text-xs font-bold transition-all cursor-pointer shadow-2xs ${
+                  selectedCategory === 'All'
+                    ? 'bg-[#182A9A] text-white ring-2 ring-[#182A9A]/30'
+                    : 'bg-white text-[#26345C] hover:bg-[#F3F5FF] hover:text-[#182A9A] border border-[#DCE3FF]'
+                }`}
+              >
+                All Categories
+              </button>
+              {PROGRAM_CATEGORIES.map((cat) => (
+                <button
+                  key={cat}
+                  type="button"
+                  onClick={() => {
+                    setSelectedCategory(cat);
+                    setIsOpen(true);
+                  }}
+                  className={`shrink-0 px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all cursor-pointer whitespace-nowrap shadow-2xs ${
+                    selectedCategory === cat
+                      ? 'bg-[#182A9A] text-white ring-2 ring-[#182A9A]/30 font-bold'
+                      : 'bg-white text-[#26345C] hover:bg-[#F3F5FF] hover:text-[#182A9A] border border-[#DCE3FF]'
+                  }`}
+                >
+                  {cat}
+                </button>
+              ))}
+            </div>
           </div>
 
           {/* Interactive Results Dropdown Panel - Dark Theme */}

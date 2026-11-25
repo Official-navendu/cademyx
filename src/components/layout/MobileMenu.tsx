@@ -6,7 +6,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
-import { X, ArrowRight, Mail, ChevronDown, Calendar, Sparkles } from 'lucide-react';
+import { X, ArrowRight, Mail, ChevronDown, Calendar, Sparkles, GraduationCap } from 'lucide-react';
 import { headerNavigation } from '@/data/navigation';
 import { BRAND, CONTACT_INFO } from '@/lib/constants';
 import { SUBJECT_CATEGORIES, DOCTORATE_TRACKS_META, CERTIFICATION_TRACKS_META } from '@/data/categories';
@@ -164,7 +164,54 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
                             <ArrowRight className="w-3.5 h-3.5 text-[#182A9A]" />
                           </Link>
 
-                          {/* Group A: 15 Subject Disciplines */}
+                          {/* Group 1: Doctorate — 3 Tracks (First & Visually Highlighted) */}
+                          <div className="space-y-1 rounded-xl bg-[#F3F5FF] border border-[#182A9A]/20 p-1.5">
+                            <button
+                              type="button"
+                              onClick={() => toggleSection('doctorate')}
+                              aria-expanded={openSection === 'doctorate'}
+                              className="w-full min-h-[44px] flex items-center justify-between text-xs font-extrabold uppercase tracking-wider text-[#101F70] px-3 py-2 rounded-lg transition-colors cursor-pointer"
+                            >
+                              <div className="flex items-center gap-2">
+                                <span className="p-1 rounded-md bg-[#182A9A] text-white">
+                                  <GraduationCap className="w-3.5 h-3.5" />
+                                </span>
+                                <span>Doctorate Programs</span>
+                              </div>
+                              <div className="flex items-center gap-1.5">
+                                <span className="text-[10px] font-bold text-white bg-[#182A9A] px-2 py-0.5 rounded-full shadow-2xs">
+                                  FEATURED
+                                </span>
+                                <ChevronDown
+                                  className={cn(
+                                    'w-3.5 h-3.5 text-[#182A9A] transition-transform duration-200',
+                                    openSection === 'doctorate' && 'rotate-180'
+                                  )}
+                                  aria-hidden="true"
+                                />
+                              </div>
+                            </button>
+
+                            {openSection === 'doctorate' && (
+                              <div className="pl-3 space-y-1.5 py-1">
+                                {DOCTORATE_TRACKS_META.map((track) => (
+                                  <Link
+                                    key={track.slug}
+                                    href={`/programs/${track.slug}`}
+                                    onClick={onClose}
+                                    className="flex items-center justify-between px-3 py-2.5 rounded-lg text-xs font-bold text-[#101F70] bg-white border border-[#DCE3FF] hover:border-[#182A9A] transition-all shadow-2xs"
+                                  >
+                                    <span className="truncate pr-2">{track.title}</span>
+                                    <span className="text-[9px] font-bold px-1.5 py-0.5 rounded bg-[#182A9A] text-white shrink-0 uppercase">
+                                      {track.badge}
+                                    </span>
+                                  </Link>
+                                ))}
+                              </div>
+                            )}
+                          </div>
+
+                          {/* Group 2: 15 Subject Disciplines (Second) */}
                           <div className="space-y-1">
                             <button
                               type="button"
@@ -207,52 +254,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
                             )}
                           </div>
 
-                          {/* Group B: Doctorate — 3 Tracks */}
-                          <div className="space-y-1">
-                            <button
-                              type="button"
-                              onClick={() => toggleSection('doctorate')}
-                              aria-expanded={openSection === 'doctorate'}
-                              className="w-full min-h-[44px] flex items-center justify-between text-xs font-bold uppercase tracking-wider text-[#26345C] hover:text-[#182A9A] px-3 py-2 rounded-lg hover:bg-[#F3F5FF] transition-colors cursor-pointer"
-                            >
-                              <div className="flex items-center gap-1.5">
-                                <span className="w-2 h-2 rounded-full bg-[#182A9A]" />
-                                <span>Doctorate</span>
-                              </div>
-                              <div className="flex items-center gap-1.5">
-                                <span className="text-[10px] font-mono text-[#182A9A] font-semibold bg-[#F3F5FF] border border-[#DCE3FF] px-1.5 py-0.5 rounded-full">
-                                  3 Tracks
-                                </span>
-                                <ChevronDown
-                                  className={cn(
-                                    'w-3.5 h-3.5 text-[#6573A8] transition-transform duration-200',
-                                    openSection === 'doctorate' && 'rotate-180'
-                                  )}
-                                  aria-hidden="true"
-                                />
-                              </div>
-                            </button>
-
-                            {openSection === 'doctorate' && (
-                              <div className="pl-3 space-y-1 py-1">
-                                {DOCTORATE_TRACKS_META.map((track) => (
-                                  <Link
-                                    key={track.slug}
-                                    href={`/programs/${track.slug}`}
-                                    onClick={onClose}
-                                    className="flex items-center justify-between px-2.5 py-2 rounded-lg text-xs font-semibold text-[#26345C] hover:bg-[#F3F5FF] hover:text-[#182A9A] transition-colors"
-                                  >
-                                    <span className="truncate pr-2">{track.title}</span>
-                                    <span className="text-[9px] font-bold px-1.5 py-0.5 rounded bg-[#182A9A] text-white shrink-0 uppercase">
-                                      {track.badge}
-                                    </span>
-                                  </Link>
-                                ))}
-                              </div>
-                            )}
-                          </div>
-
-                          {/* Group C: Certifications — 4 Tracks */}
+                          {/* Group 3: Certifications — 4 Tracks (Third) */}
                           <div className="space-y-1">
                             <button
                               type="button"

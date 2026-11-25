@@ -94,9 +94,26 @@ export default async function ProgramCategoryDetailPage({ params }: PageProps) {
                 {data.tagline}
               </p>
 
-              <p className="text-sm sm:text-base text-[#DCE3FF]/80 leading-relaxed mb-8">
+              <p className="text-sm sm:text-base text-[#DCE3FF]/80 leading-relaxed mb-6">
                 {data.overview}
               </p>
+
+              {/* Primary & Secondary Hero CTAs */}
+              <div className="flex flex-wrap items-center gap-3 mb-8">
+                <a
+                  href="#programs-catalog"
+                  className="px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-[#182A9A] text-white hover:bg-white hover:text-[#101F70] transition-all shadow-md inline-flex items-center gap-2"
+                >
+                  <span>Explore {data.name} Tracks</span>
+                  <ArrowRight className="w-4 h-4" />
+                </a>
+                <Link
+                  href="/schedule-a-consultation"
+                  className="px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-white/10 hover:bg-white/20 text-[#DCE3FF] border border-[#DCE3FF]/30 transition-all inline-flex items-center gap-2"
+                >
+                  <span>Schedule Consultation</span>
+                </Link>
+              </div>
 
               {/* Quick Advisory Meta Badges */}
               <div className="flex flex-wrap gap-2 pt-2 border-t border-[#DCE3FF]/20">
@@ -165,7 +182,7 @@ export default async function ProgramCategoryDetailPage({ params }: PageProps) {
 
       {/* 3. Popular Courses in Discipline */}
       {data.popularCourses && data.popularCourses.length > 0 && (
-        <section className="py-20 bg-white border-b border-[#DCE3FF]/40">
+        <section id="programs-catalog" className="py-20 bg-white border-b border-[#DCE3FF]/40 scroll-mt-24">
           <Container size="default">
             <div className="mb-12">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#F3F5FF] border border-[#DCE3FF] text-[11px] font-bold uppercase tracking-wider text-[#182A9A] mb-3">

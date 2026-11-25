@@ -60,25 +60,10 @@ export const ContactInformation: React.FC = () => {
                       >
                         {channel.value}
                       </a>
-                      {channel.secondaryValue && (
-                        <div>
-                          <a
-                            href={`mailto:${channel.secondaryValue}`}
-                            className="text-sm font-semibold text-[#182A9A] hover:text-[#101F70] transition-colors inline-block mt-0.5"
-                          >
-                            {channel.secondaryValue}
-                          </a>
-                        </div>
-                      )}
                     </div>
                   ) : (
                     <p className="text-base sm:text-lg font-bold text-[#101F70] mt-0.5">
                       {channel.value}
-                      {channel.secondaryValue && (
-                        <span className="block text-sm font-normal text-[#6573A8]">
-                          {channel.secondaryValue}
-                        </span>
-                      )}
                     </p>
                   )}
 

@@ -1,16 +1,15 @@
 'use client';
 
-import React, { useState, useEffect, useRef, useCallback, useMemo } from 'react';
-import Link from 'next/link';
+import React, { useCallback, useMemo } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import {
   CheckCircle2,
   ArrowLeft,
-  Clock,
   ShieldCheck,
   Mail,
   GraduationCap,
   Sparkles,
+  Home,
 } from 'lucide-react';
 import { sanitizeReturnUrl } from '@/lib/enquirySession';
 import { Container } from '@/components/ui/Container';
@@ -25,53 +24,52 @@ export const ThankYouContent: React.FC = () => {
   const rawReturnUrl = searchParams.get('returnUrl');
   const safeReturnUrl = useMemo(() => sanitizeReturnUrl(rawReturnUrl), [rawReturnUrl]);
 
-  const [secondsLeft, setSecondsLeft] = useState<number>(5);
-  const hasRedirectedRef = useRef<boolean>(false);
-
-  // Return handler: Navigates immediately to originating page
-  const handleReturn = useCallback(() => {
-    if (hasRedirectedRef.current) return;
-    hasRedirectedRef.current = true;
-
+  // Back button handler: Safely returns the visitor to their originating page
+  const handleBack = useCallback(() => {
     // Release any lingering document scroll lock
     if (typeof document !== 'undefined') {
       document.body.style.overflow = '';
     }
 
+    // 1. If an explicit safe return URL exists and is not root
+    if (safeReturnUrl && safeReturnUrl !== '/' && safeReturnUrl !== '/thank-you') {
+      try {
+        router.push(safeReturnUrl);
+      } catch {
+        window.location.assign(safeReturnUrl);
+      }
+      return;
+    }
+
+    // 2. Fall back to browser history if available
+    if (typeof window !== 'undefined' && window.history.length > 1) {
+      try {
+        router.back();
+        return;
+      } catch {
+        // Fall back to homepage
+      }
+    }
+
+    // 3. Ultimate fallback: Homepage
     try {
-      router.push(safeReturnUrl);
+      router.push('/');
     } catch {
-      window.location.assign(safeReturnUrl);
+      // eslint-disable-next-line @next/next/no-location-assign-relative-destination
+      window.location.assign('/');
     }
   }, [router, safeReturnUrl]);
 
-  // 5-second countdown timer with auto-return on expiry
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setSecondsLeft((prev) => {
-        if (prev <= 1) {
-          clearInterval(timer);
-          handleReturn();
-          return 0;
-        }
-        return prev - 1;
-      });
-    }, 1000);
-
-    return () => {
-      clearInterval(timer);
-    };
-  }, [handleReturn]);
-
   // Format return target label for clarity
   const returnTargetLabel = useMemo(() => {
-    if (safeReturnUrl === '/') return 'homepage';
-    if (safeReturnUrl.startsWith('/programs/')) return 'program details';
-    if (safeReturnUrl.startsWith('/programs')) return 'academic programs';
-    if (safeReturnUrl.startsWith('/contact')) return 'contact page';
-    if (safeReturnUrl.startsWith('/about')) return 'about page';
-    if (safeReturnUrl.startsWith('/blog')) return 'blog';
-    return 'previous page';
+    if (safeReturnUrl === '/') return 'Homepage';
+    if (safeReturnUrl.startsWith('/programs/')) return 'Program Details';
+    if (safeReturnUrl.startsWith('/programs')) return 'Academic Programs';
+    if (safeReturnUrl.startsWith('/contact')) return 'Contact Page';
+    if (safeReturnUrl.startsWith('/about')) return 'About Page';
+    if (safeReturnUrl.startsWith('/blog')) return 'Blog';
+    if (safeReturnUrl.startsWith('/schedule-a-consultation')) return 'Consultation Page';
+    return 'Previous Page';
   }, [safeReturnUrl]);
 
   return (
@@ -129,77 +127,61 @@ export const ThankYouContent: React.FC = () => {
               Your information has been submitted successfully. Thank you for contacting CademyX.
             </p>
 
-            {/* Supporting Text */}
+            {/* Supporting Advisory Text */}
             <p className="text-sm sm:text-base text-[#6573A8] leading-relaxed max-w-lg mx-auto mb-8">
-              You’ll be redirected to the page you were viewing in a few seconds.
+              An academic guidance advisor will review your inquiry details and reach out within 1 business day.
             </p>
 
-            {/* Dynamic Countdown & Auto-Return Status Box */}
-            <div
-              className="p-4 sm:p-5 rounded-2xl bg-[#F3F5FF] border border-[#DCE3FF] mb-8"
-              aria-live="polite"
-              aria-atomic="true"
-            >
+            {/* Navigation Action Box — Visible Back Button (Timer completely removed) */}
+            <div className="p-5 sm:p-6 rounded-2xl bg-[#F3F5FF] border border-[#DCE3FF] mb-8">
               <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-                <div className="flex items-center gap-3 text-left">
-                  <div className="w-10 h-10 rounded-xl bg-[#101F70] text-[#DCE3FF] flex items-center justify-center shrink-0 shadow-sm">
-                    <Clock className="w-5 h-5" />
+                <div className="text-center sm:text-left">
+                  <div className="text-xs font-bold text-[#182A9A] uppercase tracking-wider">
+                    Ready to Continue?
                   </div>
-                  <div>
-                    <div className="text-xs font-bold text-[#182A9A] uppercase tracking-wider">
-                      Auto-Redirecting
-                    </div>
-                    <div className="text-sm font-extrabold text-[#101F70]">
-                      {secondsLeft > 0 ? (
-                        <span>
-                          Returning in{' '}
-                          <strong className="text-[#182A9A] font-mono text-base">
-                            {secondsLeft}
-                          </strong>{' '}
-                          {secondsLeft === 1 ? 'second' : 'seconds'}...
-                        </span>
-                      ) : (
-                        <span>Redirecting now...</span>
-                      )}
-                    </div>
+                  <div className="text-sm font-semibold text-[#101F70] mt-0.5">
+                    {safeReturnUrl !== '/' ? (
+                      <span>Return to {returnTargetLabel}</span>
+                    ) : (
+                      <span>Return to the CademyX Homepage</span>
+                    )}
                   </div>
                 </div>
 
-                {/* Return Now Button */}
-                <Button
-                  type="button"
-                  onClick={handleReturn}
-                  variant="gold"
-                  size="md"
-                  className="w-full sm:w-auto font-bold shadow-md cursor-pointer whitespace-nowrap"
-                  leadingIcon={<ArrowLeft className="w-4 h-4" />}
-                >
-                  Return Now
-                </Button>
-              </div>
-
-              {/* Visual Countdown Progress Indicator */}
-              <div className="mt-4 w-full bg-[#DCE3FF] h-1.5 rounded-full overflow-hidden">
-                <div
-                  className="h-full bg-gradient-to-r from-[#182A9A] to-[#101F70] transition-all duration-1000 ease-linear"
-                  style={{ width: `${(secondsLeft / 5) * 100}%` }}
-                />
-              </div>
-
-              <div className="mt-2 flex items-center justify-between text-[11px] text-[#6573A8]">
-                <span>Destination: {returnTargetLabel}</span>
-                {safeReturnUrl !== '/' && (
-                  <Link
-                    href="/"
-                    onClick={() => {
-                      hasRedirectedRef.current = true;
-                    }}
-                    className="text-[#182A9A] hover:text-[#101F70] font-semibold underline transition-colors"
+                <div className="flex items-center gap-3 w-full sm:w-auto justify-center">
+                  {/* Visible Back Button */}
+                  <Button
+                    type="button"
+                    onClick={handleBack}
+                    variant="primary"
+                    size="md"
+                    className="w-full sm:w-auto font-bold shadow-md cursor-pointer whitespace-nowrap"
+                    leadingIcon={<ArrowLeft className="w-4 h-4" />}
                   >
-                    Or return to Homepage
-                  </Link>
-                )}
+                    Back
+                  </Button>
+
+                  {/* Secondary Home Button if not returning to home */}
+                  {safeReturnUrl !== '/' && (
+                    <Button
+                      href="/"
+                      variant="outline"
+                      size="md"
+                      className="w-full sm:w-auto font-semibold border-[#DCE3FF] text-[#101F70] hover:bg-white"
+                      leadingIcon={<Home className="w-4 h-4 text-[#182A9A]" />}
+                    >
+                      Home
+                    </Button>
+                  )}
+                </div>
               </div>
+
+              {safeReturnUrl !== '/' && (
+                <div className="mt-3 pt-3 border-t border-[#DCE3FF]/60 text-center sm:text-left text-[11px] text-[#6573A8]">
+                  <span>Originating pathway: </span>
+                  <span className="font-semibold text-[#101F70]">{returnTargetLabel}</span>
+                </div>
+              )}
             </div>
 
             {/* Advisory Next Steps Reassurance */}
@@ -209,17 +191,17 @@ export const ThankYouContent: React.FC = () => {
                 <span>What Happens Next</span>
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs text-[#26345C]">
-                <div className="p-3 rounded-xl bg-white border border-[#DCE3FF]">
+                <div className="p-3.5 rounded-xl bg-white border border-[#DCE3FF]">
                   <div className="font-bold text-[#101F70] mb-1">1. Advisor Review</div>
-                  <p>Our educational committee reviews your academic background and goals.</p>
+                  <p>Our educational advisory team examines your background, requirements, and academic targets.</p>
                 </div>
-                <div className="p-3 rounded-xl bg-white border border-[#DCE3FF]">
+                <div className="p-3.5 rounded-xl bg-white border border-[#DCE3FF]">
                   <div className="font-bold text-[#101F70] mb-1">2. Direct Contact</div>
-                  <p>An academic advisor responds to your enquiry within 1 business day.</p>
+                  <p>An advisor connects with you via email or phone within 1 business day.</p>
                 </div>
-                <div className="p-3 rounded-xl bg-white border border-[#DCE3FF]">
+                <div className="p-3.5 rounded-xl bg-white border border-[#DCE3FF]">
                   <div className="font-bold text-[#101F70] mb-1">3. Guided Pathway</div>
-                  <p>Receive curriculum details, eligibility evaluation, and timelines.</p>
+                  <p>Receive comprehensive curricula details, admission roadmaps, and prerequisite guidance.</p>
                 </div>
               </div>
             </div>

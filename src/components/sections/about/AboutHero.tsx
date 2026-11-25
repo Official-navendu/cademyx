@@ -48,15 +48,7 @@ export const AboutHero: React.FC = () => {
 
             {/* Editorial Headline */}
             <h1 className="hero-headline text-[#101F70] font-extrabold tracking-tight">
-              An Academic Journey{' '}
-              <span className="text-[#182A9A] relative inline-block">
-                Built Around
-                <span
-                  className="absolute -bottom-1 left-0 w-full h-[3px] bg-gradient-to-r from-[#182A9A] to-[#101F70] rounded-full"
-                  aria-hidden="true"
-                />
-              </span>{' '}
-              Your Ambitions.
+              {aboutHeroData.heading}
             </h1>
 
             {/* Supporting Introduction */}

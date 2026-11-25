@@ -113,18 +113,15 @@ export default function ScheduleAConsultationPage() {
             <div className="lg:col-span-7">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-[#DCE3FF]/30 text-[#DCE3FF] text-xs font-bold uppercase tracking-wider mb-5">
                 <Sparkles className="w-3.5 h-3.5 text-[#DCE3FF]" />
-                <span>Personalized 1-on-1 Academic Advisory</span>
+                <span>ACADEMIC ROADMAPPING SESSION</span>
               </div>
 
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight">
-                Schedule Your Dedicated{' '}
-                <span className="text-[#DCE3FF]">Academic Consultation</span>
+                Schedule Your Dedicated 1-on-1 Academic Consultation
               </h1>
 
               <p className="mt-5 text-base sm:text-lg text-[#DCE3FF]/90 leading-relaxed max-w-2xl font-normal">
-                Meet directly with seasoned academic mentors to diagnose your scholastic standing,
-                explore tailored degree pathways, and construct an actionable roadmap toward your
-                highest academic ambitions.
+                Meet directly with experienced academic advisors to evaluate your qualification profile, examine accredited degree options, and design a realistic timeline for your educational journey.
               </p>
 
               <div className="mt-8 flex flex-wrap items-center gap-5 text-xs text-[#DCE3FF] border-t border-[#DCE3FF]/20 pt-6">

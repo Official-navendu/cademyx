@@ -45,16 +45,16 @@ export default function BlogListingPage() {
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0D1959]/90 border border-[#DCE3FF]/30 text-xs font-bold mb-5 shadow-xs backdrop-blur-md">
                 <Sparkles className="w-3.5 h-3.5 text-[#DCE3FF]" />
                 <span className="text-[11px] font-extrabold tracking-wider uppercase text-[#DCE3FF]">
-                  The CademyX Journal • Scholarly Insights
+                  ACADEMIC PERSPECTIVES &amp; EDITORIALS
                 </span>
               </div>
 
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight">
-                Academic Direction, Curricular Strategy &amp; Mentorship Insights.
+                Scholarly Analysis, Educational Trends, and Academic Guidance
               </h1>
 
               <p className="mt-5 text-base sm:text-lg text-[#CBD5E1] leading-relaxed font-normal max-w-xl">
-                Thoughtful, evidence-informed perspectives designed to help students, researchers, and families navigate higher education choices with clarity and confidence.
+                Read research-informed analyses on higher education trajectories, degree selection criteria, qualification requirements, and strategic academic milestones prepared by our advisory specialists.
               </p>
 
               <div className="mt-8 flex flex-wrap items-center gap-4 text-xs text-[#DCE3FF] border-t border-[#DCE3FF]/20 pt-6">

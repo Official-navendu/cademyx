@@ -3174,7 +3174,7 @@ export const programs: Program[] = [
     "shortDescription": "Enterprise cloud infrastructure.",
     "description": "Deep technical mastery in enterprise cloud engineering, Infrastructure as Code, container orchestration with Kubernetes, and automated continuous delivery pipelines across leading public cloud ecosystems.",
     "badge": "CLOUD-READY",
-    "image": "/assets/images/programs/cloud-computing-devops.webp",
+    "image": "/assets/images/hero/programs/cloud-computing-devops.webp",
     "highlights": [
       "AWS & GCP Cloud Architecture",
       "Kubernetes Orchestration",
@@ -3205,7 +3205,7 @@ export const programs: Program[] = [
     "shortDescription": "Defense & penetration testing.",
     "description": "Rigorous offensive and defensive cybersecurity training covering ethical hacking, vulnerability assessment, network penetration testing, and enterprise incident response protocols in sandboxed lab environments.",
     "badge": "PRACTICAL",
-    "image": "/assets/images/programs/cyber-security-certification.webp",
+    "image": "/assets/images/hero/programs/cyber-security-certification.webp",
     "highlights": [
       "Ethical Hacking Labs",
       "Vulnerability Assessment",

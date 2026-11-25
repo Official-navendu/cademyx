@@ -2,17 +2,16 @@ import { INQUIRY_TYPES, CONTACT_INFO } from '@/lib/constants';
 
 export const contactPageData = {
   hero: {
-    eyebrow: 'ACADEMIC ADVISORY • DIRECT INQUIRIES',
-    heading: "Let's Talk About Your Next Academic Step.",
+    eyebrow: 'ACADEMIC ADVISORY & SUPPORT',
+    heading: 'Speak with an Academic Advisor Regarding Your Educational Pathway',
     subheading:
-      "Share what you're looking for, and send us an inquiry about the programs or academic pathways that interest you.",
+      'Connect directly with our advisory specialists to evaluate institutional prerequisites, clarify curriculum frameworks, and plan your academic progression without sales pressure.',
   },
   contactChannels: [
     {
       id: 'channel-email',
       title: 'Email Advisory',
       value: CONTACT_INFO.primaryEmail,
-      secondaryValue: CONTACT_INFO.secondaryEmail,
       href: `mailto:${CONTACT_INFO.primaryEmail}`,
       description: 'Ideal for general inquiries, syllabus details, and program questions.',
       note: 'Response within 1 business day',

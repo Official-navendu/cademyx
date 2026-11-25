@@ -77,7 +77,11 @@ export function useContactForm({
 
         setStatus('success');
         reset();
-        navigateToThankYou(undefined, router);
+        const originatingUrl =
+          typeof window !== 'undefined'
+            ? window.location.pathname + window.location.search
+            : '/contact';
+        navigateToThankYou(originatingUrl, router);
       } catch (err: unknown) {
         setStatus('error');
         setErrorMessage(

@@ -68,7 +68,7 @@ export const ProgramsHero: React.FC<ProgramsHeroProps> = ({
             >
               <Sparkles className="w-3.5 h-3.5 text-[#DCE3FF]" />
               <span className="text-[11px] font-extrabold tracking-wider uppercase text-[#DCE3FF]">
-                Academic Catalogue • {totalCount} Specialized Tracks
+                ACADEMIC PROGRAMMES &amp; DISCIPLINES
               </span>
             </motion.div>
 
@@ -77,15 +77,7 @@ export const ProgramsHero: React.FC<ProgramsHeroProps> = ({
               variants={fadeUp}
               className="hero-headline text-white font-extrabold tracking-tight leading-[1.1]"
             >
-              Find the Program That{' '}
-              <span className="text-[#DCE3FF] relative inline-block">
-                Moves You Forward
-                <span
-                  className="absolute -bottom-1 left-0 w-full h-[3px] bg-gradient-to-r from-[#182A9A] to-[#DCE3FF] rounded-full"
-                  aria-hidden="true"
-                />
-              </span>
-              .
+              Explore Structured Degree Pathways and Professional Programmes
             </motion.h1>
 
             {/* Supporting Copy */}
@@ -93,7 +85,7 @@ export const ProgramsHero: React.FC<ProgramsHeroProps> = ({
               variants={fadeUp}
               className="mt-3 sm:mt-3.5 text-base sm:text-lg text-[#CBD5E1] leading-relaxed max-w-xl font-normal"
             >
-              Explore bachelor&apos;s degrees, master&apos;s programs, doctorate pathways, and professional certifications across the CademyX catalogue.
+              Compare accredited university curricula, admission prerequisites, and qualification tracks across 15 subject disciplines, doctorate degrees, and technical certifications with personalized guidance.
             </motion.p>
 
             {/* Interactive Search Input Box in Hero */}

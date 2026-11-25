@@ -3,12 +3,47 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Mail, MapPin, Clock, ArrowRight, ShieldCheck } from 'lucide-react';
+import { Mail, MapPin, Clock, ShieldCheck } from 'lucide-react';
 import { Container } from '@/components/ui/Container';
 import { CONTACT_INFO } from '@/lib/constants';
+const FOOTER_PROGRAMS_LEFT = [
+  { title: 'Honorary Doctorate', href: '/programs/honorary-doctorate' },
+  { title: 'PhD Admission Program', href: '/programs/phd-admission-program' },
+  { title: 'DBA Program', href: '/programs/dba-program' },
+  { title: 'Management & Business', href: '/program-categories/management-business' },
+  { title: 'Computer Science & IT', href: '/program-categories/computer-science-it' },
+  { title: 'Artificial Intelligence', href: '/program-categories/artificial-intelligence' },
+  { title: 'Data Science & Analytics', href: '/program-categories/data-science-analytics' },
+  { title: 'Commerce & Finance', href: '/program-categories/commerce-finance' },
+  { title: 'Business Analytics', href: '/program-categories/business-analytics' },
+  { title: 'Economics', href: '/program-categories/economics' },
+  { title: 'Psychology', href: '/program-categories/psychology' },
+  { title: 'Digital Marketing', href: '/program-categories/digital-marketing' },
+];
+
+const FOOTER_PROGRAMS_RIGHT = [
+  { title: 'Cybersecurity', href: '/program-categories/cybersecurity' },
+  { title: 'Engineering & Technology', href: '/program-categories/engineering-technology' },
+  { title: 'Law', href: '/program-categories/law' },
+  { title: 'Media & Communication', href: '/program-categories/media-communication' },
+  { title: 'Design & Creative Technology', href: '/program-categories/design-creative-technology' },
+  { title: 'Hospitality & Tourism', href: '/program-categories/hospitality-tourism' },
+  { title: 'Full Stack Development', href: '/programs/full-stack-development' },
+  { title: 'Cloud Computing & DevOps', href: '/programs/cloud-computing-devops' },
+  { title: 'Cyber Security Certification', href: '/programs/cyber-security-certification' },
+  { title: 'Data Science Certification', href: '/programs/data-science-certification' },
+];
+
+const emptySubscribe = () => () => {};
+const getYearSnapshot = () => new Date().getFullYear();
+const getServerSnapshot = () => 2026;
 
 export const SiteFooter: React.FC = () => {
-  const currentYear = 2026;
+  const currentYear = React.useSyncExternalStore(
+    emptySubscribe,
+    getYearSnapshot,
+    getServerSnapshot
+  );
 
   return (
     <footer className="relative bg-[#101F70] text-white border-t border-[#DCE3FF]/20 mt-auto overflow-hidden">
@@ -26,10 +61,12 @@ export const SiteFooter: React.FC = () => {
       />
 
       <Container size="default" className="relative z-10">
-        {/* Main 5-Column Responsive Grid */}
-        <div className="py-12 sm:py-16 lg:py-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-8">
-          {/* Section 1: Brand Column (4 cols on lg) */}
-          <div className="sm:col-span-2 lg:col-span-4 flex flex-col space-y-4">
+        {/* Main Grid: Brand, Explore, Programs, Support + Contact */}
+        <div className="pt-10 sm:pt-12 lg:pt-14 pb-6 sm:pb-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-8">
+          {/* ========================================================= */}
+          {/* Column 1 — Brand (lg:col-span-4)                          */}
+          {/* ========================================================= */}
+          <div className="md:col-span-2 lg:col-span-4 flex flex-col space-y-4">
             <Link
               href="/"
               className="inline-block focus-visible:outline-2 focus-visible:outline-[#DCE3FF] rounded-lg transition-transform hover:opacity-95 w-fit"
@@ -45,8 +82,8 @@ export const SiteFooter: React.FC = () => {
               />
             </Link>
 
-            <p className="text-xs sm:text-sm text-[#DCE3FF]/90 leading-relaxed max-w-sm font-normal">
-              CademyX is an academic guidance and advisory platform helping students and candidates understand academic programmes, evaluate options, and make informed educational decisions.
+            <p className="text-xs sm:text-sm text-[#DCE3FF]/90 leading-relaxed font-normal max-w-sm">
+              CademyX is an academic guidance and advisory platform helping students and prospective candidates understand academic programmes, evaluate options, and make informed educational decisions.
             </p>
 
             <div className="flex items-center gap-2 text-xs text-[#DCE3FF]/80 pt-1">
@@ -60,6 +97,7 @@ export const SiteFooter: React.FC = () => {
                 Official Channels
               </span>
               <div className="flex items-center gap-2.5">
+                {/* Facebook */}
                 <a
                   href="https://facebook.com"
                   target="_blank"
@@ -73,6 +111,7 @@ export const SiteFooter: React.FC = () => {
                   </svg>
                 </a>
 
+                {/* Instagram */}
                 <a
                   href="https://instagram.com"
                   target="_blank"
@@ -86,6 +125,7 @@ export const SiteFooter: React.FC = () => {
                   </svg>
                 </a>
 
+                {/* LinkedIn */}
                 <a
                   href="https://linkedin.com"
                   target="_blank"
@@ -99,6 +139,7 @@ export const SiteFooter: React.FC = () => {
                   </svg>
                 </a>
 
+                {/* X / Twitter */}
                 <a
                   href="https://x.com"
                   target="_blank"
@@ -115,7 +156,9 @@ export const SiteFooter: React.FC = () => {
             </div>
           </div>
 
-          {/* Section 2: Explore Column (2 cols on lg) */}
+          {/* ========================================================= */}
+          {/* Column 2 — Explore (lg:col-span-2)                        */}
+          {/* ========================================================= */}
           <div className="lg:col-span-2">
             <h3 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#DCE3FF] mb-3 sm:mb-4">
               Explore
@@ -124,7 +167,7 @@ export const SiteFooter: React.FC = () => {
               <li>
                 <Link
                   href="/"
-                  className="text-[#DCE3FF]/80 hover:text-white transition-colors inline-block py-1 sm:py-0"
+                  className="text-[#DCE3FF]/80 hover:text-white transition-colors inline-block py-0.5"
                 >
                   Home
                 </Link>
@@ -132,205 +175,153 @@ export const SiteFooter: React.FC = () => {
               <li>
                 <Link
                   href="/about"
-                  className="text-[#DCE3FF]/80 hover:text-white transition-colors inline-block py-1 sm:py-0"
+                  className="text-[#DCE3FF]/80 hover:text-white transition-colors inline-block py-0.5"
                 >
                   About
                 </Link>
               </li>
               <li>
                 <Link
+                  href="/blog"
+                  className="text-[#DCE3FF]/80 hover:text-white transition-colors inline-block py-0.5"
+                >
+                  Blog
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/programs"
-                  className="text-[#DCE3FF]/80 hover:text-white transition-colors inline-block py-1 sm:py-0"
+                  className="text-[#DCE3FF]/80 hover:text-white transition-colors inline-block py-0.5"
                 >
                   Programs
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/blog"
-                  className="text-[#DCE3FF]/80 hover:text-white transition-colors inline-block py-1 sm:py-0"
+                  href="/contact"
+                  className="text-[#DCE3FF]/80 hover:text-white transition-colors inline-block py-0.5"
                 >
-                  Blog
+                  Contact
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Section 3: Academic Programmes (3 cols on lg) */}
+          {/* ========================================================= */}
+          {/* Column 3 — Programs (lg:col-span-3)                       */}
+          {/* Divided into two equal-width sub-columns (50%–50%)        */}
+          {/* ========================================================= */}
           <div className="lg:col-span-3">
             <h3 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#DCE3FF] mb-3 sm:mb-4">
-              Academic Programmes
+              Programs
             </h3>
 
-            {/* Subject Categories */}
-            <div className="space-y-1.5 text-xs sm:text-sm mb-3">
-              <span className="text-[10px] font-bold uppercase tracking-wider text-[#DCE3FF]/60 block mb-1">
-                Subject Disciplines
-              </span>
-              <div>
-                <Link
-                  href="/program-categories/management-business"
-                  className="text-[#DCE3FF]/80 hover:text-white transition-colors inline-block py-0.5"
-                >
-                  Management &amp; Business
-                </Link>
-              </div>
-              <div>
-                <Link
-                  href="/program-categories/computer-science-it"
-                  className="text-[#DCE3FF]/80 hover:text-white transition-colors inline-block py-0.5"
-                >
-                  Computer Science &amp; IT
-                </Link>
-              </div>
-              <div>
-                <Link
-                  href="/program-categories/artificial-intelligence"
-                  className="text-[#DCE3FF]/80 hover:text-white transition-colors inline-block py-0.5"
-                >
-                  Artificial Intelligence
-                </Link>
-              </div>
-              <div>
-                <Link
-                  href="/programs"
-                  className="text-[#DCE3FF] hover:underline transition-colors inline-flex items-center gap-1 font-semibold text-xs pt-0.5"
-                >
-                  <span>View All 15 Disciplines</span>
-                  <ArrowRight className="w-3 h-3" />
-                </Link>
-              </div>
-            </div>
-
-            {/* Doctorate Tracks */}
-            <div className="pt-2.5 border-t border-[#DCE3FF]/20 mb-3">
-              <span className="text-[10px] font-bold uppercase tracking-wider text-[#DCE3FF]/60 block mb-1">
-                Doctorate Pathways
-              </span>
-              <ul className="space-y-1 text-xs">
-                <li>
-                  <Link
-                    href="/programs/honorary-doctorate"
-                    className="text-[#DCE3FF]/80 hover:text-white transition-colors inline-block py-0.5"
-                  >
-                    Honorary Doctorate
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/programs/phd-admission-program"
-                    className="text-[#DCE3FF]/80 hover:text-white transition-colors inline-block py-0.5"
-                  >
-                    PhD Admission Program
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/programs/dba-program"
-                    className="text-[#DCE3FF]/80 hover:text-white transition-colors inline-block py-0.5"
-                  >
-                    DBA Program
-                  </Link>
-                </li>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 sm:gap-x-5 gap-y-1.5 sm:gap-y-0">
+              {/* Left Sub-Column (50%) — 12 Items */}
+              <ul className="space-y-1.5 text-xs">
+                {FOOTER_PROGRAMS_LEFT.map((program) => (
+                  <li key={program.href}>
+                    <Link
+                      href={program.href}
+                      className="text-[#DCE3FF]/80 hover:text-white transition-colors inline-block py-0.5 leading-snug"
+                    >
+                      {program.title}
+                    </Link>
+                  </li>
+                ))}
               </ul>
-            </div>
 
-            {/* Certifications */}
-            <div className="pt-2.5 border-t border-[#DCE3FF]/20">
-              <span className="text-[10px] font-bold uppercase tracking-wider text-[#DCE3FF]/60 block mb-1">
-                Certifications
-              </span>
-              <ul className="space-y-1 text-xs">
-                <li>
-                  <Link
-                    href="/programs/full-stack-development"
-                    className="text-[#DCE3FF]/80 hover:text-white transition-colors inline-block py-0.5"
-                  >
-                    Full Stack Development
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/programs/cloud-computing-devops"
-                    className="text-[#DCE3FF]/80 hover:text-white transition-colors inline-block py-0.5"
-                  >
-                    Cloud Computing &amp; DevOps
-                  </Link>
-                </li>
+              {/* Right Sub-Column (50%) — 10 Items */}
+              <ul className="space-y-1.5 text-xs">
+                {FOOTER_PROGRAMS_RIGHT.map((program) => (
+                  <li key={program.href}>
+                    <Link
+                      href={program.href}
+                      className="text-[#DCE3FF]/80 hover:text-white transition-colors inline-block py-0.5 leading-snug"
+                    >
+                      {program.title}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
 
-          {/* Section 4: Support & Information + Contact Info (3 cols on lg) */}
-          <div className="sm:col-span-2 lg:col-span-3 space-y-6">
-            {/* Support & Information Links */}
+          {/* ========================================================= */}
+          {/* Column 4 & 5 — Support & Contact (lg:col-span-3)          */}
+          {/* Contact moved immediately below Support                   */}
+          {/* ========================================================= */}
+          <div className="lg:col-span-3 space-y-7">
+            {/* Support */}
             <div>
               <h3 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#DCE3FF] mb-3 sm:mb-4">
-                Support &amp; Information
+                Support
               </h3>
-              <ul className="space-y-2 text-xs sm:text-sm text-[#DCE3FF]/80">
-                <li>
-                  <Link href="/contact" className="hover:text-white transition-colors inline-block py-0.5">
-                    Contact
-                  </Link>
-                </li>
+              <ul className="space-y-2 sm:space-y-2.5 text-xs sm:text-sm">
                 <li>
                   <Link
-                    href="/schedule-a-consultation"
-                    className="hover:text-white transition-colors inline-block py-0.5"
+                    href="/privacy-policy"
+                    className="text-[#DCE3FF]/80 hover:text-white transition-colors inline-block py-0.5"
                   >
-                    Schedule a Consultation
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/privacy-policy" className="hover:text-white transition-colors inline-block py-0.5">
                     Privacy Policy
                   </Link>
                 </li>
                 <li>
                   <Link
+                    href="/cookie-policy"
+                    className="text-[#DCE3FF]/80 hover:text-white transition-colors inline-block py-0.5"
+                  >
+                    Cookie Policy
+                  </Link>
+                </li>
+                <li>
+                  <Link
                     href="/terms-and-conditions"
-                    className="hover:text-white transition-colors inline-block py-0.5"
+                    className="text-[#DCE3FF]/80 hover:text-white transition-colors inline-block py-0.5"
                   >
                     Terms &amp; Conditions
                   </Link>
                 </li>
                 <li>
-                  <Link href="/cookie-policy" className="hover:text-white transition-colors inline-block py-0.5">
-                    Cookie Policy
+                  <Link
+                    href="/cookie-preferences"
+                    className="text-[#DCE3FF]/80 hover:text-white transition-colors inline-block py-0.5"
+                  >
+                    Cookie Preferences
                   </Link>
                 </li>
               </ul>
             </div>
 
-            {/* Contact Information Details */}
-            <div className="pt-4 border-t border-[#DCE3FF]/20">
-              <h4 className="text-xs font-bold uppercase tracking-wider text-[#DCE3FF] mb-3">
-                Advisory Contact
-              </h4>
-              <ul className="space-y-2.5 text-xs text-[#DCE3FF]/85">
-                <li className="flex items-start gap-2.5">
-                  <MapPin className="h-4 w-4 text-[#DCE3FF] shrink-0 mt-0.5" aria-hidden="true" />
-                  <span className="leading-snug break-words">{CONTACT_INFO.address}</span>
-                </li>
+            {/* Contact (Immediately below Support) */}
+            <div className="pt-6 border-t border-[#DCE3FF]/20">
+              <h3 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#DCE3FF] mb-3 sm:mb-4">
+                Contact
+              </h3>
+              <ul className="space-y-3 text-xs sm:text-sm text-[#DCE3FF]/85">
+                {/* Verified Email Options */}
                 <li className="flex items-start gap-2.5">
                   <Mail className="h-4 w-4 text-[#DCE3FF] shrink-0 mt-0.5" aria-hidden="true" />
-                  <div className="flex flex-col gap-0.5 min-w-0">
+                  <div className="flex flex-col gap-1 min-w-0">
                     <a
                       href={`mailto:${CONTACT_INFO.primaryEmail}`}
-                      className="hover:text-white transition-colors truncate underline-offset-4 hover:underline"
+                      className="hover:text-white transition-colors truncate underline-offset-4 hover:underline font-medium"
                     >
                       {CONTACT_INFO.primaryEmail}
                     </a>
-                    <a
-                      href={`mailto:${CONTACT_INFO.secondaryEmail}`}
-                      className="hover:text-white transition-colors truncate underline-offset-4 hover:underline text-[#DCE3FF]/70"
-                    >
-                      {CONTACT_INFO.secondaryEmail}
-                    </a>
                   </div>
                 </li>
-                <li className="flex items-start gap-2.5 text-[11px] text-[#DCE3FF]/60">
+
+                {/* Business Address */}
+                <li className="flex items-start gap-2.5">
+                  <MapPin className="h-4 w-4 text-[#DCE3FF] shrink-0 mt-0.5" aria-hidden="true" />
+                  <span className="leading-relaxed text-xs text-[#DCE3FF]/80">
+                    {CONTACT_INFO.address}
+                  </span>
+                </li>
+
+                {/* Business Hours */}
+                <li className="flex items-start gap-2.5 text-[11px] text-[#DCE3FF]/60 pt-0.5">
                   <Clock className="h-3.5 w-3.5 text-[#DCE3FF] shrink-0 mt-0.5" aria-hidden="true" />
                   <span>{CONTACT_INFO.businessHours}</span>
                 </li>
@@ -339,32 +330,28 @@ export const SiteFooter: React.FC = () => {
           </div>
         </div>
 
-        {/* Bottom Bar: Copyright & Legal */}
-        <div className="py-6 sm:py-7 border-t border-[#DCE3FF]/20 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#DCE3FF]/70 text-center sm:text-left">
-          <p suppressHydrationWarning>© {currentYear} CademyX. All rights reserved.</p>
+        {/* ========================================================= */}
+        {/* Footer Watermark: Complete "CADEMYX" centered & scaled    */}
+        {/* ========================================================= */}
+        <div
+          className="relative w-full overflow-hidden flex items-center justify-center select-none pointer-events-none py-1 sm:py-2 my-0"
+          aria-hidden="true"
+        >
+          <span
+            style={{ fontSize: 'clamp(2.75rem, 8.2vw, 6.75rem)' }}
+            className="font-black uppercase tracking-[0.14em] sm:tracking-[0.18em] text-white/[0.04] leading-none whitespace-nowrap text-center font-sans max-w-full"
+          >
+            CADEMYX
+          </span>
+        </div>
 
-          <div className="flex flex-wrap items-center justify-center sm:justify-end gap-3.5 sm:gap-6">
-            <Link href="/privacy-policy" className="hover:text-white transition-colors py-1 sm:py-0">
-              Privacy Policy
-            </Link>
-            <Link href="/terms-and-conditions" className="hover:text-white transition-colors py-1 sm:py-0">
-              Terms &amp; Conditions
-            </Link>
-            <Link href="/cookie-policy" className="hover:text-white transition-colors py-1 sm:py-0">
-              Cookie Policy
-            </Link>
-            <button
-              type="button"
-              onClick={() => {
-                if (typeof window !== 'undefined') {
-                  window.dispatchEvent(new CustomEvent('cademyx:open-cookie-preferences'));
-                }
-              }}
-              className="hover:text-white transition-colors cursor-pointer py-1 sm:py-0"
-            >
-              Cookie Preferences
-            </button>
-          </div>
+        {/* ========================================================= */}
+        {/* Copyright Section (Below Watermark)                       */}
+        {/* ========================================================= */}
+        <div className="py-5 sm:py-6 border-t border-[#DCE3FF]/15 text-center">
+          <p className="text-xs text-[#DCE3FF]/70" suppressHydrationWarning>
+            © {currentYear} CademyX. All rights reserved.
+          </p>
         </div>
       </Container>
     </footer>

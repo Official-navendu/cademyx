@@ -66,36 +66,90 @@ export const ProgramsMegaMenu: React.FC<ProgramsMegaMenuProps> = ({ isOpen, onCl
           <div className="h-1 w-full bg-gradient-to-r from-[#182A9A] via-[#101F70] to-[#182A9A]" />
 
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            {/* ========================================================= */}
+            {/* FIRST: Doctorate Programs (Visually Prominent Highlight) */}
+            {/* ========================================================= */}
+            <div className="mb-6 p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-[#F3F5FF] via-white to-[#F3F5FF] border border-[#182A9A]/25 shadow-xs relative overflow-hidden">
+              <div className="absolute top-0 left-0 bottom-0 w-1.5 bg-[#182A9A]" />
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 mb-3.5 pl-2">
+                <div className="flex items-center gap-2.5">
+                  <div className="p-1.5 rounded-lg bg-[#182A9A] text-white shadow-2xs">
+                    <GraduationCap className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <div className="flex items-center gap-2">
+                      <h3 className="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-[#101F70]">
+                        Doctorate Programs
+                      </h3>
+                      <span className="px-2 py-0.5 rounded-full bg-[#182A9A] text-white text-[9px] font-extrabold uppercase tracking-wider shadow-2xs">
+                        Featured &amp; Prestigious
+                      </span>
+                    </div>
+                    <p className="text-[11px] text-[#6573A8]">
+                      Distinguished terminal doctorates, honorary recognitions, and executive research tracks
+                    </p>
+                  </div>
+                </div>
+                <span className="text-[11px] font-bold text-[#182A9A] bg-white px-2.5 py-1 rounded-full border border-[#DCE3FF] hidden sm:inline-block">
+                  3 Terminal Tracks
+                </span>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pl-2">
+                {DOCTORATE_TRACKS_META.map((track) => (
+                  <Link
+                    key={track.slug}
+                    href={`/programs/${track.slug}`}
+                    onClick={onClose}
+                    className="group flex items-center justify-between p-3 rounded-xl bg-white border border-[#DCE3FF] hover:border-[#182A9A] hover:shadow-md transition-all duration-200"
+                  >
+                    <div className="min-w-0 pr-2">
+                      <span className="text-xs font-bold text-[#101F70] group-hover:text-[#182A9A] transition-colors block truncate">
+                        {track.title}
+                      </span>
+                      <span className="text-[10px] text-[#6573A8]">View Doctoral Track</span>
+                    </div>
+                    <span className="text-[9px] font-bold px-2 py-0.5 rounded-full bg-[#182A9A] text-white uppercase tracking-wider shrink-0 shadow-2xs">
+                      {track.badge}
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            {/* ========================================================= */}
+            {/* SECOND & THIRD: Subject-Based Programs & Certifications   */}
+            {/* ========================================================= */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
               
-              {/* Group A: 15 Subject-Based Programme Categories (8 of 12 columns) */}
+              {/* SECOND: 15 Subject-Based Programme Categories (8 of 12 columns) */}
               <div className="lg:col-span-8">
-                <div className="flex items-center justify-between pb-4 mb-5 border-b border-[#DCE3FF]/60">
+                <div className="flex items-center justify-between pb-3 mb-4 border-b border-[#DCE3FF]/60">
                   <div className="flex items-center gap-2">
                     <div className="p-1.5 rounded-lg bg-[#F3F5FF] text-[#182A9A]">
                       <BookOpen className="w-4 h-4" />
                     </div>
                     <div>
-                      <h3 className="text-sm font-extrabold uppercase tracking-wider text-[#101F70]">
-                        Subject-Based Categories
-                      </h3>
-                      <p className="text-xs text-[#6573A8]">
-                        15 academic disciplines spanning undergraduate &amp; postgraduate degrees
+                      <h4 className="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-[#101F70]">
+                        Subject-Based Programs
+                      </h4>
+                      <p className="text-[11px] text-[#6573A8]">
+                        15 academic disciplines spanning comprehensive degree pathways
                       </p>
                     </div>
                   </div>
                   <Link
-                    href="/programs#disciplines"
+                    href="/programs"
                     onClick={onClose}
                     className="text-xs font-bold text-[#182A9A] hover:text-[#101F70] inline-flex items-center gap-1 transition-colors"
                   >
-                    <span>View All 15</span>
+                    <span>View All 15 Disciplines</span>
                     <ChevronRight className="w-3.5 h-3.5" />
                   </Link>
                 </div>
 
                 {/* 15 Categories Grid (3 columns x 5 rows) */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2.5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2">
                   {SUBJECT_CATEGORIES.map((cat) => (
                     <Link
                       key={cat.slug}
@@ -110,55 +164,20 @@ export const ProgramsMegaMenu: React.FC<ProgramsMegaMenuProps> = ({ isOpen, onCl
                         <ChevronRight className="w-3.5 h-3.5 text-[#6573A8] opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all shrink-0" />
                       </div>
                       <span className="text-[11px] text-[#6573A8] line-clamp-1 mt-0.5">
-                        {cat.popularCourses.map((c) => c.title).slice(0, 3).join(' • ')}
+                        {cat.popularCourses.map((c) => c.title).slice(0, 2).join(' • ')}
                       </span>
                     </Link>
                   ))}
                 </div>
               </div>
 
-              {/* Sidebar: Group B (Doctorate) & Group C (Certifications) (4 of 12 columns) */}
-              <div className="lg:col-span-4 flex flex-col justify-between rounded-2xl bg-[#F3F5FF]/80 p-6 border border-[#DCE3FF]">
-                
-                {/* Group B: Doctorate — 3 Tracks */}
-                <div>
-                  <div className="flex items-center justify-between pb-3 mb-3 border-b border-[#DCE3FF]/60">
-                    <div className="flex items-center gap-2">
-                      <GraduationCap className="w-4 h-4 text-[#182A9A]" />
-                      <h4 className="text-xs font-extrabold uppercase tracking-wider text-[#101F70]">
-                        Doctorate
-                      </h4>
-                    </div>
-                    <span className="px-2 py-0.5 rounded-full bg-[#182A9A]/10 text-[#182A9A] text-[10px] font-extrabold uppercase tracking-wider">
-                      3 Tracks
-                    </span>
-                  </div>
-
-                  <div className="space-y-1.5 mb-6">
-                    {DOCTORATE_TRACKS_META.map((track) => (
-                      <Link
-                        key={track.slug}
-                        href={`/programs/${track.slug}`}
-                        onClick={onClose}
-                        className="group flex items-center justify-between p-2 rounded-xl hover:bg-white hover:shadow-sm border border-transparent hover:border-[#DCE3FF] transition-all"
-                      >
-                        <span className="text-xs font-bold text-[#101F70] group-hover:text-[#182A9A] transition-colors">
-                          {track.title}
-                        </span>
-                        <span className="text-[9px] font-bold px-2 py-0.5 rounded-full bg-[#182A9A] text-white uppercase tracking-wider">
-                          {track.badge}
-                        </span>
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Group C: Certifications — 4 Tracks */}
+              {/* THIRD: Certifications (4 of 12 columns) */}
+              <div className="lg:col-span-4 flex flex-col justify-between rounded-2xl bg-[#F3F5FF]/80 p-5 border border-[#DCE3FF]">
                 <div>
                   <div className="flex items-center justify-between pb-3 mb-3 border-b border-[#DCE3FF]/60">
                     <div className="flex items-center gap-2">
                       <Award className="w-4 h-4 text-[#182A9A]" />
-                      <h4 className="text-xs font-extrabold uppercase tracking-wider text-[#101F70]">
+                      <h4 className="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-[#101F70]">
                         Certifications
                       </h4>
                     </div>
@@ -167,18 +186,18 @@ export const ProgramsMegaMenu: React.FC<ProgramsMegaMenuProps> = ({ isOpen, onCl
                     </span>
                   </div>
 
-                  <div className="space-y-1.5">
+                  <div className="space-y-2">
                     {CERTIFICATION_TRACKS_META.map((track) => (
                       <Link
                         key={track.slug}
                         href={`/programs/${track.slug}`}
                         onClick={onClose}
-                        className="group flex items-center justify-between p-2 rounded-xl hover:bg-white hover:shadow-sm border border-transparent hover:border-[#DCE3FF] transition-all"
+                        className="group flex items-center justify-between p-2.5 rounded-xl bg-white hover:bg-[#F3F5FF] border border-[#DCE3FF] hover:border-[#182A9A] transition-all"
                       >
-                        <span className="text-xs font-bold text-[#101F70] group-hover:text-[#182A9A] transition-colors">
+                        <span className="text-xs font-bold text-[#101F70] group-hover:text-[#182A9A] transition-colors truncate pr-1">
                           {track.title}
                         </span>
-                        <span className="text-[9px] font-bold px-2 py-0.5 rounded-full bg-[#101F70] text-white uppercase tracking-wider">
+                        <span className="text-[9px] font-bold px-2 py-0.5 rounded-full bg-[#101F70] text-white uppercase tracking-wider shrink-0">
                           {track.badge}
                         </span>
                       </Link>
@@ -186,6 +205,16 @@ export const ProgramsMegaMenu: React.FC<ProgramsMegaMenuProps> = ({ isOpen, onCl
                   </div>
                 </div>
 
+                <div className="mt-5 pt-3.5 border-t border-[#DCE3FF]/60 text-center">
+                  <Link
+                    href="/programs#certifications"
+                    onClick={onClose}
+                    className="text-xs font-bold text-[#182A9A] hover:text-[#101F70] inline-flex items-center gap-1 transition-colors"
+                  >
+                    <span>Explore Certification Syllabi</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+                </div>
               </div>
             </div>
 

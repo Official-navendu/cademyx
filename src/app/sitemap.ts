@@ -63,6 +63,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'yearly',
       priority: 0.5,
     },
+    {
+      url: `${baseUrl}/cookie-preferences`,
+      lastModified: now,
+      changeFrequency: 'yearly',
+      priority: 0.5,
+    },
   ];
 
   // Program category taxonomy routes (all 15 approved subject disciplines)

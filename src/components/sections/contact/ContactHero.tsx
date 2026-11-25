@@ -57,15 +57,7 @@ export const ContactHero: React.FC = () => {
               variants={fadeUp}
               className="hero-headline text-white font-extrabold tracking-tight leading-[1.1]"
             >
-              Let&apos;s Talk About Your{' '}
-              <span className="text-[#DCE3FF] relative inline-block">
-                Next Academic Step
-                <span
-                  className="absolute -bottom-1 left-0 w-full h-[3px] bg-gradient-to-r from-[#182A9A] via-[#DCE3FF] to-[#182A9A] rounded-full"
-                  aria-hidden="true"
-                />
-              </span>
-              .
+              {contactPageData.hero.heading}
             </motion.h1>
 
             {/* Short Supporting Copy */}

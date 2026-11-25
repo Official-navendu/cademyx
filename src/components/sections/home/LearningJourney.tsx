@@ -32,36 +32,36 @@ export const LearningJourney: React.FC = () => {
             initial="hidden"
             whileInView="visible"
             viewport={defaultViewport}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10"
+            className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 relative z-10"
           >
             {learningJourneySteps.map((step) => (
               <motion.div key={step.step} variants={staggerItem} className="h-full">
-                <div className="group relative flex flex-col h-full p-7 rounded-2xl bg-white border border-[#DCE3FF] shadow-sm hover:border-[#182A9A] transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 overflow-hidden">
+                <div className="group relative flex flex-col h-full p-3.5 sm:p-6 lg:p-7 rounded-xl sm:rounded-2xl bg-white border border-[#DCE3FF] shadow-sm hover:border-[#182A9A] transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 overflow-hidden">
                   {/* Top Blue Line on Hover */}
                   <div className="absolute top-0 left-0 right-0 h-[2.5px] bg-gradient-to-r from-transparent via-[#182A9A] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
                   {/* Step Number Badge */}
-                  <div className="flex items-center justify-between mb-6">
-                    <span className="h-13 w-13 rounded-2xl bg-gradient-to-br from-[#101F70] via-[#101F70] to-[#182A9A] text-white font-extrabold text-lg flex items-center justify-center border border-[#182A9A] shadow-xs group-hover:scale-105 group-hover:border-[#DCE3FF] transition-all duration-300">
+                  <div className="flex items-center justify-between mb-3 sm:mb-6">
+                    <span className="h-9 w-9 sm:h-12 sm:w-12 lg:h-13 lg:w-13 rounded-lg sm:rounded-2xl bg-gradient-to-br from-[#101F70] via-[#101F70] to-[#182A9A] text-white font-extrabold text-sm sm:text-base lg:text-lg flex items-center justify-center border border-[#182A9A] shadow-xs group-hover:scale-105 group-hover:border-[#DCE3FF] transition-all duration-300">
                       0{step.step}
                     </span>
                     {step.actionText && (
-                      <span className="text-xs font-bold uppercase tracking-wider text-[#182A9A] bg-[#F3F5FF] px-3 py-1 rounded-full border border-[#DCE3FF] shadow-2xs">
+                      <span className="text-[9px] sm:text-xs font-bold uppercase tracking-wider text-[#182A9A] bg-[#F3F5FF] px-2 py-0.5 sm:px-3 sm:py-1 rounded-full border border-[#DCE3FF] shadow-2xs truncate">
                         {step.actionText}
                       </span>
                     )}
                   </div>
 
-                  <h3 className="card-headline font-bold text-[#101F70] mb-2 leading-snug">
+                  <h3 className="text-xs sm:text-base lg:text-lg font-bold text-[#101F70] mb-1 sm:mb-2 leading-snug">
                     {step.title}
                   </h3>
 
-                  <p className="mt-2 text-sm text-[#26345C] leading-relaxed flex-1 font-normal">
+                  <p className="mt-1 sm:mt-2 text-[11px] sm:text-xs lg:text-sm text-[#26345C] leading-relaxed flex-1 font-normal">
                     {step.description}
                   </p>
 
                   {/* Progress Indicator */}
-                  <div className="mt-6 pt-4 border-t border-[#DCE3FF]/40 flex items-center justify-between text-xs font-bold text-[#182A9A]">
+                  <div className="mt-3 sm:mt-6 pt-2 sm:pt-4 border-t border-[#DCE3FF]/40 flex items-center justify-between text-[10px] sm:text-xs font-bold text-[#182A9A]">
                     <span>Phase {step.step} of 4</span>
                     <span className="h-1.5 w-1.5 rounded-full bg-[#182A9A]" />
                   </div>

@@ -320,7 +320,7 @@ export const SUBJECT_CATEGORIES: CategoryDetailData[] = [
   {
     "name": "Business Analytics",
     "slug": "business-analytics",
-    "image": "/assets/images/hero/programs/executive-mba-business-analytics-genai.jpg",
+    "image": "/assets/images/programs/program-business-analytics.jpg",
     "tagline": "Commercial Intelligence, Data-Driven Strategy & Enterprise Decision Science",
     "overview": "Business Analytics blends core business management with analytical decision science. CademyX advises students on specialized BBA and MBA in Business Analytics tracks, focusing on SQL, Power BI, Python for business metrics, forecasting, and data-informed corporate strategy.",
     "description": "Commercial metrics, descriptive & predictive analytics, executive dashboards, and decision science.",
@@ -476,7 +476,7 @@ export const SUBJECT_CATEGORIES: CategoryDetailData[] = [
   {
     "name": "Digital Marketing",
     "slug": "digital-marketing",
-    "image": "/assets/images/hero/programs/mba-ai-automation.jpg",
+    "image": "/assets/images/programs/program-digital-marketing.jpg",
     "tagline": "Omnichannel Growth, Performance Marketing, Brand Architecture & MarTech Stacks",
     "overview": "Digital Marketing has evolved from creative advertising into an empirical, data-driven revenue engine. CademyX provides specialized academic advisory for accredited BBA and MBA tracks in Digital Marketing, integrating SEO, paid media analytics, attribution modeling, and automated marketing stacks.",
     "description": "Performance advertising, marketing attribution, conversion rate optimization, and brand equity.",

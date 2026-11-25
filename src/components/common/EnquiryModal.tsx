@@ -196,11 +196,15 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({
       }
 
       setIsSubmitting(false);
+      const originatingUrl =
+        typeof window !== 'undefined'
+          ? window.location.pathname + window.location.search
+          : '/';
+      navigateToThankYou(originatingUrl, router);
       onClose();
       if (onSuccess) {
         onSuccess();
       }
-      navigateToThankYou(undefined, router);
     } catch (err: unknown) {
       setIsSubmitting(false);
       setSubmitError(
@@ -260,7 +264,7 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({
       {/* Modal Dialog Card */}
       <div
         ref={modalRef}
-        className="relative w-full max-w-xl max-h-[92dvh] sm:max-h-[88vh] flex flex-col bg-white rounded-2xl sm:rounded-3xl shadow-2xl border border-[#DCE3FF] overflow-hidden z-10 my-auto animate-in fade-in zoom-in-95 duration-200"
+        className="relative w-full max-w-xl max-h-[96dvh] sm:max-h-[88vh] flex flex-col bg-white rounded-2xl sm:rounded-3xl shadow-2xl border border-[#DCE3FF] overflow-hidden z-10 my-auto animate-in fade-in zoom-in-95 duration-200 mx-3 sm:mx-auto"
       >
         {/* Top Blue Accent Bar */}
         <div className="h-1.5 w-full bg-gradient-to-r from-[#101F70] via-[#182A9A] to-[#101F70] shrink-0" />
@@ -269,39 +273,38 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({
         <button
           onClick={onClose}
           aria-label="Close modal"
-          className="absolute top-4 right-4 sm:top-5 sm:right-5 w-10 h-10 rounded-full bg-[#F3F5FF] hover:bg-[#DCE3FF] text-[#101F70] flex items-center justify-center transition-colors z-20 cursor-pointer shadow-2xs"
+          className="absolute top-2.5 right-2.5 sm:top-5 sm:right-5 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[#F3F5FF] hover:bg-[#DCE3FF] text-[#101F70] flex items-center justify-center transition-colors z-20 cursor-pointer shadow-2xs"
         >
-          <X className="w-5 h-5" />
+          <X className="w-4 h-4 sm:w-5 sm:h-5" />
         </button>
 
-        <div className="p-5 sm:p-7 md:p-8 overflow-y-auto overscroll-contain pb-[max(1.25rem,env(safe-area-inset-bottom))]">
+        <div className="p-3.5 sm:p-7 md:p-8 overflow-y-auto overscroll-contain pb-[max(0.75rem,env(safe-area-inset-bottom))]">
           {/* Header */}
-          <div className="flex items-center gap-3 mb-2 pr-10">
-            <div className="w-10 h-10 rounded-xl bg-[#101F70] text-[#DCE3FF] flex items-center justify-center shrink-0 shadow-sm">
-              <GraduationCap className="w-5 h-5" />
+          <div className="flex items-center gap-2.5 sm:gap-3 mb-1.5 sm:mb-2 pr-9 sm:pr-10">
+            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-[#101F70] text-[#DCE3FF] flex items-center justify-center shrink-0 shadow-sm">
+              <GraduationCap className="w-4 h-4 sm:w-5 sm:h-5" />
             </div>
             <div>
-              <span className="text-[11px] font-bold text-[#182A9A] uppercase tracking-wider block">
+              <span className="text-[10px] sm:text-[11px] font-bold text-[#182A9A] uppercase tracking-wider block leading-none">
                 {displayEyebrow}
               </span>
               <h2
                 id="enquiry-modal-title"
-                className="text-xl sm:text-2xl font-extrabold text-[#101F70] tracking-tight"
+                className="text-base sm:text-2xl font-extrabold text-[#101F70] tracking-tight leading-tight mt-0.5"
               >
                 {displayTitle}
               </h2>
             </div>
           </div>
 
-          <p className="text-xs sm:text-sm text-[#26345C] mb-6 leading-relaxed">
+          <p className="text-[11px] sm:text-sm text-[#26345C] mb-2.5 sm:mb-5 leading-snug line-clamp-2 sm:line-clamp-none">
             {displaySubtitle}
           </p>
-
 
           {submitError && (
             <div
               role="alert"
-              className="mb-5 p-3.5 rounded-xl bg-rose-50 border border-rose-200 flex items-start gap-3 text-rose-900 text-xs sm:text-sm"
+              className="mb-3 sm:mb-5 p-2.5 sm:p-3.5 rounded-xl bg-rose-50 border border-rose-200 flex items-start gap-2.5 text-rose-900 text-xs sm:text-sm"
             >
               <AlertCircle className="h-4 w-4 text-rose-600 shrink-0 mt-0.5" />
               <div>
@@ -313,14 +316,14 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({
 
           {isSubmitted ? (
             /* Success State */
-            <div className="py-8 text-center space-y-4">
-              <div className="w-16 h-16 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center mx-auto border border-emerald-200">
-                <CheckCircle2 className="w-9 h-9" />
+            <div className="py-6 sm:py-8 text-center space-y-3 sm:space-y-4">
+              <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center mx-auto border border-emerald-200">
+                <CheckCircle2 className="w-7 h-7 sm:w-9 sm:h-9" />
               </div>
-              <h3 className="text-xl font-extrabold text-[#101F70]">
+              <h3 className="text-lg sm:text-xl font-extrabold text-[#101F70]">
                 Consultation Request Received
               </h3>
-              <p className="text-sm text-[#26345C] max-w-md mx-auto leading-relaxed">
+              <p className="text-xs sm:text-sm text-[#26345C] max-w-md mx-auto leading-relaxed">
                 Thank you, <strong className="text-[#101F70]">{formData.fullName}</strong>. Your consultation request for{' '}
                 <strong className="text-[#101F70]">
                   {programs.find((p) => p.slug === formData.targetProgram)?.title ||
@@ -328,12 +331,12 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({
                 </strong>{' '}
                 has been recorded. A senior academic advisor will reach out within 1 business day.
               </p>
-              <div className="p-3.5 rounded-xl bg-[#F3F5FF] border border-[#DCE3FF] text-xs text-[#26345C] max-w-sm mx-auto">
+              <div className="p-2.5 sm:p-3.5 rounded-xl bg-[#F3F5FF] border border-[#DCE3FF] text-xs text-[#26345C] max-w-sm mx-auto">
                 Our educational advisory committee will reach out to you directly via{' '}
                 <strong className="text-[#101F70]">{formData.email}</strong> or{' '}
                 <strong className="text-[#101F70]">{formData.phone}</strong>.
               </div>
-              <div className="pt-3 flex flex-col sm:flex-row items-center justify-center gap-3">
+              <div className="pt-2 sm:pt-3 flex flex-col sm:flex-row items-center justify-center gap-2.5 sm:gap-3">
                 <Button
                   variant="primary"
                   size="md"
@@ -353,7 +356,7 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({
             </div>
           ) : (
             /* Form State */
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-2 sm:space-y-3.5">
               {/* Invisible spam-bot honeypot */}
               <input
                 type="text"
@@ -368,7 +371,7 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({
 
               {/* Full Name */}
               <div>
-                <label className="block text-xs font-bold text-[#101F70] uppercase tracking-wider mb-1">
+                <label className="block text-[10px] sm:text-xs font-bold text-[#101F70] uppercase tracking-wider mb-0.5 sm:mb-1">
                   Full Name <span className="text-rose-500">*</span>
                 </label>
                 <input
@@ -376,21 +379,21 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({
                   value={formData.fullName}
                   onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
                   placeholder="e.g. John Doe"
-                  className={`w-full px-3.5 py-2.5 rounded-xl border text-sm text-[#101F70] placeholder:text-[#6573A8] focus:outline-none focus:ring-2 transition-all ${
+                  className={`w-full px-3 py-1.5 sm:py-2.5 sm:px-3.5 rounded-lg sm:rounded-xl border text-xs sm:text-sm text-[#101F70] placeholder:text-[#6573A8] focus:outline-none focus:ring-2 transition-all ${
                     errors.fullName
                       ? 'border-rose-500 focus:ring-rose-200'
                       : 'border-[#DCE3FF] focus:border-[#182A9A] focus:ring-[#182A9A]/20'
                   }`}
                 />
                 {errors.fullName && (
-                  <p className="text-[11px] text-rose-600 mt-1">{errors.fullName}</p>
+                  <p className="text-[10px] text-rose-600 mt-0.5">{errors.fullName}</p>
                 )}
               </div>
 
-              {/* Email & Phone */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+              {/* Email & Phone in 2-Column Grid on Mobile and Desktop */}
+              <div className="grid grid-cols-2 gap-2 sm:gap-3.5">
                 <div>
-                  <label className="block text-xs font-bold text-[#101F70] uppercase tracking-wider mb-1">
+                  <label className="block text-[10px] sm:text-xs font-bold text-[#101F70] uppercase tracking-wider mb-0.5 sm:mb-1 truncate">
                     Email Address <span className="text-rose-500">*</span>
                   </label>
                   <input
@@ -398,42 +401,42 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     placeholder="name@example.com"
-                    className={`w-full px-3.5 py-2.5 rounded-xl border text-sm text-[#101F70] placeholder:text-[#6573A8] focus:outline-none focus:ring-2 transition-all ${
+                    className={`w-full px-2.5 sm:px-3.5 py-1.5 sm:py-2.5 rounded-lg sm:rounded-xl border text-xs sm:text-sm text-[#101F70] placeholder:text-[#6573A8] focus:outline-none focus:ring-2 transition-all ${
                       errors.email
                         ? 'border-rose-500 focus:ring-rose-200'
                         : 'border-[#DCE3FF] focus:border-[#182A9A] focus:ring-[#182A9A]/20'
                     }`}
                   />
                   {errors.email && (
-                    <p className="text-[11px] text-rose-600 mt-1">{errors.email}</p>
+                    <p className="text-[10px] text-rose-600 mt-0.5 truncate">{errors.email}</p>
                   )}
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-[#101F70] uppercase tracking-wider mb-1">
+                  <label className="block text-[10px] sm:text-xs font-bold text-[#101F70] uppercase tracking-wider mb-0.5 sm:mb-1 truncate">
                     Contact Number <span className="text-rose-500">*</span>
                   </label>
                   <input
                     type="tel"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    placeholder="Your contact number"
-                    className={`w-full px-3.5 py-2.5 rounded-xl border text-sm text-[#101F70] placeholder:text-[#6573A8] focus:outline-none focus:ring-2 transition-all ${
+                    placeholder="Your phone"
+                    className={`w-full px-2.5 sm:px-3.5 py-1.5 sm:py-2.5 rounded-lg sm:rounded-xl border text-xs sm:text-sm text-[#101F70] placeholder:text-[#6573A8] focus:outline-none focus:ring-2 transition-all ${
                       errors.phone
                         ? 'border-rose-500 focus:ring-rose-200'
                         : 'border-[#DCE3FF] focus:border-[#182A9A] focus:ring-[#182A9A]/20'
                     }`}
                   />
                   {errors.phone && (
-                    <p className="text-[11px] text-rose-600 mt-1">{errors.phone}</p>
+                    <p className="text-[10px] text-rose-600 mt-0.5 truncate">{errors.phone}</p>
                   )}
                 </div>
               </div>
 
-              {/* Academic Level & Program Track */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+              {/* Academic Level & Program Track in 2-Column Grid on Mobile and Desktop */}
+              <div className="grid grid-cols-2 gap-2 sm:gap-3.5">
                 <div>
-                  <label className="block text-xs font-bold text-[#101F70] uppercase tracking-wider mb-1">
+                  <label className="block text-[10px] sm:text-xs font-bold text-[#101F70] uppercase tracking-wider mb-0.5 sm:mb-1 truncate">
                     Academic Level
                   </label>
                   <select
@@ -446,7 +449,7 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({
                         targetProgram: 'general-advisory',
                       });
                     }}
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-[#DCE3FF] text-sm text-[#101F70] bg-white focus:outline-none focus:border-[#182A9A] focus:ring-2 focus:ring-[#182A9A]/20 transition-all cursor-pointer"
+                    className="w-full px-2.5 sm:px-3.5 py-1.5 sm:py-2.5 rounded-lg sm:rounded-xl border border-[#DCE3FF] text-xs sm:text-sm text-[#101F70] bg-white focus:outline-none focus:border-[#182A9A] focus:ring-2 focus:ring-[#182A9A]/20 transition-all cursor-pointer truncate"
                   >
                     {PROGRAM_CATEGORIES.map((cat) => (
                       <option key={cat} value={cat}>
@@ -457,15 +460,15 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-[#101F70] uppercase tracking-wider mb-1">
-                    Specific Program Track
+                  <label className="block text-[10px] sm:text-xs font-bold text-[#101F70] uppercase tracking-wider mb-0.5 sm:mb-1 truncate">
+                    Specific Track
                   </label>
                   <select
                     value={formData.targetProgram}
                     onChange={(e) => setFormData({ ...formData, targetProgram: e.target.value })}
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-[#DCE3FF] text-sm text-[#101F70] bg-white focus:outline-none focus:border-[#182A9A] focus:ring-2 focus:ring-[#182A9A]/20 transition-all cursor-pointer"
+                    className="w-full px-2.5 sm:px-3.5 py-1.5 sm:py-2.5 rounded-lg sm:rounded-xl border border-[#DCE3FF] text-xs sm:text-sm text-[#101F70] bg-white focus:outline-none focus:border-[#182A9A] focus:ring-2 focus:ring-[#182A9A]/20 transition-all cursor-pointer truncate"
                   >
-                    <option value="general-advisory">General Advisory (Explore Options)</option>
+                    <option value="general-advisory">General Advisory</option>
                     {filteredPrograms.map((prog) => (
                       <option key={prog.id} value={prog.slug}>
                         {prog.title}
@@ -477,26 +480,26 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({
 
               {/* Notes */}
               <div>
-                <label className="block text-xs font-bold text-[#101F70] uppercase tracking-wider mb-1">
+                <label className="block text-[10px] sm:text-xs font-bold text-[#101F70] uppercase tracking-wider mb-0.5 sm:mb-1">
                   Questions or Current Academic Goals
                 </label>
                 <textarea
-                  rows={2}
+                  rows={1}
                   value={formData.notes}
                   onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-                  placeholder="Tell us about your educational background, target universities, or desired career direction..."
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#DCE3FF] text-sm text-[#101F70] placeholder:text-[#6573A8] focus:outline-none focus:border-[#182A9A] focus:ring-2 focus:ring-[#182A9A]/20 transition-all"
+                  placeholder="Academic background, target universities, or goals..."
+                  className="w-full px-2.5 sm:px-3.5 py-1.5 sm:py-2 rounded-lg sm:rounded-xl border border-[#DCE3FF] text-xs sm:text-sm text-[#101F70] placeholder:text-[#6573A8] focus:outline-none focus:border-[#182A9A] focus:ring-2 focus:ring-[#182A9A]/20 transition-all"
                 />
               </div>
 
               {/* Privacy Consent Checkbox */}
               <div>
-                <label className="flex items-start gap-2.5 cursor-pointer text-xs text-[#26345C]">
+                <label className="flex items-start gap-2 cursor-pointer text-[10px] sm:text-xs text-[#26345C] leading-tight">
                   <input
                     type="checkbox"
                     checked={formData.consent}
                     onChange={(e) => setFormData({ ...formData, consent: e.target.checked })}
-                    className="mt-0.5 h-4 w-4 rounded border-[#DCE3FF] text-[#182A9A] focus:ring-[#182A9A]"
+                    className="mt-0.5 h-3.5 w-3.5 rounded border-[#DCE3FF] text-[#182A9A] focus:ring-[#182A9A]"
                   />
                   <span>
                     I agree to the processing of my academic details in accordance with the{' '}
@@ -511,24 +514,24 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({
                   </span>
                 </label>
                 {errors.consent && (
-                  <p className="text-[11px] text-rose-600 mt-1">{errors.consent}</p>
+                  <p className="text-[10px] text-rose-600 mt-0.5">{errors.consent}</p>
                 )}
               </div>
 
               {/* Trust statement */}
-              <div className="flex items-center gap-2 text-[11px] text-[#6573A8] pt-1">
+              <div className="flex items-center gap-1.5 text-[10px] sm:text-[11px] text-[#6573A8] pt-0.5 sm:pt-1">
                 <ShieldCheck className="w-3.5 h-3.5 text-[#182A9A] shrink-0" />
                 <span>Strict academic privacy. We never share your details.</span>
               </div>
 
-              <div className="pt-2">
+              <div className="pt-1.5 sm:pt-2">
                 <Button
                   type="submit"
                   variant="primary"
-                  size="lg"
+                  size="md"
                   isLoading={isSubmitting}
-                  className="w-full font-bold shadow-md cursor-pointer"
-                  trailingIcon={<Send className="w-4 h-4" />}
+                  className="w-full font-bold shadow-md cursor-pointer py-2.5 sm:py-3.5 text-xs sm:text-sm"
+                  trailingIcon={<Send className="w-3.5 h-3.5 sm:w-4 sm:h-4" />}
                 >
                   Request Academic Guidance
                 </Button>

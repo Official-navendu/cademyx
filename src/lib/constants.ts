@@ -39,7 +39,6 @@ export const INQUIRY_TYPES = [
 
 export const CONTACT_INFO = {
   primaryEmail: 'info@cademyx.com',
-  secondaryEmail: 'hello@cademyx.com',
   email: 'info@cademyx.com',
   address: '408, 3rd Floor, Niti Khand 1, Indirapuram, Ghaziabad',
   office: '408, 3rd Floor, Niti Khand 1',
